@@ -119,8 +119,14 @@ export default async function Home() {
       <main className="dashboard-shell">
         <header className="dashboard-topbar">
           <Link className="dashboard-brand" href="/">
-            <span className="dashboard-brand__mark">DL</span>
-            <span>Driver Labs</span>
+            <Image
+              alt="DriverLab"
+              className="dashboard-brand__logo"
+              height={337}
+              priority
+              src="/brand/driverlab-logo.png"
+              width={741}
+            />
           </Link>
           <nav className="dashboard-nav" aria-label="Navegación principal">
             <Link aria-current="page" href="/">

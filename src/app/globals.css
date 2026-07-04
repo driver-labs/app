@@ -494,17 +494,22 @@ html {
   padding: 24px 0 64px;
 }
 
+.dashboard-shell {
+  color: var(--foreground);
+}
+
 .dashboard-topbar {
   display: flex;
   justify-content: space-between;
   gap: 18px;
   align-items: center;
   margin-bottom: 28px;
-  border: 1px solid rgba(203, 213, 225, 0.76);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  background: rgba(15, 23, 42, 0.86);
   padding: 10px;
-  box-shadow: 0 18px 48px rgba(15, 23, 42, 0.08);
+  box-shadow: var(--shadow-brand);
+  backdrop-filter: blur(16px);
 }
 
 .dashboard-brand {
@@ -512,22 +517,18 @@ html {
   min-height: 44px;
   align-items: center;
   gap: 10px;
+  border-radius: var(--radius-button);
+  background: rgba(255, 255, 255, 0.96);
   color: #0f172a;
   font-weight: 850;
-  padding: 0 8px;
+  padding: 8px 10px;
   text-decoration: none;
 }
 
-.dashboard-brand__mark {
-  display: grid;
-  width: 36px;
-  height: 36px;
-  place-items: center;
-  border-radius: 8px;
-  background: #0f172a;
-  color: #ffffff;
-  font-size: 0.82rem;
-  font-weight: 900;
+.dashboard-brand__logo {
+  display: block;
+  width: 142px;
+  height: auto;
 }
 
 .dashboard-nav {
@@ -543,9 +544,9 @@ html {
   align-items: center;
   gap: 8px;
   border: 1px solid transparent;
-  border-radius: 8px;
+  border-radius: var(--radius-button);
   background: transparent;
-  color: #334155;
+  color: var(--secondary-text);
   font-size: 0.92rem;
   font-weight: 750;
   padding: 10px 14px;
@@ -554,9 +555,9 @@ html {
 
 .dashboard-nav a:hover,
 .dashboard-nav a[aria-current="page"] {
-  border-color: #bfdbfe;
-  background: #eff6ff;
-  color: #1e40af;
+  border-color: rgba(6, 182, 212, 0.36);
+  background: rgba(6, 182, 212, 0.12);
+  color: var(--foreground);
 }
 
 .dashboard-hero {

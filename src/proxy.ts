@@ -8,7 +8,7 @@ export async function proxy(request: NextRequest) {
       process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,
   );
 
-  if (request.nextUrl.pathname === "/" || !hasSupabaseConfig) {
+  if (!hasSupabaseConfig) {
     return NextResponse.next();
   }
 
