@@ -10,3 +10,10 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - Do not use the `gh` CLI for any GitHub operation.
 - Never run `rm -rf`.
 - Always ask for confirmation before running `supabase db push`.
+
+<!-- BEGIN:commit-standards -->
+# Commit standard
+
+Use Conventional Commits v1.0.0 for commit messages:
+https://www.conventionalcommits.org/en/v1.0.0/
+<!-- END:commit-standards -->
