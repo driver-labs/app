@@ -1,9 +1,12 @@
 import {
   ArrowRight,
   BookOpen,
+  Car,
   CheckCircle2,
   FileText,
+  Map as MapIcon,
   PlayCircle,
+  Sparkles,
 } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -48,6 +51,31 @@ export default async function ModulePage({ params }: ModulePageProps) {
 
   return (
     <main className="page-shell">
+      <header className="dashboard-topbar">
+        <Link className="dashboard-brand" href="/">
+          <span className="dashboard-brand__mark">DL</span>
+          <span>Driver Labs</span>
+        </Link>
+        <nav className="dashboard-nav" aria-label="Navegación principal">
+          <Link href="/">
+            <MapIcon aria-hidden="true" size={17} />
+            Roadmap
+          </Link>
+          <Link href="/generar">
+            <Sparkles aria-hidden="true" size={17} />
+            Generar
+          </Link>
+          <Link href="/escenario/stop-01">
+            <Car aria-hidden="true" size={17} />
+            Practicar
+          </Link>
+          <Link aria-current="page" href={`/modulo/${module.id}`}>
+            <BookOpen aria-hidden="true" size={17} />
+            Módulos
+          </Link>
+        </nav>
+      </header>
+
       <section className="module-layout">
         <article className="module-content">
           <div className="module-hero">

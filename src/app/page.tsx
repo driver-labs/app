@@ -1,13 +1,16 @@
 import {
   ArrowRight,
+  BookOpen,
   BookOpenCheck,
   BrainCircuit,
+  Car,
   CheckCircle2,
   Gauge,
   GraduationCap,
   type LucideIcon,
   Map as MapIcon,
   PlayCircle,
+  Route,
   ShieldCheck,
   Siren,
   Sparkles,
@@ -15,6 +18,12 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { signOut } from "@/app/auth/actions";
+import { scenariosForModule } from "@/core/links";
+import { knowledgeModules, sortModulesTopologically } from "@/core/modules";
+import { scenarios } from "@/core/scenarios";
+import { createClient } from "@/lib/supabase/server";
+import RoadmapClient, { type RoadmapNode } from "./roadmap/RoadmapClient";
 
 const learningPillars = [
   {
@@ -76,7 +85,122 @@ const dashboardModules: Array<{
   },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const hasSupabaseConfig = Boolean(
+    process.env.NEXT_PUBLIC_SUPABASE_URL &&
+      process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,
+  );
+  let userEmail: null | string = null;
+
+  if (hasSupabaseConfig) {
+    const supabase = await createClient();
+    const { data } = await supabase.auth.getClaims();
+    userEmail =
+      typeof data?.claims?.email === "string" ? data.claims.email : null;
+  }
+
+  const roadmapNodes: RoadmapNode[] = sortModulesTopologically(
+    knowledgeModules,
+  ).map((module) => ({
+    id: module.id,
+    title: module.title,
+    summary: module.summary,
+    prerequisites: module.prerequisites,
+    scenarios: scenariosForModule(module, scenarios).map((scenario) => ({
+      id: scenario.id,
+      title: scenario.title,
+    })),
+  }));
+  const firstModuleId = roadmapNodes[0]?.id ?? "senales-de-reglamentacion";
+  const firstScenarioId = scenarios[0]?.id ?? "stop-01";
+
+  if (userEmail) {
+    return (
+      <main className="dashboard-shell">
+        <header className="dashboard-topbar">
+          <Link className="dashboard-brand" href="/">
+            <span className="dashboard-brand__mark">DL</span>
+            <span>Driver Labs</span>
+          </Link>
+          <nav className="dashboard-nav" aria-label="Navegación principal">
+            <Link aria-current="page" href="/">
+              <MapIcon aria-hidden="true" size={17} />
+              Roadmap
+            </Link>
+            <Link href="/generar">
+              <Sparkles aria-hidden="true" size={17} />
+              Generar
+            </Link>
+            <Link href={`/escenario/${firstScenarioId}`}>
+              <Car aria-hidden="true" size={17} />
+              Practicar
+            </Link>
+            <Link href={`/modulo/${firstModuleId}`}>
+              <BookOpen aria-hidden="true" size={17} />
+              Módulos
+            </Link>
+          </nav>
+        </header>
+
+        <section className="dashboard-hero" aria-labelledby="dashboard-title">
+          <div className="dashboard-hero__copy">
+            <p className="eyebrow">Panel de aprendizaje</p>
+            <h1 id="dashboard-title">Roadmap de práctica vial</h1>
+            <p>
+              Recorre los módulos legales, abre escenarios 3D y conserva tu
+              progreso local mientras tu sesión sigue activa en el servidor.
+            </p>
+            <div className="dashboard-actions">
+              <Link
+                className="primary-action"
+                href={`/escenario/${firstScenarioId}`}
+              >
+                <Car aria-hidden="true" size={18} />
+                Empezar práctica
+              </Link>
+              <Link className="secondary-action" href="/generar">
+                <Sparkles aria-hidden="true" size={18} />
+                Crear escenario
+              </Link>
+            </div>
+          </div>
+
+          <aside className="session-card" aria-label="Sesión activa">
+            <Route
+              aria-hidden="true"
+              className="session-card__icon"
+              size={22}
+            />
+            <div>
+              <p className="session-card__label">Sesión activa</p>
+              <p className="session-card__email">{userEmail}</p>
+            </div>
+            <div className="session-card__stats">
+              <span>{roadmapNodes.length} módulos</span>
+              <span>{scenarios.length} escenarios</span>
+            </div>
+            <form action={signOut}>
+              <button className="secondary-action" type="submit">
+                Cerrar sesión
+              </button>
+            </form>
+          </aside>
+        </section>
+
+        <section className="roadmap-panel" aria-label="Roadmap de módulos">
+          <div className="roadmap-panel__heading">
+            <div>
+              <p className="eyebrow">Ruta recomendada</p>
+              <h2>Módulos desbloqueables</h2>
+            </div>
+            <span>{roadmapNodes.length} pasos</span>
+          </div>
+          <RoadmapClient nodes={roadmapNodes} />
+        </section>
+      </main>
+    );
+  }
+
   return (
     <main className="min-h-screen overflow-hidden bg-background text-text">
       <section className="relative min-h-[82svh] bg-[radial-gradient(circle_at_20%_15%,rgba(37,99,235,0.22),transparent_32%),radial-gradient(circle_at_82%_24%,rgba(34,197,94,0.18),transparent_30%),#020817] px-5 pb-8 pt-5">

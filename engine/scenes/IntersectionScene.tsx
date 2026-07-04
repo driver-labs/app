@@ -1,8 +1,15 @@
-import { Clone, OrbitControls, useGLTF, useTexture } from "@react-three/drei";
+import {
+  Clone,
+  OrbitControls,
+  Text,
+  useGLTF,
+  useTexture,
+} from "@react-three/drei";
 import { useFrame, useLoader } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 import { FBXLoader, SkeletonUtils, TGALoader } from "three-stdlib";
+import type { Scenario } from "@/core/scenario-schema";
 import type { SceneView } from "../camera/views";
 import RainyAmbience from "../env/RainyAmbience";
 import StreetLamp from "../env/StreetLamp";
@@ -60,6 +67,60 @@ const BIKE_TGA =
   "/bike/low%20poly%20dirta%20bike%20with%20rider%201_Textures/Dirt%20Bike_D1.tga";
 const PLAYER_TGA =
   "/bike/low%20poly%20dirta%20bike%20with%20rider%201_Textures/Player_D1.tga";
+
+const MODEL_BY_KIND: Record<Scenario["actors"][number]["kind"], string> = {
+  bus: "/models/van.glb",
+  car: "/models/sedan.glb",
+  motorcycle:
+    "/bike/low%20poly%20dirta%20bike%20with%20rider%201_FBX/DirtBike_With_Player.FBX",
+  pedestrian: "/models/cone.glb",
+  truck: "/models/truck.glb",
+};
+
+const MODEL_SLUGS: Record<string, string> = {
+  ambulance: "/models/ambulance.glb",
+  bus: "/models/van.glb",
+  compact: "/cars/compact.glb",
+  coupe: "/cars/coupe.glb",
+  firetruck: "/models/firetruck.glb",
+  hatchback: "/cars/hatchback.glb",
+  motorcycle:
+    "/bike/low%20poly%20dirta%20bike%20with%20rider%201_FBX/DirtBike_With_Player.FBX",
+  pickup: "/cars/pickup.glb",
+  police: "/models/police.glb",
+  sedan: "/models/sedan.glb",
+  sport: "/cars/sport.glb",
+  suv: "/models/suv.glb",
+  taxi: "/models/taxi.glb",
+  truck: "/models/truck.glb",
+  van: "/models/van.glb",
+};
+
+const SPEED_BY_LEVEL: Record<Scenario["actors"][number]["speed"], number> = {
+  fast: 11,
+  normal: 9,
+  slow: 6,
+  speeding: 13,
+};
+const CROSSWALK_STRIPES = [-3, -1.8, -0.6, 0.6, 1.8, 3];
+
+function actorModel(
+  actor: Scenario["actors"][number] | undefined,
+  fallback: string,
+) {
+  if (!actor) return fallback;
+  if (actor.model?.startsWith("/")) return actor.model;
+  if (actor.model && actor.model in MODEL_SLUGS)
+    return MODEL_SLUGS[actor.model];
+  return MODEL_BY_KIND[actor.kind] ?? fallback;
+}
+
+function actorByRole(
+  scenario: Scenario,
+  roles: Scenario["actors"][number]["role"][],
+) {
+  return scenario.actors.find((actor) => roles.includes(actor.role));
+}
 
 export function Model({
   model,
@@ -171,9 +232,123 @@ function LaneDashes({ axis }: { axis: "z" | "x" }) {
   );
 }
 
+function CenterMarkings({
+  axis,
+  centerLine,
+}: {
+  axis: "z" | "x";
+  centerLine: Scenario["road"]["centerLine"];
+}) {
+  if (centerLine === "dashed") return <LaneDashes axis={axis} />;
+
+  const offsets = centerLine === "double-solid" ? [-0.18, 0.18] : [0];
+  return (
+    <>
+      {offsets.map((offset) => {
+        const position: [number, number, number] =
+          axis === "z" ? [offset, 0.02, 0] : [0, 0.02, offset];
+        const size: [number, number] = axis === "z" ? [0.16, 150] : [150, 0.16];
+        return (
+          <mesh
+            key={`${axis}-${centerLine}-${offset}`}
+            position={position}
+            rotation={[-Math.PI / 2, 0, 0]}
+          >
+            <planeGeometry args={size} />
+            <meshStandardMaterial color="#e8c33a" />
+          </mesh>
+        );
+      })}
+    </>
+  );
+}
+
+function Crosswalk({ z }: { z: number }) {
+  return (
+    <>
+      {CROSSWALK_STRIPES.map((x) => (
+        <mesh
+          key={`crosswalk-${x}`}
+          position={[x, 0.025, z]}
+          rotation={[-Math.PI / 2, 0, 0]}
+        >
+          <planeGeometry args={[0.62, 4.8]} />
+          <meshStandardMaterial color="#f8fafc" />
+        </mesh>
+      ))}
+    </>
+  );
+}
+
+function SpeedLimitSign({ limit }: { limit: number }) {
+  return (
+    <group position={[-5.8, 0, 13.2]} rotation={[0, Math.PI / 10, 0]}>
+      <mesh position={[0, 1.1, 0]} castShadow>
+        <cylinderGeometry args={[0.045, 0.045, 2.2]} />
+        <meshStandardMaterial color="#747b83" />
+      </mesh>
+      <mesh position={[0, 2.35, 0]} castShadow>
+        <cylinderGeometry args={[0.72, 0.72, 0.06, 40]} />
+        <meshStandardMaterial color="#f8fafc" />
+      </mesh>
+      <mesh position={[0, 2.35, 0.035]} castShadow>
+        <ringGeometry args={[0.56, 0.68, 40]} />
+        <meshStandardMaterial color="#c0281f" side={THREE.DoubleSide} />
+      </mesh>
+      <Text
+        color="#111827"
+        fontSize={0.34}
+        fontWeight={800}
+        position={[0, 2.35, 0.08]}
+      >
+        {limit}
+      </Text>
+    </group>
+  );
+}
+
+function StopSign() {
+  return (
+    <group position={[5.6, 0, STOP_Z + 1]}>
+      <mesh position={[0, 1.2, 0]} castShadow>
+        <cylinderGeometry args={[0.06, 0.06, 2.4]} />
+        <meshStandardMaterial color="#888" />
+      </mesh>
+      <mesh
+        position={[0, 2.4, 0]}
+        rotation={[Math.PI / 2, Math.PI / 8, 0]}
+        castShadow
+      >
+        <cylinderGeometry args={[0.7, 0.7, 0.08, 8]} />
+        <meshStandardMaterial color="#c0281f" />
+      </mesh>
+    </group>
+  );
+}
+
+function YieldSign() {
+  return (
+    <group position={[5.6, 0, STOP_Z + 1]}>
+      <mesh position={[0, 1.1, 0]} castShadow>
+        <cylinderGeometry args={[0.05, 0.05, 2.2]} />
+        <meshStandardMaterial color="#888" />
+      </mesh>
+      <mesh position={[0, 2.35, 0]} rotation={[0, 0, Math.PI]} castShadow>
+        <coneGeometry args={[0.85, 0.12, 3]} />
+        <meshStandardMaterial color="#f8fafc" />
+      </mesh>
+      <mesh position={[0, 2.35, 0.07]} rotation={[0, 0, Math.PI]} castShadow>
+        <coneGeometry args={[0.74, 0.14, 3]} />
+        <meshStandardMaterial color="#c0281f" wireframe />
+      </mesh>
+    </group>
+  );
+}
+
 type Props = {
   phase: Phase;
   correct: boolean;
+  scenario: Scenario;
   pack: Pack;
   view: SceneView;
   layoutSeed: string;
@@ -183,6 +358,7 @@ type Props = {
 export default function Scene({
   phase,
   correct,
+  scenario,
   pack,
   view,
   layoutSeed,
@@ -206,6 +382,17 @@ export default function Scene({
   const hitBaseX = useRef(0); // x base del auto impactado
   const hitBaseRotY = useRef(0); // yaw base del auto impactado
   const impact = useMemo(() => new THREE.Vector3(), []);
+  const playerActor = actorByRole(scenario, ["player", "offender"]);
+  const playerModel = actorModel(playerActor, pack.player);
+  const playerSpeed = SPEED_BY_LEVEL[playerActor?.speed ?? "normal"];
+  const shouldCrashOnWrongAnswer = scenario.event.outcome === "crash";
+  const roadWidth = Math.max(6, scenario.road.lanes * 3.6);
+  const showTrafficLight =
+    scenario.road.control === "traffic-light" ||
+    scenario.sceneKind === "intersection-light";
+  const showStopSign = scenario.road.control === "stop-sign";
+  const showYieldSign = scenario.road.control === "yield";
+  const showStreetLights = scenario.environment.timeOfDay !== "day";
   const debrisState = useMemo(
     () =>
       DEBRIS.map(() => ({ v: new THREE.Vector3(), spin: new THREE.Vector3() })),
@@ -217,8 +404,9 @@ export default function Scene({
     const c = car.current;
     if (!c) return;
 
-    // en "decision" (pregunta en pantalla) se congela el tráfico
-    if (!crashed.current && phase !== "decision") {
+    // En intro y decision se congela el tráfico; la escena arranca tras el título.
+    const trafficCanMove = phase === "approach" || phase === "consequence";
+    if (!crashed.current && trafficCanMove) {
       for (let i = 0; i < TRAFFIC_LAYOUT.length; i++) {
         const g = trafficRefs.current[i];
         if (!g) continue;
@@ -235,7 +423,7 @@ export default function Scene({
     }
 
     if (phase === "approach") {
-      c.position.z = Math.max(STOP_Z, c.position.z - 9 * d);
+      c.position.z = Math.max(STOP_Z, c.position.z - playerSpeed * d);
       if (!reached.current && c.position.z <= STOP_Z + 0.02) {
         reached.current = true;
         onReachStop();
@@ -248,6 +436,13 @@ export default function Scene({
       } else {
         c.position.z = Math.max(EXIT_Z, c.position.z - 10 * d);
       }
+    } else if (
+      phase === "consequence" &&
+      !correct &&
+      !shouldCrashOnWrongAnswer
+    ) {
+      c.position.z = Math.max(1.2, c.position.z - 7 * d);
+      c.rotation.x = -0.03 * Math.sin(state.clock.elapsedTime * 18);
     } else if (phase === "consequence" && !correct && !crashed.current) {
       c.position.z -= 8 * d;
       let hit = 0;
@@ -353,16 +548,24 @@ export default function Scene({
 
   return (
     <>
-      <color attach="background" args={["#0a1622"]} />
-      <RainyAmbience layoutSeed={layoutSeed} view={view} />
+      <RainyAmbience
+        environment={scenario.environment}
+        layoutSeed={layoutSeed}
+        view={view}
+        paused={phase === "intro"}
+      />
       <OrbitControls target={view.target} maxPolarAngle={Math.PI / 2.15} />
 
       {/* Grupo del mundo: se desplaza unos frames para simular el shake del choque. */}
       <group ref={world}>
-        <TrafficLight position={[6, 0, 6]} />
-        <StreetLamp position={[8, 0, -8]} rotationY={(-3 * Math.PI) / 4} />
-        <StreetLamp position={[-8, 0, 8]} rotationY={Math.PI / 4} />
-        <StreetLamp position={[-8, 0, -8]} rotationY={(-1 * Math.PI) / 4} />
+        {showTrafficLight && <TrafficLight position={[6, 0, 6]} />}
+        {showStreetLights && (
+          <>
+            <StreetLamp position={[8, 0, -8]} rotationY={(-3 * Math.PI) / 4} />
+            <StreetLamp position={[-8, 0, 8]} rotationY={Math.PI / 4} />
+            <StreetLamp position={[-8, 0, -8]} rotationY={(-1 * Math.PI) / 4} />
+          </>
+        )}
 
         {/* pasto */}
         <mesh
@@ -375,7 +578,7 @@ export default function Scene({
         </mesh>
         {/* calles */}
         <mesh rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
-          <planeGeometry args={[8, 160]} />
+          <planeGeometry args={[roadWidth, 160]} />
           <meshStandardMaterial color="#3a3a3f" />
         </mesh>
         <mesh
@@ -383,41 +586,34 @@ export default function Scene({
           position={[0, 0.001, 0]}
           receiveShadow
         >
-          <planeGeometry args={[160, 8]} />
+          <planeGeometry args={[160, roadWidth]} />
           <meshStandardMaterial color="#3a3a3f" />
         </mesh>
 
-        <LaneDashes axis="z" />
-        <LaneDashes axis="x" />
+        <CenterMarkings axis="z" centerLine={scenario.road.centerLine} />
+        <CenterMarkings axis="x" centerLine={scenario.road.centerLine} />
+        {scenario.road.crosswalk && <Crosswalk z={STOP_Z - 1.1} />}
 
         {/* línea de ALTO */}
-        <mesh
-          rotation={[-Math.PI / 2, 0, 0]}
-          position={[0, 0.02, STOP_Z + 0.6]}
-        >
-          <planeGeometry args={[8, 0.5]} />
-          <meshStandardMaterial color="#ffffff" />
-        </mesh>
-
-        {/* señal de ALTO */}
-        <group position={[5.6, 0, STOP_Z + 1]}>
-          <mesh position={[0, 1.2, 0]} castShadow>
-            <cylinderGeometry args={[0.06, 0.06, 2.4]} />
-            <meshStandardMaterial color="#888" />
-          </mesh>
+        {scenario.road.control !== "none" && (
           <mesh
-            position={[0, 2.4, 0]}
-            rotation={[Math.PI / 2, Math.PI / 8, 0]}
-            castShadow
+            rotation={[-Math.PI / 2, 0, 0]}
+            position={[0, 0.02, STOP_Z + 0.6]}
           >
-            <cylinderGeometry args={[0.7, 0.7, 0.08, 8]} />
-            <meshStandardMaterial color="#c0281f" />
+            <planeGeometry args={[roadWidth, 0.5]} />
+            <meshStandardMaterial color="#ffffff" />
           </mesh>
-        </group>
+        )}
+
+        {showStopSign && <StopSign />}
+        {showYieldSign && <YieldSign />}
+        {scenario.road.speedLimit && (
+          <SpeedLimitSign limit={scenario.road.speedLimit} />
+        )}
 
         {/* auto del jugador (con faros encendidos + luz hacia adelante) */}
         <group ref={car} position={[0, 0, START_Z]}>
-          <Model model={pack.player} scale={pack.scale} yaw={CAR_YAW} />
+          <Model model={playerModel} scale={pack.scale} yaw={CAR_YAW} />
           <mesh position={[0.55, 0.6, -2.2]}>
             <boxGeometry args={[0.32, 0.16, 0.1]} />
             <meshStandardMaterial

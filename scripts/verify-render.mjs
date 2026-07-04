@@ -83,7 +83,10 @@ async function verifyViewport(browser, viewport) {
     waitUntil: "networkidle",
   });
   await page.locator("canvas").waitFor({ state: "visible", timeout: 20_000 });
-  await page.waitForTimeout(900);
+  await page
+    .locator(".stage-title[data-intro='done']")
+    .waitFor({ state: "visible", timeout: 8_000 });
+  await page.waitForTimeout(300);
 
   const first = await canvasImageStats(page, viewport.name, "first");
   await page.waitForTimeout(450);
