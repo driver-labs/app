@@ -50,9 +50,10 @@ export function LoginForm() {
   const pending = isPending;
 
   function setMode(nextMode: AuthFormValues["intent"]) {
+    setServerState(initialState);
     setValue("intent", nextMode, {
       shouldDirty: true,
-      shouldValidate: true,
+      shouldValidate: false,
     });
   }
 
