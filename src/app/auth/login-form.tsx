@@ -16,13 +16,13 @@ const initialState: AuthState = {
 };
 
 const inputClassName =
-  "h-11 rounded-md border bg-white px-3 text-base text-slate-950 outline-none transition focus:ring-3";
+  "h-12 rounded-input border bg-background px-4 text-base text-text outline-none transition placeholder:text-disabled focus:ring-3";
 
 function getInputClassName(hasError: boolean) {
   return `${inputClassName} ${
     hasError
-      ? "border-red-500 focus:border-red-600 focus:ring-red-100"
-      : "border-slate-300 focus:border-emerald-600 focus:ring-emerald-100"
+      ? "border-danger focus:border-danger focus:ring-danger/15"
+      : "border-divider focus:border-primary focus:ring-primary/15"
   }`;
 }
 
@@ -81,13 +81,13 @@ export function LoginForm() {
 
   return (
     <form className="grid gap-5" noValidate onSubmit={handleSubmit(onSubmit)}>
-      <div className="grid grid-cols-2 rounded-md border border-slate-200 bg-slate-100 p-1">
+      <div className="grid grid-cols-2 rounded-button border border-divider bg-background p-1">
         <button
           aria-pressed={!isSignUp}
-          className={`h-10 rounded-sm px-3 text-sm font-semibold transition ${
+          className={`h-10 rounded-input px-3 text-sm font-semibold transition ${
             !isSignUp
-              ? "bg-white text-slate-950 shadow-sm"
-              : "text-slate-600 hover:text-slate-950"
+              ? "bg-primary text-white shadow-[0_12px_30px_rgba(37,99,235,.18)]"
+              : "text-secondary-text hover:text-text"
           }`}
           onClick={() => setMode("sign-in")}
           type="button"
@@ -96,10 +96,10 @@ export function LoginForm() {
         </button>
         <button
           aria-pressed={isSignUp}
-          className={`h-10 rounded-sm px-3 text-sm font-semibold transition ${
+          className={`h-10 rounded-input px-3 text-sm font-semibold transition ${
             isSignUp
-              ? "bg-white text-slate-950 shadow-sm"
-              : "text-slate-600 hover:text-slate-950"
+              ? "bg-primary text-white shadow-[0_12px_30px_rgba(37,99,235,.18)]"
+              : "text-secondary-text hover:text-text"
           }`}
           onClick={() => setMode("sign-up")}
           type="button"
@@ -111,7 +111,10 @@ export function LoginForm() {
       <input type="hidden" {...register("intent")} />
 
       <div className="grid gap-2">
-        <label className="text-sm font-medium text-slate-700" htmlFor="email">
+        <label
+          className="text-sm font-medium text-secondary-text"
+          htmlFor="email"
+        >
           Correo
         </label>
         <input
@@ -124,7 +127,7 @@ export function LoginForm() {
           {...register("email")}
         />
         {errors.email?.message ? (
-          <p className="text-sm font-medium text-red-600" id="email-error">
+          <p className="text-sm font-medium text-danger" id="email-error">
             {errors.email.message}
           </p>
         ) : null}
@@ -132,7 +135,7 @@ export function LoginForm() {
 
       <div className="grid gap-2">
         <label
-          className="text-sm font-medium text-slate-700"
+          className="text-sm font-medium text-secondary-text"
           htmlFor="password"
         >
           Contraseña
@@ -147,7 +150,7 @@ export function LoginForm() {
           {...register("password")}
         />
         {errors.password?.message ? (
-          <p className="text-sm font-medium text-red-600" id="password-error">
+          <p className="text-sm font-medium text-danger" id="password-error">
             {errors.password.message}
           </p>
         ) : null}
@@ -156,7 +159,7 @@ export function LoginForm() {
       {isSignUp ? (
         <div className="grid gap-2">
           <label
-            className="text-sm font-medium text-slate-700"
+            className="text-sm font-medium text-secondary-text"
             htmlFor="passwordConfirmation"
           >
             Confirmar contraseña
@@ -176,7 +179,7 @@ export function LoginForm() {
           />
           {errors.passwordConfirmation?.message ? (
             <p
-              className="text-sm font-medium text-red-600"
+              className="text-sm font-medium text-danger"
               id="passwordConfirmation-error"
             >
               {errors.passwordConfirmation.message}
@@ -188,14 +191,14 @@ export function LoginForm() {
       {serverState.message ? (
         <p
           aria-live="polite"
-          className="rounded-md border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-900"
+          className="rounded-input border border-warning/40 bg-warning/10 px-3 py-2 text-sm text-warning"
         >
           {serverState.message}
         </p>
       ) : null}
 
       <button
-        className="h-11 rounded-md bg-emerald-700 px-4 text-sm font-semibold text-white transition hover:bg-emerald-800 disabled:cursor-not-allowed disabled:bg-slate-300"
+        className="h-12 rounded-button bg-primary px-4 text-sm font-semibold text-white transition hover:bg-primary-hover disabled:cursor-not-allowed disabled:bg-disabled"
         disabled={isPending}
         type="submit"
       >
