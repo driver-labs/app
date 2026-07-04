@@ -1,0 +1,234 @@
+{
+  "coreIdea": "El examen de licencia no solo es un trámite, sino una oportunidad para aprender a conducir de manera segura y responsable.",
+  "headline": "Práctica para el Examen de Licencia de Conducir",
+  "intro": "Prepárate para obtener tu licencia de conducir con conocimiento y criterio. Este módulo te ayudará a entender la importancia de las normas de tránsito y cómo aplicarlas en situaciones reales.",
+  "lessons": [
+    {
+      "title": "Cómo practicar sin memorizar vacío",
+      "explanation": "Es fundamental entender las normas de tránsito en lugar de solo memorizar respuestas. Esto te ayudará a tomar decisiones informadas al conducir.",
+      "streetDecision": "Estudia las normas de tránsito y practica su aplicación en situaciones reales.",
+      "risk": "Aprobar sin entender puede llevar a errores graves en la carretera.",
+      "citationNumbers": [1]
+    },
+    {
+      "title": "Lee la explicación, no solo la respuesta",
+      "explanation": "Comprender el contexto de cada pregunta te permitirá evitar cometer errores en situaciones similares en la vida real.",
+      "streetDecision": "Dedica tiempo a leer y comprender las explicaciones de cada respuesta.",
+      "risk": "Repetir errores en la calle por falta de comprensión.",
+      "citationNumbers": [2]
+    },
+    {
+      "title": "Preguntas de señales",
+      "explanation": "Las señales de tránsito son cruciales para la seguridad vial. Conocerlas te permitirá reaccionar a tiempo ante cualquier situación.",
+      "streetDecision": "Estudia las señales de tránsito y su significado.",
+      "risk": "No reaccionar a tiempo puede resultar en accidentes.",
+      "citationNumbers": [3]
+    },
+    {
+      "title": "Simulacro final",
+      "explanation": "Realizar simulacros te ayudará a poner en práctica lo aprendido y a identificar áreas que necesiten más atención.",
+      "streetDecision": "Participa en simulacros de conducción para evaluar tu preparación.",
+      "risk": "Un diagnóstico de preparación inadecuado puede llevar a fallos en el examen real.",
+      "citationNumbers": [4]
+    }
+  ],
+  "needsHumanReview": [],
+  "quiz": [
+    {
+      "question": "¿Qué debes hacer al acercarte a un semáforo en rojo?",
+      "options": [
+        "Acelerar para pasar antes de que cambie",
+        "Detenerte completamente",
+        "Continuar sin detenerte"
+      ],
+      "answer": "Detenerte completamente",
+      "explanation": "Detenerse en un semáforo en rojo es una norma de tránsito que garantiza la seguridad de todos los usuarios de la vía.",
+      "citationNumbers": [6]
+    },
+    {
+      "question": "¿Cuál es la función de las señales de advertencia?",
+      "options": [
+        "Informar sobre condiciones peligrosas",
+        "Indicar límites de velocidad",
+        "Prohibir ciertas acciones"
+      ],
+      "answer": "Informar sobre condiciones peligrosas",
+      "explanation": "Las señales de advertencia alertan a los conductores sobre posibles peligros en la vía.",
+      "citationNumbers": [7]
+    }
+  ],
+  "reflection": [
+    "¿Qué aprendiste sobre la importancia de las señales de tránsito?",
+    "¿Cómo puedes aplicar lo aprendido en tu vida diaria como conductor?",
+    "¿Qué aspectos te gustaría repasar antes de presentar el examen?",
+    "¿Cómo te sientes acerca de tu preparación para el examen de licencia?"
+  ],
+  "scenario": {
+    "title": "Fallo en preguntas de señales",
+    "situation": "Un usuario falla muchas preguntas relacionadas con señales de tránsito en el examen.",
+    "unsafeChoice": "Ignorar la importancia de estudiar las señales.",
+    "safeDecision": "Recomendar el módulo de señales para mejorar su conocimiento.",
+    "feedback": "Es crucial entender las señales de tránsito, ya que son fundamentales para la seguridad vial.",
+    "citationNumbers": [5]
+  },
+  "whyItMatters": "Conocer y aplicar las normas de tránsito es esencial para prevenir accidentes y garantizar la seguridad de todos en la vía.",
+  "audience": ["primera-licencia", "refuerzo"],
+  "citations": [
+    {
+      "articleNumber": "24",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 24.- El examen, revisión y/o inspección técnica vehícular del vehículo automotor, cuando se\nverificare, versará sobre lo siguiente:\n1. Que los números del motor y chasis, el modelo, color, número de asientos y tonelaje, sean los\nmismos que menciona la solicitud y documentos o marcas que presente.\n2. Que el mecanismo destinado a la dirección y control de los vehículos, estén en tal estado de\nfuncionamiento que de ninguna manera constituya peligro y obedezca fácilmente a la voluntad del\nconductor.\n3. Que los apa",
+      "id": "e882b370-24c7-41f6-82bf-c308d1558f98",
+      "label": "[1] Reglamento General de Tránsito y Seguridad Vial, Art. 24",
+      "pageEnd": 10,
+      "pageStart": 9,
+      "sectionTitle": null,
+      "similarity": 0.574596823852667,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "65",
+      "documentKey": "ley-transporte-terrestre",
+      "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+      "excerpt": "Art. 65.- El examen para determinar la calidad de poseer las aptitudes físicas y psíquicas para optar a la\nlicencia de conducir, así como la enseñanza de los conocimientos y técnicas para la conducción de vehículos\nse realizará por centros oficiales o privados, debidamente autorizados por el Viceministerio de Transporte.",
+      "id": "dfc74f92-57b5-4afa-ab45-4a3de5067036",
+      "label": "[2] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 65",
+      "pageEnd": 17,
+      "pageStart": 16,
+      "sectionTitle": "CAPITULO II > DE LOS CONDUCTORES",
+      "similarity": 0.574379638315337,
+      "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
+      "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
+    },
+    {
+      "articleNumber": "4",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 4.- Para la mejor comprensión del Reglamento General de Tránsito y Seguridad Vial, se dan las\nsiguientes definiciones:\n1. Aceleración Libre: Procedimiento que consiste en acelerar el motor, lo más rápidamente posible sin\nbrusquedades, pero en forma contínua, con la palanca de la caja de velocidades en posición de\npunto muerto y el embrague del motor acoplado, a modo de obtener el máximo abastecimiento con\nla bomba de inyección, hasta que el motor gire a su máxima velocidad en vacío. Cuando se alcanza\ndicha vel",
+      "id": "483c0669-f31c-4e93-b06b-1fa25c00a343",
+      "label": "[3] Reglamento General de Tránsito y Seguridad Vial, Art. 4",
+      "pageEnd": 5,
+      "pageStart": 2,
+      "sectionTitle": "FINALIDAD > AMBITO DE APLICACION > DEFINICIONES",
+      "similarity": 0.557473228051375,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "4",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "35. Opacímetro: dispositivo para medir el grado de opacidad de los gases, humos y partículas del\nescape de un vehículo.\n36. Pasajero: toda persona que aparte del conductor, ocupa un lugar dentro del vehículo.\n37. Permiso Temporal de Aprendizaje: documento que se expide, en forma temporal, para aprender a\nconducir vehículos automotores y que queda supeditado al acatamiento de las disposiciones del\npresente Reglamento.\n38. Peso Bruto del Vehículo: peso total del vehículo que resulta al sumar su peso de acuerdo con la",
+      "id": "86651e5c-2767-4ccd-996b-28039f6d3c5a",
+      "label": "[4] Reglamento General de Tránsito y Seguridad Vial, Art. 4",
+      "pageEnd": 5,
+      "pageStart": 2,
+      "sectionTitle": "FINALIDAD > AMBITO DE APLICACION > DEFINICIONES",
+      "similarity": 0.548153776434998,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "155",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 155-A.- La Dirección General de Tránsito, previo al cumplimiento de los requisitos exigidos en el\npresente Reglamento, expedirá las licencias de conducir con una vigencia de cinco años. A excepción de la\nque caduca al cumplir el interesado los dieciocho años de edad; las que serán expedidas, en la siguientes\nclases y categorías:\na. Pesada, categoría: T (Trailer);\nb. Liviana;\nc. Particular;\nd. Motociclista, y;\ne. Juvenil, categorías: V (vehículo) o M (Motociclista);\nLa Licencia Pesada autoriza a su titular para",
+      "id": "d371639f-428b-4ede-a4e9-ecd16b2fd923",
+      "label": "[5] Reglamento General de Tránsito y Seguridad Vial, Art. 155",
+      "pageEnd": 42,
+      "pageStart": 41,
+      "sectionTitle": "PARA OBTENER LA LICENCIA POR PRIMERA VEZ",
+      "similarity": 0.534229774284367,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": null,
+      "documentKey": "manual-senales-centroamericano",
+      "documentName": "Manual Centroamericano de Dispositivos Uniformes para el Control del Transito",
+      "excerpt": "MANUAL CENTROAMERICANO DE\nDISPOSITIVOS UNIFORMES PARA EL\nCONTROL DEL TRÁNSITO\nIng. Junior Araya Villalobos\nSeñalización Temporal y Dispositivos de Seguridad\n\nAntecedentes del Manual.\n1958 1963 1979 1998 2000 2014\n\nContenido del Manual.\n• Disposiciones Generales.\n• Señales Verticales.\n•Señalización Horizontal y Demarcación Horizontal.\n• Demarcación de Islas en el Pavimento.\n• Semáforos.\n• Dispositivos de Seguridad y Control Temporal del Tránsito para la Ejecución de Trabajos en las Vías.\n• Control de Tránsito en Zon",
+      "id": "6128a54b-9263-4227-8c8e-ef28b8c437c2",
+      "label": "[6] Manual Centroamericano de Dispositivos Uniformes para el Control del Transito, unidad normativa",
+      "pageEnd": 110,
+      "pageStart": 1,
+      "sectionTitle": null,
+      "similarity": 0.532040215536511,
+      "sourcePath": "assets\\Manual_de_Senales.pdf",
+      "sourceUrl": "assets/Manual_de_Senales.pdf"
+    },
+    {
+      "articleNumber": "155",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 155.- La licencia para conducir tendrá un Nombre por cada Clase o una Clasificación especifica,\nsegún lo determine el Viceministerio de Transporte, por medio de la Dirección General de Tránsito, debiendo\nconsignarse en la misma, el Número de Identificación Tributaria del Propietario o poseedor legítimo del\nvehículo automotor.\nPara la obtención de una Licencia por primera vez, el solicitante debe cumplir los siguientes requisitos:\n1. Saber leer y escribir.\n\n2. No haber cometido infracciones definidas como grave",
+      "id": "135af1cc-2b86-434f-9381-0db91a9e8ff8",
+      "label": "[7] Reglamento General de Tránsito y Seguridad Vial, Art. 155",
+      "pageEnd": 41,
+      "pageStart": 40,
+      "sectionTitle": "DE LA FIANZA > DEL PERMISO DE APRENDIZAJE > PARA OBTENER LA LICENCIA POR PRIMERA VEZ",
+      "similarity": 0.530138937261615,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "153",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 153.- Para obtener el permiso de aprendizaje para conducir, válido por 90 días, el aspirante deberá\ncumplir con los requisitos siguientes:\n1. Haber cumplido 15 años de edad, momo mínimo, para la Licencia Juvenil y 18 años de edad, para la\nLicencia Particular o Liviana.\n2. Saber leer y escribir.\n3. Obtener la Tarjeta de Aprendizaje correspondiente.\nSi el solicitante fuere menor de edad, sus representantes legales lo acompañarán en los trámites\ncorrespondientes y responderán civilmente por los daños que ocasione",
+      "id": "0bb1c1cf-ec51-4e6e-ae13-f5c296516673",
+      "label": "[8] Reglamento General de Tránsito y Seguridad Vial, Art. 153",
+      "pageEnd": 40,
+      "pageStart": 40,
+      "sectionTitle": "DE LAS LICENCIAS DE CONDUCIR > DE LA FIANZA > DEL PERMISO DE APRENDIZAJE",
+      "similarity": 0.525987299452549,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "116",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 116.- Dentro de la circulación vehícular deberán tenerse presente y cumplir con exactitud las reglas\nsiguientes:\n1. No deberá conducirse describiendo curvas o atravesar el vehículo.\n2. No podrá sobrepasarse a otro vehículo, sin antes haberlo indicado con la luz direccional, o cuando\nun tercero viene en dirección contraria o cuando el vehículo delantero se acercare a algún trecho\nangosto, curva, puente, etc.\n3. Debe dejarse el vehículo estacionado a más de 10 metros de las esquinas de las intersecciones\nurbanas",
+      "id": "61763ea9-93d7-475e-9761-56a5d1521838",
+      "label": "[9] Reglamento General de Tránsito y Seguridad Vial, Art. 116",
+      "pageEnd": 30,
+      "pageStart": 28,
+      "sectionTitle": null,
+      "similarity": 0.517520330568669,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "25",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 25.- Si el resultado del examen fuere satisfactorio, la Dirección General de Tránsito extenderá, previa\npresentación del Seguro Obligatorio, la Orden de matrícula en el formulario correspondiente, que se utilizará\npara efectuar el respectivo pago de derechos; procediendo posteriormente a la emisión de su Tarjeta de\nCirculación respectiva.\nCAPITULO III\nDE LAS PLACAS",
+      "id": "a7524fcf-98d6-4de6-9c07-317d954f27e1",
+      "label": "[10] Reglamento General de Tránsito y Seguridad Vial, Art. 25",
+      "pageEnd": 10,
+      "pageStart": 10,
+      "sectionTitle": null,
+      "similarity": 0.507956521289343,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    }
+  ],
+  "generatedAt": "2026-07-04T23:09:58.190Z",
+  "generator": "scripts/generate-learning-modules.mjs",
+  "moduleId": "12-practica-para-examen",
+  "originalBrief": {
+    "concepts": "- Preguntas por modulo.\n- Explicacion simple.\n- Fuente oficial.\n- Simulacros mixtos.\n- Historial de errores.\n- Recomendacion de repaso por tema.\n- Preguntas con imagen de senales.",
+    "purpose": "Preparar al usuario para responder preguntas de licencia, pero con explicacion y criterio. El examen debe ser resultado del aprendizaje, no el unico objetivo.",
+    "questions": "- Seleccion multiple por cada modulo.\n- Escenarios de conduccion defensiva.\n- Identificacion de senales.\n- Verdadero/falso para mitos comunes.\n- Simulacro mixto con explicaciones.",
+    "scenarios": "|  ID  |  Situacion  |  Decision segura  |  Consecuencia a explicar  |\n|  01  |  Usuario falla muchas preguntas de senales  |  Recomendar modulo 06  |  Error en calle  |\n|  02  |  Usuario aprueba simulacro pero falla conduccion defensiva  |  Recomendar escenarios  |  Riesgo real no cubierto por memoria  |",
+    "sourceScope": [
+      "Todos los documentos oficiales disponibles",
+      "MVP de Cultura Vial SV"
+    ],
+    "visual": "Pantalla de practica con pregunta, opciones, fuente, explicacion y boton de \"repasar este tema\"."
+  },
+  "retrievalQuery": "Modulo: Practica para examen\nProposito: Preparar al usuario para responder preguntas de licencia, pero con explicacion y criterio. El examen debe ser resultado del aprendizaje, no el unico objetivo.\nConceptos: - Preguntas por modulo.\n- Explicacion simple.\n- Fuente oficial.\n- Simulacros mixtos.\n- Historial de errores.\n- Recomendacion de repaso por tema.\n- Preguntas con imagen de senales.\nMicro-lecciones: |  ID  |  Titulo  |  Fuente esperada  |  Riesgo que conecta  |\n|  01  |  Como practicar sin memorizar vacio  |  MVP  |  Aprobar sin entender  |\n|  02  |  Lee la explicacion, no solo la respuesta  |  MVP y fuentes  |  Repetir error en calle  |\n|  03  |  Preguntas de senales  |  Manual  |  No reaccionar a tiempo  |\n|  04  |  Simulacro final  |  Todas  |  Diagnostico de preparacion  |\nEscenarios: |  ID  |  Situacion  |  Decision segura  |  Consecuencia a explicar  |\n|  01  |  Usuario falla muchas preguntas de senales  |  Recomendar modulo 06  |  Error en calle  |\n|  02  |  Usuario aprueba simulacro pero falla conduccion defensiva  |  Recomendar escenarios  |  Riesgo real no cubierto por memoria  |\nFuentes esperadas: Todos los documentos oficiales disponibles, MVP de Cultura Vial SV",
+  "title": "Practica para examen"
+}

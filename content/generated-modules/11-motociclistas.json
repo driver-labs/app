@@ -1,0 +1,224 @@
+{
+  "coreIdea": "Los motociclistas deben ser conscientes de su vulnerabilidad y tomar decisiones que minimicen los riesgos en la carretera.",
+  "headline": "Conducción Segura para Motociclistas",
+  "intro": "La seguridad vial es fundamental para todos los usuarios de la carretera, especialmente para los motociclistas, quienes son más vulnerables en el tránsito. Este módulo te ayudará a entender cómo protegerte y ser visible en la vía.",
+  "lessons": [
+    {
+      "title": "La moto no perdona golpes",
+      "explanation": "Los motociclistas deben usar casco y equipo de protección para evitar lesiones graves en caso de accidente.",
+      "streetDecision": "Usa siempre un casco de seguridad debidamente colocado.",
+      "risk": "Lesión grave en caso de accidente.",
+      "citationNumbers": [1]
+    },
+    {
+      "title": "Hazte visible",
+      "explanation": "Es crucial que los motociclistas sean visibles para otros conductores, especialmente en puntos ciegos.",
+      "streetDecision": "Conduce con las luces encendidas durante el día.",
+      "risk": "Accidente por falta de visibilidad.",
+      "citationNumbers": [1, 6]
+    },
+    {
+      "title": "Carros: mira antes de girar",
+      "explanation": "Los conductores de vehículos deben revisar sus espejos y puntos ciegos antes de girar para evitar colisiones con motociclistas.",
+      "streetDecision": "Revisa el espejo y el hombro antes de girar.",
+      "risk": "Golpe lateral a un motociclista.",
+      "citationNumbers": [5]
+    },
+    {
+      "title": "Lluvia en moto",
+      "explanation": "Conducir en condiciones de lluvia puede ser peligroso debido a superficies resbalosas.",
+      "streetDecision": "Reduce la velocidad y aumenta la distancia de frenado en condiciones de lluvia.",
+      "risk": "Derrape y pérdida de control.",
+      "citationNumbers": [4]
+    }
+  ],
+  "needsHumanReview": [],
+  "quiz": [
+    {
+      "question": "¿Qué debes hacer para ser visible en la carretera?",
+      "options": [
+        "Conducir con las luces apagadas",
+        "Usar un casco de seguridad",
+        "Conducir con las luces encendidas"
+      ],
+      "answer": "Conducir con las luces encendidas",
+      "explanation": "Conducir con las luces encendidas aumenta tu visibilidad para otros conductores.",
+      "citationNumbers": [1, 6]
+    }
+  ],
+  "reflection": [
+    "¿Qué medidas tomas para ser visible en la carretera?",
+    "¿Cómo puedes mejorar tu seguridad al conducir una motocicleta?",
+    "¿Qué aprendiste sobre los puntos ciegos y su importancia?",
+    "¿Cómo afecta la lluvia tu conducción?"
+  ],
+  "scenario": {
+    "title": "Situación de Riesgo en la Vía",
+    "situation": "Una motocicleta circula junto a un carro que va a girar a la izquierda.",
+    "unsafeChoice": "No evitar el punto ciego del carro.",
+    "safeDecision": "Mantén una distancia lateral segura y evita el punto ciego.",
+    "feedback": "Al evitar el punto ciego, reduces el riesgo de un choque lateral.",
+    "citationNumbers": [1, 5]
+  },
+  "whyItMatters": "La falta de visibilidad y la vulnerabilidad de las motocicletas pueden llevar a accidentes graves. Conocer las normas y prácticas seguras puede salvar vidas.",
+  "audience": ["primera-licencia", "refuerzo", "motociclistas"],
+  "citations": [
+    {
+      "articleNumber": "128",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 128.- Los conductores de motocicletas de todo tipo y clase deberán:\n1. Usar un casco de seguridad debidamente colocado y sujetado, al igual que cualquier pasajero que\ntransporten.\n2. Conducir su vehículo con absoluta libertad de movimientos, por lo que se le prohibe llevar paquetes,\nbultos u objetos que les impidan tener ambas manos asidas en el volante.\n3. Abstenerse de sujetarse de otro vehículo en marcha, en las vías públicas.\n4. En las motocicletas de dos rueda sólo podrán conducirse una persona en la part",
+      "id": "115bee74-4ec0-4447-8f5a-aa93ba4b0e01",
+      "label": "[1] Reglamento General de Tránsito y Seguridad Vial, Art. 128",
+      "pageEnd": 34,
+      "pageStart": 34,
+      "sectionTitle": null,
+      "similarity": 0.671824601887033,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "4",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 4.- Para la mejor comprensión del Reglamento General de Tránsito y Seguridad Vial, se dan las\nsiguientes definiciones:\n1. Aceleración Libre: Procedimiento que consiste en acelerar el motor, lo más rápidamente posible sin\nbrusquedades, pero en forma contínua, con la palanca de la caja de velocidades en posición de\npunto muerto y el embrague del motor acoplado, a modo de obtener el máximo abastecimiento con\nla bomba de inyección, hasta que el motor gire a su máxima velocidad en vacío. Cuando se alcanza\ndicha vel",
+      "id": "483c0669-f31c-4e93-b06b-1fa25c00a343",
+      "label": "[2] Reglamento General de Tránsito y Seguridad Vial, Art. 4",
+      "pageEnd": 5,
+      "pageStart": 2,
+      "sectionTitle": "FINALIDAD > AMBITO DE APLICACION > DEFINICIONES",
+      "similarity": 0.644509442832997,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "41",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 41.- Todo vehículo automotor, sus remolques y semirremolques sean de propiedad privada o de\nentidades públicas, deben cumplir obligatoriamente con los siguientes requisitos mínimos en cuanto a\ndispositivos y medidas de seguridad:\n1. Estar provisto de una bocina que no exceda los límites sonoros establecidos en este Reglamento;\n2. Tener un indicador de velocidad instalado a la vista del conductor el cual debe marcar la velocidad\nen kilómetros por hora;\n3. El volante de conducción o dirección debe estar ubicado,",
+      "id": "cb77bd12-14d7-4eab-b7c1-38a9a200c4ac",
+      "label": "[3] Reglamento General de Tránsito y Seguridad Vial, Art. 41",
+      "pageEnd": 14,
+      "pageStart": 13,
+      "sectionTitle": "CAPITULO IV > DE LAS CARACTERISTICAS DE LOS VEHICULOS EN GENERAL",
+      "similarity": 0.638948597922194,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "117",
+      "documentKey": "decreto-legislativo-185",
+      "documentName": "Decreto Legislativo No. 185",
+      "excerpt": "48 No respetar el derecho de vía o interceptar la vía. $100\n49 No mover un vehículo u objeto que obstruya el libre tránsito producto de un $100\nsiniestro vial, siempre que solo existan daños materiales y/o lesiones leves o\npor otras razones que la autoridad competente estime conveniente.\nSEGURIDAD VIAL\n50 No conceder el paso a peatones que se encuentren en zona de peligro $100\n51 Circular más de una persona en el asiento del conductor. $100\n52 No respetar las señales de precaución, cuando hay trabajos de construcci",
+      "id": "16f4f699-15da-4a5b-a183-be8a0748dd7c",
+      "label": "[4] Decreto Legislativo No. 185, Art. 117",
+      "pageEnd": 9,
+      "pageStart": 3,
+      "sectionTitle": null,
+      "similarity": 0.619607615031059,
+      "sourcePath": "assets\\DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf",
+      "sourceUrl": "assets/DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf"
+    },
+    {
+      "articleNumber": "116",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 116.- Dentro de la circulación vehícular deberán tenerse presente y cumplir con exactitud las reglas\nsiguientes:\n1. No deberá conducirse describiendo curvas o atravesar el vehículo.\n2. No podrá sobrepasarse a otro vehículo, sin antes haberlo indicado con la luz direccional, o cuando\nun tercero viene en dirección contraria o cuando el vehículo delantero se acercare a algún trecho\nangosto, curva, puente, etc.\n3. Debe dejarse el vehículo estacionado a más de 10 metros de las esquinas de las intersecciones\nurbanas",
+      "id": "61763ea9-93d7-475e-9761-56a5d1521838",
+      "label": "[5] Reglamento General de Tránsito y Seguridad Vial, Art. 116",
+      "pageEnd": 30,
+      "pageStart": 28,
+      "sectionTitle": null,
+      "similarity": 0.60775083981626,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "40",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 40.- Las motocicletas, motobicicletas y triciclos, también llevarán una lámpara de luz blanca en el\nfrente, visible cuando menos a cincuenta metros y una luz roja en la parte posterior.",
+      "id": "5d905006-49d1-43c0-b904-9dd9c7d7995e",
+      "label": "[6] Reglamento General de Tránsito y Seguridad Vial, Art. 40",
+      "pageEnd": 13,
+      "pageStart": 13,
+      "sectionTitle": "CAPITULO IV > DE LAS CARACTERISTICAS DE LOS VEHICULOS EN GENERAL",
+      "similarity": 0.603820793135681,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "4",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "35. Opacímetro: dispositivo para medir el grado de opacidad de los gases, humos y partículas del\nescape de un vehículo.\n36. Pasajero: toda persona que aparte del conductor, ocupa un lugar dentro del vehículo.\n37. Permiso Temporal de Aprendizaje: documento que se expide, en forma temporal, para aprender a\nconducir vehículos automotores y que queda supeditado al acatamiento de las disposiciones del\npresente Reglamento.\n38. Peso Bruto del Vehículo: peso total del vehículo que resulta al sumar su peso de acuerdo con la",
+      "id": "86651e5c-2767-4ccd-996b-28039f6d3c5a",
+      "label": "[7] Reglamento General de Tránsito y Seguridad Vial, Art. 4",
+      "pageEnd": 5,
+      "pageStart": 2,
+      "sectionTitle": "FINALIDAD > AMBITO DE APLICACION > DEFINICIONES",
+      "similarity": 0.602075235441482,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "117",
+      "documentKey": "ley-transporte-terrestre",
+      "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+      "excerpt": "Art. 117.- Las infracciones de tránsito y seguridad vial se clasifican en Leves, graves y muy graves. (20)\nPrevio a la adquisición de cualquier vehículo automotor, el interesado deberá cerciorarse en el Registro\nPúblico de Vehículos, que no exista pendiente el pago de multas que se hubieren impuesto respecto del\nmismo, al propietario. (20)\nEn todo caso, la tarjeta de circulación del vehículo de que se trate, sólo podrá renovarse, previo pago de\nla multa. (20)\nCUADRO DE MULTAS DE TRANSITO POR INFRACCIONES LEVES, GRA",
+      "id": "0725c88e-ea49-42ba-a7dd-52eedf8a3bbd",
+      "label": "[8] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 117",
+      "pageEnd": 30,
+      "pageStart": 23,
+      "sectionTitle": "CAPITULO I > DE LOS SEGUROS Y FIANZAS > CAPITULO II",
+      "similarity": 0.585629247817408,
+      "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
+      "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
+    },
+    {
+      "articleNumber": "117",
+      "documentKey": "decreto-legislativo-185",
+      "documentName": "Decreto Legislativo No. 185",
+      "excerpt": "\"Art. 117.- Las infracciones de tránsito y seguridad vial se clasifican en leves, graves y muy\ngraves.\nPrevio a la adquisición de cualquier vehículo automotor, el interesado deberá cerciorarse en el\nregistro público de vehículos, que no exista pendiente el pago de multas que se hubieren impuesto\nrespecto del mismo, al propietario o legítimo tenedor.\nEn todo caso, la tarjeta de circulación del vehículo de que se trate sólo podrá renovarse, previo\npago de la multa.\n\nLas multas por infracciones de tránsito, transporte",
+      "id": "c123a45c-b893-4c70-aab5-a4601e31f37c",
+      "label": "[9] Decreto Legislativo No. 185, Art. 117",
+      "pageEnd": 9,
+      "pageStart": 3,
+      "sectionTitle": null,
+      "similarity": 0.581425199655074,
+      "sourcePath": "assets\\DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf",
+      "sourceUrl": "assets/DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf"
+    },
+    {
+      "articleNumber": "174",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 174.- Es prohibido a los ciclistas:\n1. Transitar por las aceras\n2. Penetrar en los jardines, parques y otros lugares públicos, salvo que éstos tengan vías especiales\npara la circulación de dichos vehículos.\n3. Circular después de las dieciocho horas y durante la noche, salvo que aporten sus luces\nreglamentarias y los dispositivos reflejantes adecuados.\n4. Circular con los frenos en mal estado.\n5. Llevar en la parte posterior o anterior, objetos o estorbos que le impidan ver claramente la vía o\nentorpezcan el b",
+      "id": "5a925823-dcf4-4398-88e9-8e9f2a135a03",
+      "label": "[10] Reglamento General de Tránsito y Seguridad Vial, Art. 174",
+      "pageEnd": 46,
+      "pageStart": 46,
+      "sectionTitle": "REGLAS DE PROHIBICION DE CARACTER PARTICULAR",
+      "similarity": 0.580978209260266,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    }
+  ],
+  "generatedAt": "2026-07-04T23:09:45.964Z",
+  "generator": "scripts/generate-learning-modules.mjs",
+  "moduleId": "11-motociclistas",
+  "originalBrief": {
+    "concepts": "- Motocicletas dentro de clasificacion de vehiculos.\n- Documentos y licencia aplicable.\n- Casco y equipo si aparece en fuente.\n- Visibilidad.\n- Puntos ciegos.\n- Distancia lateral.\n- Lluvia y superficie resbalosa.\n- Adelantamientos y maniobras.",
+    "purpose": "Que motociclistas y conductores de carro entiendan que la moto es mas vulnerable y menos visible.",
+    "questions": "- Por que una moto puede estar en punto ciego?\n- Que debe hacer un conductor antes de girar?\n- Que decision reduce el riesgo para un motociclista bajo lluvia?",
+    "scenarios": "|  ID  |  Situacion  |  Decision segura  |  Consecuencia a explicar  |\n|  01  |  Moto circula junto a un carro que va a girar  |  Evitar punto ciego y reducir  |  Choque lateral  |\n|  02  |  Carro cambia de carril sin ver espejo  |  Revisar espejo y hombro  |  Golpear motociclista  |",
+    "sourceScope": [
+      "Ley de Transporte Terrestre, Transito y Seguridad Vial",
+      "Reglamento General de Transito y Seguridad Vial",
+      "MVP de Cultura Vial SV"
+    ],
+    "visual": "Diagrama de punto ciego: carro visto desde arriba, moto en zona no visible y flechas de revision."
+  },
+  "retrievalQuery": "Modulo: Motociclistas\nProposito: Que motociclistas y conductores de carro entiendan que la moto es mas vulnerable y menos visible.\nConceptos: - Motocicletas dentro de clasificacion de vehiculos.\n- Documentos y licencia aplicable.\n- Casco y equipo si aparece en fuente.\n- Visibilidad.\n- Puntos ciegos.\n- Distancia lateral.\n- Lluvia y superficie resbalosa.\n- Adelantamientos y maniobras.\nMicro-lecciones: |  ID  |  Titulo  |  Fuente esperada  |  Riesgo que conecta  |\n|  01  |  La moto no perdona golpes  |  Ley, reglamento y MVP  |  Lesion grave  |\n|  02  |  Hazte visible  |  MVP y reglamento  |  Punto ciego  |\n|  03  |  Carros: mira antes de girar  |  MVP  |  Golpe lateral  |\n|  04  |  Lluvia en moto  |  MVP  |  Derrape  |\nEscenarios: |  ID  |  Situacion  |  Decision segura  |  Consecuencia a explicar  |\n|  01  |  Moto circula junto a un carro que va a girar  |  Evitar punto ciego y reducir  |  Choque lateral  |\n|  02  |  Carro cambia de carril sin ver espejo  |  Revisar espejo y hombro  |  Golpear motociclista  |\nFuentes esperadas: Ley de Transporte Terrestre, Transito y Seguridad Vial, Reglamento General de Transito y Seguridad Vial, MVP de Cultura Vial SV",
+  "title": "Motociclistas"
+}

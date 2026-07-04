@@ -1,4 +1,4 @@
-import { readdirSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 
 const MODULES_DIR = path.join(
@@ -6,6 +6,11 @@ const MODULES_DIR = path.join(
   "content",
   "knowledge-base",
   "modules",
+);
+const GENERATED_MODULES_DIR = path.join(
+  process.cwd(),
+  "content",
+  "generated-modules",
 );
 
 export type MarkdownBlock =
@@ -17,6 +22,7 @@ export type MarkdownBlock =
 export type LearningModule = {
   audience: string[];
   blocks: MarkdownBlock[];
+  didacticContent: DidacticModuleContent | null;
   estimatedMinutes: number;
   id: string;
   priority: number;
@@ -26,6 +32,65 @@ export type LearningModule = {
   summary: string;
   tags: string[];
   title: string;
+};
+
+export type DidacticCitation = {
+  articleNumber: string | null;
+  documentKey: string;
+  documentName: string;
+  excerpt: string;
+  id: string;
+  label: string;
+  pageEnd: number | null;
+  pageStart: number | null;
+  sectionTitle: string | null;
+  similarity: number;
+  sourcePath: string | null;
+  sourceUrl: string | null;
+};
+
+export type DidacticCitationReference = {
+  citationNumbers: number[];
+};
+
+export type DidacticLesson = DidacticCitationReference & {
+  explanation: string;
+  risk: string;
+  streetDecision: string;
+  title: string;
+};
+
+export type DidacticQuizQuestion = DidacticCitationReference & {
+  answer: string;
+  explanation: string;
+  options: string[];
+  question: string;
+};
+
+export type DidacticScenario = DidacticCitationReference & {
+  feedback: string;
+  safeDecision: string;
+  situation: string;
+  title: string;
+  unsafeChoice: string;
+};
+
+export type DidacticModuleContent = {
+  citations: DidacticCitation[];
+  coreIdea: string;
+  generatedAt: string;
+  generator: string;
+  headline: string;
+  intro: string;
+  lessons: DidacticLesson[];
+  moduleId: string;
+  needsHumanReview: string[];
+  quiz: DidacticQuizQuestion[];
+  reflection: string[];
+  retrievalQuery: string;
+  scenario: DidacticScenario | null;
+  title: string;
+  whyItMatters: string;
 };
 
 type FrontMatter = Record<string, number | string | string[] | undefined>;
@@ -217,20 +282,30 @@ function readModuleFile(fileName: string): LearningModule {
   const file = readFileSync(filePath, "utf8");
   const { body, frontMatter } = splitFrontMatter(file);
   const id = asString(frontMatter.module_id, fileName.replace(/\.md$/, ""));
+  const didacticContent = readDidacticContent(id);
 
   return {
     audience: asStringArray(frontMatter.audience),
     blocks: parseMarkdownBlocks(body),
+    didacticContent,
     estimatedMinutes: asNumber(frontMatter.estimated_minutes, 10),
     id,
     priority: asNumber(frontMatter.priority, 99),
     rawBody: body,
     sourceScope: asStringArray(frontMatter.source_scope),
     status: asString(frontMatter.status, "draft"),
-    summary: firstParagraphAfterHeading(body, "Proposito"),
+    summary:
+      didacticContent?.intro ?? firstParagraphAfterHeading(body, "Proposito"),
     tags: asStringArray(frontMatter.tags),
     title: asString(frontMatter.title, id),
   };
+}
+
+function readDidacticContent(id: string): DidacticModuleContent | null {
+  const filePath = path.join(GENERATED_MODULES_DIR, `${id}.json`);
+  if (!existsSync(filePath)) return null;
+
+  return JSON.parse(readFileSync(filePath, "utf8")) as DidacticModuleContent;
 }
 
 export function getLearningModules() {

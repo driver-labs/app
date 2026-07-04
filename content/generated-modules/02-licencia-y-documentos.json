@@ -1,0 +1,233 @@
+{
+  "coreIdea": "La obtención de una licencia de conducir y el cumplimiento de la normativa son esenciales para la seguridad en las vías. Conducir sin la documentación adecuada puede tener graves consecuencias legales y de seguridad.",
+  "headline": "Licencia y Documentos: Conducir con Responsabilidad",
+  "intro": "Conocer los documentos necesarios para conducir es fundamental para garantizar la seguridad vial. Este módulo te ayudará a entender la importancia de tener una licencia y los riesgos de conducir sin autorización.",
+  "lessons": [
+    {
+      "title": "¿Qué significa tener licencia?",
+      "explanation": "Tener una licencia de conducir significa que estás autorizado legalmente para operar un vehículo. Esto implica haber cumplido con ciertos requisitos y haber demostrado tus habilidades de conducción.",
+      "streetDecision": "Obtén tu licencia de conducir antes de manejar un vehículo.",
+      "risk": "Conducir sin licencia puede resultar en multas y problemas legales.",
+      "citationNumbers": [1, 2]
+    },
+    {
+      "title": "Documentos que debes portar",
+      "explanation": "Es obligatorio llevar contigo la licencia de conducir, la tarjeta de circulación y otros documentos relevantes cuando estés al volante.",
+      "streetDecision": "Siempre lleva contigo los documentos requeridos al conducir.",
+      "risk": "No portar documentos puede llevar a la retención del vehículo y multas.",
+      "citationNumbers": [3, 9]
+    },
+    {
+      "title": "Permiso para aprender",
+      "explanation": "El permiso temporal de aprendizaje es necesario para quienes están en proceso de aprender a conducir. Este documento permite practicar bajo la supervisión de un instructor.",
+      "streetDecision": "Solicita un permiso de aprendizaje antes de comenzar a practicar la conducción.",
+      "risk": "Practicar sin un permiso puede resultar en sanciones legales.",
+      "citationNumbers": [4, 8]
+    },
+    {
+      "title": "Datos que pueden cambiar",
+      "explanation": "Es importante mantenerse informado sobre los requisitos y regulaciones que pueden cambiar con el tiempo para evitar problemas al momento de renovar documentos.",
+      "streetDecision": "Verifica regularmente la normativa vigente sobre licencias y documentos.",
+      "risk": "No estar al tanto de los cambios puede llevar a inconvenientes al renovar documentos.",
+      "citationNumbers": [5, 6]
+    }
+  ],
+  "needsHumanReview": [],
+  "quiz": [
+    {
+      "question": "¿Qué documento es obligatorio para conducir un vehículo?",
+      "options": [
+        "Tarjeta de circulación",
+        "Licencia de conducir",
+        "Permiso de aprendizaje"
+      ],
+      "answer": "Licencia de conducir",
+      "explanation": "La licencia de conducir es el documento que autoriza a una persona a manejar un vehículo.",
+      "citationNumbers": [2, 8]
+    },
+    {
+      "question": "¿Qué puede suceder si conduces sin licencia?",
+      "options": [
+        "Nada, es solo una infracción leve",
+        "Multas y problemas legales",
+        "Puedes seguir conduciendo sin problemas"
+      ],
+      "answer": "Multas y problemas legales",
+      "explanation": "Conducir sin licencia puede resultar en sanciones severas, incluyendo multas y la retención del vehículo.",
+      "citationNumbers": [3, 9]
+    }
+  ],
+  "reflection": [
+    "¿Qué documentos llevas contigo cuando conduces?",
+    "¿Por qué es importante tener una licencia de conducir?",
+    "¿Cómo te sientes al saber que conducir sin licencia puede tener consecuencias graves?"
+  ],
+  "scenario": {
+    "title": "Detención sin licencia",
+    "situation": "Te detienen en un control de tránsito y no llevas tu licencia de conducir.",
+    "unsafeChoice": "Intenta convencer al oficial de que puedes conducir sin licencia.",
+    "safeDecision": "Muestra respeto y explica que no llevas tu licencia, pero que estás dispuesto a seguir las indicaciones del oficial.",
+    "feedback": "Conducir sin licencia es una infracción grave. Siempre es mejor tener la documentación adecuada para evitar problemas legales.",
+    "citationNumbers": [1, 3]
+  },
+  "whyItMatters": "Conducir sin licencia no solo pone en riesgo tu seguridad, sino también la de otros usuarios de la vía. Además, puede resultar en multas y problemas legales que pueden afectar tu vida diaria.",
+  "audience": ["primera-licencia", "refuerzo"],
+  "citations": [
+    {
+      "articleNumber": "155",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 155.- La licencia para conducir tendrá un Nombre por cada Clase o una Clasificación especifica,\nsegún lo determine el Viceministerio de Transporte, por medio de la Dirección General de Tránsito, debiendo\nconsignarse en la misma, el Número de Identificación Tributaria del Propietario o poseedor legítimo del\nvehículo automotor.\nPara la obtención de una Licencia por primera vez, el solicitante debe cumplir los siguientes requisitos:\n1. Saber leer y escribir.\n\n2. No haber cometido infracciones definidas como grave",
+      "id": "135af1cc-2b86-434f-9381-0db91a9e8ff8",
+      "label": "[1] Reglamento General de Tránsito y Seguridad Vial, Art. 155",
+      "pageEnd": 41,
+      "pageStart": 40,
+      "sectionTitle": "DE LA FIANZA > DEL PERMISO DE APRENDIZAJE > PARA OBTENER LA LICENCIA POR PRIMERA VEZ",
+      "similarity": 0.681999227724586,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "155",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 155-A.- La Dirección General de Tránsito, previo al cumplimiento de los requisitos exigidos en el\npresente Reglamento, expedirá las licencias de conducir con una vigencia de cinco años. A excepción de la\nque caduca al cumplir el interesado los dieciocho años de edad; las que serán expedidas, en la siguientes\nclases y categorías:\na. Pesada, categoría: T (Trailer);\nb. Liviana;\nc. Particular;\nd. Motociclista, y;\ne. Juvenil, categorías: V (vehículo) o M (Motociclista);\nLa Licencia Pesada autoriza a su titular para",
+      "id": "d371639f-428b-4ede-a4e9-ecd16b2fd923",
+      "label": "[2] Reglamento General de Tránsito y Seguridad Vial, Art. 155",
+      "pageEnd": 42,
+      "pageStart": 41,
+      "sectionTitle": "PARA OBTENER LA LICENCIA POR PRIMERA VEZ",
+      "similarity": 0.671365345434912,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "66",
+      "documentKey": "decreto-legislativo-185",
+      "documentName": "Decreto Legislativo No. 185",
+      "excerpt": "\"Art. 66.- Todo conductor de vehículo automotor, cuando la autoridad competente lo requiera,\nestará obligado a entregar los documentos solicitados y prestar la colaboración que se demande ante las\ndiferentes circunstancias viales, todo con el objeto de verificar el cumplimiento de la presente ley. Caso\ncontrario, la autoridad de tránsito estará facultada para decomisar la licencia de conducir, además, de la\nimposición de las multas por el cometimiento de las infracciones tipificadas en la presente normativa.\nSe pro",
+      "id": "14c57975-fecc-4d15-a95d-f513bf67881c",
+      "label": "[3] Decreto Legislativo No. 185, Art. 66",
+      "pageEnd": 2,
+      "pageStart": 1,
+      "sectionTitle": "POR TANTO, > REFORMAS A LA LEY DE TRANSPORTE TERRESTRE, TRÁNSITO > Y SEGURIDAD VIAL",
+      "similarity": 0.663194821949383,
+      "sourcePath": "assets\\DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf",
+      "sourceUrl": "assets/DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf"
+    },
+    {
+      "articleNumber": "4",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "35. Opacímetro: dispositivo para medir el grado de opacidad de los gases, humos y partículas del\nescape de un vehículo.\n36. Pasajero: toda persona que aparte del conductor, ocupa un lugar dentro del vehículo.\n37. Permiso Temporal de Aprendizaje: documento que se expide, en forma temporal, para aprender a\nconducir vehículos automotores y que queda supeditado al acatamiento de las disposiciones del\npresente Reglamento.\n38. Peso Bruto del Vehículo: peso total del vehículo que resulta al sumar su peso de acuerdo con la",
+      "id": "86651e5c-2767-4ccd-996b-28039f6d3c5a",
+      "label": "[4] Reglamento General de Tránsito y Seguridad Vial, Art. 4",
+      "pageEnd": 5,
+      "pageStart": 2,
+      "sectionTitle": "FINALIDAD > AMBITO DE APLICACION > DEFINICIONES",
+      "similarity": 0.652025360374921,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "116",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 116.- Dentro de la circulación vehícular deberán tenerse presente y cumplir con exactitud las reglas\nsiguientes:\n1. No deberá conducirse describiendo curvas o atravesar el vehículo.\n2. No podrá sobrepasarse a otro vehículo, sin antes haberlo indicado con la luz direccional, o cuando\nun tercero viene en dirección contraria o cuando el vehículo delantero se acercare a algún trecho\nangosto, curva, puente, etc.\n3. Debe dejarse el vehículo estacionado a más de 10 metros de las esquinas de las intersecciones\nurbanas",
+      "id": "61763ea9-93d7-475e-9761-56a5d1521838",
+      "label": "[5] Reglamento General de Tránsito y Seguridad Vial, Art. 116",
+      "pageEnd": 30,
+      "pageStart": 28,
+      "sectionTitle": null,
+      "similarity": 0.650878798448366,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "255",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "126 Transportar personas en función comercial sin\nel permiso correspondiente en buses, microbuses\ntaxis, pick-up, etc.* ¢ 500.00\n127 Cambiar el color del vehículo sin el permiso\ncorrespondiente. (al propietario). ¢ 500.00\n128 Trabajar con vehículos particulares en servicio\nde alquiler. ¢ 500.00\n129 Conducir el vehículo con placas que pertenecen\na otro.* ¢ 500.00\n130 Circular sin placas.* ¢ 500.00\n131 Circular con placas falsificadas. ¢ 500.00\n132 Conducir vehículos con sistema de frenos en mal\nestado. ¢ 500.00\n133 ",
+      "id": "a264dd2d-5978-4e47-b450-9c5018cbf0cf",
+      "label": "[6] Reglamento General de Tránsito y Seguridad Vial, Art. 255",
+      "pageEnd": 67,
+      "pageStart": 61,
+      "sectionTitle": "TITULO X > DE LAS INFRACCIONES, MULTAS Y SUSPENSIONES > DE LAS MULTAS E INFRACCIONES",
+      "similarity": 0.640698268751787,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "4",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 4.- Para la mejor comprensión del Reglamento General de Tránsito y Seguridad Vial, se dan las\nsiguientes definiciones:\n1. Aceleración Libre: Procedimiento que consiste en acelerar el motor, lo más rápidamente posible sin\nbrusquedades, pero en forma contínua, con la palanca de la caja de velocidades en posición de\npunto muerto y el embrague del motor acoplado, a modo de obtener el máximo abastecimiento con\nla bomba de inyección, hasta que el motor gire a su máxima velocidad en vacío. Cuando se alcanza\ndicha vel",
+      "id": "483c0669-f31c-4e93-b06b-1fa25c00a343",
+      "label": "[7] Reglamento General de Tránsito y Seguridad Vial, Art. 4",
+      "pageEnd": 5,
+      "pageStart": 2,
+      "sectionTitle": "FINALIDAD > AMBITO DE APLICACION > DEFINICIONES",
+      "similarity": 0.638149599558633,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "153",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 153.- Para obtener el permiso de aprendizaje para conducir, válido por 90 días, el aspirante deberá\ncumplir con los requisitos siguientes:\n1. Haber cumplido 15 años de edad, momo mínimo, para la Licencia Juvenil y 18 años de edad, para la\nLicencia Particular o Liviana.\n2. Saber leer y escribir.\n3. Obtener la Tarjeta de Aprendizaje correspondiente.\nSi el solicitante fuere menor de edad, sus representantes legales lo acompañarán en los trámites\ncorrespondientes y responderán civilmente por los daños que ocasione",
+      "id": "0bb1c1cf-ec51-4e6e-ae13-f5c296516673",
+      "label": "[8] Reglamento General de Tránsito y Seguridad Vial, Art. 153",
+      "pageEnd": 40,
+      "pageStart": 40,
+      "sectionTitle": "DE LAS LICENCIAS DE CONDUCIR > DE LA FIANZA > DEL PERMISO DE APRENDIZAJE",
+      "similarity": 0.635356790170943,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "117",
+      "documentKey": "ley-transporte-terrestre",
+      "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+      "excerpt": "Art. 117.- Las infracciones de tránsito y seguridad vial se clasifican en Leves, graves y muy graves. (20)\nPrevio a la adquisición de cualquier vehículo automotor, el interesado deberá cerciorarse en el Registro\nPúblico de Vehículos, que no exista pendiente el pago de multas que se hubieren impuesto respecto del\nmismo, al propietario. (20)\nEn todo caso, la tarjeta de circulación del vehículo de que se trate, sólo podrá renovarse, previo pago de\nla multa. (20)\nCUADRO DE MULTAS DE TRANSITO POR INFRACCIONES LEVES, GRA",
+      "id": "0725c88e-ea49-42ba-a7dd-52eedf8a3bbd",
+      "label": "[9] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 117",
+      "pageEnd": 30,
+      "pageStart": 23,
+      "sectionTitle": "CAPITULO I > DE LOS SEGUROS Y FIANZAS > CAPITULO II",
+      "similarity": 0.632836430588706,
+      "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
+      "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
+    },
+    {
+      "articleNumber": "118",
+      "documentKey": "decreto-legislativo-185",
+      "documentName": "Decreto Legislativo No. 185",
+      "excerpt": "b) Conducir portando tarjeta de circulación falsa.\nc) Conducir con tarjeta de circulación vencida.\nd) Transportar personal en función comercial sin el permiso de la autoridad correspondiente, en\nbuses, microbuses, taxis, pick up y toda clase de vehículos.\ne) Conducir habiendo consumido bebidas embriagantes, estupefacientes o enervantes.\nf) Reincidir en la comisión de la Infracción regulada en el No. 77 del artículo 117, o en la comisión\nde la infracción regulada en el No. 25 del Artículo 119-I de la presente Ley, d",
+      "id": "1bad9b29-ce52-4b78-8c5c-422eee9587ac",
+      "label": "[10] Decreto Legislativo No. 185, Art. 118",
+      "pageEnd": 11,
+      "pageStart": 9,
+      "sectionTitle": "MEDIO AMBIENTE",
+      "similarity": 0.627894414081216,
+      "sourcePath": "assets\\DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf",
+      "sourceUrl": "assets/DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf"
+    }
+  ],
+  "generatedAt": "2026-07-04T23:07:59.120Z",
+  "generator": "scripts/generate-learning-modules.mjs",
+  "moduleId": "02-licencia-y-documentos",
+  "originalBrief": {
+    "concepts": "- Licencia de conducir.\n- Permiso temporal de aprendizaje.\n- Tarjeta de circulacion.\n- Placas.\n- Seguro, revision o controles que la normativa exija.\n- Obligacion de portar documentos.\n- Clases o tipos de licencia si estan en fuente oficial.",
+    "purpose": "Que la persona sepa que documentos necesita para conducir y por que conducir sin autorizacion pone en riesgo a todos.",
+    "questions": "- Que documento te autoriza a conducir?\n- Por que no debes prestar el carro a alguien sin licencia?\n- Que datos deben validarse con fuente actual antes de publicar?",
+    "scenarios": "|  ID  |  Situacion  |  Decision segura  |  Consecuencia a explicar  |\n|  01  |  Te detienen y no llevas licencia  |  Portar documentos vigentes  |  Multa o inconveniente legal  |\n|  02  |  Un amigo sin licencia quiere manejar  |  No prestar el vehiculo  |  Riesgo legal y de siniestro  |",
+    "sourceScope": [
+      "Ley de Transporte Terrestre, Transito y Seguridad Vial",
+      "Reglamento General de Transito y Seguridad Vial"
+    ],
+    "visual": "Imagen de una mano mostrando licencia, tarjeta de circulacion y placas del vehiculo, con etiquetas simples."
+  },
+  "retrievalQuery": "Modulo: Licencia y documentos\nProposito: Que la persona sepa que documentos necesita para conducir y por que conducir sin autorizacion pone en riesgo a todos.\nConceptos: - Licencia de conducir.\n- Permiso temporal de aprendizaje.\n- Tarjeta de circulacion.\n- Placas.\n- Seguro, revision o controles que la normativa exija.\n- Obligacion de portar documentos.\n- Clases o tipos de licencia si estan en fuente oficial.\nMicro-lecciones: |  ID  |  Titulo  |  Fuente esperada  |  Riesgo que conecta  |\n|  01  |  Que significa tener licencia  |  Reglamento  |  Conducir sin estar autorizado  |\n|  02  |  Documentos que debes portar  |  Ley y reglamento  |  Retencion, multa o problema legal  |\n|  03  |  Permiso para aprender  |  Reglamento  |  Practicar sin supervision o sin permiso  |\n|  04  |  Datos que pueden cambiar  |  Fuentes actuales  |  Tramites desactualizados  |\nEscenarios: |  ID  |  Situacion  |  Decision segura  |  Consecuencia a explicar  |\n|  01  |  Te detienen y no llevas licencia  |  Portar documentos vigentes  |  Multa o inconveniente legal  |\n|  02  |  Un amigo sin licencia quiere manejar  |  No prestar el vehiculo  |  Riesgo legal y de siniestro  |\nFuentes esperadas: Ley de Transporte Terrestre, Transito y Seguridad Vial, Reglamento General de Transito y Seguridad Vial",
+  "title": "Licencia y documentos"
+}

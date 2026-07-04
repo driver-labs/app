@@ -1,0 +1,234 @@
+{
+  "coreIdea": "La seguridad vial comienza con un vehículo en condiciones óptimas. Cumplir con las normativas y realizar revisiones mecánicas son pasos fundamentales para evitar siniestros.",
+  "headline": "Vehículo Seguro: La Clave para una Conducción Responsable",
+  "intro": "Conducir un vehículo en mal estado puede llevar a accidentes, incluso si el conductor tiene buenas intenciones. Aprender sobre las normas y condiciones de seguridad es esencial para todos los conductores.",
+  "lessons": [
+    {
+      "title": "Tu vehículo también debe cumplir la ley",
+      "explanation": "Es fundamental que tu vehículo esté en condiciones adecuadas y cumpla con las normativas vigentes para evitar fallas mecánicas.",
+      "streetDecision": "Revisa que tu vehículo tenga todos los dispositivos de seguridad en funcionamiento.",
+      "risk": "Fallas mecánicas que pueden causar accidentes.",
+      "citationNumbers": [1, 2]
+    },
+    {
+      "title": "Placas y tarjeta de circulación",
+      "explanation": "Las placas deben ser visibles y la tarjeta de circulación debe estar vigente para evitar problemas legales y garantizar la identificación del vehículo.",
+      "streetDecision": "Asegúrate de que las placas estén limpias y bien colocadas.",
+      "risk": "Identificación y control inadecuados que pueden resultar en multas.",
+      "citationNumbers": [3, 6]
+    },
+    {
+      "title": "No sobrecargues el vehículo",
+      "explanation": "El exceso de carga puede afectar la estabilidad y el control del vehículo, aumentando el riesgo de accidentes.",
+      "streetDecision": "Verifica que la carga no sobrepase la capacidad del vehículo.",
+      "risk": "Pérdida de control y accidentes graves.",
+      "citationNumbers": [4, 8]
+    },
+    {
+      "title": "Luces, frenos y llantas",
+      "explanation": "Estos componentes son esenciales para la seguridad. Deben estar en perfecto estado para garantizar una conducción segura.",
+      "streetDecision": "Realiza una revisión completa de luces, frenos y llantas antes de cada viaje.",
+      "risk": "Choques evitables por fallas en los sistemas de seguridad.",
+      "citationNumbers": [5, 10]
+    }
+  ],
+  "needsHumanReview": [],
+  "quiz": [
+    {
+      "question": "¿Qué debes revisar antes de viajar?",
+      "options": [
+        "Solo el combustible",
+        "Luces, frenos y llantas",
+        "La música del radio"
+      ],
+      "answer": "Luces, frenos y llantas",
+      "explanation": "Estos son componentes críticos para la seguridad del vehículo.",
+      "citationNumbers": [3, 4]
+    },
+    {
+      "question": "¿Por qué es importante no sobrecargar el vehículo?",
+      "options": [
+        "Para ahorrar combustible",
+        "Para evitar perder el control",
+        "No es importante"
+      ],
+      "answer": "Para evitar perder el control",
+      "explanation": "El exceso de carga puede afectar la estabilidad del vehículo y aumentar el riesgo de accidentes.",
+      "citationNumbers": [5, 6]
+    }
+  ],
+  "reflection": [
+    "¿Qué medidas tomas para asegurar que tu vehículo esté en condiciones óptimas?",
+    "¿Cómo puedes mejorar tu conocimiento sobre las normativas de tránsito?",
+    "¿Qué impacto crees que tiene un vehículo en mal estado en la seguridad vial?",
+    "¿Qué acciones puedes tomar para educar a otros sobre la importancia de un vehículo seguro?"
+  ],
+  "scenario": {
+    "title": "Revisión de llantas antes de un viaje",
+    "situation": "Una llanta está lisa pero 'aguanta'.",
+    "unsafeChoice": "Decidir salir de viaje sin cambiar la llanta.",
+    "safeDecision": "Cambiar o reparar la llanta antes de salir.",
+    "feedback": "No cambiar la llanta puede resultar en un derrape o reventón, poniendo en riesgo tu vida y la de otros.",
+    "citationNumbers": [1, 2]
+  },
+  "whyItMatters": "Entender y aplicar las normas de seguridad vial no solo protege al conductor, sino también a todos los usuarios de la vía. Un vehículo seguro reduce el riesgo de accidentes y salva vidas.",
+  "audience": ["primera-licencia", "refuerzo"],
+  "citations": [
+    {
+      "articleNumber": "116",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 116.- Dentro de la circulación vehícular deberán tenerse presente y cumplir con exactitud las reglas\nsiguientes:\n1. No deberá conducirse describiendo curvas o atravesar el vehículo.\n2. No podrá sobrepasarse a otro vehículo, sin antes haberlo indicado con la luz direccional, o cuando\nun tercero viene en dirección contraria o cuando el vehículo delantero se acercare a algún trecho\nangosto, curva, puente, etc.\n3. Debe dejarse el vehículo estacionado a más de 10 metros de las esquinas de las intersecciones\nurbanas",
+      "id": "61763ea9-93d7-475e-9761-56a5d1521838",
+      "label": "[1] Reglamento General de Tránsito y Seguridad Vial, Art. 116",
+      "pageEnd": 30,
+      "pageStart": 28,
+      "sectionTitle": null,
+      "similarity": 0.709895219630634,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "41",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 41.- Todo vehículo automotor, sus remolques y semirremolques sean de propiedad privada o de\nentidades públicas, deben cumplir obligatoriamente con los siguientes requisitos mínimos en cuanto a\ndispositivos y medidas de seguridad:\n1. Estar provisto de una bocina que no exceda los límites sonoros establecidos en este Reglamento;\n2. Tener un indicador de velocidad instalado a la vista del conductor el cual debe marcar la velocidad\nen kilómetros por hora;\n3. El volante de conducción o dirección debe estar ubicado,",
+      "id": "cb77bd12-14d7-4eab-b7c1-38a9a200c4ac",
+      "label": "[2] Reglamento General de Tránsito y Seguridad Vial, Art. 41",
+      "pageEnd": 14,
+      "pageStart": 13,
+      "sectionTitle": "CAPITULO IV > DE LAS CARACTERISTICAS DE LOS VEHICULOS EN GENERAL",
+      "similarity": 0.681326744455181,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "117",
+      "documentKey": "decreto-legislativo-185",
+      "documentName": "Decreto Legislativo No. 185",
+      "excerpt": "48 No respetar el derecho de vía o interceptar la vía. $100\n49 No mover un vehículo u objeto que obstruya el libre tránsito producto de un $100\nsiniestro vial, siempre que solo existan daños materiales y/o lesiones leves o\npor otras razones que la autoridad competente estime conveniente.\nSEGURIDAD VIAL\n50 No conceder el paso a peatones que se encuentren en zona de peligro $100\n51 Circular más de una persona en el asiento del conductor. $100\n52 No respetar las señales de precaución, cuando hay trabajos de construcci",
+      "id": "16f4f699-15da-4a5b-a183-be8a0748dd7c",
+      "label": "[3] Decreto Legislativo No. 185, Art. 117",
+      "pageEnd": 9,
+      "pageStart": 3,
+      "sectionTitle": null,
+      "similarity": 0.679647641085713,
+      "sourcePath": "assets\\DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf",
+      "sourceUrl": "assets/DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf"
+    },
+    {
+      "articleNumber": "117",
+      "documentKey": "decreto-legislativo-185",
+      "documentName": "Decreto Legislativo No. 185",
+      "excerpt": "\"Art. 117.- Las infracciones de tránsito y seguridad vial se clasifican en leves, graves y muy\ngraves.\nPrevio a la adquisición de cualquier vehículo automotor, el interesado deberá cerciorarse en el\nregistro público de vehículos, que no exista pendiente el pago de multas que se hubieren impuesto\nrespecto del mismo, al propietario o legítimo tenedor.\nEn todo caso, la tarjeta de circulación del vehículo de que se trate sólo podrá renovarse, previo\npago de la multa.\n\nLas multas por infracciones de tránsito, transporte",
+      "id": "c123a45c-b893-4c70-aab5-a4601e31f37c",
+      "label": "[4] Decreto Legislativo No. 185, Art. 117",
+      "pageEnd": 9,
+      "pageStart": 3,
+      "sectionTitle": null,
+      "similarity": 0.672747702459839,
+      "sourcePath": "assets\\DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf",
+      "sourceUrl": "assets/DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf"
+    },
+    {
+      "articleNumber": "4",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 4.- Para la mejor comprensión del Reglamento General de Tránsito y Seguridad Vial, se dan las\nsiguientes definiciones:\n1. Aceleración Libre: Procedimiento que consiste en acelerar el motor, lo más rápidamente posible sin\nbrusquedades, pero en forma contínua, con la palanca de la caja de velocidades en posición de\npunto muerto y el embrague del motor acoplado, a modo de obtener el máximo abastecimiento con\nla bomba de inyección, hasta que el motor gire a su máxima velocidad en vacío. Cuando se alcanza\ndicha vel",
+      "id": "483c0669-f31c-4e93-b06b-1fa25c00a343",
+      "label": "[5] Reglamento General de Tránsito y Seguridad Vial, Art. 4",
+      "pageEnd": 5,
+      "pageStart": 2,
+      "sectionTitle": "FINALIDAD > AMBITO DE APLICACION > DEFINICIONES",
+      "similarity": 0.672090154072265,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "117",
+      "documentKey": "ley-transporte-terrestre",
+      "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+      "excerpt": "Art. 117.- Las infracciones de tránsito y seguridad vial se clasifican en Leves, graves y muy graves. (20)\nPrevio a la adquisición de cualquier vehículo automotor, el interesado deberá cerciorarse en el Registro\nPúblico de Vehículos, que no exista pendiente el pago de multas que se hubieren impuesto respecto del\nmismo, al propietario. (20)\nEn todo caso, la tarjeta de circulación del vehículo de que se trate, sólo podrá renovarse, previo pago de\nla multa. (20)\nCUADRO DE MULTAS DE TRANSITO POR INFRACCIONES LEVES, GRA",
+      "id": "0725c88e-ea49-42ba-a7dd-52eedf8a3bbd",
+      "label": "[6] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 117",
+      "pageEnd": 30,
+      "pageStart": 23,
+      "sectionTitle": "CAPITULO I > DE LOS SEGUROS Y FIANZAS > CAPITULO II",
+      "similarity": 0.669574653255604,
+      "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
+      "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
+    },
+    {
+      "articleNumber": "4",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "35. Opacímetro: dispositivo para medir el grado de opacidad de los gases, humos y partículas del\nescape de un vehículo.\n36. Pasajero: toda persona que aparte del conductor, ocupa un lugar dentro del vehículo.\n37. Permiso Temporal de Aprendizaje: documento que se expide, en forma temporal, para aprender a\nconducir vehículos automotores y que queda supeditado al acatamiento de las disposiciones del\npresente Reglamento.\n38. Peso Bruto del Vehículo: peso total del vehículo que resulta al sumar su peso de acuerdo con la",
+      "id": "86651e5c-2767-4ccd-996b-28039f6d3c5a",
+      "label": "[7] Reglamento General de Tránsito y Seguridad Vial, Art. 4",
+      "pageEnd": 5,
+      "pageStart": 2,
+      "sectionTitle": "FINALIDAD > AMBITO DE APLICACION > DEFINICIONES",
+      "similarity": 0.662223700027893,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "117",
+      "documentKey": "ley-transporte-terrestre",
+      "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+      "excerpt": "SEGURIDAD VIAL\n51 No conceder el paso a peatones que caminen en zona de 300.00 34.29\nseguridad o cuando se encuentren en peligro\n52 Llevar pasajeros a la izquierda del conductor 300.00 34.29\n53 No respetar las señales de precaución 300.00 34.29\n54 No dar luz baja al encontrar otro vehículo en sentido 300.00 34.29\nopuesto\n55 Carecer de espejo retrovisor y espejo lateral izquierdo 300.00 34.29\n56 Carecer de luz de freno 300.00 34.29\n57 Ocasionar accidentes por desperfectos mecánicos 300.00 34.29\n58 Bajar o subir pasa",
+      "id": "58b979b5-d4a4-42f5-8d94-72f29047dac0",
+      "label": "[8] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 117",
+      "pageEnd": 30,
+      "pageStart": 23,
+      "sectionTitle": "CAPITULO I > DE LOS SEGUROS Y FIANZAS > CAPITULO II",
+      "similarity": 0.656230552442848,
+      "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
+      "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
+    },
+    {
+      "articleNumber": "117",
+      "documentKey": "decreto-legislativo-185",
+      "documentName": "Decreto Legislativo No. 185",
+      "excerpt": "puedan afectar la visibilidad de los demás conductores y en caso de tener los\nde fábrica, utilizarlos en la vía pública.\n104 Conducir con el motor apagado o en neutro. $150\n105 No respetar la señal vial de alto o de ceder el paso. $150\n106 No respetar la luz roja del semáforo. $150\n107 Sobrepasar un vehículo cuando otro venga en dirección opuesta y dicha $150\nmaniobra cause peligro.\n108 Conducir vehículos con sistema de frenos en mal estado. $150\n109 Utilizar la vía pública para competencias automovilísticas sin au",
+      "id": "b4a169bf-852c-423e-a61d-497b82cf6f88",
+      "label": "[9] Decreto Legislativo No. 185, Art. 117",
+      "pageEnd": 9,
+      "pageStart": 3,
+      "sectionTitle": null,
+      "similarity": 0.654146853675724,
+      "sourcePath": "assets\\DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf",
+      "sourceUrl": "assets/DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf"
+    },
+    {
+      "articleNumber": "255",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "68 No respetar derecho de vía al salir de un\nestacionamiento. ¢ 300.00\n69 No disminuir la velocidad en zonas restringidas tales\ncomo: Colegios, escuelas, iglesias, hospitales, centros\ndeportivos, mercados, etc. ¢ 300.00\n70 Sobrepasar a otro vehículo en boca-calle. ¢ 300.00\n71 Colocarse en carril que no le corresponda en boca-calle,\npara iniciar la marcha. ¢ 300.00\n72 No atender la indicación de parada del agente de la\nPolicía Nacional Civil, o Delegado de Tránsito, con la\nseñal de alto en el día y por la noche con ",
+      "id": "8f1ace5f-c303-461e-8850-93f95fb1ab81",
+      "label": "[10] Reglamento General de Tránsito y Seguridad Vial, Art. 255",
+      "pageEnd": 67,
+      "pageStart": 61,
+      "sectionTitle": "TITULO X > DE LAS INFRACCIONES, MULTAS Y SUSPENSIONES > DE LAS MULTAS E INFRACCIONES",
+      "similarity": 0.652799228140946,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    }
+  ],
+  "generatedAt": "2026-07-04T23:08:17.785Z",
+  "generator": "scripts/generate-learning-modules.mjs",
+  "moduleId": "03-vehiculo-seguro",
+  "originalBrief": {
+    "concepts": "- Clasificacion de vehiculos.\n- Normas minimas para circular.\n- Revisiones mecanicas o controles.\n- Placas visibles.\n- Llantas, luces, frenos y condiciones basicas.\n- Sobrecarga.\n- Emisiones y ruido cuando aplique.",
+    "purpose": "Que la persona entienda que manejar un vehiculo en mal estado puede causar un siniestro aunque el conductor tenga buenas intenciones.",
+    "questions": "- Que parte del vehiculo debes revisar antes de viajar?\n- Por que una carga mal puesta puede matar?\n- Que pasa si tus placas no son visibles?",
+    "scenarios": "|  ID  |  Situacion  |  Decision segura  |  Consecuencia a explicar  |\n|  01  |  Una llanta esta lisa pero \"aguanta\"  |  Cambiar o reparar antes de salir  |  Derrape o reventon  |\n|  02  |  Pickup con carga mal asegurada  |  Asegurar y respetar capacidad  |  Golpear a otro usuario  |",
+    "sourceScope": [
+      "Ley de Transporte Terrestre, Transito y Seguridad Vial",
+      "Reglamento General de Transito y Seguridad Vial"
+    ],
+    "visual": "Checklist visual de un carro antes de salir: llantas, luces, frenos, placas y carga."
+  },
+  "retrievalQuery": "Modulo: Vehiculo seguro\nProposito: Que la persona entienda que manejar un vehiculo en mal estado puede causar un siniestro aunque el conductor tenga buenas intenciones.\nConceptos: - Clasificacion de vehiculos.\n- Normas minimas para circular.\n- Revisiones mecanicas o controles.\n- Placas visibles.\n- Llantas, luces, frenos y condiciones basicas.\n- Sobrecarga.\n- Emisiones y ruido cuando aplique.\nMicro-lecciones: |  ID  |  Titulo  |  Fuente esperada  |  Riesgo que conecta  |\n|  01  |  Tu vehiculo tambien debe cumplir la ley  |  Ley  |  Fallas mecanicas  |\n|  02  |  Placas y tarjeta de circulacion  |  Ley y reglamento  |  Identificacion y control  |\n|  03  |  No sobrecargues el vehiculo  |  Ley  |  Perdida de control y accidentes  |\n|  04  |  Luces, frenos y llantas  |  Reglamento  |  Choques evitables  |\nEscenarios: |  ID  |  Situacion  |  Decision segura  |  Consecuencia a explicar  |\n|  01  |  Una llanta esta lisa pero \"aguanta\"  |  Cambiar o reparar antes de salir  |  Derrape o reventon  |\n|  02  |  Pickup con carga mal asegurada  |  Asegurar y respetar capacidad  |  Golpear a otro usuario  |\nFuentes esperadas: Ley de Transporte Terrestre, Transito y Seguridad Vial, Reglamento General de Transito y Seguridad Vial",
+  "title": "Vehiculo seguro"
+}

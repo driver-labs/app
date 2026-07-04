@@ -1,0 +1,234 @@
+{
+  "coreIdea": "La ley de tránsito regula el comportamiento de todos los usuarios de las vías públicas para proteger vidas y asegurar un tránsito ordenado.",
+  "headline": "Fundamentos Legales de la Seguridad Vial",
+  "intro": "Entender las leyes de tránsito es fundamental para garantizar la seguridad de todos los usuarios de la vía. Este módulo te ayudará a conocer tus responsabilidades y derechos como conductor y peatón.",
+  "lessons": [
+    {
+      "title": "Para qué sirve la ley de tránsito",
+      "explanation": "La ley establece un marco legal que regula el transporte y la circulación de vehículos, así como la seguridad vial para peatones.",
+      "streetDecision": "Infórmate sobre tus derechos y obligaciones como usuario de la vía.",
+      "risk": "Manejar sin entender tus responsabilidades puede llevar a accidentes graves.",
+      "citationNumbers": [1, 2]
+    },
+    {
+      "title": "La calle es de todos",
+      "explanation": "La ley protege a todos los usuarios de la vía, incluyendo peatones, ciclistas y conductores.",
+      "streetDecision": "Respeta a los peatones y comparte la vía de manera segura.",
+      "risk": "Ignorar a los peatones puede causar conflictos y accidentes.",
+      "citationNumbers": [1, 4]
+    },
+    {
+      "title": "Qué pasa cuando una regla se rompe",
+      "explanation": "Las infracciones a la ley de tránsito pueden resultar en multas y sanciones, además de poner en riesgo la vida de otros.",
+      "streetDecision": "Cumple con todas las señales de tránsito y normas de seguridad.",
+      "risk": "Desobedecer las reglas puede llevar a multas y accidentes.",
+      "citationNumbers": [3, 10]
+    },
+    {
+      "title": "Quién ordena y vigila el tránsito",
+      "explanation": "El Viceministerio de Transporte y las autoridades de tránsito son responsables de hacer cumplir las leyes de tránsito.",
+      "streetDecision": "Consulta siempre fuentes oficiales para obtener información sobre las normas de tránsito.",
+      "risk": "Desobedecer a las autoridades puede resultar en sanciones severas.",
+      "citationNumbers": [4, 8]
+    }
+  ],
+  "needsHumanReview": [],
+  "quiz": [
+    {
+      "question": "¿Cuál es el objetivo principal de la ley de tránsito?",
+      "options": [
+        "Regular el transporte de mercancías",
+        "Proteger la seguridad de todos los usuarios de la vía",
+        "Imponer multas a los conductores"
+      ],
+      "answer": "Proteger la seguridad de todos los usuarios de la vía",
+      "explanation": "La ley de tránsito tiene como objetivo principal establecer normas que aseguren la seguridad vial.",
+      "citationNumbers": [2]
+    },
+    {
+      "question": "¿Quién es responsable de hacer cumplir las leyes de tránsito?",
+      "options": [
+        "Los conductores",
+        "El Viceministerio de Transporte y las autoridades de tránsito",
+        "Los peatones"
+      ],
+      "answer": "El Viceministerio de Transporte y las autoridades de tránsito",
+      "explanation": "Estas entidades son las encargadas de regular y vigilar el cumplimiento de las normas de tránsito.",
+      "citationNumbers": [4]
+    }
+  ],
+  "reflection": [
+    "¿Por qué es importante conocer las leyes de tránsito?",
+    "¿Cómo puedes contribuir a la seguridad vial en tu comunidad?",
+    "¿Qué harías si ves a alguien ignorando una señal de tránsito?",
+    "¿Cómo afecta el comportamiento de un conductor a los peatones?"
+  ],
+  "scenario": {
+    "title": "Confusión sobre la aplicación de la ley",
+    "situation": "Una persona cree que la ley solo aplica a vehículos motorizados y no a peatones.",
+    "unsafeChoice": "Ignorar la importancia de la protección de los peatones.",
+    "safeDecision": "Explica que la ley también protege a peatones y otros usuarios de la vía.",
+    "feedback": "Es crucial entender que todos compartimos la vía y que la ley está diseñada para proteger a todos.",
+    "citationNumbers": [1, 2]
+  },
+  "whyItMatters": "Conocer y respetar las leyes de tránsito no solo evita sanciones, sino que también previene accidentes y salva vidas. Todos compartimos la vía y es nuestra responsabilidad cuidarnos mutuamente.",
+  "audience": ["primera-licencia", "refuerzo"],
+  "citations": [
+    {
+      "articleNumber": "3",
+      "documentKey": "ley-transporte-terrestre",
+      "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+      "excerpt": "Art. 3.- Para tal efecto esta Ley regulará:\n1) Las normas del transporte y de la circulación de los vehículos que presten el servicio de Transporte;\nasí como las que por razones de Seguridad Vial han de regir para la circulación de peatones y\nsemovientes por las vías terrestres; estableciéndose para tal efecto los derechos y obligaciones de\nlos usuarios.\n2) La autorización y el establecimiento de rutas, frecuencias y fluidez de la circulación vehicular del\nservicio colectivo de pasajeros; así como la concesión de l",
+      "id": "d759f78e-e3ec-4920-86aa-e97c1888d624",
+      "label": "[1] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 3",
+      "pageEnd": 2,
+      "pageStart": 2,
+      "sectionTitle": "DISPOSICIONES PRELIMINARES > CAPITULO UNICO > OBJETO DE LA LEY",
+      "similarity": 0.721688120850523,
+      "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
+      "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
+    },
+    {
+      "articleNumber": "1",
+      "documentKey": "ley-transporte-terrestre",
+      "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+      "excerpt": "Art. 1.- La presente Ley tiene por objeto establecer el marco legal en materia de:\na) Régimen administrativo de Transporte, Tránsito y su Seguridad Vial;\n\nb) Transporte Terrestre, con excepción del Régimen Ferroviario;\nc) Registro Público de Vehículos Automotores: Transporte Individual y Colectivo de Pasajeros;\nTransporte Liviano y Pesado de Carga;\nd) Tránsito y Circulación Vehicular;\ne) Seguridad Vial;\nf) Estacionamientos, Terminales de Servicio Colectivo, de Carga y demás lugares de acceso público en\nlo que fuese",
+      "id": "eeed63ea-5db3-4d1a-8c83-c96904423e87",
+      "label": "[2] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 1",
+      "pageEnd": 2,
+      "pageStart": 1,
+      "sectionTitle": "DISPOSICIONES PRELIMINARES > CAPITULO UNICO > OBJETO DE LA LEY",
+      "similarity": 0.670810910819017,
+      "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
+      "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
+    },
+    {
+      "articleNumber": "116",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 116.- Dentro de la circulación vehícular deberán tenerse presente y cumplir con exactitud las reglas\nsiguientes:\n1. No deberá conducirse describiendo curvas o atravesar el vehículo.\n2. No podrá sobrepasarse a otro vehículo, sin antes haberlo indicado con la luz direccional, o cuando\nun tercero viene en dirección contraria o cuando el vehículo delantero se acercare a algún trecho\nangosto, curva, puente, etc.\n3. Debe dejarse el vehículo estacionado a más de 10 metros de las esquinas de las intersecciones\nurbanas",
+      "id": "61763ea9-93d7-475e-9761-56a5d1521838",
+      "label": "[3] Reglamento General de Tránsito y Seguridad Vial, Art. 116",
+      "pageEnd": 30,
+      "pageStart": 28,
+      "sectionTitle": null,
+      "similarity": 0.663676320479467,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "3",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 3.- Los preceptos de la Ley de Transporte Terrestre, Tránsito y Seguridad Vial, y los del presente\nReglamento, y las demás disposiciones que la desarrollen serán aplicables en todo el país y obligarán al\nacatamiento de parte de los Titulares y usuarios de las vías y sitios de uso público y aquellos de origen\nprivado que se destinen al uso público.\nDEFINICIONES",
+      "id": "d4a8e668-a28f-407f-8329-41e3b5e9feed",
+      "label": "[4] Reglamento General de Tránsito y Seguridad Vial, Art. 3",
+      "pageEnd": 2,
+      "pageStart": 2,
+      "sectionTitle": "FINALIDAD Y DEFINICIONES DE ESTE REGLAMENTO > FINALIDAD > AMBITO DE APLICACION",
+      "similarity": 0.655063013378778,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "4",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "35. Opacímetro: dispositivo para medir el grado de opacidad de los gases, humos y partículas del\nescape de un vehículo.\n36. Pasajero: toda persona que aparte del conductor, ocupa un lugar dentro del vehículo.\n37. Permiso Temporal de Aprendizaje: documento que se expide, en forma temporal, para aprender a\nconducir vehículos automotores y que queda supeditado al acatamiento de las disposiciones del\npresente Reglamento.\n38. Peso Bruto del Vehículo: peso total del vehículo que resulta al sumar su peso de acuerdo con la",
+      "id": "86651e5c-2767-4ccd-996b-28039f6d3c5a",
+      "label": "[5] Reglamento General de Tránsito y Seguridad Vial, Art. 4",
+      "pageEnd": 5,
+      "pageStart": 2,
+      "sectionTitle": "FINALIDAD > AMBITO DE APLICACION > DEFINICIONES",
+      "similarity": 0.653646808296919,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "4",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 4.- Para la mejor comprensión del Reglamento General de Tránsito y Seguridad Vial, se dan las\nsiguientes definiciones:\n1. Aceleración Libre: Procedimiento que consiste en acelerar el motor, lo más rápidamente posible sin\nbrusquedades, pero en forma contínua, con la palanca de la caja de velocidades en posición de\npunto muerto y el embrague del motor acoplado, a modo de obtener el máximo abastecimiento con\nla bomba de inyección, hasta que el motor gire a su máxima velocidad en vacío. Cuando se alcanza\ndicha vel",
+      "id": "483c0669-f31c-4e93-b06b-1fa25c00a343",
+      "label": "[6] Reglamento General de Tránsito y Seguridad Vial, Art. 4",
+      "pageEnd": 5,
+      "pageStart": 2,
+      "sectionTitle": "FINALIDAD > AMBITO DE APLICACION > DEFINICIONES",
+      "similarity": 0.646816697021913,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "190",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 190.- Se determina que en los establecimientos educativos estatales y particulares, se impartirá la\nenseñanza de las normas, práctica y principios que regulan el tránsito, el uso de las vías públicas, los medios\nde transporte y la formación de conciencia y hábitos de seguridad en el tránsito vehicular.",
+      "id": "4c42770c-6bfd-4f17-9eb6-93dca976db6e",
+      "label": "[7] Reglamento General de Tránsito y Seguridad Vial, Art. 190",
+      "pageEnd": 49,
+      "pageStart": 49,
+      "sectionTitle": "TITULO VI > DE LA SEGURIDAD VIAL",
+      "similarity": 0.639938205020188,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "116",
+      "documentKey": "decreto-legislativo-185",
+      "documentName": "Decreto Legislativo No. 185",
+      "excerpt": "\"Art. 116.- Las multas por infracciones de tránsito, transporte terrestre y transporte de carga,\ndeberán ser aplicadas por las autoridades competentes por medios escritos, electrónicos u otros de\nacuerdo con la legislación vigente.\nEl Viceministerio de Transporte y la División de Tránsito Terrestre de la Policía Nacional Civil, son\nlos competentes para tramitar el procedimiento y recurso que se describe en las siguientes disposiciones.\nLa instrucción de los procedimientos, corresponderá a la Unidad de Procedimiento",
+      "id": "50ab0ef3-a7e9-4a01-87b7-8d10fa30fa09",
+      "label": "[8] Decreto Legislativo No. 185, Art. 116",
+      "pageEnd": 3,
+      "pageStart": 3,
+      "sectionTitle": null,
+      "similarity": 0.635916181946143,
+      "sourcePath": "assets\\DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf",
+      "sourceUrl": "assets/DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf"
+    },
+    {
+      "articleNumber": "1",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 1.- El presente Reglamento tiene por objeto desarrollar lo establecido en la Ley de Transporte\nTerrestre, Tránsito y Seguridad Vial, en relación a lo que concierne al Tránsito y la Seguridad Vial.",
+      "id": "803bd37d-194b-44f0-94d6-cbc18965e088",
+      "label": "[9] Reglamento General de Tránsito y Seguridad Vial, Art. 1",
+      "pageEnd": 1,
+      "pageStart": 1,
+      "sectionTitle": "CAPITULO I > FINALIDAD Y DEFINICIONES DE ESTE REGLAMENTO > FINALIDAD",
+      "similarity": 0.635289942370478,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "117",
+      "documentKey": "ley-transporte-terrestre",
+      "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+      "excerpt": "Art. 117.- Las infracciones de tránsito y seguridad vial se clasifican en Leves, graves y muy graves. (20)\nPrevio a la adquisición de cualquier vehículo automotor, el interesado deberá cerciorarse en el Registro\nPúblico de Vehículos, que no exista pendiente el pago de multas que se hubieren impuesto respecto del\nmismo, al propietario. (20)\nEn todo caso, la tarjeta de circulación del vehículo de que se trate, sólo podrá renovarse, previo pago de\nla multa. (20)\nCUADRO DE MULTAS DE TRANSITO POR INFRACCIONES LEVES, GRA",
+      "id": "0725c88e-ea49-42ba-a7dd-52eedf8a3bbd",
+      "label": "[10] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 117",
+      "pageEnd": 30,
+      "pageStart": 23,
+      "sectionTitle": "CAPITULO I > DE LOS SEGUROS Y FIANZAS > CAPITULO II",
+      "similarity": 0.634276307165989,
+      "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
+      "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
+    }
+  ],
+  "generatedAt": "2026-07-04T23:07:45.470Z",
+  "generator": "scripts/generate-learning-modules.mjs",
+  "moduleId": "01-fundamentos-legales",
+  "originalBrief": {
+    "concepts": "- Objeto de la ley.\n- A quien aplica la ley.\n- Que regula: transporte, transito, seguridad vial, peatones, senales, infracciones y medio ambiente.\n- Papel del Viceministerio de Transporte y autoridades de transito.\n- Diferencia entre ley, reglamento y manual de senales.",
+    "purpose": "Que la persona entienda que manejar es una responsabilidad publica. La ley existe para ordenar la calle y proteger vidas.",
+    "questions": "- Que busca proteger la ley de transito?\n- A quien aplica la seguridad vial?\n- Por que no basta memorizar preguntas del examen?",
+    "scenarios": "|  ID  |  Situacion  |  Decision segura  |  Consecuencia a explicar  |\n|  01  |  Una persona cree que la ley solo aplica a carros  |  Explicar que tambien protege peatones y otros usuarios  |  Riesgo para personas vulnerables  |\n|  02  |  Un conductor ignora una indicacion de transito  |  Obedecer y consultar fuente oficial  |  Sancion y peligro de choque  |",
+    "sourceScope": [
+      "Ley de Transporte Terrestre, Transito y Seguridad Vial",
+      "Reglamento General de Transito y Seguridad Vial"
+    ],
+    "visual": "Diagrama simple de una calle con carro, bus, moto, ciclista y peaton. Mostrar que todos comparten la via y todos tienen reglas."
+  },
+  "retrievalQuery": "Modulo: Fundamentos legales\nProposito: Que la persona entienda que manejar es una responsabilidad publica. La ley existe para ordenar la calle y proteger vidas.\nConceptos: - Objeto de la ley.\n- A quien aplica la ley.\n- Que regula: transporte, transito, seguridad vial, peatones, senales, infracciones y medio ambiente.\n- Papel del Viceministerio de Transporte y autoridades de transito.\n- Diferencia entre ley, reglamento y manual de senales.\nMicro-lecciones: |  ID  |  Titulo  |  Fuente esperada  |  Riesgo que conecta  |\n|  01  |  Para que sirve la ley de transito  |  Ley, Art. 1-3  |  Manejar sin entender responsabilidades  |\n|  02  |  La calle es de todos  |  Ley y reglamento  |  Conflictos entre conductores y peatones  |\n|  03  |  Que pasa cuando una regla se rompe  |  Ley y reglamento  |  Multas, siniestros y dano a otros  |\n|  04  |  Quien ordena y vigila el transito  |  Reglamento  |  Desobedecer autoridad o senales  |\nEscenarios: |  ID  |  Situacion  |  Decision segura  |  Consecuencia a explicar  |\n|  01  |  Una persona cree que la ley solo aplica a carros  |  Explicar que tambien protege peatones y otros usuarios  |  Riesgo para personas vulnerables  |\n|  02  |  Un conductor ignora una indicacion de transito  |  Obedecer y consultar fuente oficial  |  Sancion y peligro de choque  |\nFuentes esperadas: Ley de Transporte Terrestre, Transito y Seguridad Vial, Reglamento General de Transito y Seguridad Vial",
+  "title": "Fundamentos legales"
+}

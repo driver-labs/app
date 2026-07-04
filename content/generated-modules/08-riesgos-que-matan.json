@@ -1,0 +1,238 @@
+{
+  "coreIdea": "Algunas conductas al volante no son simples errores, sino decisiones que pueden tener consecuencias fatales. Es crucial entender los riesgos asociados con el alcohol, la velocidad, la distracción y las condiciones climáticas.",
+  "headline": "Riesgos que matan",
+  "intro": "La seguridad vial es fundamental para proteger la vida de todos los usuarios de la carretera. Conocer y respetar las normas de tránsito puede marcar la diferencia entre la vida y la muerte.",
+  "lessons": [
+    {
+      "title": "Alcohol y volante no se mezclan",
+      "explanation": "Conducir bajo los efectos del alcohol aumenta significativamente el riesgo de accidentes. La ley prohíbe esta práctica y establece sanciones severas.",
+      "streetDecision": "No conduzcas si has consumido alcohol.",
+      "risk": "Muerte, sanción grave.",
+      "citationNumbers": [1, 8]
+    },
+    {
+      "title": "La velocidad quita tiempo para frenar",
+      "explanation": "Conducir a alta velocidad reduce el tiempo de reacción ante imprevistos, aumentando el riesgo de atropellos o choques.",
+      "streetDecision": "Respeta los límites de velocidad establecidos.",
+      "risk": "Atropello o choque.",
+      "citationNumbers": [1, 3]
+    },
+    {
+      "title": "El celular te roba la mirada",
+      "explanation": "Usar el celular mientras conduces distrae tu atención y puede llevar a accidentes fatales.",
+      "streetDecision": "No uses el celular mientras manejas.",
+      "risk": "Distracción que puede causar accidentes.",
+      "citationNumbers": [1, 8]
+    },
+    {
+      "title": "Lluvia: frena antes",
+      "explanation": "Las condiciones de lluvia hacen que las carreteras sean resbaladizas, aumentando el riesgo de derrapes.",
+      "streetDecision": "Reduce la velocidad y aumenta la distancia de frenado en condiciones de lluvia.",
+      "risk": "Derrape y pérdida de control del vehículo.",
+      "citationNumbers": [1, 3]
+    },
+    {
+      "title": "Noche: ver menos exige ir más despacio",
+      "explanation": "La visibilidad es reducida durante la noche, lo que requiere mayor precaución al conducir.",
+      "streetDecision": "Conduce a una velocidad moderada durante la noche.",
+      "risk": "Reacción tardía ante obstáculos.",
+      "citationNumbers": [1, 3]
+    }
+  ],
+  "needsHumanReview": [],
+  "quiz": [
+    {
+      "question": "¿Cuál es una consecuencia de conducir bajo los efectos del alcohol?",
+      "options": [
+        "Aumento de la velocidad",
+        "Sanciones legales",
+        "Mayor concentración"
+      ],
+      "answer": "Sanciones legales",
+      "explanation": "Conducir bajo los efectos del alcohol es ilegal y puede resultar en severas sanciones y accidentes.",
+      "citationNumbers": [1, 8]
+    },
+    {
+      "question": "¿Qué debes hacer en condiciones de lluvia?",
+      "options": ["Aumentar la velocidad", "Frenar antes", "Usar luces altas"],
+      "answer": "Frenar antes",
+      "explanation": "Es crucial reducir la velocidad y aumentar la distancia de frenado en condiciones de lluvia para evitar derrapes.",
+      "citationNumbers": [1, 3]
+    }
+  ],
+  "reflection": [
+    "¿Por qué es importante no usar el celular mientras conduces?",
+    "¿Qué medidas puedes tomar para conducir de manera más segura en la noche?",
+    "¿Cómo afecta el alcohol tu capacidad para conducir?",
+    "¿Qué cambios harías en tu comportamiento al volante después de aprender sobre estos riesgos?"
+  ],
+  "scenario": {
+    "title": "Uso del celular mientras manejas",
+    "situation": "Recibes un mensaje mientras conduces.",
+    "unsafeChoice": "Decides leer y responder el mensaje mientras sigues manejando.",
+    "safeDecision": "No uses el celular hasta que te detengas en un lugar seguro.",
+    "feedback": "Usar el celular mientras conduces puede llevar a un accidente en segundos. Mantén tu atención en la carretera.",
+    "citationNumbers": [1, 8]
+  },
+  "whyItMatters": "Cada año, miles de personas pierden la vida en accidentes de tránsito. Conducir de manera responsable no solo protege tu vida, sino también la de los demás.",
+  "audience": ["primera-licencia", "refuerzo"],
+  "citations": [
+    {
+      "articleNumber": "172",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 172.- Se considera conductor temerario a cualquier persona que conduzca un vehículo en\ncualesquiera de las condiciones siguientes:\n1. Estado de ebriedad que exceda los límites de contenido de alcohol en la sangre establecidos en el\nartículo anterior.\n2. Bajo los efectos de drogas o sustancias enervantes ilegales, de acuerdo con las definiciones que al\nrespecto haya establecido el Ministerio de Salud;\n3. El conductor que irrespete la señal de alto de la luz roja de un semáforo;\n4. En carreteras de dos carriles ",
+      "id": "39d1ec47-ba3f-4099-ae02-f493c5308149",
+      "label": "[1] Reglamento General de Tránsito y Seguridad Vial, Art. 172",
+      "pageEnd": 45,
+      "pageStart": 45,
+      "sectionTitle": null,
+      "similarity": 0.659989736212874,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "117",
+      "documentKey": "ley-transporte-terrestre",
+      "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+      "excerpt": "Art. 117.- Las infracciones de tránsito y seguridad vial se clasifican en Leves, graves y muy graves. (20)\nPrevio a la adquisición de cualquier vehículo automotor, el interesado deberá cerciorarse en el Registro\nPúblico de Vehículos, que no exista pendiente el pago de multas que se hubieren impuesto respecto del\nmismo, al propietario. (20)\nEn todo caso, la tarjeta de circulación del vehículo de que se trate, sólo podrá renovarse, previo pago de\nla multa. (20)\nCUADRO DE MULTAS DE TRANSITO POR INFRACCIONES LEVES, GRA",
+      "id": "0725c88e-ea49-42ba-a7dd-52eedf8a3bbd",
+      "label": "[2] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 117",
+      "pageEnd": 30,
+      "pageStart": 23,
+      "sectionTitle": "CAPITULO I > DE LOS SEGUROS Y FIANZAS > CAPITULO II",
+      "similarity": 0.649391326588196,
+      "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
+      "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
+    },
+    {
+      "articleNumber": "116",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 116.- Dentro de la circulación vehícular deberán tenerse presente y cumplir con exactitud las reglas\nsiguientes:\n1. No deberá conducirse describiendo curvas o atravesar el vehículo.\n2. No podrá sobrepasarse a otro vehículo, sin antes haberlo indicado con la luz direccional, o cuando\nun tercero viene en dirección contraria o cuando el vehículo delantero se acercare a algún trecho\nangosto, curva, puente, etc.\n3. Debe dejarse el vehículo estacionado a más de 10 metros de las esquinas de las intersecciones\nurbanas",
+      "id": "61763ea9-93d7-475e-9761-56a5d1521838",
+      "label": "[3] Reglamento General de Tránsito y Seguridad Vial, Art. 116",
+      "pageEnd": 30,
+      "pageStart": 28,
+      "sectionTitle": null,
+      "similarity": 0.647528924729879,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "255",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "68 No respetar derecho de vía al salir de un\nestacionamiento. ¢ 300.00\n69 No disminuir la velocidad en zonas restringidas tales\ncomo: Colegios, escuelas, iglesias, hospitales, centros\ndeportivos, mercados, etc. ¢ 300.00\n70 Sobrepasar a otro vehículo en boca-calle. ¢ 300.00\n71 Colocarse en carril que no le corresponda en boca-calle,\npara iniciar la marcha. ¢ 300.00\n72 No atender la indicación de parada del agente de la\nPolicía Nacional Civil, o Delegado de Tránsito, con la\nseñal de alto en el día y por la noche con ",
+      "id": "8f1ace5f-c303-461e-8850-93f95fb1ab81",
+      "label": "[4] Reglamento General de Tránsito y Seguridad Vial, Art. 255",
+      "pageEnd": 67,
+      "pageStart": 61,
+      "sectionTitle": "TITULO X > DE LAS INFRACCIONES, MULTAS Y SUSPENSIONES > DE LAS MULTAS E INFRACCIONES",
+      "similarity": 0.646713643913174,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "255",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 255.- Las Multas e infracciones se clasificarán en FALTAS LEVES, GRAVES Y MUY GRAVES,\naplicándose sanciones de índole diferente en cada caso; las cuales se detallan a continuación, así:\nMULTAS POR FALTAS\nLEVES, GRAVES Y MUY GRAVES\nCÓDIGO DESCRIPCIÓN\nVALOR\nCOLONES\nLEVES\n1 Pitar innecesariamente dentro de la ciudad ¢ 100.00\n2 Obstaculizar el tránsito en general ¢ 100.00\n3 Retroceder en vías de mucho tránsito ¢ 100.00\n4 Obstaculizar el paso en entierros, desfiles,\neventos deportivos, en las vías públicas ¢ 100.00",
+      "id": "1aeb6728-b557-4224-901f-bfc0a569b52b",
+      "label": "[5] Reglamento General de Tránsito y Seguridad Vial, Art. 255",
+      "pageEnd": 67,
+      "pageStart": 61,
+      "sectionTitle": "TITULO X > DE LAS INFRACCIONES, MULTAS Y SUSPENSIONES > DE LAS MULTAS E INFRACCIONES",
+      "similarity": 0.632853638578288,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "117",
+      "documentKey": "decreto-legislativo-185",
+      "documentName": "Decreto Legislativo No. 185",
+      "excerpt": "\"Art. 117.- Las infracciones de tránsito y seguridad vial se clasifican en leves, graves y muy\ngraves.\nPrevio a la adquisición de cualquier vehículo automotor, el interesado deberá cerciorarse en el\nregistro público de vehículos, que no exista pendiente el pago de multas que se hubieren impuesto\nrespecto del mismo, al propietario o legítimo tenedor.\nEn todo caso, la tarjeta de circulación del vehículo de que se trate sólo podrá renovarse, previo\npago de la multa.\n\nLas multas por infracciones de tránsito, transporte",
+      "id": "c123a45c-b893-4c70-aab5-a4601e31f37c",
+      "label": "[6] Decreto Legislativo No. 185, Art. 117",
+      "pageEnd": 9,
+      "pageStart": 3,
+      "sectionTitle": null,
+      "similarity": 0.631935980295344,
+      "sourcePath": "assets\\DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf",
+      "sourceUrl": "assets/DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf"
+    },
+    {
+      "articleNumber": "117",
+      "documentKey": "decreto-legislativo-185",
+      "documentName": "Decreto Legislativo No. 185",
+      "excerpt": "puedan afectar la visibilidad de los demás conductores y en caso de tener los\nde fábrica, utilizarlos en la vía pública.\n104 Conducir con el motor apagado o en neutro. $150\n105 No respetar la señal vial de alto o de ceder el paso. $150\n106 No respetar la luz roja del semáforo. $150\n107 Sobrepasar un vehículo cuando otro venga en dirección opuesta y dicha $150\nmaniobra cause peligro.\n108 Conducir vehículos con sistema de frenos en mal estado. $150\n109 Utilizar la vía pública para competencias automovilísticas sin au",
+      "id": "b4a169bf-852c-423e-a61d-497b82cf6f88",
+      "label": "[7] Decreto Legislativo No. 185, Art. 117",
+      "pageEnd": 9,
+      "pageStart": 3,
+      "sectionTitle": null,
+      "similarity": 0.629459593094397,
+      "sourcePath": "assets\\DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf",
+      "sourceUrl": "assets/DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf"
+    },
+    {
+      "articleNumber": "170",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 170.- Se prohíbe terminantemente a los conductores de vehículos ingerir bebidas embriagantes u\notros tóxicos enervantes mientras se encuentren manejando. El que contraviniere esta disposición será\ncastigado con las penas impuestas por el presente Reglamento.\nLa autoridad de tránsito que requiera a un conductor sospechoso de conducir bajo los efectos de licor o\ndrogas, deberá tener una justificación razonable para suponer que la persona estaba conduciendo el vehículo\nautomotor en ese estado.\nEl conductor tendrá",
+      "id": "d01316e2-821b-43ca-9dc9-33431f2a6d7a",
+      "label": "[8] Reglamento General de Tránsito y Seguridad Vial, Art. 170",
+      "pageEnd": 45,
+      "pageStart": 44,
+      "sectionTitle": "CAPITULO III > DE LAS PROHIBICIONES Y DEBERES PARA LOS CONDUCTORES DE VEHICULOS EN GENERAL",
+      "similarity": 0.627860968127206,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "4",
+      "documentKey": "decreto-legislativo-185",
+      "documentName": "Decreto Legislativo No. 185",
+      "excerpt": "Art. 4.- Incorpórase en el artículo 77, los incisos 2° y 3°, de la siguiente manera:\n\"La licencia para conducir automotores será suspendida por la Dirección General de Tránsito,\ncuando el conductor sea sorprendido conduciendo bajo los efectos de bebidas embriagantes,\nestupefacientes o enervantes, sin perjuicio del grado de alcoholemia o sustancia consumida; esta\ntransgresión a las normas de seguridad vial, además será constitutiva del delito de conducción peligrosa\nde vehículos automotores, por lo cual, se deberá p",
+      "id": "83d4a88b-3b76-4461-9f3b-85c586201e3e",
+      "label": "[9] Decreto Legislativo No. 185, Art. 4",
+      "pageEnd": 3,
+      "pageStart": 2,
+      "sectionTitle": "REFORMAS A LA LEY DE TRANSPORTE TERRESTRE, TRÁNSITO > Y SEGURIDAD VIAL",
+      "similarity": 0.626811610918958,
+      "sourcePath": "assets\\DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf",
+      "sourceUrl": "assets/DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf"
+    },
+    {
+      "articleNumber": "117",
+      "documentKey": "decreto-legislativo-185",
+      "documentName": "Decreto Legislativo No. 185",
+      "excerpt": "48 No respetar el derecho de vía o interceptar la vía. $100\n49 No mover un vehículo u objeto que obstruya el libre tránsito producto de un $100\nsiniestro vial, siempre que solo existan daños materiales y/o lesiones leves o\npor otras razones que la autoridad competente estime conveniente.\nSEGURIDAD VIAL\n50 No conceder el paso a peatones que se encuentren en zona de peligro $100\n51 Circular más de una persona en el asiento del conductor. $100\n52 No respetar las señales de precaución, cuando hay trabajos de construcci",
+      "id": "16f4f699-15da-4a5b-a183-be8a0748dd7c",
+      "label": "[10] Decreto Legislativo No. 185, Art. 117",
+      "pageEnd": 9,
+      "pageStart": 3,
+      "sectionTitle": null,
+      "similarity": 0.625047052488425,
+      "sourcePath": "assets\\DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf",
+      "sourceUrl": "assets/DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf"
+    }
+  ],
+  "generatedAt": "2026-07-04T23:09:15.693Z",
+  "generator": "scripts/generate-learning-modules.mjs",
+  "moduleId": "08-riesgos-que-matan",
+  "originalBrief": {
+    "concepts": "- Alcohol y alcoholemia.\n- Exceso de velocidad.\n- Distraccion por celular.\n- Cansancio.\n- No guardar distancia.\n- Lluvia.\n- Noche.\n- No usar casco o cinturon si aplica en fuentes.",
+    "purpose": "Que la persona vea que algunas conductas no son \"errores pequenos\". Pueden matar al conductor, pasajeros o personas inocentes.",
+    "questions": "- Por que el alcohol vuelve peligroso manejar?\n- Que cambia cuando manejas bajo lluvia?\n- Que puede pasar en dos segundos mirando el celular?",
+    "scenarios": "|  ID  |  Situacion  |  Decision segura  |  Consecuencia a explicar  |\n|  01  |  Recibes mensaje mientras manejas  |  No usar celular hasta detenerte  |  Atropello en segundos  |\n|  02  |  Sales de una fiesta y bebiste  |  No conducir  |  Muerte, multa, proceso legal  |",
+    "sourceScope": [
+      "Ley de Transporte Terrestre, Transito y Seguridad Vial",
+      "Reglamento General de Transito y Seguridad Vial",
+      "MVP de Cultura Vial SV"
+    ],
+    "visual": "Comparacion de dos escenas: conductor atento frenando a tiempo y conductor viendo celular que no alcanza a reaccionar."
+  },
+  "retrievalQuery": "Modulo: Riesgos que matan\nProposito: Que la persona vea que algunas conductas no son \"errores pequenos\". Pueden matar al conductor, pasajeros o personas inocentes.\nConceptos: - Alcohol y alcoholemia.\n- Exceso de velocidad.\n- Distraccion por celular.\n- Cansancio.\n- No guardar distancia.\n- Lluvia.\n- Noche.\n- No usar casco o cinturon si aplica en fuentes.\nMicro-lecciones: |  ID  |  Titulo  |  Fuente esperada  |  Riesgo que conecta  |\n|  01  |  Alcohol y volante no se mezclan  |  Reglamento y ley  |  Muerte, sancion grave  |\n|  02  |  La velocidad quita tiempo para frenar  |  Reglamento y senales  |  Atropello o choque  |\n|  03  |  El celular te roba la mirada  |  MVP y normativa  |  Distraccion  |\n|  04  |  Lluvia: frena antes  |  MVP y reglamento  |  Derrape  |\n|  05  |  Noche: ver menos exige ir mas despacio  |  MVP  |  Reaccion tardia  |\nEscenarios: |  ID  |  Situacion  |  Decision segura  |  Consecuencia a explicar  |\n|  01  |  Recibes mensaje mientras manejas  |  No usar celular hasta detenerte  |  Atropello en segundos  |\n|  02  |  Sales de una fiesta y bebiste  |  No conducir  |  Muerte, multa, proceso legal  |\nFuentes esperadas: Ley de Transporte Terrestre, Transito y Seguridad Vial, Reglamento General de Transito y Seguridad Vial, MVP de Cultura Vial SV",
+  "title": "Riesgos que matan"
+}

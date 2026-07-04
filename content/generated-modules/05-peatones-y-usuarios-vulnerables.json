@@ -1,0 +1,234 @@
+{
+  "coreIdea": "Los peatones y usuarios vulnerables tienen menos protección que los vehículos, por lo que es crucial que todos respetemos las normas de tránsito para garantizar su seguridad.",
+  "headline": "Peatones y usuarios vulnerables",
+  "intro": "La seguridad vial es responsabilidad de todos. Conocer las normas y actuar con precaución puede salvar vidas, especialmente las de los más vulnerables en la vía.",
+  "lessons": [
+    {
+      "title": "El peatón no tiene carrocería",
+      "explanation": "Los peatones son los más vulnerables en la vía. Siempre deben ser prioridad para los conductores.",
+      "streetDecision": "Cede el paso a los peatones en las zonas de seguridad.",
+      "risk": "Atropello.",
+      "citationNumbers": [6]
+    },
+    {
+      "title": "Zonas escolares: bajar la velocidad salva vidas",
+      "explanation": "Las zonas escolares requieren especial atención. Reducir la velocidad puede prevenir accidentes graves.",
+      "streetDecision": "Disminuye la velocidad al acercarte a una zona escolar.",
+      "risk": "Niños cruzando.",
+      "citationNumbers": [2]
+    },
+    {
+      "title": "Ciclistas y motos necesitan espacio",
+      "explanation": "Los ciclistas y motociclistas son usuarios vulnerables que requieren espacio para maniobrar de manera segura.",
+      "streetDecision": "Mantén una distancia segura al adelantar a ciclistas y motociclistas.",
+      "risk": "Golpes por punto ciego.",
+      "citationNumbers": [3]
+    },
+    {
+      "title": "No obligues a caminar en la calle",
+      "explanation": "Estacionar en las aceras obliga a los peatones a caminar por la calle, aumentando el riesgo de accidentes.",
+      "streetDecision": "Estaciona solo en lugares permitidos y nunca sobre las aceras.",
+      "risk": "Estacionar en acera.",
+      "citationNumbers": [10]
+    }
+  ],
+  "needsHumanReview": [],
+  "quiz": [
+    {
+      "question": "¿Qué debes hacer al acercarte a una zona escolar?",
+      "options": [
+        "Aumentar la velocidad",
+        "Bajar la velocidad",
+        "Ignorar las señales"
+      ],
+      "answer": "Bajar la velocidad",
+      "explanation": "Bajar la velocidad en zonas escolares es crucial para la seguridad de los niños.",
+      "citationNumbers": [2]
+    },
+    {
+      "question": "¿Dónde deben transitar los peatones?",
+      "options": [
+        "Por la calzada",
+        "Por las aceras",
+        "Por el medio de la calle"
+      ],
+      "answer": "Por las aceras",
+      "explanation": "Los peatones deben transitar por las aceras para su seguridad.",
+      "citationNumbers": [10]
+    }
+  ],
+  "reflection": [
+    "¿Cómo puedes contribuir a la seguridad de los peatones en tu comunidad?",
+    "¿Qué acciones tomarías si ves a un niño cruzar la calle?",
+    "¿Por qué es importante respetar las zonas escolares?"
+  ],
+  "scenario": {
+    "title": "Un niño aparece entre carros estacionados",
+    "situation": "Estás conduciendo y un niño sale corriendo entre vehículos estacionados.",
+    "unsafeChoice": "Acelerar para pasar rápidamente.",
+    "safeDecision": "Baja velocidad y frena con anticipación.",
+    "feedback": "Reducir la velocidad te da más tiempo para reaccionar y evitar un atropello.",
+    "citationNumbers": [1]
+  },
+  "whyItMatters": "Entender la importancia de la seguridad vial y la protección de los peatones y usuarios vulnerables es esencial para reducir accidentes y salvar vidas en nuestras calles.",
+  "audience": ["primera-licencia", "refuerzo"],
+  "citations": [
+    {
+      "articleNumber": null,
+      "documentKey": "manual-senales-centroamericano",
+      "documentName": "Manual Centroamericano de Dispositivos Uniformes para el Control del Transito",
+      "excerpt": "MANUAL CENTROAMERICANO DE\nDISPOSITIVOS UNIFORMES PARA EL\nCONTROL DEL TRÁNSITO\nIng. Junior Araya Villalobos\nSeñalización Temporal y Dispositivos de Seguridad\n\nAntecedentes del Manual.\n1958 1963 1979 1998 2000 2014\n\nContenido del Manual.\n• Disposiciones Generales.\n• Señales Verticales.\n•Señalización Horizontal y Demarcación Horizontal.\n• Demarcación de Islas en el Pavimento.\n• Semáforos.\n• Dispositivos de Seguridad y Control Temporal del Tránsito para la Ejecución de Trabajos en las Vías.\n• Control de Tránsito en Zon",
+      "id": "6128a54b-9263-4227-8c8e-ef28b8c437c2",
+      "label": "[1] Manual Centroamericano de Dispositivos Uniformes para el Control del Transito, unidad normativa",
+      "pageEnd": 110,
+      "pageStart": 1,
+      "sectionTitle": null,
+      "similarity": 0.681853835719041,
+      "sourcePath": "assets\\Manual_de_Senales.pdf",
+      "sourceUrl": "assets/Manual_de_Senales.pdf"
+    },
+    {
+      "articleNumber": "95",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 95.- Todo peatón está obligado a tener precaución y deberá observar las reglas siguientes:\n1. Es prohibido bajar o subir a un vehículo cuando éste se encuentre en movimiento, o viajar en los\nestribos, portezuelas, capotas y parrillas.\n2. Toda espera de vehículos se hará siempre en los lugares de parada previamente establecidos.\nAsimismo al bajar de un vehículo no podrá cruzarse la vía hasta que el vehículo haya abandonado el\nlugar de parada, y no hacerlo nunca por el frente del vehículo",
+      "id": "e6fe2bc3-915f-429f-9040-e60132a9d1b2",
+      "label": "[2] Reglamento General de Tránsito y Seguridad Vial, Art. 95",
+      "pageEnd": 24,
+      "pageStart": 24,
+      "sectionTitle": "DE LA CIRCULACION EN LA VIA PUBLICA > CAPITULO I > DE LAS REGLAS PARA USUARIOS DE LA VIA",
+      "similarity": 0.663243662009038,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "98",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 98.- En la Circulación Vehicular todo conductor deberá atender y ejecutar las reglas que se dan a\ncontinuación:\n1. Conducir siempre por la derecha de la vía\n2. Al entrar a una calle o carretera principal, cederá el paso a todos los vehículos que circulen en esa\nvía, aunque vengan de la derecha o izquierda.\n3. Ceder al paso a todo peatón que camine sobre la zona peatonal o de seguridad peatonal.\n4. Detener por completo la marcha y ceder el paso siempre que llegue a una señal de ALTO o de\nPARADA. Si no hubiere e",
+      "id": "ffaaed31-ef4e-477e-b4c4-8eb1dc795a74",
+      "label": "[3] Reglamento General de Tránsito y Seguridad Vial, Art. 98",
+      "pageEnd": 25,
+      "pageStart": 24,
+      "sectionTitle": "CAPITULO II > DE LAS REGLAS DE CIRCULACION VEHICULAR DE CARACTER GENERAL",
+      "similarity": 0.656388510045052,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "96",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 96.- Los peatrones están obligados a:\nTransitar en zonas urbanas, solo por las aceras y cruzar las vías en las esquinas por las zonas de\nseguridad; en los lugares que haya pasos peatonales a nivel o a desnivel, deberán transitar por éstos.",
+      "id": "879e3bd9-ae5d-42e5-a0bf-b1732063e8fe",
+      "label": "[4] Reglamento General de Tránsito y Seguridad Vial, Art. 96",
+      "pageEnd": 24,
+      "pageStart": 24,
+      "sectionTitle": "DE LA CIRCULACION EN LA VIA PUBLICA > CAPITULO I > DE LAS REGLAS PARA USUARIOS DE LA VIA",
+      "similarity": 0.651955302729605,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "116",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 116.- Dentro de la circulación vehícular deberán tenerse presente y cumplir con exactitud las reglas\nsiguientes:\n1. No deberá conducirse describiendo curvas o atravesar el vehículo.\n2. No podrá sobrepasarse a otro vehículo, sin antes haberlo indicado con la luz direccional, o cuando\nun tercero viene en dirección contraria o cuando el vehículo delantero se acercare a algún trecho\nangosto, curva, puente, etc.\n3. Debe dejarse el vehículo estacionado a más de 10 metros de las esquinas de las intersecciones\nurbanas",
+      "id": "61763ea9-93d7-475e-9761-56a5d1521838",
+      "label": "[5] Reglamento General de Tránsito y Seguridad Vial, Art. 116",
+      "pageEnd": 30,
+      "pageStart": 28,
+      "sectionTitle": null,
+      "similarity": 0.651080838099941,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "80",
+      "documentKey": "ley-transporte-terrestre",
+      "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+      "excerpt": "Art. 80.- Los peatones tienen prioridad de paso con respecto a los vehículos, en los casos siguientes:\na) En las zonas de seguridad o pasos para peatones debidamente señalizados;\nb) Cuando haya peatones cruzando una vía y los vehículos vayan a girar para entrar a ésta, aunque no\nexista paso peatonal demarcado;\nc) En las zonas peatonales, en donde los conductores tienen prohibido parar o estacionar el vehículo\nsobre ellas; y\nd) Cuando haya filas escolares, comitivas organizadas, procesiones religiosas, funerales y t",
+      "id": "0cd5647f-aec6-4b1f-8e6a-ad6d55b548f6",
+      "label": "[6] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 80",
+      "pageEnd": 18,
+      "pageStart": 18,
+      "sectionTitle": "CAPITULO III > DE LOS PEATONES",
+      "similarity": 0.649929568498685,
+      "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
+      "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
+    },
+    {
+      "articleNumber": "117",
+      "documentKey": "decreto-legislativo-185",
+      "documentName": "Decreto Legislativo No. 185",
+      "excerpt": "48 No respetar el derecho de vía o interceptar la vía. $100\n49 No mover un vehículo u objeto que obstruya el libre tránsito producto de un $100\nsiniestro vial, siempre que solo existan daños materiales y/o lesiones leves o\npor otras razones que la autoridad competente estime conveniente.\nSEGURIDAD VIAL\n50 No conceder el paso a peatones que se encuentren en zona de peligro $100\n51 Circular más de una persona en el asiento del conductor. $100\n52 No respetar las señales de precaución, cuando hay trabajos de construcci",
+      "id": "16f4f699-15da-4a5b-a183-be8a0748dd7c",
+      "label": "[7] Decreto Legislativo No. 185, Art. 117",
+      "pageEnd": 9,
+      "pageStart": 3,
+      "sectionTitle": null,
+      "similarity": 0.639222317538874,
+      "sourcePath": "assets\\DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf",
+      "sourceUrl": "assets/DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf"
+    },
+    {
+      "articleNumber": "124",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 124.- Al aproximarse a cualquier intersección de vías en que no se tenga prioridad de paso deberá\nprocederse de la siguiente forma:\n1. Si se trata de un acceso controlado por la luz roja de semáforo, el conductor deberá detener el\nvehículo en la línea de parada que esté debidamente demarcada. Si no hubiere, se detendrá cerca\nde la vía que va a cruzar sin obstruir el tránsito transversal. En el caso de que se vaya a realizar un\ngiro a la derecha, si el tránsito en la vía que tiene luz verde lo permite, se puede",
+      "id": "3609a817-1fd4-4508-905f-11f6f4259cc3",
+      "label": "[8] Reglamento General de Tránsito y Seguridad Vial, Art. 124",
+      "pageEnd": 32,
+      "pageStart": 31,
+      "sectionTitle": null,
+      "similarity": 0.637303288534305,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "149",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 149.- Las señales y signos de los Agentes de Tránsito indicarán lo siguiente:\n1. Cuando el Agente extienda los dos brazos, indica \"PARO GENERAL\", en este caso todos los\nvehículos harán alto, y mientras tarda la señal, los peatones podrán atravesar libremente por las\nzonas peatonales o por cualquiera de las boca-calles del crucero, pero nunca en sentido diagonal.\n2. Los vehículos tanto la señal de \"ALTO\" como a la de \"PARO GENERAL\" deberán detener su\nmarcha antes de cruzar las franjas de la zona de seguridad se",
+      "id": "8f1db2fa-5b46-4622-b64c-ce8cdf124f71",
+      "label": "[9] Reglamento General de Tránsito y Seguridad Vial, Art. 149",
+      "pageEnd": 39,
+      "pageStart": 38,
+      "sectionTitle": "CAPITULO VI > DE LA DETERMINACION DE VELOCIDAD > CAPITULO VII",
+      "similarity": 0.637003444598327,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "81",
+      "documentKey": "ley-transporte-terrestre",
+      "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+      "excerpt": "Art. 81.- Los peatones están obligados a transitar por las aceras, zonas de seguridad y las zonas\npeatonales; cuando éstas no existan o no sean transitables, podrán hacerlo por el hombro de la vía, o en su\ndefecto, por la calzada, de acuerdo con las normas que reglamentariamente se determinen.\nFuera de las zonas urbanas, en todas las vías del país, objeto de esta ley y en tramos de poblado\nincluidos en el desarrollo de una carretera, que no dispongan de espacio especialmente reservado para\npeatones, como norma gene",
+      "id": "c700f477-7f31-481b-b3ea-dc9b9332c908",
+      "label": "[10] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 81",
+      "pageEnd": 19,
+      "pageStart": 18,
+      "sectionTitle": "CAPITULO III > DE LOS PEATONES",
+      "similarity": 0.636335827992299,
+      "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
+      "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
+    }
+  ],
+  "generatedAt": "2026-07-04T23:08:41.979Z",
+  "generator": "scripts/generate-learning-modules.mjs",
+  "moduleId": "05-peatones-y-usuarios-vulnerables",
+  "originalBrief": {
+    "concepts": "- Aceras para peatones.\n- Pasos peatonales.\n- Zonas escolares.\n- Puentes peatonales.\n- Ciclovias si aplica.\n- Personas con discapacidad.\n- Prioridad y precaucion cerca de usuarios vulnerables.",
+    "purpose": "Que la persona entienda que quien va dentro de un vehiculo tiene mas proteccion que quien camina, pedalea o maneja moto.",
+    "questions": "- Que debes hacer al acercarte a una escuela?\n- Por que no debes estacionarte en la acera?\n- Que usuario tiene mas riesgo en un choque?",
+    "scenarios": "|  ID  |  Situacion  |  Decision segura  |  Consecuencia a explicar  |\n|  01  |  Un nino aparece entre carros estacionados  |  Bajar velocidad y frenar con anticipacion  |  Atropello  |\n|  02  |  Una persona en silla de ruedas usa el borde de la calle  |  Dar espacio y no presionar  |  Riesgo de golpe  |",
+    "sourceScope": [
+      "Ley de Transporte Terrestre, Transito y Seguridad Vial",
+      "Reglamento General de Transito y Seguridad Vial",
+      "Manual de senales"
+    ],
+    "visual": "Zona escolar con paso peatonal, ninos, senal preventiva y vehiculo reduciendo velocidad."
+  },
+  "retrievalQuery": "Modulo: Peatones y usuarios vulnerables\nProposito: Que la persona entienda que quien va dentro de un vehiculo tiene mas proteccion que quien camina, pedalea o maneja moto.\nConceptos: - Aceras para peatones.\n- Pasos peatonales.\n- Zonas escolares.\n- Puentes peatonales.\n- Ciclovias si aplica.\n- Personas con discapacidad.\n- Prioridad y precaucion cerca de usuarios vulnerables.\nMicro-lecciones: |  ID  |  Titulo  |  Fuente esperada  |  Riesgo que conecta  |\n|  01  |  El peaton no tiene carroceria  |  Ley y reglamento  |  Atropello  |\n|  02  |  Zonas escolares: bajar la velocidad salva vidas  |  Manual de senales  |  Ninos cruzando  |\n|  03  |  Ciclistas y motos necesitan espacio  |  Reglamento y MVP  |  Golpes por punto ciego  |\n|  04  |  No obligues a caminar en la calle  |  Ley  |  Estacionar en acera  |\nEscenarios: |  ID  |  Situacion  |  Decision segura  |  Consecuencia a explicar  |\n|  01  |  Un nino aparece entre carros estacionados  |  Bajar velocidad y frenar con anticipacion  |  Atropello  |\n|  02  |  Una persona en silla de ruedas usa el borde de la calle  |  Dar espacio y no presionar  |  Riesgo de golpe  |\nFuentes esperadas: Ley de Transporte Terrestre, Transito y Seguridad Vial, Reglamento General de Transito y Seguridad Vial, Manual de senales",
+  "title": "Peatones y usuarios vulnerables"
+}

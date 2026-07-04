@@ -1,0 +1,234 @@
+{
+  "coreIdea": "Las señales son mensajes que nos indican cómo actuar en la vía, no solo dibujos que debemos memorizar.",
+  "headline": "Aprendiendo sobre Señalización Vial",
+  "intro": "La señalización vial es fundamental para la seguridad en las vías. Conocer y entender las señales nos ayuda a tomar decisiones adecuadas al conducir.",
+  "lessons": [
+    {
+      "title": "Las señales te dan tiempo para decidir",
+      "explanation": "Las señales de advertencia nos alertan sobre situaciones que requieren atención, dándonos tiempo para reaccionar.",
+      "streetDecision": "Reduce la velocidad al acercarte a una señal de advertencia.",
+      "risk": "Reacción tardía que puede llevar a un accidente.",
+      "citationNumbers": [1]
+    },
+    {
+      "title": "Señales que ordenan",
+      "explanation": "Las señales de reglamentación indican las normas que debemos seguir para mantener el orden en las vías.",
+      "streetDecision": "Obedece las señales de stop y ceda el paso.",
+      "risk": "Multa o maniobra peligrosa si no se obedecen.",
+      "citationNumbers": [3, 9]
+    },
+    {
+      "title": "Señales que advierten peligro",
+      "explanation": "Las señales preventivas nos avisan sobre peligros inminentes, como curvas o zonas escolares.",
+      "streetDecision": "Baja la velocidad al ver una señal de advertencia.",
+      "risk": "No bajar la velocidad puede resultar en un accidente.",
+      "citationNumbers": [1, 5]
+    },
+    {
+      "title": "Señales que informan",
+      "explanation": "Las señales informativas nos guían sobre direcciones y servicios disponibles en la ruta.",
+      "streetDecision": "Presta atención a las señales informativas para orientarte.",
+      "risk": "Perder la orientación si no se siguen las señales.",
+      "citationNumbers": [2]
+    }
+  ],
+  "needsHumanReview": [],
+  "quiz": [
+    {
+      "question": "¿Qué debes hacer al ver una señal de stop?",
+      "options": [
+        "Acelerar y pasar rápidamente",
+        "Detenerte completamente",
+        "Ignorar la señal"
+      ],
+      "answer": "Detenerte completamente",
+      "explanation": "La señal de stop indica que debes detenerte antes de continuar, para garantizar la seguridad.",
+      "citationNumbers": [3, 9]
+    },
+    {
+      "question": "¿Cuál es la función de las señales informativas?",
+      "options": [
+        "Advertir sobre peligros",
+        "Indicar direcciones y servicios",
+        "Regular el tráfico"
+      ],
+      "answer": "Indicar direcciones y servicios",
+      "explanation": "Las señales informativas ayudan a los conductores a orientarse y encontrar servicios en la ruta.",
+      "citationNumbers": [2]
+    }
+  ],
+  "reflection": [
+    "¿Cómo puedes aplicar lo aprendido sobre señales en tu conducción diaria?",
+    "¿Qué señales consideras más importantes y por qué?",
+    "¿Has tenido alguna experiencia donde una señal te ayudó a evitar un accidente?",
+    "¿Qué harías si ves a alguien ignorando una señal de tránsito?"
+  ],
+  "scenario": {
+    "title": "Decisión en una curva peligrosa",
+    "situation": "Vas conduciendo y ves una señal preventiva que indica una curva peligrosa más adelante.",
+    "unsafeChoice": "Mantén la velocidad y no reduces.",
+    "safeDecision": "Reduce la velocidad antes de llegar a la curva.",
+    "feedback": "Reducir la velocidad te permite tomar la curva de manera segura y evitar salir de la vía.",
+    "citationNumbers": [1, 5]
+  },
+  "whyItMatters": "Entender la señalización vial puede prevenir accidentes y salvar vidas. Respetar las señales es una responsabilidad de todos los conductores.",
+  "audience": ["primera-licencia", "refuerzo"],
+  "citations": [
+    {
+      "articleNumber": null,
+      "documentKey": "manual-senales-centroamericano",
+      "documentName": "Manual Centroamericano de Dispositivos Uniformes para el Control del Transito",
+      "excerpt": "MANUAL CENTROAMERICANO DE\nDISPOSITIVOS UNIFORMES PARA EL\nCONTROL DEL TRÁNSITO\nIng. Junior Araya Villalobos\nSeñalización Temporal y Dispositivos de Seguridad\n\nAntecedentes del Manual.\n1958 1963 1979 1998 2000 2014\n\nContenido del Manual.\n• Disposiciones Generales.\n• Señales Verticales.\n•Señalización Horizontal y Demarcación Horizontal.\n• Demarcación de Islas en el Pavimento.\n• Semáforos.\n• Dispositivos de Seguridad y Control Temporal del Tránsito para la Ejecución de Trabajos en las Vías.\n• Control de Tránsito en Zon",
+      "id": "6128a54b-9263-4227-8c8e-ef28b8c437c2",
+      "label": "[1] Manual Centroamericano de Dispositivos Uniformes para el Control del Transito, unidad normativa",
+      "pageEnd": 110,
+      "pageStart": 1,
+      "sectionTitle": null,
+      "similarity": 0.818276099012663,
+      "sourcePath": "assets\\Manual_de_Senales.pdf",
+      "sourceUrl": "assets/Manual_de_Senales.pdf"
+    },
+    {
+      "articleNumber": null,
+      "documentKey": "manual-senales-centroamericano",
+      "documentName": "Manual Centroamericano de Dispositivos Uniformes para el Control del Transito",
+      "excerpt": "Señales Verticales.\nSeñales de Información.\n\nSon las que guían o informan al conductor sobre\n\nnombres y ubicación de poblaciones, rutas, destinos,\ndirecciones, kilometrajes, distancias, servicios, puntos de\ninterés, y cualquier otra información geográfica,\nrecreacional y cultural pertinente para facilitar las\ntareas de navegación y orientación de los usuarios\n\nSeñales de Información.\n• Señales de Información de Identificación.\n• Señales de Información de Destino.\n• Señales de Información de Servicios y Turísticas",
+      "id": "061e0b11-d62d-4121-802f-546b81592f7c",
+      "label": "[2] Manual Centroamericano de Dispositivos Uniformes para el Control del Transito, unidad normativa",
+      "pageEnd": 110,
+      "pageStart": 1,
+      "sectionTitle": null,
+      "similarity": 0.691801948523826,
+      "sourcePath": "assets\\Manual_de_Senales.pdf",
+      "sourceUrl": "assets/Manual_de_Senales.pdf"
+    },
+    {
+      "articleNumber": "197",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 197.- Las autoridades de tránsito usarán indicadores especiales con leyendas que determinarán la\nrestricción o información a establecerse; y éstos serán de conformidad a las señales específicas del Manual\nLatinoamericano de Dispositivos para el Control del Tránsito en Calles y Carreteras y otro que posteriormente\nse establezca de conformidad a Convenios Internacionales suscritos por El Salvador en esa materia.",
+      "id": "b53b929f-76b8-4160-9d28-b5862758f4f2",
+      "label": "[3] Reglamento General de Tránsito y Seguridad Vial, Art. 197",
+      "pageEnd": 49,
+      "pageStart": 49,
+      "sectionTitle": null,
+      "similarity": 0.682191449303108,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "4",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "35. Opacímetro: dispositivo para medir el grado de opacidad de los gases, humos y partículas del\nescape de un vehículo.\n36. Pasajero: toda persona que aparte del conductor, ocupa un lugar dentro del vehículo.\n37. Permiso Temporal de Aprendizaje: documento que se expide, en forma temporal, para aprender a\nconducir vehículos automotores y que queda supeditado al acatamiento de las disposiciones del\npresente Reglamento.\n38. Peso Bruto del Vehículo: peso total del vehículo que resulta al sumar su peso de acuerdo con la",
+      "id": "86651e5c-2767-4ccd-996b-28039f6d3c5a",
+      "label": "[4] Reglamento General de Tránsito y Seguridad Vial, Art. 4",
+      "pageEnd": 5,
+      "pageStart": 2,
+      "sectionTitle": "FINALIDAD > AMBITO DE APLICACION > DEFINICIONES",
+      "similarity": 0.667639589182595,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "196",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 196.- Es obligatoria la colocación de lámparas de color rojo, por las noches; y banderolas del mismo\ncolor durante el día; en prevención de peligro en todo sitio de inseguridad en el tránsito vehicular por motivo\nde construcción, reparaciones y otros casos semejantes. Dichas señales incluyendo toda la señalización\npreventiva necesaria, serán colocadas por los encargados de la obra que motiva la inseguridad del tránsito en\ndichos pasos. Su incumplimiento los hará responsables solidarios por los daños ocasionado",
+      "id": "5dbf2241-90f1-4b24-a585-257c6730b706",
+      "label": "[5] Reglamento General de Tránsito y Seguridad Vial, Art. 196",
+      "pageEnd": 49,
+      "pageStart": 49,
+      "sectionTitle": null,
+      "similarity": 0.663233754443666,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "203",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 203.- El orden de prioridad entre los distintos tipos de señales de circulación es el siguiente:\n1. Señales y órdenes de los agentes de la Policía Nacional Civil y los Delegados de Tránsito, Escolta\nPresidencial y otros facultados específicamente para ello.\n2. Señalización circunstancial que modifique el régimen normal de utilización de la vía.\n3. Semáforos.\n4. Señales verticales de circulación.\n5. Señalización Horizontal.\nEn el caso que las prescripciones indicadas por diferentes señales parezcan estar en con",
+      "id": "1fefd91e-8d69-4c0b-b156-dffeb58553c0",
+      "label": "[6] Reglamento General de Tránsito y Seguridad Vial, Art. 203",
+      "pageEnd": 50,
+      "pageStart": 50,
+      "sectionTitle": "TITULO VII",
+      "similarity": 0.659374692198617,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "89",
+      "documentKey": "ley-transporte-terrestre",
+      "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+      "excerpt": "Art. 89.- El Ministerio de Educación en coordinación con el Viceministerio de Transporte, establecerán\nprogramas educativos de seguridad vial.\nCAPITULO II\n\nDE LA SEÑALIZACION VIAL Y OTROS\nDISPOSITIVOS PARA EL CONTROL DEL TRANSITO",
+      "id": "b666692c-caa3-4d90-a136-d112334ff1c0",
+      "label": "[7] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 89",
+      "pageEnd": 20,
+      "pageStart": 19,
+      "sectionTitle": "DEL SISTEMA DE SEGURIDAD VIAL > CAPITULO I > DE LA SEGURIDAD VIAL",
+      "similarity": 0.659207431705685,
+      "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
+      "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
+    },
+    {
+      "articleNumber": "116",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 116.- Dentro de la circulación vehícular deberán tenerse presente y cumplir con exactitud las reglas\nsiguientes:\n1. No deberá conducirse describiendo curvas o atravesar el vehículo.\n2. No podrá sobrepasarse a otro vehículo, sin antes haberlo indicado con la luz direccional, o cuando\nun tercero viene en dirección contraria o cuando el vehículo delantero se acercare a algún trecho\nangosto, curva, puente, etc.\n3. Debe dejarse el vehículo estacionado a más de 10 metros de las esquinas de las intersecciones\nurbanas",
+      "id": "61763ea9-93d7-475e-9761-56a5d1521838",
+      "label": "[8] Reglamento General de Tránsito y Seguridad Vial, Art. 116",
+      "pageEnd": 30,
+      "pageStart": 28,
+      "sectionTitle": null,
+      "similarity": 0.659037813367854,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "91",
+      "documentKey": "ley-transporte-terrestre",
+      "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+      "excerpt": "Art. 91.- Todo conductor está obligado a obedecer, respetar y no dañar la señalización vial y otros\ndispositivos para el control del tránsito, ya sea que establezca una prevención, restricción o prohibición y a\nadaptar su comportamiento al mensaje del resto de señales informativas que se encuentren en las vías.",
+      "id": "c0159412-0e70-4770-9cab-7058dea141cb",
+      "label": "[9] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 91",
+      "pageEnd": 20,
+      "pageStart": 20,
+      "sectionTitle": "DE LA SEGURIDAD VIAL > CAPITULO II > DISPOSITIVOS PARA EL CONTROL DEL TRANSITO",
+      "similarity": 0.657742582461842,
+      "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
+      "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
+    },
+    {
+      "articleNumber": "92",
+      "documentKey": "ley-transporte-terrestre",
+      "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+      "excerpt": "Art. 92.- Para efectos de esta ley, y especialmente en el sistema de señalización, se establece un Código\nde colores, compatible con el manual latinoamericano de dispositivos para el control del tránsito.",
+      "id": "4fa77b0e-46ef-4a65-978f-95cbed6552f9",
+      "label": "[10] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 92",
+      "pageEnd": 20,
+      "pageStart": 20,
+      "sectionTitle": "DE LA SEGURIDAD VIAL > CAPITULO II > DISPOSITIVOS PARA EL CONTROL DEL TRANSITO",
+      "similarity": 0.657268709147239,
+      "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
+      "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
+    }
+  ],
+  "generatedAt": "2026-07-04T23:08:52.132Z",
+  "generator": "scripts/generate-learning-modules.mjs",
+  "moduleId": "06-senalizacion-vial",
+  "originalBrief": {
+    "concepts": "- Senales verticales.\n- Senales de reglamentacion.\n- Senales preventivas.\n- Senales informativas.\n- Senalizacion horizontal.\n- Semaforos.\n- Zonas escolares.\n- Ciclovias.\n- Obras y control temporal.\n- Colores, formas y ubicacion de senales.",
+    "purpose": "Que la persona entienda las senales como mensajes para actuar a tiempo, no como dibujos para memorizar.",
+    "questions": "- Que tipo de senal te dice una prohibicion?\n- Que debes hacer ante una senal preventiva?\n- Para que sirven las marcas en la calle?",
+    "scenarios": "|  ID  |  Situacion  |  Decision segura  |  Consecuencia a explicar  |\n|  01  |  Ves una senal preventiva antes de una curva  |  Bajar velocidad antes de la curva  |  Salirse de la via  |\n|  02  |  La via tiene marca de paso peatonal  |  Detenerse si hay peaton cruzando  |  Atropello  |",
+    "sourceScope": [
+      "Manual Centroamericano de Dispositivos Uniformes para el Control del Transito",
+      "Reglamento General de Transito y Seguridad Vial"
+    ],
+    "visual": "Galeria comparativa: senales de reglamentacion, preventivas e informativas, con colores y formas."
+  },
+  "retrievalQuery": "Modulo: Senalizacion vial\nProposito: Que la persona entienda las senales como mensajes para actuar a tiempo, no como dibujos para memorizar.\nConceptos: - Senales verticales.\n- Senales de reglamentacion.\n- Senales preventivas.\n- Senales informativas.\n- Senalizacion horizontal.\n- Semaforos.\n- Zonas escolares.\n- Ciclovias.\n- Obras y control temporal.\n- Colores, formas y ubicacion de senales.\nMicro-lecciones: |  ID  |  Titulo  |  Fuente esperada  |  Riesgo que conecta  |\n|  01  |  Las senales te dan tiempo para decidir  |  Manual  |  Reaccion tardia  |\n|  02  |  Senales que ordenan  |  Manual  |  Multa o maniobra peligrosa  |\n|  03  |  Senales que advierten peligro  |  Manual  |  No bajar velocidad  |\n|  04  |  Senales que informan  |  Manual  |  Perder orientacion  |\n|  05  |  Marcas en el pavimento  |  Manual y reglamento  |  Invadir carril o paso peatonal  |\n|  06  |  Semaforos  |  Manual y reglamento  |  Choque en cruce  |\nEscenarios: |  ID  |  Situacion  |  Decision segura  |  Consecuencia a explicar  |\n|  01  |  Ves una senal preventiva antes de una curva  |  Bajar velocidad antes de la curva  |  Salirse de la via  |\n|  02  |  La via tiene marca de paso peatonal  |  Detenerse si hay peaton cruzando  |  Atropello  |\nFuentes esperadas: Manual Centroamericano de Dispositivos Uniformes para el Control del Transito, Reglamento General de Transito y Seguridad Vial",
+  "title": "Senalizacion vial"
+}
