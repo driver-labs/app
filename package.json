@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "biome check",
-    "format": "biome format --write"
+    "format": "biome format --write",
+    "rag:dry-run": "node scripts/run-python-ingest.mjs --dry-run",
+    "rag:ingest": "node scripts/run-python-ingest.mjs"
   },
   "dependencies": {
     "next": "16.2.10",
