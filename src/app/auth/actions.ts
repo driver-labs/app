@@ -30,7 +30,7 @@ function formatAuthError(errorMessage: string) {
     normalizedMessage.includes("already been registered") ||
     normalizedMessage.includes("user already")
   ) {
-    return "Ese correo ya tiene una cuenta.";
+    return "No pudimos completar el registro. Revisa los datos e inténtalo de nuevo.";
   }
 
   if (
