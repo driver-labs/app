@@ -94,7 +94,7 @@ export default async function LoginPage() {
                 <div className="flex flex-col gap-3 sm:flex-row">
                   <Link
                     className="inline-flex h-12 flex-1 items-center justify-center rounded-button bg-primary px-4 text-sm font-semibold text-white transition hover:bg-primary-hover"
-                    href="/"
+                    href="/roadmap"
                   >
                     Ir al inicio
                   </Link>

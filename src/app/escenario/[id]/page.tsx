@@ -1,4 +1,5 @@
-import { BookOpen, Car, Map as MapIcon, Sparkles } from "lucide-react";
+import { Car, Map as MapIcon } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { modulesForScenario } from "@/core/links";
@@ -31,32 +32,29 @@ export default async function ScenarioPage({ params }: ScenarioPageProps) {
   const relatedModules = modulesForScenario(scenario, knowledgeModules);
   const rule = TRAFFIC_RULES[scenario.event.infractionType];
   const otherScenarios = scenarios.filter((item) => item.id !== scenario.id);
-  const firstModuleId = relatedModules[0]?.id ?? "senales-de-reglamentacion";
 
   return (
     <main className="scenario-page">
       <div className="scenario-topbar-wrap">
         <header className="dashboard-topbar">
-          <Link className="dashboard-brand" href="/">
-            <span className="dashboard-brand__mark">DL</span>
-            <span>Driver Labs</span>
+          <Link className="dashboard-brand" href="/roadmap">
+            <Image
+              alt="DriverLab"
+              className="dashboard-brand__logo"
+              height={337}
+              priority
+              src="/brand/driverlab-logo.png"
+              width={741}
+            />
           </Link>
           <nav className="dashboard-nav" aria-label="Navegación principal">
-            <Link href="/">
+            <Link href="/roadmap">
               <MapIcon aria-hidden="true" size={17} />
               Roadmap
-            </Link>
-            <Link href="/generar">
-              <Sparkles aria-hidden="true" size={17} />
-              Generar
             </Link>
             <Link aria-current="page" href={`/escenario/${scenario.id}`}>
               <Car aria-hidden="true" size={17} />
               Practicar
-            </Link>
-            <Link href={`/modulo/${firstModuleId}`}>
-              <BookOpen aria-hidden="true" size={17} />
-              Módulos
             </Link>
           </nav>
         </header>

@@ -11,11 +11,22 @@
   --danger: #ef4444;
   --surface: #0f172a;
   --elevated: #162033;
+  --panel: #ffffff;
+  --panel-muted: #f8fafc;
+  --page-muted: #e6edf4;
+  --ink: #0f172a;
+  --ink-soft: #334155;
+  --ink-muted: #475569;
   --border: #243041;
+  --border-soft: #dbe3ee;
+  --border-strong: #cbd5e1;
   --divider: #334155;
   --secondary-text: #cbd5e1;
   --muted: #94a3b8;
   --disabled: #64748b;
+  --primary-soft: #eff6ff;
+  --success: #15803d;
+  --success-soft: #dcfce7;
 }
 
 @theme inline {
@@ -56,7 +67,7 @@ html {
 
 .scenario-page {
   min-height: 100vh;
-  background: #e6edf4;
+  background: var(--page-muted);
 }
 
 .scenario-topbar-wrap {
@@ -72,11 +83,11 @@ html {
   min-height: min(760px, calc(100vh - 116px));
   margin: 0 auto;
   overflow: hidden;
-  border: 1px solid rgba(203, 213, 225, 0.82);
+  border: 1px solid var(--border-strong);
   border-radius: 8px;
-  background: #0f172a;
+  background: var(--ink);
   box-shadow: 0 24px 70px rgba(15, 23, 42, 0.18);
-  color: #f8fafc;
+  color: var(--foreground);
 }
 
 .simulator-shell--loading {
@@ -167,8 +178,8 @@ html {
   flex-direction: column;
   gap: 18px;
   padding: 24px;
-  background: #f8fafc;
-  color: #0f172a;
+  background: var(--panel-muted);
+  color: var(--ink);
 }
 
 .scenario-panel__header {
@@ -202,13 +213,13 @@ html {
 
 .status-pill.complete {
   border-color: #86efac;
-  background: #dcfce7;
+  background: var(--success-soft);
   color: #166534;
 }
 
 .eyebrow {
   margin: 0 0 6px;
-  color: #2563eb;
+  color: var(--primary);
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.14em;
@@ -218,10 +229,10 @@ html {
 .sidebar-block {
   display: grid;
   gap: 12px;
-  border: 1px solid #dbe3ee;
+  border: 1px solid var(--border-soft);
   border-radius: 8px;
   padding: 16px;
-  background: #fff;
+  background: var(--panel);
 }
 
 .sidebar-block__title,
@@ -235,7 +246,7 @@ html {
 
 .sidebar-block__title {
   margin: 0;
-  color: #334155;
+  color: var(--ink-soft);
   font-size: 0.9rem;
   font-weight: 800;
 }
@@ -570,9 +581,9 @@ html {
 
 .dashboard-hero__copy,
 .roadmap-panel {
-  border: 1px solid rgba(203, 213, 225, 0.82);
+  border: 1px solid var(--border-strong);
   border-radius: 8px;
-  background: #ffffff;
+  background: var(--panel);
   box-shadow: 0 20px 56px rgba(15, 23, 42, 0.08);
 }
 
@@ -600,7 +611,7 @@ html {
 .page-heading h1 {
   margin: 0;
   max-width: 780px;
-  color: #0f172a;
+  color: var(--ink);
   font-size: clamp(2rem, 4vw, 3.25rem);
   font-weight: 750;
   line-height: 1.05;
@@ -610,7 +621,7 @@ html {
 .page-heading p,
 .roadmap-node p {
   max-width: 720px;
-  color: #475569;
+  color: var(--ink-muted);
   line-height: 1.65;
 }
 
@@ -625,9 +636,9 @@ html {
   display: grid;
   align-content: start;
   gap: 16px;
-  border: 1px solid rgba(203, 213, 225, 0.82);
+  border: 1px solid var(--border-strong);
   border-radius: 8px;
-  background: #ffffff;
+  background: var(--panel);
   padding: 22px;
   box-shadow: 0 20px 56px rgba(15, 23, 42, 0.08);
 }
@@ -644,7 +655,7 @@ html {
 
 .session-card__label {
   margin: 0;
-  color: #64748b;
+  color: var(--disabled);
   font-size: 0.82rem;
   font-weight: 750;
 }
@@ -652,7 +663,7 @@ html {
 .session-card__email {
   margin: 5px 0 0;
   overflow-wrap: anywhere;
-  color: #0f172a;
+  color: var(--ink);
   font-size: 1rem;
   font-weight: 750;
 }
@@ -666,8 +677,8 @@ html {
 .session-card__stats span {
   border: 1px solid #e2e8f0;
   border-radius: 8px;
-  background: #f8fafc;
-  color: #334155;
+  background: var(--panel-muted);
+  color: var(--ink-soft);
   font-size: 0.84rem;
   font-weight: 800;
   padding: 10px;
@@ -691,9 +702,9 @@ html {
 .module-sidebar,
 .content-grid article {
   min-width: 0;
-  border: 1px solid #dbe3ee;
+  border: 1px solid var(--border-soft);
   border-radius: 8px;
-  background: #ffffff;
+  background: var(--panel);
   box-shadow: 0 16px 44px rgba(15, 23, 42, 0.07);
 }
 
@@ -711,14 +722,14 @@ html {
 
 .module-hero h1 {
   margin: 0;
-  color: #0f172a;
+  color: var(--ink);
   font-size: clamp(2rem, 4vw, 3.2rem);
   line-height: 1.04;
 }
 
 .lede {
   margin: 0;
-  color: #475569;
+  color: var(--ink-muted);
   font-size: 1.05rem;
   line-height: 1.7;
 }
@@ -750,14 +761,14 @@ html {
 
 .markdown-copy h2 {
   margin: 8px 0 0;
-  color: #0f172a;
+  color: var(--ink);
   font-size: clamp(1.35rem, 2.4vw, 2rem);
   line-height: 1.18;
 }
 
 .markdown-copy p {
   margin: 0;
-  color: #334155;
+  color: var(--ink-soft);
   font-size: 1rem;
   line-height: 1.78;
 }
@@ -813,15 +824,23 @@ html {
   align-items: start;
   justify-content: space-between;
   margin-bottom: 18px;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid color-mix(in srgb, var(--border-strong) 58%, white);
   padding-bottom: 16px;
 }
 
+.roadmap-panel__heading h1,
 .roadmap-panel__heading h2 {
   margin: 0;
-  color: #0f172a;
+  color: var(--ink);
   font-size: clamp(1.35rem, 2.4vw, 2rem);
   line-height: 1.16;
+}
+
+.roadmap-panel__heading p:not(.eyebrow) {
+  max-width: 720px;
+  margin: 8px 0 0;
+  color: var(--ink-muted);
+  line-height: 1.6;
 }
 
 .roadmap-panel__heading > span {
@@ -829,8 +848,8 @@ html {
   min-height: 34px;
   align-items: center;
   border-radius: 999px;
-  background: #f1f5f9;
-  color: #334155;
+  background: color-mix(in srgb, var(--panel-muted) 86%, var(--border-strong));
+  color: var(--ink-soft);
   font-size: 0.86rem;
   font-weight: 850;
   padding: 6px 12px;
@@ -846,19 +865,19 @@ html {
   display: grid;
   grid-template-columns: 48px minmax(0, 1fr);
   gap: 16px;
-  border: 1px solid #dbe3ee;
+  border: 1px solid var(--border-soft);
   border-radius: 8px;
-  background: #fbfdff;
+  background: color-mix(in srgb, var(--panel) 92%, var(--primary-soft));
   padding: 18px;
   box-shadow: none;
 }
 
 .roadmap-node.complete {
-  border-color: #86efac;
+  border-color: color-mix(in srgb, var(--success) 42%, white);
 }
 
 .roadmap-node.locked {
-  background: #f8fafc;
+  background: var(--panel-muted);
 }
 
 .roadmap-node__index {
@@ -867,13 +886,13 @@ html {
   height: 42px;
   place-items: center;
   border-radius: 8px;
-  background: #0f172a;
-  color: #ffffff;
+  background: var(--ink);
+  color: var(--panel);
   font-weight: 800;
 }
 
 .roadmap-node.complete .roadmap-node__index {
-  background: #15803d;
+  background: var(--success);
 }
 
 .roadmap-node__body {
@@ -889,7 +908,7 @@ html {
 
 .roadmap-node__heading h2 {
   margin: 0;
-  color: #0f172a;
+  color: var(--ink);
   font-size: clamp(1.2rem, 2vw, 1.55rem);
   line-height: 1.18;
 }
@@ -901,8 +920,8 @@ html {
   align-items: center;
   justify-content: center;
   border-radius: 999px;
-  background: #e2e8f0;
-  color: #334155;
+  background: color-mix(in srgb, var(--border-strong) 62%, white);
+  color: var(--ink-soft);
   font-size: 0.86rem;
   font-weight: 800;
 }
@@ -917,14 +936,14 @@ html {
   height: 8px;
   overflow: hidden;
   border-radius: 999px;
-  background: #dbe3ee;
+  background: var(--border-soft);
 }
 
 .progress-track span {
   display: block;
   height: 100%;
   border-radius: inherit;
-  background: #15803d;
+  background: var(--success);
 }
 
 .roadmap-actions {
@@ -941,9 +960,9 @@ html {
   min-height: 44px;
   align-items: center;
   gap: 9px;
-  border: 1px solid #cbd5e1;
+  border: 1px solid var(--border-strong);
   border-radius: 8px;
-  background: #ffffff;
+  background: var(--panel);
   color: #1e3a8a;
   font: inherit;
   font-weight: 750;
@@ -953,8 +972,8 @@ html {
 
 .primary-action {
   border-color: #1d4ed8;
-  background: #1d4ed8;
-  color: #ffffff;
+  background: var(--primary-hover);
+  color: var(--panel);
 }
 
 .primary-action:hover {
@@ -964,18 +983,18 @@ html {
 
 .roadmap-actions a:hover,
 .secondary-action:hover {
-  border-color: #2563eb;
-  background: #eff6ff;
+  border-color: var(--primary);
+  background: var(--primary-soft);
 }
 
 .disabled-link {
-  background: #f1f5f9;
-  color: #64748b;
+  background: color-mix(in srgb, var(--panel-muted) 86%, var(--border-strong));
+  color: var(--disabled);
 }
 
 .secondary-action {
   justify-content: center;
-  color: #0f172a;
+  color: var(--ink);
   cursor: pointer;
 }
 

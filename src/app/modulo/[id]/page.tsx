@@ -6,8 +6,8 @@ import {
   FileText,
   Map as MapIcon,
   PlayCircle,
-  Sparkles,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { KnowledgeModule } from "@/core/knowledge";
@@ -52,26 +52,24 @@ export default async function ModulePage({ params }: ModulePageProps) {
   return (
     <main className="page-shell">
       <header className="dashboard-topbar">
-        <Link className="dashboard-brand" href="/">
-          <span className="dashboard-brand__mark">DL</span>
-          <span>Driver Labs</span>
+        <Link className="dashboard-brand" href="/roadmap">
+          <Image
+            alt="DriverLab"
+            className="dashboard-brand__logo"
+            height={337}
+            priority
+            src="/brand/driverlab-logo.png"
+            width={741}
+          />
         </Link>
         <nav className="dashboard-nav" aria-label="Navegación principal">
-          <Link href="/">
+          <Link href="/roadmap">
             <MapIcon aria-hidden="true" size={17} />
             Roadmap
-          </Link>
-          <Link href="/generar">
-            <Sparkles aria-hidden="true" size={17} />
-            Generar
           </Link>
           <Link href="/escenario/stop-01">
             <Car aria-hidden="true" size={17} />
             Practicar
-          </Link>
-          <Link aria-current="page" href={`/modulo/${module.id}`}>
-            <BookOpen aria-hidden="true" size={17} />
-            Módulos
           </Link>
         </nav>
       </header>
