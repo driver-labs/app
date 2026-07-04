@@ -1,90 +1,37 @@
+import { ArrowRight, Construction } from "lucide-react";
 import Link from "next/link";
-import { notFound } from "next/navigation";
-import { modulesForScenario } from "@/core/links";
-import { knowledgeModules } from "@/core/modules";
-import { getScenario, getScenarioIds, scenarios } from "@/core/scenarios";
-import { TRAFFIC_RULES } from "@/core/traffic-rules";
-import ScenarioClient from "./ScenarioClient";
 
 type ScenarioPageProps = {
   params: Promise<{ id: string }>;
 };
 
-export function generateStaticParams() {
-  return getScenarioIds().map((id) => ({ id }));
-}
-
-export async function generateMetadata({ params }: ScenarioPageProps) {
-  const { id } = await params;
-  const scenario = getScenario(id);
-  return {
-    title: scenario ? `${scenario.title} | Driver Labs` : "Escenario",
-  };
-}
+export const metadata = {
+  title: "Escenario | DriverLab",
+};
 
 export default async function ScenarioPage({ params }: ScenarioPageProps) {
   const { id } = await params;
-  const scenario = getScenario(id);
-  if (!scenario) notFound();
-
-  const relatedModules = modulesForScenario(scenario, knowledgeModules);
-  const rule = TRAFFIC_RULES[scenario.event.infractionType];
-  const otherScenarios = scenarios.filter((item) => item.id !== scenario.id);
 
   return (
-    <main className="scenario-page">
-      <ScenarioClient
-        scenario={scenario}
-        relatedModules={relatedModules.map((module) => ({
-          id: module.id,
-          title: module.title,
-        }))}
-      />
-
-      <section className="theory-band" aria-labelledby="scenario-theory-title">
-        <div className="content-grid">
-          <article>
-            <p className="eyebrow">Base legal</p>
-            <h2 id="scenario-theory-title">{rule.title}</h2>
-            <p>{rule.explanation}</p>
-            {rule.refs.length > 0 ? (
-              <ul className="detail-list">
-                {rule.refs.map((ref) => (
-                  <li key={`${ref.code}-${ref.summary}`}>
-                    <strong>{ref.code}</strong>: {ref.summary}
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p className="muted">
-                Esta regla está curada, pero el número de artículo todavía no
-                fue confirmado en la fuente oficial.
-              </p>
-            )}
-          </article>
-
-          <aside className="link-stack" aria-label="Navegación relacionada">
-            <div>
-              <p className="eyebrow">Módulos</p>
-              {relatedModules.map((module) => (
-                <Link key={module.id} href={`/modulo/${module.id}`}>
-                  {module.title}
-                </Link>
-              ))}
-            </div>
-
-            {otherScenarios.length > 0 && (
-              <div>
-                <p className="eyebrow">Otros escenarios</p>
-                {otherScenarios.map((item) => (
-                  <Link key={item.id} href={`/escenario/${item.id}`}>
-                    {item.title}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </aside>
-        </div>
+    <main className="min-h-screen bg-[#f8fafc] px-5 py-10 text-[#0d1321]">
+      <section className="mx-auto max-w-3xl rounded-3xl border border-slate-200 bg-white p-8 shadow-[0_14px_40px_rgba(15,23,42,.08)]">
+        <p className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.16em] text-blue-700">
+          <Construction aria-hidden="true" size={16} />
+          Escenario reservado
+        </p>
+        <h1 className="mt-4 text-4xl font-bold">Escenario {id}</h1>
+        <p className="mt-5 text-lg leading-8 text-slate-600">
+          Esta fase valida primero la base documental y los modulos RAG. Los
+          escenarios interactivos se conectaran despues, cuando las lecciones y
+          citas esten curadas.
+        </p>
+        <Link
+          className="mt-8 inline-flex items-center gap-2 rounded-xl bg-blue-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-800"
+          href="/modulos"
+        >
+          Ver modulos
+          <ArrowRight aria-hidden="true" size={16} />
+        </Link>
       </section>
     </main>
   );

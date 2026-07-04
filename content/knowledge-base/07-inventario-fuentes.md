@@ -7,7 +7,7 @@ Este inventario sirve para registrar las fuentes antes de indexarlas en la RAG.
 | `ley-transporte-transito-seguridad-vial` | Ley de Transporte Terrestre, Transito y Seguridad Vial | ley | 94 | Base legal, obligaciones, circulacion, seguridad vial, infracciones. |
 | `reglamento-transito-seguridad-vial` | Reglamento General de Transito y Seguridad Vial | reglamento | 69 | Definiciones, licencias, vehiculos, circulacion, sanciones y medidas de seguridad. |
 | `reglamento-transporte-terrestre` | Reglamento General de Transporte Terrestre | reglamento | 66 | Transporte publico, pasajeros, rutas, permisos, terminales, carga y operadores. |
-| `manual-senales-centroamericano` | Presentacion del Manual Centroamericano de Dispositivos Uniformes para el Control del Transito | manual | 110 | Senales verticales, demarcacion, semaforos, zonas escolares, ciclovias y obras. |
+| `manual-senales-centroamericano` | Presentacion del Manual Centroamericano de Dispositivos Uniformes para el Control del Transito | manual | 110 | Senales verticales, demarcacion, semaforos, zonas escolares, ciclovias y obras. Archivo local: `assets/Manual_de_Senales.pdf`. |
 | `mvp-cultura-vial-sv` | MVP de Cultura Vial para El Salvador - Actualizado | producto | 21 | Enfoque pedagogico, rutas, modulos, RAG, IA, escenarios y posicionamiento. |
 
 ## Prioridad de autoridad

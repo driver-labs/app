@@ -6,7 +6,7 @@ export const metadata = {
 
 export default function GeneratePage() {
   return (
-    <main className="page-shell">
+    <main className="min-h-screen bg-[#f8fafc] px-5 py-10">
       <AiGenerator />
     </main>
   );
