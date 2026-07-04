@@ -47,7 +47,6 @@ export function LoginForm() {
   });
   const mode = watch("intent");
   const isSignUp = mode === "sign-up";
-  const pending = isPending;
 
   function setMode(nextMode: AuthFormValues["intent"]) {
     setServerState(initialState);
@@ -197,7 +196,7 @@ export function LoginForm() {
 
       <button
         className="h-11 rounded-md bg-emerald-700 px-4 text-sm font-semibold text-white transition hover:bg-emerald-800 disabled:cursor-not-allowed disabled:bg-slate-300"
-        disabled={pending}
+        disabled={isPending}
         type="submit"
       >
         {isSignUp ? "Crear cuenta" : "Entrar"}
