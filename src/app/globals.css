@@ -263,16 +263,161 @@ html {
 }
 
 .practice-card {
-  display: grid;
-  gap: 14px;
-  align-content: start;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 12px;
   background: rgba(15, 23, 42, 0.9);
-  padding: 16px;
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
 }
 
-.practice-card__top,
+.practice-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(6, 182, 212, 0.4);
+  box-shadow: 0 18px 40px rgba(2, 8, 23, 0.4);
+}
+
+.practice-card__preview {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+
+.scene-preview-wrap {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.scene-preview {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.scene-preview-wrap--pending {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(245, 158, 11, 0.08),
+    rgba(245, 158, 11, 0.08) 10px,
+    rgba(2, 8, 23, 0.4) 10px,
+    rgba(2, 8, 23, 0.4) 20px
+  );
+  color: var(--warning);
+}
+
+.practice-card__code {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: inline-flex;
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: rgba(2, 8, 23, 0.72);
+  backdrop-filter: blur(4px);
+  color: var(--secondary);
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.practice-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  padding: 14px 16px 16px;
+}
+
+.practice-card__heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.practice-card__difficulty {
+  flex: 0 0 auto;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--ink-muted);
+  font-size: 0.72rem;
+  font-weight: 850;
+  padding: 3px 9px;
+  white-space: nowrap;
+}
+
+.practice-card__objective {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.practice-card__progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.practice-card__bar {
+  flex: 1;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(2, 8, 23, 0.55);
+  overflow: hidden;
+}
+
+.practice-card__bar > span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--secondary), #34d399);
+  transition: width 0.3s ease;
+}
+
+.practice-card__progress-label {
+  flex: 0 0 auto;
+  color: var(--ink-soft);
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.practice-card__details {
+  border-top: 1px dashed var(--border);
+  padding-top: 10px;
+}
+
+.practice-card__details > summary {
+  cursor: pointer;
+  color: var(--secondary);
+  font-size: 0.82rem;
+  font-weight: 800;
+  list-style: none;
+}
+
+.practice-card__details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.practice-card__details > summary::after {
+  content: " +";
+}
+
+.practice-card__details[open] > summary::after {
+  content: " −";
+}
+
 .practice-card__meta,
 .practice-card__actions {
   display: flex;
@@ -282,28 +427,21 @@ html {
   gap: 8px;
 }
 
-.practice-card__top > span:first-child {
-  display: inline-flex;
-  width: 38px;
-  height: 38px;
-  align-items: center;
-  justify-content: center;
-  border-radius: 8px;
-  background: rgba(6, 182, 212, 0.14);
-  color: var(--secondary);
-  font-weight: 900;
-}
-
 .practice-status {
+  position: absolute;
+  top: 10px;
+  right: 10px;
   display: inline-flex;
-  min-height: 30px;
+  min-height: 26px;
   align-items: center;
   border: 1px solid var(--border);
   border-radius: 999px;
+  background: rgba(2, 8, 23, 0.72);
+  backdrop-filter: blur(4px);
   color: var(--ink-muted);
-  font-size: 0.76rem;
+  font-size: 0.72rem;
   font-weight: 850;
-  padding: 6px 9px;
+  padding: 4px 9px;
 }
 
 .practice-status--done {
@@ -338,42 +476,11 @@ html {
   line-height: 1.6;
 }
 
-.practice-card__summary {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
-}
-
-.practice-card__scenario {
-  display: grid;
-  gap: 6px;
-  border-left: 3px solid var(--secondary);
-  background: rgba(6, 182, 212, 0.08);
-  padding: 10px 12px;
-}
-
-.practice-card__scenario strong {
-  color: var(--foreground);
-  font-size: 0.94rem;
-}
-
-.practice-card__scenario span {
-  color: var(--secondary-text);
-  font-size: 0.84rem;
-  line-height: 1.5;
-}
-
-.practice-card__scenario--pending {
-  border-color: var(--warning);
-  background: rgba(245, 158, 11, 0.08);
-}
-
 .practice-card__metrics {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 8px;
-  margin: 0;
+  margin: 10px 0 0;
 }
 
 .practice-card__metrics div {
@@ -459,6 +566,188 @@ html {
 .practice-card__actions a:last-child {
   border-color: rgba(34, 197, 94, 0.34);
   background: rgba(34, 197, 94, 0.14);
+}
+
+/* ── Diorama animado de la vista previa ──
+   Todos los grupos animados usan transform-box: view-box para que los
+   `translate` de los keyframes se interpreten en unidades del viewBox. */
+.scene-preview [class^="sp-"],
+.scene-preview [class*=" sp-"] {
+  transform-box: view-box;
+}
+
+@keyframes sp-move-up {
+  to {
+    transform: translateY(-200px);
+  }
+}
+@keyframes sp-move-right {
+  to {
+    transform: translateX(360px);
+  }
+}
+@keyframes sp-move-left {
+  to {
+    transform: translateX(-420px);
+  }
+}
+@keyframes sp-walk-up {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-70px);
+  }
+}
+@keyframes sp-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes sp-overtake {
+  0% {
+    transform: translate(0, 0);
+  }
+  32% {
+    transform: translate(110px, -28px);
+  }
+  58% {
+    transform: translate(190px, -28px);
+  }
+  100% {
+    transform: translate(330px, 0);
+  }
+}
+@keyframes sp-lane {
+  0%,
+  22% {
+    transform: translate(0, 0);
+  }
+  60%,
+  100% {
+    transform: translate(70px, -30px);
+  }
+}
+@keyframes sp-tailgate {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(78px);
+  }
+}
+@keyframes sp-rain-fall {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(176px);
+    opacity: 0;
+  }
+}
+@keyframes sp-peek {
+  0%,
+  50% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-14px, -6px);
+  }
+}
+@keyframes sp-drift {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-13px);
+  }
+}
+@keyframes sp-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.sp-up {
+  animation: sp-move-up 3.8s linear infinite;
+}
+.sp-up-soft {
+  animation: sp-move-up 5.4s ease-in infinite;
+}
+.sp-cross {
+  animation: sp-move-right 3.8s linear infinite;
+  animation-delay: 0.6s;
+}
+.sp-approach {
+  animation: sp-move-right 4.6s linear infinite;
+}
+.sp-pass {
+  animation: sp-move-right 4s linear infinite;
+}
+.sp-cross-up {
+  animation: sp-walk-up 3.4s ease-in-out infinite alternate;
+}
+.sp-ring {
+  transform-origin: 160px 90px;
+  animation: sp-spin 9s linear infinite;
+}
+.sp-overtake {
+  animation: sp-overtake 5s ease-in-out infinite;
+}
+.sp-oncoming {
+  animation: sp-move-left 5s linear infinite;
+  animation-delay: 1.6s;
+}
+.sp-lane {
+  animation: sp-lane 3.8s ease-in-out infinite alternate;
+}
+.sp-blindspot {
+  animation: sp-pulse 1.2s ease-in-out infinite;
+}
+.sp-tailgate {
+  animation: sp-tailgate 3s ease-in-out infinite;
+}
+.sp-rain line {
+  animation: sp-rain-fall 1s linear infinite;
+}
+.sp-rain line:nth-child(2n) {
+  animation-delay: 0.35s;
+}
+.sp-rain line:nth-child(3n) {
+  animation-delay: 0.6s;
+}
+.sp-rain line:nth-child(5n) {
+  animation-delay: 0.18s;
+}
+.sp-peek {
+  animation: sp-peek 2.6s ease-in-out infinite alternate;
+}
+.sp-drift {
+  animation: sp-drift 3s ease-in-out infinite;
+}
+.sp-phone {
+  animation: sp-pulse 1.4s ease-in-out infinite;
+}
+.sp-blink {
+  animation: sp-pulse 1.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scene-preview [class^="sp-"],
+  .scene-preview [class*=" sp-"],
+  .scene-preview .sp-rain line {
+    animation: none;
+  }
 }
 
 .simulator-shell {
@@ -1132,9 +1421,10 @@ html {
   backdrop-filter: blur(16px);
 }
 
-.practice-shell .dashboard-topbar,
-.practice-shell .dashboard-topbar--compact {
-  display: none;
+.practice-topbar {
+  width: var(--shell-width);
+  margin: 0 auto;
+  padding-top: 16px;
 }
 
 .dashboard-topbar--compact {

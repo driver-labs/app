@@ -16,6 +16,7 @@ import {
   PRACTICE_PROGRESS_KEY,
   type PracticeProgressStore,
 } from "@/core/practice-progress";
+import ScenePreview, { type SceneKind } from "./ScenePreview";
 
 export type PracticeScenarioSummary = {
   id: string;
@@ -23,7 +24,14 @@ export type PracticeScenarioSummary = {
   difficulty: string;
   estimatedMinutes: number;
   objective: string;
+  sceneKind: SceneKind;
   status: "draft" | "active" | "archived";
+};
+
+const difficultyLabels: Record<string, string> = {
+  advanced: "Difícil",
+  basic: "Fácil",
+  intermediate: "Media",
 };
 
 export type PracticeModuleSummary = {
@@ -192,116 +200,152 @@ export default function PracticeDashboardClient({
             moduleProgress?.status === "completed" ||
             moduleProgress?.status === "mastered";
 
+          const statusClass = isComplete
+            ? "practice-status practice-status--done"
+            : module.scenario
+              ? "practice-status practice-status--ready"
+              : "practice-status practice-status--pending";
+          const difficultyLabel = module.scenario
+            ? (difficultyLabels[module.scenario.difficulty] ??
+              module.scenario.difficulty)
+            : null;
+
           return (
             <article className="practice-card" key={module.id}>
-              <div className="practice-card__top">
-                <span>{module.id.slice(0, 2)}</span>
-                <span
-                  className={
-                    isComplete
-                      ? "practice-status practice-status--done"
-                      : module.scenario
-                        ? "practice-status practice-status--ready"
-                        : "practice-status practice-status--pending"
-                  }
-                >
-                  {label}
-                </span>
-              </div>
-
-              <div>
-                <h2>{module.title}</h2>
-                <p className="practice-card__summary">{module.summary}</p>
-              </div>
-
-              {module.scenario ? (
-                <div className="practice-card__scenario">
-                  <strong>{module.scenario.title}</strong>
-                  <span>{module.scenario.objective}</span>
-                </div>
-              ) : (
-                <div className="practice-card__scenario practice-card__scenario--pending">
-                  <strong>Escenario pendiente de crear</strong>
-                  <span>El modulo permanece visible y controlado.</span>
-                </div>
-              )}
-
-              {moduleProgress ? (
-                <dl className="practice-card__metrics">
-                  <div>
-                    <dt>Ultimo</dt>
-                    <dd>{moduleProgress.lastScore ?? "-"}</dd>
-                  </div>
-                  <div>
-                    <dt>Mejor</dt>
-                    <dd>{moduleProgress.bestScore ?? "-"}</dd>
-                  </div>
-                  <div>
-                    <dt>Intentos</dt>
-                    <dd>{moduleProgress.attemptsCount}</dd>
-                  </div>
-                  <div>
-                    <dt>Practicadas</dt>
-                    <dd>{practicedCount}</dd>
-                  </div>
-                  <div>
-                    <dt>Aprendidas</dt>
-                    <dd>{learnedCount}</dd>
-                  </div>
-                  <div>
-                    <dt>Errores</dt>
-                    <dd>{mistakes.length}</dd>
-                  </div>
-                  <div>
-                    <dt>Avance</dt>
-                    <dd>{moduleProgress.progressPercent}%</dd>
-                  </div>
-                </dl>
-              ) : (
-                <p className="practice-card__empty">
-                  Todavia no practicaste este modulo — sumá tu primer intento.
-                </p>
-              )}
-
-              {lastMistake && (
-                <p className="practice-card__mistake">
-                  <AlertTriangle aria-hidden="true" size={15} />
-                  <span>Ultimo error: {lastMistake.message}</span>
-                </p>
-              )}
-
-              <div className="practice-card__meta">
-                <span>
-                  <Clock3 aria-hidden="true" size={15} />
-                  {module.scenario?.estimatedMinutes ?? module.estimatedMinutes}{" "}
-                  min
-                </span>
-                <span>
-                  <BookOpen aria-hidden="true" size={15} />
-                  {practicedCount} lecciones practicadas
-                </span>
-              </div>
-
-              <div className="practice-card__actions">
-                <Link href={`/modulo/${module.id}`}>
-                  <BookOpen aria-hidden="true" size={17} />
-                  Repasar
-                </Link>
+              <div className="practice-card__preview">
                 {module.scenario ? (
-                  <Link href={`/practicar/${module.scenario.id}`}>
-                    {isComplete ? (
-                      <RotateCcw aria-hidden="true" size={17} />
-                    ) : (
-                      <PlayCircle aria-hidden="true" size={17} />
-                    )}
-                    {isComplete ? "Reintentar" : "Practicar"}
-                  </Link>
+                  <ScenePreview
+                    sceneKind={module.scenario.sceneKind}
+                    title={module.scenario.title}
+                  />
                 ) : (
-                  <span aria-disabled="true" className="disabled-link">
-                    <AlertTriangle aria-hidden="true" size={17} />
-                    Pendiente
+                  <span
+                    className="scene-preview-wrap scene-preview-wrap--pending"
+                    role="img"
+                    aria-label="Escenario pendiente de crear"
+                  >
+                    <AlertTriangle aria-hidden="true" size={26} />
                   </span>
                 )}
+                <span className="practice-card__code">
+                  {module.id.slice(0, 2)}
+                </span>
+                <span className={statusClass}>{label}</span>
+              </div>
+
+              <div className="practice-card__body">
+                <div className="practice-card__heading">
+                  <h2>{module.title}</h2>
+                  {difficultyLabel && (
+                    <span className="practice-card__difficulty">
+                      {difficultyLabel}
+                    </span>
+                  )}
+                </div>
+                <p className="practice-card__objective">
+                  {module.scenario
+                    ? module.scenario.objective
+                    : "El módulo permanece visible mientras se crea su escena."}
+                </p>
+
+                <div className="practice-card__meta">
+                  <span>
+                    <Clock3 aria-hidden="true" size={15} />
+                    {module.scenario?.estimatedMinutes ??
+                      module.estimatedMinutes}{" "}
+                    min
+                  </span>
+                  <span>
+                    <BookOpen aria-hidden="true" size={15} />
+                    {practicedCount} lecciones
+                  </span>
+                </div>
+
+                {moduleProgress ? (
+                  <>
+                    <div className="practice-card__progress">
+                      <div
+                        className="practice-card__bar"
+                        role="progressbar"
+                        aria-valuenow={moduleProgress.progressPercent}
+                        aria-valuemin={0}
+                        aria-valuemax={100}
+                      >
+                        <span
+                          style={{
+                            width: `${moduleProgress.progressPercent}%`,
+                          }}
+                        />
+                      </div>
+                      <span className="practice-card__progress-label">
+                        {moduleProgress.progressPercent}% · mejor{" "}
+                        {moduleProgress.bestScore ?? "-"}
+                      </span>
+                    </div>
+
+                    <details className="practice-card__details">
+                      <summary>Ver métricas</summary>
+                      <dl className="practice-card__metrics">
+                        <div>
+                          <dt>Último</dt>
+                          <dd>{moduleProgress.lastScore ?? "-"}</dd>
+                        </div>
+                        <div>
+                          <dt>Mejor</dt>
+                          <dd>{moduleProgress.bestScore ?? "-"}</dd>
+                        </div>
+                        <div>
+                          <dt>Intentos</dt>
+                          <dd>{moduleProgress.attemptsCount}</dd>
+                        </div>
+                        <div>
+                          <dt>Practicadas</dt>
+                          <dd>{practicedCount}</dd>
+                        </div>
+                        <div>
+                          <dt>Aprendidas</dt>
+                          <dd>{learnedCount}</dd>
+                        </div>
+                        <div>
+                          <dt>Errores</dt>
+                          <dd>{mistakes.length}</dd>
+                        </div>
+                      </dl>
+                      {lastMistake && (
+                        <p className="practice-card__mistake">
+                          <AlertTriangle aria-hidden="true" size={15} />
+                          <span>Último error: {lastMistake.message}</span>
+                        </p>
+                      )}
+                    </details>
+                  </>
+                ) : (
+                  <p className="practice-card__empty">
+                    Todavía no practicaste este módulo — sumá tu primer intento.
+                  </p>
+                )}
+
+                <div className="practice-card__actions">
+                  <Link href={`/modulo/${module.id}`}>
+                    <BookOpen aria-hidden="true" size={17} />
+                    Repasar
+                  </Link>
+                  {module.scenario ? (
+                    <Link href={`/practicar/${module.scenario.id}`}>
+                      {isComplete ? (
+                        <RotateCcw aria-hidden="true" size={17} />
+                      ) : (
+                        <PlayCircle aria-hidden="true" size={17} />
+                      )}
+                      {isComplete ? "Reintentar" : "Practicar"}
+                    </Link>
+                  ) : (
+                    <span aria-disabled="true" className="disabled-link">
+                      <AlertTriangle aria-hidden="true" size={17} />
+                      Pendiente
+                    </span>
+                  )}
+                </div>
               </div>
             </article>
           );

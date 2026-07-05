@@ -19,7 +19,7 @@ export default function DashboardTopbar({
     pathname.startsWith("/practicar/") ||
     pathname === "/practicas" ||
     pathname.startsWith("/practicas/");
-  const isCompact = compact || isPractice;
+  const isCompact = compact;
 
   return (
     <header

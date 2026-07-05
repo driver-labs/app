@@ -1,7 +1,8 @@
-import PracticeBar from "@/components/PracticeBar";
+import DashboardTopbar from "@/components/DashboardTopbar";
 import {
   getPrimaryScenarioForModule,
   getScenarioBinding,
+  toPlayableScenario,
   validateScenariosForModules,
 } from "@/core/scenarios";
 import {
@@ -34,6 +35,7 @@ export default function PracticarIndexPage() {
             estimatedMinutes: scenario.metadata.estimatedMinutes,
             id: scenario.id,
             objective: scenario.learning.objectives[0],
+            sceneKind: toPlayableScenario(scenario).sceneKind,
             status: binding?.status ?? "draft",
             title: scenario.title,
           }
@@ -45,7 +47,9 @@ export default function PracticarIndexPage() {
 
   return (
     <>
-      <PracticeBar />
+      <div className="practice-topbar">
+        <DashboardTopbar />
+      </div>
       <PracticeDashboardClient
         modules={items}
         validationIssues={validationIssues}
