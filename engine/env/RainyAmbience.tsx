@@ -1,0 +1,159 @@
+import { useFrame } from "@react-three/fiber";
+import { useMemo, useRef } from "react";
+import type * as THREE from "three";
+import type { Scenario } from "@/core/scenario-schema";
+import {
+  blockedBuildingsForView,
+  createSeededRandom,
+  generateClearanceBuildings,
+} from "../camera/clear-view";
+import type { SceneView } from "../camera/views";
+
+const RAIN_COUNT = 900;
+
+type Props = {
+  view: SceneView;
+  environment?: Scenario["environment"];
+  /** Semilla estable por escenario — mismo id ⇒ mismo skyline. */
+  layoutSeed?: string;
+  paused?: boolean;
+};
+
+const SKY_BY_TIME: Record<Scenario["environment"]["timeOfDay"], string> = {
+  day: "#87b6d9",
+  dusk: "#c2836b",
+  night: "#0a1622",
+};
+
+// clear-view genera colores pensados para noche; de día esos azules casi
+// negros se ven como bloques sin iluminar, así que se re-pintan por índice.
+const DAY_BUILDING_COLORS = ["#b7c4cf", "#9fb0be", "#cbd5dd"] as const;
+
+const FOG_BY_WEATHER: Record<
+  Scenario["environment"]["weather"],
+  [string, number, number] | null
+> = {
+  clear: null,
+  rain: ["#0a1622", 22, 110],
+  fog: ["#cfd8df", 12, 82],
+};
+
+// Ambientación configurable: cielo, fog, luces, lluvia y skyline estable.
+export default function RainyAmbience({
+  environment = { timeOfDay: "night", weather: "rain", setting: "urban" },
+  view,
+  layoutSeed = "default",
+  paused = false,
+}: Props) {
+  const rain = useRef<THREE.Points | null>(null);
+  const isNight = environment.timeOfDay === "night";
+  const isRain = environment.weather === "rain";
+  const isFog = environment.weather === "fog";
+  const showBuildings = environment.setting === "urban";
+  const fog = FOG_BY_WEATHER[environment.weather];
+  const rnd = useMemo(
+    () => createSeededRandom(`rain:${layoutSeed}`),
+    [layoutSeed],
+  );
+
+  const rainPos = useMemo(() => {
+    const a = new Float32Array(RAIN_COUNT * 3);
+    for (let i = 0; i < RAIN_COUNT; i++) {
+      a[i * 3] = rnd(-40, 40);
+      a[i * 3 + 1] = rnd(2, 32);
+      a[i * 3 + 2] = rnd(-60, 55);
+    }
+    return a;
+  }, [rnd]);
+
+  const buildings = useMemo(() => {
+    const generated = generateClearanceBuildings({ view, seed: layoutSeed });
+    if (process.env.NODE_ENV !== "production") {
+      const blocked = blockedBuildingsForView(generated, view);
+      if (blocked.length > 0) {
+        console.error(
+          `Camera view blocked by generated buildings: ${blocked.join(", ")}`,
+        );
+      }
+    }
+    return generated;
+  }, [view, layoutSeed]);
+
+  useFrame((_, delta) => {
+    if (paused) return;
+    if (!rain.current) return;
+    const d = Math.min(delta, 0.05);
+    const p = rain.current.geometry.attributes.position.array as Float32Array;
+    for (let i = 0; i < RAIN_COUNT; i++) {
+      p[i * 3 + 1] -= d * 26;
+      p[i * 3] -= d * 3;
+      if (p[i * 3 + 1] < 0.2) {
+        p[i * 3] = rnd(-40, 40);
+        p[i * 3 + 1] = rnd(16, 32);
+        p[i * 3 + 2] = rnd(-60, 55);
+      }
+    }
+    rain.current.geometry.attributes.position.needsUpdate = true;
+  });
+
+  return (
+    <>
+      <color attach="background" args={[SKY_BY_TIME[environment.timeOfDay]]} />
+      {fog && <fog attach="fog" args={fog} />}
+      <hemisphereLight
+        args={[
+          isNight ? "#7fa8c8" : "#eaf2ff",
+          isNight ? "#0a1420" : "#3a4658",
+          isNight ? 0.7 : 0.85,
+        ]}
+      />
+      <directionalLight
+        position={isNight ? [6, 14, -6] : [12, 22, 8]}
+        intensity={isNight || isFog ? 0.65 : 1.5}
+        color={isNight ? "#cfe0f0" : "#fff7e8"}
+        castShadow
+        shadow-mapSize={[2048, 2048]}
+        shadow-bias={-0.0004}
+        shadow-camera-near={1}
+        shadow-camera-far={80}
+        shadow-camera-left={-40}
+        shadow-camera-right={40}
+        shadow-camera-top={40}
+        shadow-camera-bottom={-40}
+      />
+
+      {isRain && (
+        <points ref={rain}>
+          <bufferGeometry>
+            <bufferAttribute
+              attach="attributes-position"
+              args={[rainPos, 3]}
+              count={RAIN_COUNT}
+            />
+          </bufferGeometry>
+          <pointsMaterial
+            color="#9fd8ff"
+            size={0.06}
+            transparent
+            opacity={0.6}
+          />
+        </points>
+      )}
+
+      {showBuildings &&
+        buildings.map((b, index) => (
+          <mesh key={b.id} position={[b.x, b.h / 2, b.z]}>
+            <boxGeometry args={[b.w, b.h, b.d]} />
+            <meshStandardMaterial
+              color={
+                isNight
+                  ? b.color
+                  : DAY_BUILDING_COLORS[index % DAY_BUILDING_COLORS.length]
+              }
+              roughness={0.8}
+            />
+          </mesh>
+        ))}
+    </>
+  );
+}

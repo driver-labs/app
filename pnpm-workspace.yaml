@@ -1,0 +1,6 @@
+allowBuilds:
+  esbuild: true
+  sharp: true
+overrides:
+  # Pinned below the minimumReleaseAge cutoff; data-only browserslist package.
+  baseline-browser-mapping: 2.10.41

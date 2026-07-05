@@ -1,0 +1,145 @@
+{
+  "schemaVersion": "drivelab.scenario.v1",
+  "id": "scenario_fundamentos_legales_alto_001",
+  "slug": "fundamentos-legales-alto",
+  "title": "Alto completo y deber de ceder",
+  "description": "El usuario practica la obligación básica de detenerse por completo, observar y avanzar solo cuando no exista conflicto.",
+  "moduleBinding": {
+    "moduleId": "01-fundamentos-legales",
+    "isPrimaryScenario": true
+  },
+  "learning": {
+    "lessonIds": [
+      "01-fundamentos-legales:deber-de-obedecer",
+      "01-fundamentos-legales:responsabilidad-preventiva"
+    ],
+    "objectives": [
+      "Reconocer que una orden vial exige conducta concreta, no solo conocimiento teórico.",
+      "Detener el vehículo antes de la línea y ceder el paso cuando corresponde."
+    ],
+    "feedback": {
+      "success": "Te detuviste por completo, observaste el cruce y avanzaste con margen.",
+      "failure": "La señal de alto exige detenerse antes de entrar al cruce; pasar rodando deja poco tiempo para reaccionar.",
+      "hints": [
+        "Buscá la línea de detención antes de mirar el tráfico cruzado.",
+        "Un alto incompleto sigue siendo una decisión riesgosa.",
+        "La prioridad se confirma antes de avanzar, no durante el cruce."
+      ]
+    },
+    "legalReferences": [
+      {
+        "jurisdiction": "SV",
+        "document": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+        "articleId": "base normativa",
+        "ruleCategory": "run-stop"
+      }
+    ]
+  },
+  "simulation": {
+    "pattern": "stop_intersection",
+    "durationSeconds": 18,
+    "world": {
+      "environment": "intersection",
+      "roadType": "two_lane_urban",
+      "weather": "clear",
+      "timeOfDay": "day",
+      "units": "meters"
+    },
+    "camera": {
+      "mode": "third_person_follow",
+      "targetActorId": "ego_car",
+      "position": [15, 12, 23],
+      "lookAt": [0, 0, 2],
+      "fov": 50
+    },
+    "assets": [
+      {
+        "id": "asset_sedan",
+        "type": "vehicle",
+        "url": "/models/sedan.glb"
+      },
+      {
+        "id": "asset_taxi",
+        "type": "vehicle",
+        "url": "/models/taxi.glb"
+      }
+    ],
+    "actors": [
+      {
+        "id": "ego_car",
+        "assetId": "asset_sedan",
+        "role": "ego_vehicle",
+        "initialPosition": [0, 0, 24],
+        "initialRotation": [0, 3.1416, 0],
+        "scale": [1, 1, 1],
+        "tags": ["vehicle", "controlled"]
+      },
+      {
+        "id": "cross_traffic",
+        "assetId": "asset_taxi",
+        "role": "traffic_vehicle",
+        "initialPosition": [-18, 0, 2],
+        "initialRotation": [0, -1.5708, 0],
+        "scale": [1, 1, 1],
+        "tags": ["vehicle", "priority"]
+      }
+    ],
+    "interactions": [
+      {
+        "id": "decision_stop_yield",
+        "type": "multiple_choice",
+        "appearsAt": 7,
+        "prompt": "¿Qué acción cumple mejor la obligación vial?",
+        "options": [
+          {
+            "id": "rolling_stop",
+            "label": "Bajar la velocidad y cruzar sin detenerse",
+            "isCorrect": false,
+            "scoreDelta": -35
+          },
+          {
+            "id": "full_stop",
+            "label": "Detenerse por completo, observar y ceder el paso",
+            "isCorrect": true,
+            "scoreDelta": 50
+          },
+          {
+            "id": "accelerate",
+            "label": "Acelerar para pasar antes del vehículo que cruza",
+            "isCorrect": false,
+            "scoreDelta": -45
+          }
+        ],
+        "correctOptionId": "full_stop"
+      }
+    ]
+  },
+  "scoring": {
+    "maxScore": 100,
+    "passScore": 75,
+    "metrics": [
+      {
+        "id": "rule_recognition",
+        "label": "Reconoce la obligación",
+        "weight": 35
+      },
+      {
+        "id": "safe_stop",
+        "label": "Detención completa",
+        "weight": 45
+      },
+      {
+        "id": "risk_margin",
+        "label": "Margen de seguridad",
+        "weight": 20
+      }
+    ]
+  },
+  "metadata": {
+    "difficulty": "basic",
+    "estimatedMinutes": 4,
+    "tags": ["fundamentos", "alto", "prioridad"],
+    "createdAt": "2026-07-04T00:00:00-06:00",
+    "updatedAt": "2026-07-04T00:00:00-06:00"
+  }
+}

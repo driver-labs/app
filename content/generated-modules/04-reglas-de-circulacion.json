@@ -1,0 +1,496 @@
+{
+  "coreIdea": "Las reglas de circulación son esenciales para la seguridad vial, ya que regulan el comportamiento de conductores y peatones. Conocer y respetar estas normas reduce el riesgo de accidentes y mejora la fluidez del tráfico. La educación vial es clave para crear conciencia sobre la importancia de la seguridad en las vías.",
+  "headline": "Reglas de Circulación: Seguridad Vial en El Salvador",
+  "intro": "Las reglas de circulación son fundamentales para garantizar la seguridad de todos los usuarios de la vía. En este módulo, aprenderás sobre la importancia de respetar las señales de tránsito, las prioridades de paso y las normas de estacionamiento. Conocer estas reglas no solo te ayudará a evitar multas, sino que también contribuirá a un entorno vial más seguro. Prepárate para tomar decisiones informadas y responsables al conducir.",
+  "applicationCases": [
+    {
+      "title": "Luz verde pero tráfico detenido",
+      "situation": "Te encuentras en un semáforo en verde, pero el tráfico adelante está detenido.",
+      "wrongMove": "Decides avanzar y bloqueas la intersección.",
+      "safeMove": "Esperas antes de entrar hasta que haya espacio suficiente.",
+      "why": "Esto evita bloqueos y permite que los peatones crucen de manera segura.",
+      "citationNumbers": [1]
+    },
+    {
+      "title": "Estacionamiento en acera",
+      "situation": "Necesitas estacionarte, pero hay una acera frente a ti.",
+      "wrongMove": "Decides estacionarte sobre la acera.",
+      "safeMove": "Buscas un lugar permitido para estacionar.",
+      "why": "Esto asegura que los peatones puedan transitar sin riesgos.",
+      "citationNumbers": [3]
+    }
+  ],
+  "checklist": [
+    {
+      "label": "Revisar señales de tránsito",
+      "action": "Antes de conducir, verifica las señales en tu ruta.",
+      "citationNumbers": [2]
+    },
+    {
+      "label": "Ceder el paso a peatones",
+      "action": "Siempre detente en pasos peatonales.",
+      "citationNumbers": [4]
+    },
+    {
+      "label": "Usar luces direccionales",
+      "action": "Indica tus maniobras con anticipación.",
+      "citationNumbers": [15]
+    },
+    {
+      "label": "Estacionar correctamente",
+      "action": "Asegúrate de no bloquear aceras o intersecciones.",
+      "citationNumbers": [3]
+    },
+    {
+      "label": "Mantener distancia de seguridad",
+      "action": "Deja suficiente espacio entre tu vehículo y el de adelante.",
+      "citationNumbers": [4]
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "No ceder el paso a peatones en pasos peatonales.",
+      "consequence": "Atropellos y multas.",
+      "betterHabit": "Siempre ceder el paso a peatones en zonas designadas.",
+      "citationNumbers": [4]
+    },
+    {
+      "mistake": "Estacionar en lugares prohibidos.",
+      "consequence": "Multas y obstrucción del tráfico.",
+      "betterHabit": "Estacionar solo en lugares permitidos.",
+      "citationNumbers": [3]
+    },
+    {
+      "mistake": "No usar luces direccionales al cambiar de carril.",
+      "consequence": "Choques laterales.",
+      "betterHabit": "Siempre señalizar antes de cambiar de carril.",
+      "citationNumbers": [15]
+    },
+    {
+      "mistake": "Ignorar señales de alto.",
+      "consequence": "Accidentes graves.",
+      "betterHabit": "Detenerse siempre ante señales de alto.",
+      "citationNumbers": [9]
+    }
+  ],
+  "estimatedMinutes": 35,
+  "learningObjectives": [
+    "Identificar las señales de tránsito y su significado.",
+    "Comprender las prioridades de paso en intersecciones.",
+    "Reconocer las normas de estacionamiento y sus implicaciones.",
+    "Evaluar situaciones de riesgo en la vía y tomar decisiones seguras.",
+    "Aplicar las reglas de circulación en diferentes escenarios viales."
+  ],
+  "legalFoundation": [
+    {
+      "title": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+      "explanation": "Esta ley establece las normas que regulan el transporte y la circulación de vehículos, así como los derechos y obligaciones de los usuarios de las vías. Su objetivo es garantizar la seguridad vial y el orden en el tránsito.",
+      "citationNumbers": [5, 13]
+    },
+    {
+      "title": "Reglamento General de Tránsito y Seguridad Vial",
+      "explanation": "Este reglamento complementa la ley y detalla las reglas específicas que deben seguir los conductores y peatones. Incluye disposiciones sobre señales de tránsito, prioridades de paso y normas de estacionamiento.",
+      "citationNumbers": [1, 4]
+    },
+    {
+      "title": "Artículos sobre Infracciones de Tránsito",
+      "explanation": "Los artículos relacionados con las infracciones establecen las sanciones por incumplimiento de las normas de tránsito, lo que subraya la importancia de respetar las reglas para evitar multas y accidentes.",
+      "citationNumbers": [6, 8]
+    },
+    {
+      "title": "Señales de Tránsito",
+      "explanation": "Las señales de tránsito son dispositivos que regulan el comportamiento de los conductores y peatones. Su correcta interpretación es crucial para la seguridad vial y el cumplimiento de las normas.",
+      "citationNumbers": [2, 12]
+    }
+  ],
+  "lessons": [
+    {
+      "title": "No entres si vas a bloquear",
+      "explanation": "Es fundamental no ingresar a una intersección si no hay espacio suficiente para cruzar. Esto evita bloqueos que pueden causar accidentes y congestión.",
+      "normativeDetail": "La norma exige que los conductores se detengan antes de entrar a una intersección si el tráfico está detenido, evitando así obstrucciones.",
+      "everydayExample": "Imagina que tienes luz verde, pero el tráfico está detenido. Si entras, bloquearás el cruce y pondrás en riesgo a otros.",
+      "streetDecision": "Espera antes de entrar a la intersección si no hay espacio.",
+      "risk": "Bloqueo de cruce y posibles accidentes.",
+      "watchFor": "Tráfico detenido en la intersección.",
+      "citationNumbers": [1]
+    },
+    {
+      "title": "Respeta aceras y pasos peatonales",
+      "explanation": "Las aceras y pasos peatonales son espacios destinados para la seguridad de los peatones. Estacionar o bloquear estos espacios es una infracción grave.",
+      "normativeDetail": "La ley prohíbe estacionar en aceras y pasos peatonales, protegiendo así a los peatones de posibles accidentes.",
+      "everydayExample": "Si estacionas sobre una acera, obligas a los peatones a caminar por la calle, aumentando el riesgo de atropellos.",
+      "streetDecision": "Nunca estaciones sobre aceras o pasos peatonales.",
+      "risk": "Atropellos y multas.",
+      "watchFor": "Señales que indican zonas de peatones.",
+      "citationNumbers": [3]
+    },
+    {
+      "title": "Estacionar también tiene reglas",
+      "explanation": "Estacionar correctamente es esencial para mantener el flujo del tráfico y la seguridad. Existen lugares específicos donde está prohibido estacionar.",
+      "normativeDetail": "La norma exige que los vehículos no se estacionen a menos de 10 metros de intersecciones y hidrantes, evitando obstrucciones.",
+      "everydayExample": "Si estacionas frente a una cochera, puedes bloquear la salida de otros vehículos, causando inconvenientes.",
+      "streetDecision": "Asegúrate de estacionar en lugares permitidos.",
+      "risk": "Multas y obstrucción del tráfico.",
+      "watchFor": "Señales que indican restricciones de estacionamiento.",
+      "citationNumbers": [4]
+    },
+    {
+      "title": "Cambiar de carril sin asustar",
+      "explanation": "Al cambiar de carril, es crucial hacerlo de manera segura y señalizar la maniobra con anticipación. Esto ayuda a prevenir accidentes.",
+      "normativeDetail": "La norma exige que los conductores usen las luces direccionales antes de cambiar de carril, informando a otros usuarios de la vía.",
+      "everydayExample": "Si cambias de carril sin señalizar, puedes sorprender a otros conductores, provocando un choque.",
+      "streetDecision": "Siempre usa las luces direccionales antes de cambiar de carril.",
+      "risk": "Choques laterales.",
+      "watchFor": "Otros vehículos que puedan estar en tu punto ciego.",
+      "citationNumbers": [15]
+    },
+    {
+      "title": "Redondeles e intersecciones",
+      "explanation": "En redondeles, los vehículos que ya están dentro tienen prioridad sobre los que intentan ingresar. Esto ayuda a mantener el flujo del tráfico.",
+      "normativeDetail": "La norma establece que los vehículos dentro de un redondel tienen prioridad y deben ceder el paso a los que ingresan.",
+      "everydayExample": "Si intentas entrar a un redondel sin ceder el paso, puedes causar un accidente.",
+      "streetDecision": "Cede el paso a los vehículos que ya están en el redondel.",
+      "risk": "Confusión y choques.",
+      "watchFor": "Señales que indican la prioridad en redondeles.",
+      "citationNumbers": [11]
+    },
+    {
+      "title": "Obedecer las señales de tránsito",
+      "explanation": "Las señales de tránsito son fundamentales para la regulación del tráfico. Ignorarlas puede resultar en accidentes y sanciones.",
+      "normativeDetail": "La ley exige que todos los conductores obedezcan las señales de tránsito, ya que son esenciales para la seguridad vial.",
+      "everydayExample": "Si pasas un semáforo en rojo, pones en riesgo tu vida y la de otros.",
+      "streetDecision": "Detente siempre ante señales de alto y semáforos rojos.",
+      "risk": "Accidentes graves y multas.",
+      "watchFor": "Señales de tránsito y agentes de tránsito.",
+      "citationNumbers": [9]
+    }
+  ],
+  "needsHumanReview": [
+    "Control de calidad pendiente: checklist tiene 5; minimo 6. quiz tiene 4; minimo 5. contenido didactico tiene 1205 palabras; minimo 1400. intro tiene menos de 80 palabras."
+  ],
+  "quiz": [
+    {
+      "question": "¿Qué debes hacer si tienes luz verde pero el tráfico está detenido?",
+      "options": ["Avanzar", "Esperar", "Tocar la bocina"],
+      "answer": "Esperar",
+      "explanation": "Debes esperar hasta que haya espacio suficiente para cruzar sin bloquear la intersección.",
+      "citationNumbers": [1]
+    },
+    {
+      "question": "¿Dónde no debes estacionarte?",
+      "options": ["En aceras", "En estacionamientos", "En calles principales"],
+      "answer": "En aceras",
+      "explanation": "Estacionar en aceras obstruye el paso de peatones y es una infracción.",
+      "citationNumbers": [3]
+    },
+    {
+      "question": "¿Qué señal indica que debes detenerte?",
+      "options": ["Luz verde", "Luz amarilla", "Señal de alto"],
+      "answer": "Señal de alto",
+      "explanation": "La señal de alto requiere que te detengas completamente antes de continuar.",
+      "citationNumbers": [9]
+    },
+    {
+      "question": "¿Qué debes hacer al cambiar de carril?",
+      "options": ["No hacer nada", "Usar luces direccionales", "Acelerar"],
+      "answer": "Usar luces direccionales",
+      "explanation": "Es importante señalizar tu intención de cambiar de carril para evitar accidentes.",
+      "citationNumbers": [15]
+    }
+  ],
+  "reflection": [
+    "¿Cómo puedes contribuir a la seguridad vial en tu comunidad?",
+    "¿Qué acciones tomarías si ves a alguien ignorando una señal de tránsito?",
+    "¿Por qué es importante respetar las prioridades de paso?",
+    "¿Cómo afecta el estacionamiento indebido a los peatones?",
+    "¿Qué aprendiste sobre las señales de tránsito que no sabías antes?"
+  ],
+  "scenario": {
+    "title": "Intersección congestionada",
+    "situation": "Te acercas a una intersección con luz verde, pero el tráfico está detenido.",
+    "unsafeChoice": "Decides avanzar y bloqueas la intersección.",
+    "safeDecision": "Esperas antes de entrar hasta que haya espacio suficiente.",
+    "feedback": "Bloquear la intersección puede causar accidentes y congestión. Siempre espera hasta que sea seguro cruzar.",
+    "citationNumbers": [1]
+  },
+  "vocabulary": [
+    {
+      "term": "Señal de alto",
+      "meaning": "Indica que el conductor debe detenerse completamente.",
+      "citationNumbers": [9]
+    },
+    {
+      "term": "Paso peatonal",
+      "meaning": "Zona designada para que los peatones crucen la calle.",
+      "citationNumbers": [4]
+    },
+    {
+      "term": "Intersección",
+      "meaning": "Punto donde se cruzan dos o más vías.",
+      "citationNumbers": [1]
+    },
+    {
+      "term": "Carril",
+      "meaning": "Parte de la vía destinada para el tránsito de un solo vehículo.",
+      "citationNumbers": [4]
+    }
+  ],
+  "whyItMatters": "Las reglas de circulación no son solo un conjunto de normas, son directrices que salvan vidas. Cada vez que un conductor ignora una señal de alto o estaciona en un lugar prohibido, pone en riesgo no solo su vida, sino también la de otros. En El Salvador, donde el tráfico puede ser caótico, entender y aplicar estas reglas es vital para prevenir accidentes y garantizar un entorno vial seguro para todos. La seguridad vial es responsabilidad de cada uno de nosotros.",
+  "audience": ["primera-licencia", "refuerzo"],
+  "citations": [
+    {
+      "articleNumber": "124",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 124.- Al aproximarse a cualquier intersección de vías en que no se tenga prioridad de paso deberá\nprocederse de la siguiente forma:\n1. Si se trata de un acceso controlado por la luz roja de semáforo, el conductor deberá detener el\nvehículo en la línea de parada que esté debidamente demarcada. Si no hubiere, se detendrá cerca\nde la vía que va a cruzar sin obstruir el tránsito transversal. En el caso de que se vaya a realizar un\ngiro a la derecha, si el tránsito en la vía que tiene luz verde lo permite, se puede",
+      "id": "3609a817-1fd4-4508-905f-11f6f4259cc3",
+      "label": "[1] Reglamento General de Tránsito y Seguridad Vial, Art. 124",
+      "pageEnd": 32,
+      "pageStart": 31,
+      "sectionTitle": null,
+      "similarity": 0.757831458203301,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": null,
+      "documentKey": "manual-senales-centroamericano",
+      "documentName": "Manual Centroamericano de Dispositivos Uniformes para el Control del Transito",
+      "excerpt": "MANUAL CENTROAMERICANO DE\nDISPOSITIVOS UNIFORMES PARA EL\nCONTROL DEL TRÁNSITO\nIng. Junior Araya Villalobos\nSeñalización Temporal y Dispositivos de Seguridad\n\nAntecedentes del Manual.\n1958 1963 1979 1998 2000 2014\n\nContenido del Manual.\n• Disposiciones Generales.\n• Señales Verticales.\n•Señalización Horizontal y Demarcación Horizontal.\n• Demarcación de Islas en el Pavimento.\n• Semáforos.\n• Dispositivos de Seguridad y Control Temporal del Tránsito para la Ejecución de Trabajos en las Vías.\n• Control de Tránsito en Zon",
+      "id": "6128a54b-9263-4227-8c8e-ef28b8c437c2",
+      "label": "[2] Manual Centroamericano de Dispositivos Uniformes para el Control del Transito, unidad normativa",
+      "pageEnd": 110,
+      "pageStart": 1,
+      "sectionTitle": null,
+      "similarity": 0.733043645149055,
+      "sourcePath": "assets\\Manual_de_Senales.pdf",
+      "sourceUrl": "assets/Manual_de_Senales.pdf"
+    },
+    {
+      "articleNumber": "116",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 116.- Dentro de la circulación vehícular deberán tenerse presente y cumplir con exactitud las reglas\nsiguientes:\n1. No deberá conducirse describiendo curvas o atravesar el vehículo.\n2. No podrá sobrepasarse a otro vehículo, sin antes haberlo indicado con la luz direccional, o cuando\nun tercero viene en dirección contraria o cuando el vehículo delantero se acercare a algún trecho\nangosto, curva, puente, etc.\n3. Debe dejarse el vehículo estacionado a más de 10 metros de las esquinas de las intersecciones\nurbanas",
+      "id": "61763ea9-93d7-475e-9761-56a5d1521838",
+      "label": "[3] Reglamento General de Tránsito y Seguridad Vial, Art. 116",
+      "pageEnd": 30,
+      "pageStart": 28,
+      "sectionTitle": null,
+      "similarity": 0.729819835732092,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "98",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 98.- En la Circulación Vehicular todo conductor deberá atender y ejecutar las reglas que se dan a\ncontinuación:\n1. Conducir siempre por la derecha de la vía\n2. Al entrar a una calle o carretera principal, cederá el paso a todos los vehículos que circulen en esa\nvía, aunque vengan de la derecha o izquierda.\n3. Ceder al paso a todo peatón que camine sobre la zona peatonal o de seguridad peatonal.\n4. Detener por completo la marcha y ceder el paso siempre que llegue a una señal de ALTO o de\nPARADA. Si no hubiere e",
+      "id": "ffaaed31-ef4e-477e-b4c4-8eb1dc795a74",
+      "label": "[4] Reglamento General de Tránsito y Seguridad Vial, Art. 98",
+      "pageEnd": 25,
+      "pageStart": 24,
+      "sectionTitle": "CAPITULO II > DE LAS REGLAS DE CIRCULACION VEHICULAR DE CARACTER GENERAL",
+      "similarity": 0.72452751478624,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "3",
+      "documentKey": "ley-transporte-terrestre",
+      "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+      "excerpt": "Art. 3.- Para tal efecto esta Ley regulará:\n1) Las normas del transporte y de la circulación de los vehículos que presten el servicio de Transporte;\nasí como las que por razones de Seguridad Vial han de regir para la circulación de peatones y\nsemovientes por las vías terrestres; estableciéndose para tal efecto los derechos y obligaciones de\nlos usuarios.\n2) La autorización y el establecimiento de rutas, frecuencias y fluidez de la circulación vehicular del\nservicio colectivo de pasajeros; así como la concesión de l",
+      "id": "d759f78e-e3ec-4920-86aa-e97c1888d624",
+      "label": "[5] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 3",
+      "pageEnd": 2,
+      "pageStart": 2,
+      "sectionTitle": "DISPOSICIONES PRELIMINARES > CAPITULO UNICO > OBJETO DE LA LEY",
+      "similarity": 0.720834450683633,
+      "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
+      "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
+    },
+    {
+      "articleNumber": "117",
+      "documentKey": "decreto-legislativo-185",
+      "documentName": "Decreto Legislativo No. 185",
+      "excerpt": "\"Art. 117.- Las infracciones de tránsito y seguridad vial se clasifican en leves, graves y muy\ngraves.\nPrevio a la adquisición de cualquier vehículo automotor, el interesado deberá cerciorarse en el\nregistro público de vehículos, que no exista pendiente el pago de multas que se hubieren impuesto\nrespecto del mismo, al propietario o legítimo tenedor.\nEn todo caso, la tarjeta de circulación del vehículo de que se trate sólo podrá renovarse, previo\npago de la multa.\n\nLas multas por infracciones de tránsito, transporte",
+      "id": "c123a45c-b893-4c70-aab5-a4601e31f37c",
+      "label": "[6] Decreto Legislativo No. 185, Art. 117",
+      "pageEnd": 9,
+      "pageStart": 3,
+      "sectionTitle": null,
+      "similarity": 0.715185936432265,
+      "sourcePath": "assets\\DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf",
+      "sourceUrl": "assets/DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf"
+    },
+    {
+      "articleNumber": "131",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 131.- Con el objeto de hacer práctica la aplicación de las reglas de circulación en determinadas vías\ncuyo crecido movimiento no guarda relación con su anchura y otras circunstancias imprevistas, la Dirección\nGeneral de Tránsito en coordinación con la División de Tránsito Terrestre de la Policía Nacional Civil en la\nCapital y sus Delegaciones en las Zonas o Departamentos, queda facultada para imponer restricciones a la\ncirculación de vehículos, en base a la opinión y/o estudios técnicos realizados o avalados p",
+      "id": "06570454-81aa-45e0-98a8-9d819f556057",
+      "label": "[7] Reglamento General de Tránsito y Seguridad Vial, Art. 131",
+      "pageEnd": 35,
+      "pageStart": 35,
+      "sectionTitle": "CAPITULO III > DE LAS RESTRICCIONES A LA CIRCULACION DE TRANSITO",
+      "similarity": 0.704000066579299,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "117",
+      "documentKey": "ley-transporte-terrestre",
+      "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+      "excerpt": "Art. 117.- Las infracciones de tránsito y seguridad vial se clasifican en Leves, graves y muy graves. (20)\nPrevio a la adquisición de cualquier vehículo automotor, el interesado deberá cerciorarse en el Registro\nPúblico de Vehículos, que no exista pendiente el pago de multas que se hubieren impuesto respecto del\nmismo, al propietario. (20)\nEn todo caso, la tarjeta de circulación del vehículo de que se trate, sólo podrá renovarse, previo pago de\nla multa. (20)\nCUADRO DE MULTAS DE TRANSITO POR INFRACCIONES LEVES, GRA",
+      "id": "0725c88e-ea49-42ba-a7dd-52eedf8a3bbd",
+      "label": "[8] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 117",
+      "pageEnd": 30,
+      "pageStart": 23,
+      "sectionTitle": "CAPITULO I > DE LOS SEGUROS Y FIANZAS > CAPITULO II",
+      "similarity": 0.703892236228874,
+      "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
+      "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
+    },
+    {
+      "articleNumber": "149",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 149.- Las señales y signos de los Agentes de Tránsito indicarán lo siguiente:\n1. Cuando el Agente extienda los dos brazos, indica \"PARO GENERAL\", en este caso todos los\nvehículos harán alto, y mientras tarda la señal, los peatones podrán atravesar libremente por las\nzonas peatonales o por cualquiera de las boca-calles del crucero, pero nunca en sentido diagonal.\n2. Los vehículos tanto la señal de \"ALTO\" como a la de \"PARO GENERAL\" deberán detener su\nmarcha antes de cruzar las franjas de la zona de seguridad se",
+      "id": "8f1db2fa-5b46-4622-b64c-ce8cdf124f71",
+      "label": "[9] Reglamento General de Tránsito y Seguridad Vial, Art. 149",
+      "pageEnd": 39,
+      "pageStart": 38,
+      "sectionTitle": "CAPITULO VI > DE LA DETERMINACION DE VELOCIDAD > CAPITULO VII",
+      "similarity": 0.703135455363518,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "52",
+      "documentKey": "ley-transporte-terrestre",
+      "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+      "excerpt": "Art. 52.- Las maniobras de circulación vehicular y el movimiento peatonal en los sitios de\nestacionamiento, se realizarán conforme a lo establecido por la Ley y sus Reglamentos.\nTITULO III\nDEL TRANSITO\nCAPITULO I\nDEL TRANSITO Y LA CIRCULACION VEHICULAR",
+      "id": "3e6d1988-6c0a-4c9a-a05c-b9a190d38ca4",
+      "label": "[10] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 52",
+      "pageEnd": 15,
+      "pageStart": 15,
+      "sectionTitle": "DE LOS PERMISOS DE OPERACION DE TRANSPORTE > CAPITULO XI > ESTACIONAMIENTOS",
+      "similarity": 0.701853055015645,
+      "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
+      "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
+    },
+    {
+      "articleNumber": "126",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 126.- Al aproximarse a cualquier redondel o rotonda los conductores deberán según las siguientes\ndisposiciones:\n1. El vehículo que viaja dentro de un redondel o rotonda tiene prioridad de paso sobre el que dispone\nentrar en ella.\n2. Dentro de un redondel o rotonda la velocidad máxima permitida es de treinta kilómetros por hora.\n\n3. El vehículo que va a ingresar al redondel o rotonda debe ceder el paso al que circula dentro de ella,\ndeteniéndose completamente, si es necesario en la línea de límite correspondien",
+      "id": "55018a02-8a6d-4ed9-88d4-eeba6deb524b",
+      "label": "[11] Reglamento General de Tránsito y Seguridad Vial, Art. 126",
+      "pageEnd": 33,
+      "pageStart": 32,
+      "sectionTitle": null,
+      "similarity": 0.698174622676177,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "190",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 190.- Se determina que en los establecimientos educativos estatales y particulares, se impartirá la\nenseñanza de las normas, práctica y principios que regulan el tránsito, el uso de las vías públicas, los medios\nde transporte y la formación de conciencia y hábitos de seguridad en el tránsito vehicular.",
+      "id": "4c42770c-6bfd-4f17-9eb6-93dca976db6e",
+      "label": "[12] Reglamento General de Tránsito y Seguridad Vial, Art. 190",
+      "pageEnd": 49,
+      "pageStart": 49,
+      "sectionTitle": "TITULO VI > DE LA SEGURIDAD VIAL",
+      "similarity": 0.69302970621862,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "1",
+      "documentKey": "ley-transporte-terrestre",
+      "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+      "excerpt": "Art. 1.- La presente Ley tiene por objeto establecer el marco legal en materia de:\na) Régimen administrativo de Transporte, Tránsito y su Seguridad Vial;\n\nb) Transporte Terrestre, con excepción del Régimen Ferroviario;\nc) Registro Público de Vehículos Automotores: Transporte Individual y Colectivo de Pasajeros;\nTransporte Liviano y Pesado de Carga;\nd) Tránsito y Circulación Vehicular;\ne) Seguridad Vial;\nf) Estacionamientos, Terminales de Servicio Colectivo, de Carga y demás lugares de acceso público en\nlo que fuese",
+      "id": "eeed63ea-5db3-4d1a-8c83-c96904423e87",
+      "label": "[13] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 1",
+      "pageEnd": 2,
+      "pageStart": 1,
+      "sectionTitle": "DISPOSICIONES PRELIMINARES > CAPITULO UNICO > OBJETO DE LA LEY",
+      "similarity": 0.686774317947496,
+      "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
+      "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
+    },
+    {
+      "articleNumber": "4",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "35. Opacímetro: dispositivo para medir el grado de opacidad de los gases, humos y partículas del\nescape de un vehículo.\n36. Pasajero: toda persona que aparte del conductor, ocupa un lugar dentro del vehículo.\n37. Permiso Temporal de Aprendizaje: documento que se expide, en forma temporal, para aprender a\nconducir vehículos automotores y que queda supeditado al acatamiento de las disposiciones del\npresente Reglamento.\n38. Peso Bruto del Vehículo: peso total del vehículo que resulta al sumar su peso de acuerdo con la",
+      "id": "86651e5c-2767-4ccd-996b-28039f6d3c5a",
+      "label": "[14] Reglamento General de Tránsito y Seguridad Vial, Art. 4",
+      "pageEnd": 5,
+      "pageStart": 2,
+      "sectionTitle": "FINALIDAD > AMBITO DE APLICACION > DEFINICIONES",
+      "similarity": 0.686648696479738,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "115",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 115.- Para la mejor circulación, los conductores de vehículos automotores, harán las señales\nsiguientes para indicar modificación de carril, viraje o giro, durante el día y la noche, así:\n1. Para virar a la derecha no deberá rebasar el eje imaginario de la vía, indicando dicha maniobra con\nla luz direccional del costado derecho.\n2. Para virar a la izquierda, deberá alejarse de la acera avanzando hasta acercarse lo más que se\npueda al centro de la vía, indicando la maniobra respectiva, con la luz direccional de",
+      "id": "158c7250-cda6-4ec2-996b-384d3f50dd8e",
+      "label": "[15] Reglamento General de Tránsito y Seguridad Vial, Art. 115",
+      "pageEnd": 28,
+      "pageStart": 28,
+      "sectionTitle": null,
+      "similarity": 0.686215205246746,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "105",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 105.- Un vehículo parado o estacionado en una vía o procedente de las vías de acceso a la misma\nque pretenda incorporarse a la circulación, deberá cerciorarse previamente, de que pueda hacerlo sin peligro\npara los demás usuarios, cediendo el paso a otros vehículos y teniendo en cuenta la posición, trayectoria y\nvelocidad de éstos.\nLos demás vehículos en circulación facilitarán en la medida de lo posible, dicha maniobra, especialmente\nsi se trata de un vehículo de transporte colectivo de pasajeros o de escolare",
+      "id": "8d369cf0-8571-4ba5-8fc3-e1c78452d700",
+      "label": "[16] Reglamento General de Tránsito y Seguridad Vial, Art. 105",
+      "pageEnd": 26,
+      "pageStart": 26,
+      "sectionTitle": null,
+      "similarity": 0.684179100837111,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "117",
+      "documentKey": "decreto-legislativo-185",
+      "documentName": "Decreto Legislativo No. 185",
+      "excerpt": "48 No respetar el derecho de vía o interceptar la vía. $100\n49 No mover un vehículo u objeto que obstruya el libre tránsito producto de un $100\nsiniestro vial, siempre que solo existan daños materiales y/o lesiones leves o\npor otras razones que la autoridad competente estime conveniente.\nSEGURIDAD VIAL\n50 No conceder el paso a peatones que se encuentren en zona de peligro $100\n51 Circular más de una persona en el asiento del conductor. $100\n52 No respetar las señales de precaución, cuando hay trabajos de construcci",
+      "id": "16f4f699-15da-4a5b-a183-be8a0748dd7c",
+      "label": "[17] Decreto Legislativo No. 185, Art. 117",
+      "pageEnd": 9,
+      "pageStart": 3,
+      "sectionTitle": null,
+      "similarity": 0.671015218017439,
+      "sourcePath": "assets\\DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf",
+      "sourceUrl": "assets/DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf"
+    }
+  ],
+  "generatedAt": "2026-07-04T23:57:17.472Z",
+  "generator": "scripts/generate-learning-modules.mjs",
+  "moduleId": "04-reglas-de-circulacion",
+  "originalBrief": {
+    "concepts": "- Prioridad de paso.\n- Intersecciones.\n- Paradas y estacionamientos.\n- Carriles y vias.\n- Aceras y pasos peatonales.\n- Maniobras seguras.\n- Entrada a intersecciones cuando hay congestion.",
+    "purpose": "Que la persona aprenda como moverse en la via sin bloquear, asustar o poner en peligro a otros.",
+    "questions": "- Que haces si tienes verde pero no hay espacio para cruzar?\n- Donde no debes estacionarte?\n- Que debes revisar antes de cambiar de carril?",
+    "scenarios": "|  ID  |  Situacion  |  Decision segura  |  Consecuencia a explicar  |\n|  01  |  La luz esta verde pero el trafico adelante esta detenido  |  Esperar antes de entrar  |  Bloqueo de cruce  |\n|  02  |  Necesitas estacionarte sobre acera  |  Buscar lugar permitido  |  Peaton obligado a caminar en calle  |",
+    "sourceScope": [
+      "Ley de Transporte Terrestre, Transito y Seguridad Vial",
+      "Reglamento General de Transito y Seguridad Vial"
+    ],
+    "visual": "Interseccion con paso peatonal, semaforo, carriles y vehiculos detenidos. Resaltar el area que no se debe bloquear."
+  },
+  "retrievalQuery": "Modulo: Reglas de circulacion\nProposito: Que la persona aprenda como moverse en la via sin bloquear, asustar o poner en peligro a otros.\nFuentes esperadas: Ley de Transporte Terrestre, Transito y Seguridad Vial, Reglamento General de Transito y Seguridad Vial\n\n---\n\nCobertura normativa para Reglas de circulacion\n- Prioridad de paso.\n- Intersecciones.\n- Paradas y estacionamientos.\n- Carriles y vias.\n- Aceras y pasos peatonales.\n- Maniobras seguras.\n- Entrada a intersecciones cuando hay congestion.\n|  ID  |  Titulo  |  Fuente esperada  |  Riesgo que conecta  |\n|  01  |  No entres si vas a bloquear  |  Ley, circulacion  |  Choques y bloqueo vial  |\n|  02  |  Respeta aceras y pasos peatonales  |  Ley  |  Atropello  |\n|  03  |  Estacionar tambien tiene reglas  |  Ley y reglamento  |  Riesgo para peatones y multas  |\n|  04  |  Cambiar de carril sin asustar  |  Reglamento  |  Choques laterales  |\n|  05  |  Redondeles e intersecciones  |  Reglamento y escenarios MVP  |  Confusion y choques  |\n\n---\n\nAplicacion practica para conductores: Reglas de circulacion\n|  ID  |  Situacion  |  Decision segura  |  Consecuencia a explicar  |\n|  01  |  La luz esta verde pero el trafico adelante esta detenido  |  Esperar antes de entrar  |  Bloqueo de cruce  |\n|  02  |  Necesitas estacionarte sobre acera  |  Buscar lugar permitido  |  Peaton obligado a caminar en calle  |\n- Que haces si tienes verde pero no hay espacio para cruzar?\n- Donde no debes estacionarte?\n- Que debes revisar antes de cambiar de carril?\n\n---\n\nSenales, obligaciones, prohibiciones, sanciones, excepciones y decisiones seguras relacionadas con Reglas de circulacion\nInterseccion con paso peatonal, semaforo, carriles y vehiculos detenidos. Resaltar el area que no se debe bloquear.\nLey de Transporte Terrestre, Transito y Seguridad Vial, Reglamento General de Transito y Seguridad Vial",
+  "title": "Reglas de circulacion"
+}

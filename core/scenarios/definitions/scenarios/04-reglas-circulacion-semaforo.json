@@ -1,0 +1,145 @@
+{
+  "schemaVersion": "drivelab.scenario.v1",
+  "id": "scenario_reglas_circulacion_semaforo_001",
+  "slug": "reglas-circulacion-semaforo",
+  "title": "Decisión ante semáforo en rojo",
+  "description": "El usuario practica detenerse ante luz roja y leer el cruce antes de entrar a una intersección.",
+  "moduleBinding": {
+    "moduleId": "04-reglas-de-circulacion",
+    "isPrimaryScenario": true
+  },
+  "learning": {
+    "lessonIds": [
+      "04-reglas-de-circulacion:semaforos",
+      "04-reglas-de-circulacion:control-de-interseccion"
+    ],
+    "objectives": [
+      "Aplicar una orden de semáforo como decisión inmediata de detención.",
+      "Evitar entrar a una zona de conflicto sin autorización vial."
+    ],
+    "feedback": {
+      "success": "Respetaste la luz roja y mantuviste libre la intersección.",
+      "failure": "Entrar con luz roja elimina la prioridad de paso y crea un conflicto directo con otros usuarios.",
+      "hints": [
+        "La luz roja ordena detenerse antes de la línea.",
+        "La prisa no cambia la prioridad.",
+        "Observá peatones y vehículos que tienen paso habilitado."
+      ]
+    },
+    "legalReferences": [
+      {
+        "jurisdiction": "SV",
+        "document": "Decreto Legislativo No. 185",
+        "articleId": "cuadro de multas",
+        "ruleCategory": "run-red"
+      }
+    ]
+  },
+  "simulation": {
+    "pattern": "traffic_light_decision",
+    "durationSeconds": 16,
+    "world": {
+      "environment": "intersection",
+      "roadType": "two_lane_urban",
+      "weather": "clear",
+      "timeOfDay": "day",
+      "units": "meters"
+    },
+    "camera": {
+      "mode": "third_person_follow",
+      "targetActorId": "ego_car",
+      "position": [15, 12, 23],
+      "lookAt": [0, 0, 2],
+      "fov": 50
+    },
+    "assets": [
+      {
+        "id": "asset_sedan",
+        "type": "vehicle",
+        "url": "/models/sedan.glb"
+      },
+      {
+        "id": "asset_pickup",
+        "type": "vehicle",
+        "url": "/models/truck.glb"
+      }
+    ],
+    "actors": [
+      {
+        "id": "ego_car",
+        "assetId": "asset_sedan",
+        "role": "ego_vehicle",
+        "initialPosition": [0, 0, 22],
+        "initialRotation": [0, 3.1416, 0],
+        "scale": [1, 1, 1],
+        "tags": ["vehicle", "controlled"]
+      },
+      {
+        "id": "cross_pickup",
+        "assetId": "asset_pickup",
+        "role": "traffic_vehicle",
+        "initialPosition": [-16, 0, 2],
+        "initialRotation": [0, -1.5708, 0],
+        "scale": [1, 1, 1],
+        "tags": ["vehicle", "priority"]
+      }
+    ],
+    "interactions": [
+      {
+        "id": "decision_red_light",
+        "type": "multiple_choice",
+        "appearsAt": 6,
+        "prompt": "La luz está en rojo. ¿Cuál es la decisión correcta?",
+        "options": [
+          {
+            "id": "cross_if_clear",
+            "label": "Cruzar si parece que no viene nadie",
+            "isCorrect": false,
+            "scoreDelta": -40
+          },
+          {
+            "id": "speed_up",
+            "label": "Acelerar para no quedar a mitad del cruce",
+            "isCorrect": false,
+            "scoreDelta": -45
+          },
+          {
+            "id": "stop_line",
+            "label": "Detenerse antes de la línea y esperar autorización",
+            "isCorrect": true,
+            "scoreDelta": 50
+          }
+        ],
+        "correctOptionId": "stop_line"
+      }
+    ]
+  },
+  "scoring": {
+    "maxScore": 100,
+    "passScore": 75,
+    "metrics": [
+      {
+        "id": "signal_reading",
+        "label": "Lectura de semáforo",
+        "weight": 40
+      },
+      {
+        "id": "stop_behavior",
+        "label": "Detención segura",
+        "weight": 40
+      },
+      {
+        "id": "conflict_awareness",
+        "label": "Conflicto del cruce",
+        "weight": 20
+      }
+    ]
+  },
+  "metadata": {
+    "difficulty": "basic",
+    "estimatedMinutes": 4,
+    "tags": ["semáforo", "circulación", "intersección"],
+    "createdAt": "2026-07-04T00:00:00-06:00",
+    "updatedAt": "2026-07-04T00:00:00-06:00"
+  }
+}

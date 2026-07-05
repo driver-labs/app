@@ -1,0 +1,565 @@
+{
+  "coreIdea": "La conducción defensiva es un principio fundamental que permite a los conductores anticipar errores y situaciones de riesgo en la vía. Este enfoque no solo protege al conductor, sino también a peatones y otros usuarios, promoviendo un entorno vial más seguro para todos.",
+  "headline": "Conducción Defensiva: Seguridad Vial en Acción",
+  "intro": "La conducción defensiva es un enfoque esencial para garantizar la seguridad en las vías. Este módulo te enseñará a anticipar situaciones de riesgo, mantener una distancia segura y reaccionar adecuadamente ante imprevistos. Aprenderás a ceder el paso cuando sea necesario y a evitar maniobras bruscas que puedan poner en peligro tu vida y la de otros. La conciencia vial es fundamental para reducir accidentes y proteger a todos los usuarios de la vía, incluidos peatones y ciclistas. ¡Prepárate para convertirte en un conductor más seguro y responsable!",
+  "applicationCases": [
+    {
+      "title": "Bus se detiene de repente en una parada",
+      "situation": "Un bus se detiene abruptamente en una parada sin previo aviso.",
+      "wrongMove": "Acelerar para intentar adelantar al bus sin visibilidad.",
+      "safeMove": "Reducir velocidad y esperar a que el bus complete la parada.",
+      "why": "Esto permite que los pasajeros crucen la calle de manera segura.",
+      "citationNumbers": [2]
+    },
+    {
+      "title": "Moto aparece en punto ciego",
+      "situation": "Una moto se aproxima desde un ángulo muerto al girar.",
+      "wrongMove": "Girar sin verificar los espejos o el punto ciego.",
+      "safeMove": "Revisar los espejos y el hombro antes de girar.",
+      "why": "Esto previene un golpe lateral y protege a todos los involucrados.",
+      "citationNumbers": [2]
+    },
+    {
+      "title": "Lluvia fuerte reduce visibilidad",
+      "situation": "Las condiciones climáticas empeoran y la visibilidad se reduce.",
+      "wrongMove": "Mantener la velocidad habitual a pesar de la lluvia.",
+      "safeMove": "Bajar la velocidad y aumentar la distancia con el vehículo de adelante.",
+      "why": "Esto permite reaccionar a tiempo ante cualquier imprevisto en la vía.",
+      "citationNumbers": [2]
+    }
+  ],
+  "checklist": [
+    {
+      "label": "Revisar espejos",
+      "action": "Verifica tus espejos antes de cambiar de carril.",
+      "citationNumbers": [5]
+    },
+    {
+      "label": "Mantener distancia",
+      "action": "Asegúrate de mantener una distancia segura con el vehículo de adelante.",
+      "citationNumbers": [17]
+    },
+    {
+      "label": "Reducir velocidad",
+      "action": "Disminuye la velocidad al acercarte a zonas de riesgo.",
+      "citationNumbers": [2]
+    },
+    {
+      "label": "Ceder el paso",
+      "action": "Cede el paso a peatones en las zonas designadas.",
+      "citationNumbers": [9]
+    },
+    {
+      "label": "Usar luces direccionales",
+      "action": "Indica tus maniobras con las luces direccionales.",
+      "citationNumbers": [5]
+    },
+    {
+      "label": "Mantener la calma",
+      "action": "Evita reacciones impulsivas ante otros conductores.",
+      "citationNumbers": [4]
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "No mantener distancia de seguridad",
+      "consequence": "Aumento del riesgo de colisión por alcance.",
+      "betterHabit": "Mantener siempre una distancia prudente con el vehículo de adelante.",
+      "citationNumbers": [17]
+    },
+    {
+      "mistake": "No ceder el paso a peatones",
+      "consequence": "Atropellos y accidentes graves.",
+      "betterHabit": "Siempre ceder el paso a peatones en zonas designadas.",
+      "citationNumbers": [9]
+    },
+    {
+      "mistake": "Realizar maniobras bruscas",
+      "consequence": "Pérdida de control del vehículo y accidentes.",
+      "betterHabit": "Realizar cambios de dirección y frenadas de manera suave.",
+      "citationNumbers": [4]
+    },
+    {
+      "mistake": "No reducir velocidad en zonas de riesgo",
+      "consequence": "Accidentes en áreas con alta concentración de peatones.",
+      "betterHabit": "Disminuir la velocidad al acercarse a escuelas y mercados.",
+      "citationNumbers": [2]
+    },
+    {
+      "mistake": "Ignorar señales de tránsito",
+      "consequence": "Multas y accidentes por incumplimiento de normas.",
+      "betterHabit": "Prestar atención a todas las señales de tránsito y obedecerlas.",
+      "citationNumbers": [10]
+    }
+  ],
+  "estimatedMinutes": 35,
+  "learningObjectives": [
+    "Comprender el concepto de conducción defensiva y su importancia.",
+    "Identificar las señales y normas que regulan la conducción segura.",
+    "Aplicar técnicas de anticipación y atención permanente al conducir.",
+    "Reconocer situaciones de riesgo y cómo actuar ante ellas.",
+    "Desarrollar hábitos de conducción que prioricen la seguridad vial."
+  ],
+  "legalFoundation": [
+    {
+      "title": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 88",
+      "explanation": "Esta ley establece que el manejo a la defensiva es una norma general en toda la red vial del país. Esto implica que todos los conductores deben estar preparados para reaccionar ante situaciones inesperadas y actuar de manera que se minimicen los riesgos de accidentes.",
+      "citationNumbers": [3]
+    },
+    {
+      "title": "Reglamento General de Tránsito y Seguridad Vial, Art. 116",
+      "explanation": "Este artículo detalla las reglas que deben seguir los conductores, incluyendo la obligación de moderar la velocidad en zonas de riesgo y ceder el paso a peatones. Estas normas son esenciales para garantizar la seguridad de todos los usuarios de la vía.",
+      "citationNumbers": [2]
+    },
+    {
+      "title": "Reglamento General de Tránsito y Seguridad Vial, Art. 117",
+      "explanation": "Establece que los conductores deben ceder el paso a los vehículos que se aproximan y a los peatones en las zonas de seguridad. Esta norma es fundamental para prevenir accidentes en intersecciones y pasos peatonales.",
+      "citationNumbers": [5]
+    },
+    {
+      "title": "Reglamento General de Tránsito y Seguridad Vial, Art. 149",
+      "explanation": "Indica que los conductores deben circular a una velocidad razonable y prudente, considerando las condiciones de la vía. Esta norma ayuda a evitar accidentes al permitir que los conductores reaccionen a tiempo ante imprevistos.",
+      "citationNumbers": [11]
+    }
+  ],
+  "lessons": [
+    {
+      "title": "Manejar bien es anticipar",
+      "explanation": "La anticipación es clave en la conducción defensiva. Implica prever posibles errores de otros conductores y actuar en consecuencia. Esto requiere atención constante y la capacidad de reaccionar rápidamente ante situaciones inesperadas.",
+      "normativeDetail": "La ley establece que los conductores deben estar preparados para cualquier eventualidad en la vía, lo que incluye anticipar maniobras de otros vehículos y peatones.",
+      "everydayExample": "Por ejemplo, si ves un vehículo que se aproxima a una intersección sin señalizar, debes estar listo para detenerte o ceder el paso.",
+      "streetDecision": "Mantén siempre una distancia segura con el vehículo de adelante.",
+      "risk": "Riesgo de colisión si no se anticipan los movimientos de otros conductores.",
+      "watchFor": "Observa las señales de otros conductores y su comportamiento.",
+      "citationNumbers": [3, 4]
+    },
+    {
+      "title": "Mantener distancia te da vida",
+      "explanation": "La distancia de seguridad es fundamental para evitar accidentes. Permite que tengas tiempo suficiente para reaccionar ante cualquier imprevisto, como un frenado repentino del vehículo de adelante.",
+      "normativeDetail": "La normativa exige que los conductores mantengan una distancia prudente que les permita detenerse sin colisionar.",
+      "everydayExample": "Si conduces a 60 km/h, deberías mantener al menos 30 metros de distancia del vehículo que va delante.",
+      "streetDecision": "Aumenta la distancia al acercarte a zonas de riesgo.",
+      "risk": "Riesgo de choque por alcance si no se mantiene la distancia adecuada.",
+      "watchFor": "Presta atención a la velocidad del tráfico y ajusta tu distancia.",
+      "citationNumbers": [2, 17]
+    },
+    {
+      "title": "Mira lejos, cerca y a los lados",
+      "explanation": "La atención permanente es vital. Debes observar no solo lo que está frente a ti, sino también los laterales y el entorno. Esto te ayudará a detectar peligros antes de que se conviertan en un problema.",
+      "normativeDetail": "La ley establece que los conductores deben estar siempre atentos a las condiciones del tráfico y a los peatones.",
+      "everydayExample": "Antes de girar, revisa tus espejos y el ángulo muerto para asegurarte de que no hay vehículos o peatones en tu camino.",
+      "streetDecision": "Revisa tus espejos frecuentemente y mantén la vista en el entorno.",
+      "risk": "Riesgo de accidentes por no detectar vehículos en puntos ciegos.",
+      "watchFor": "Cuidado con los peatones y ciclistas que pueden aparecer repentinamente.",
+      "citationNumbers": [2, 4]
+    },
+    {
+      "title": "Baja velocidad antes del riesgo",
+      "explanation": "Reducir la velocidad en zonas de riesgo es crucial. Esto incluye áreas cercanas a escuelas, mercados y en condiciones climáticas adversas. La velocidad moderada te da más tiempo para reaccionar.",
+      "normativeDetail": "La normativa exige que los conductores disminuyan la velocidad al acercarse a zonas de riesgo y cruceros.",
+      "everydayExample": "Si te acercas a una escuela, debes reducir la velocidad y estar preparado para detenerte si hay niños cruzando.",
+      "streetDecision": "Siempre reduce la velocidad al acercarte a zonas de riesgo.",
+      "risk": "Riesgo de accidentes graves si no se modera la velocidad.",
+      "watchFor": "Presta atención a las señales de advertencia y a la presencia de peatones.",
+      "citationNumbers": [2, 4]
+    },
+    {
+      "title": "No pelees la vía",
+      "explanation": "La ira vial puede llevar a decisiones peligrosas. Es importante mantener la calma y no entrar en confrontaciones con otros conductores. La paciencia es clave para una conducción segura.",
+      "normativeDetail": "La ley prohíbe las maniobras agresivas que puedan poner en peligro a otros usuarios de la vía.",
+      "everydayExample": "Si otro conductor intenta adelantarte de manera imprudente, mantén la calma y permite que pase sin reaccionar.",
+      "streetDecision": "Evita las maniobras bruscas y mantén la calma en situaciones de tráfico.",
+      "risk": "Riesgo de colisiones y accidentes por reacciones impulsivas.",
+      "watchFor": "Observa el comportamiento de otros conductores y evita provocaciones.",
+      "citationNumbers": [2, 4]
+    },
+    {
+      "title": "Ceder paso cuando sea necesario",
+      "explanation": "Ceder el paso es una norma fundamental en la conducción. Esto incluye a los peatones en zonas de seguridad y a otros vehículos en intersecciones. Respetar esta norma es vital para evitar accidentes.",
+      "normativeDetail": "La normativa establece que los conductores deben ceder el paso a peatones y vehículos que tengan prioridad.",
+      "everydayExample": "Al llegar a un cruce sin señalización, detente y cede el paso a los vehículos que se aproximan.",
+      "streetDecision": "Siempre cede el paso a los peatones en las zonas designadas.",
+      "risk": "Riesgo de atropellos y colisiones si no se cede el paso adecuadamente.",
+      "watchFor": "Presta atención a las señales de tránsito y a los peatones.",
+      "citationNumbers": [2, 9]
+    },
+    {
+      "title": "Evitar maniobras bruscas",
+      "explanation": "Las maniobras bruscas pueden causar accidentes graves. Es importante realizar cambios de dirección y frenadas de manera suave y controlada para mantener la estabilidad del vehículo.",
+      "normativeDetail": "La ley prohíbe las maniobras que puedan poner en peligro a otros usuarios de la vía.",
+      "everydayExample": "Al cambiar de carril, hazlo de manera gradual y señaliza tu intención con anticipación.",
+      "streetDecision": "Realiza maniobras suaves y controladas en todo momento.",
+      "risk": "Riesgo de pérdida de control del vehículo y accidentes.",
+      "watchFor": "Cuidado con la reacción de otros conductores ante maniobras bruscas.",
+      "citationNumbers": [2, 4]
+    }
+  ],
+  "needsHumanReview": [],
+  "quiz": [
+    {
+      "question": "¿Qué significa manejar a la defensiva?",
+      "options": [
+        "Anticipar errores de otros conductores.",
+        "Conducir a alta velocidad.",
+        "No prestar atención a las señales."
+      ],
+      "answer": "Anticipar errores de otros conductores.",
+      "explanation": "Manejar a la defensiva implica estar alerta y preparado para reaccionar ante situaciones inesperadas.",
+      "citationNumbers": [3]
+    },
+    {
+      "question": "¿Qué debes hacer al acercarte a una zona escolar?",
+      "options": [
+        "Acelerar para pasar rápido.",
+        "Mantener la velocidad.",
+        "Reducir la velocidad y estar atento a los peatones."
+      ],
+      "answer": "Reducir la velocidad y estar atento a los peatones.",
+      "explanation": "Es fundamental disminuir la velocidad en zonas con alta concentración de niños.",
+      "citationNumbers": [2]
+    },
+    {
+      "question": "¿Cuál es la distancia segura que debes mantener?",
+      "options": [
+        "Un metro.",
+        "La distancia que te permita detenerte sin colisionar.",
+        "No es necesario mantener distancia."
+      ],
+      "answer": "La distancia que te permita detenerte sin colisionar.",
+      "explanation": "Mantener una distancia adecuada es crucial para evitar accidentes.",
+      "citationNumbers": [17]
+    },
+    {
+      "question": "¿Qué hacer si un peatón está cruzando la calle?",
+      "options": [
+        "Acelerar para pasar antes.",
+        "Ceder el paso y detenerte.",
+        "Tocar la bocina para que se apure."
+      ],
+      "answer": "Ceder el paso y detenerte.",
+      "explanation": "Es obligatorio ceder el paso a los peatones en las zonas designadas.",
+      "citationNumbers": [9]
+    },
+    {
+      "question": "¿Por qué es importante revisar los espejos?",
+      "options": [
+        "Para ver si hay tráfico.",
+        "Para evitar puntos ciegos.",
+        "No es importante."
+      ],
+      "answer": "Para evitar puntos ciegos.",
+      "explanation": "Revisar los espejos ayuda a detectar vehículos que podrían no ser visibles.",
+      "citationNumbers": [5]
+    }
+  ],
+  "reflection": [
+    "¿Cómo puedes aplicar la conducción defensiva en tu día a día?",
+    "¿Qué situaciones de riesgo has enfrentado al conducir?",
+    "¿Por qué es importante ceder el paso a los peatones?",
+    "¿Cómo puedes mejorar tu atención al conducir?",
+    "¿Qué hábitos de conducción te gustaría cambiar?"
+  ],
+  "scenario": {
+    "title": "Situación en una intersección",
+    "situation": "Te acercas a una intersección sin señalización y hay vehículos en ambas direcciones.",
+    "unsafeChoice": "Acelerar para pasar antes que los otros vehículos.",
+    "safeDecision": "Detenerte y ceder el paso a los vehículos que se aproximan.",
+    "feedback": "Al ceder el paso, evitas un posible choque y garantizas la seguridad de todos.",
+    "citationNumbers": [9]
+  },
+  "vocabulary": [
+    {
+      "term": "Conducción defensiva",
+      "meaning": "Enfoque de manejo que busca anticipar errores y situaciones de riesgo.",
+      "citationNumbers": [3]
+    },
+    {
+      "term": "Distancia de seguridad",
+      "meaning": "Espacio que se debe mantener con el vehículo de adelante para evitar colisiones.",
+      "citationNumbers": [17]
+    },
+    {
+      "term": "Ceder el paso",
+      "meaning": "Obligación de permitir que otros usuarios de la vía pasen primero.",
+      "citationNumbers": [9]
+    },
+    {
+      "term": "Señales de tránsito",
+      "meaning": "Dispositivos que regulan y advierten sobre el tráfico en las vías.",
+      "citationNumbers": [10]
+    }
+  ],
+  "whyItMatters": "La conducción defensiva es crucial para reducir el número de accidentes de tráfico, que pueden tener consecuencias fatales. En El Salvador, donde el tráfico es intenso y las infraestructuras pueden ser deficientes, adoptar este enfoque puede salvar vidas. Al anticipar errores de otros conductores y mantener una distancia segura, se minimizan los riesgos de colisiones. Además, ser un conductor responsable fomenta una cultura vial más consciente, donde todos los usuarios de la vía se respetan y cuidan mutuamente, contribuyendo a un entorno más seguro y armonioso.",
+  "audience": ["primera-licencia", "refuerzo"],
+  "citations": [
+    {
+      "articleNumber": null,
+      "documentKey": "manual-senales-centroamericano",
+      "documentName": "Manual Centroamericano de Dispositivos Uniformes para el Control del Transito",
+      "excerpt": "MANUAL CENTROAMERICANO DE\nDISPOSITIVOS UNIFORMES PARA EL\nCONTROL DEL TRÁNSITO\nIng. Junior Araya Villalobos\nSeñalización Temporal y Dispositivos de Seguridad\n\nAntecedentes del Manual.\n1958 1963 1979 1998 2000 2014\n\nContenido del Manual.\n• Disposiciones Generales.\n• Señales Verticales.\n•Señalización Horizontal y Demarcación Horizontal.\n• Demarcación de Islas en el Pavimento.\n• Semáforos.\n• Dispositivos de Seguridad y Control Temporal del Tránsito para la Ejecución de Trabajos en las Vías.\n• Control de Tránsito en Zon",
+      "id": "6128a54b-9263-4227-8c8e-ef28b8c437c2",
+      "label": "[1] Manual Centroamericano de Dispositivos Uniformes para el Control del Transito, unidad normativa",
+      "pageEnd": 110,
+      "pageStart": 1,
+      "sectionTitle": null,
+      "similarity": 0.698217180360806,
+      "sourcePath": "assets\\Manual_de_Senales.pdf",
+      "sourceUrl": "assets/Manual_de_Senales.pdf"
+    },
+    {
+      "articleNumber": "116",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 116.- Dentro de la circulación vehícular deberán tenerse presente y cumplir con exactitud las reglas\nsiguientes:\n1. No deberá conducirse describiendo curvas o atravesar el vehículo.\n2. No podrá sobrepasarse a otro vehículo, sin antes haberlo indicado con la luz direccional, o cuando\nun tercero viene en dirección contraria o cuando el vehículo delantero se acercare a algún trecho\nangosto, curva, puente, etc.\n3. Debe dejarse el vehículo estacionado a más de 10 metros de las esquinas de las intersecciones\nurbanas",
+      "id": "61763ea9-93d7-475e-9761-56a5d1521838",
+      "label": "[2] Reglamento General de Tránsito y Seguridad Vial, Art. 116",
+      "pageEnd": 30,
+      "pageStart": 28,
+      "sectionTitle": null,
+      "similarity": 0.684390122756972,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "88",
+      "documentKey": "ley-transporte-terrestre",
+      "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+      "excerpt": "Art. 88.-Se establece como norma general, el manejo a la defensiva en toda red vial del país.",
+      "id": "fa0ed482-72a3-4f60-a903-618baf663060",
+      "label": "[3] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 88",
+      "pageEnd": 19,
+      "pageStart": 19,
+      "sectionTitle": "DEL SISTEMA DE SEGURIDAD VIAL > CAPITULO I > DE LA SEGURIDAD VIAL",
+      "similarity": 0.681552492919722,
+      "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
+      "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
+    },
+    {
+      "articleNumber": "165",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 165.- En todo instante es obligatorio para los conductores guiar sus vehículos con toda clase de\nprecauciones, con el fin de evitar atropellos a los peatones o colisión con otros vehículos.",
+      "id": "b62f3006-026e-4cd5-a74a-2461d38c279f",
+      "label": "[4] Reglamento General de Tránsito y Seguridad Vial, Art. 165",
+      "pageEnd": 44,
+      "pageStart": 43,
+      "sectionTitle": "DE LA REFRENDA Y REPOSICION PARA LICENCIAS DE MOTORISTAS > CAPITULO III > DE LAS PROHIBICIONES Y DEBERES PARA LOS CONDUCTORES DE VEHICULOS EN GENERAL",
+      "similarity": 0.673158495123622,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "117",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 117.- Para realizar la maniobra de adalantamiento de un vehículo, todo conductor deberá:\n1. Cerciorarse, antes de iniciar la maniobra, que ningún conductor que le siga la haya iniciado también,\nmirando para tal efecto, por los espejos retrovisores. También debe volver su cabeza para verificar el\nángulo muerto del espejo.\n2. Cerciorarse de que el lado izquierdo de la carretera sea claramente visible y que si hay circulación\nen sentido opuesto, esté a una distancia suficiente para que permita el adelantamiento, ",
+      "id": "21f31268-a019-4a9e-bae0-3edabc63a768",
+      "label": "[5] Reglamento General de Tránsito y Seguridad Vial, Art. 117",
+      "pageEnd": 30,
+      "pageStart": 30,
+      "sectionTitle": null,
+      "similarity": 0.670928229137603,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "3",
+      "documentKey": "ley-transporte-terrestre",
+      "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+      "excerpt": "Art. 3.- Para tal efecto esta Ley regulará:\n1) Las normas del transporte y de la circulación de los vehículos que presten el servicio de Transporte;\nasí como las que por razones de Seguridad Vial han de regir para la circulación de peatones y\nsemovientes por las vías terrestres; estableciéndose para tal efecto los derechos y obligaciones de\nlos usuarios.\n2) La autorización y el establecimiento de rutas, frecuencias y fluidez de la circulación vehicular del\nservicio colectivo de pasajeros; así como la concesión de l",
+      "id": "d759f78e-e3ec-4920-86aa-e97c1888d624",
+      "label": "[6] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 3",
+      "pageEnd": 2,
+      "pageStart": 2,
+      "sectionTitle": "DISPOSICIONES PRELIMINARES > CAPITULO UNICO > OBJETO DE LA LEY",
+      "similarity": 0.67022036767192,
+      "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
+      "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
+    },
+    {
+      "articleNumber": "4",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "35. Opacímetro: dispositivo para medir el grado de opacidad de los gases, humos y partículas del\nescape de un vehículo.\n36. Pasajero: toda persona que aparte del conductor, ocupa un lugar dentro del vehículo.\n37. Permiso Temporal de Aprendizaje: documento que se expide, en forma temporal, para aprender a\nconducir vehículos automotores y que queda supeditado al acatamiento de las disposiciones del\npresente Reglamento.\n38. Peso Bruto del Vehículo: peso total del vehículo que resulta al sumar su peso de acuerdo con la",
+      "id": "86651e5c-2767-4ccd-996b-28039f6d3c5a",
+      "label": "[7] Reglamento General de Tránsito y Seguridad Vial, Art. 4",
+      "pageEnd": 5,
+      "pageStart": 2,
+      "sectionTitle": "FINALIDAD > AMBITO DE APLICACION > DEFINICIONES",
+      "similarity": 0.666805060541399,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "149",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 149.- Las señales y signos de los Agentes de Tránsito indicarán lo siguiente:\n1. Cuando el Agente extienda los dos brazos, indica \"PARO GENERAL\", en este caso todos los\nvehículos harán alto, y mientras tarda la señal, los peatones podrán atravesar libremente por las\nzonas peatonales o por cualquiera de las boca-calles del crucero, pero nunca en sentido diagonal.\n2. Los vehículos tanto la señal de \"ALTO\" como a la de \"PARO GENERAL\" deberán detener su\nmarcha antes de cruzar las franjas de la zona de seguridad se",
+      "id": "8f1db2fa-5b46-4622-b64c-ce8cdf124f71",
+      "label": "[8] Reglamento General de Tránsito y Seguridad Vial, Art. 149",
+      "pageEnd": 39,
+      "pageStart": 38,
+      "sectionTitle": "CAPITULO VI > DE LA DETERMINACION DE VELOCIDAD > CAPITULO VII",
+      "similarity": 0.653818571412854,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "98",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 98.- En la Circulación Vehicular todo conductor deberá atender y ejecutar las reglas que se dan a\ncontinuación:\n1. Conducir siempre por la derecha de la vía\n2. Al entrar a una calle o carretera principal, cederá el paso a todos los vehículos que circulen en esa\nvía, aunque vengan de la derecha o izquierda.\n3. Ceder al paso a todo peatón que camine sobre la zona peatonal o de seguridad peatonal.\n4. Detener por completo la marcha y ceder el paso siempre que llegue a una señal de ALTO o de\nPARADA. Si no hubiere e",
+      "id": "ffaaed31-ef4e-477e-b4c4-8eb1dc795a74",
+      "label": "[9] Reglamento General de Tránsito y Seguridad Vial, Art. 98",
+      "pageEnd": 25,
+      "pageStart": 24,
+      "sectionTitle": "CAPITULO II > DE LAS REGLAS DE CIRCULACION VEHICULAR DE CARACTER GENERAL",
+      "similarity": 0.652234404431393,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "91",
+      "documentKey": "ley-transporte-terrestre",
+      "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+      "excerpt": "Art. 91.- Todo conductor está obligado a obedecer, respetar y no dañar la señalización vial y otros\ndispositivos para el control del tránsito, ya sea que establezca una prevención, restricción o prohibición y a\nadaptar su comportamiento al mensaje del resto de señales informativas que se encuentren en las vías.",
+      "id": "c0159412-0e70-4770-9cab-7058dea141cb",
+      "label": "[10] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 91",
+      "pageEnd": 20,
+      "pageStart": 20,
+      "sectionTitle": "DE LA SEGURIDAD VIAL > CAPITULO II > DISPOSITIVOS PARA EL CONTROL DEL TRANSITO",
+      "similarity": 0.649933393020693,
+      "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
+      "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
+    },
+    {
+      "articleNumber": "148",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 148.- Ninguna persona podrá conducir un vehículo a una velocidad mayor a la que sea razonable y\nprudente, bajo las condiciones existentes, debiendo considerar los riesgos y peligros presentes y posibles.\nAsimismo, no deberá conducirse un vehículo a una velocidad tan baja que impida el desplazamiento normal y\nadecuado de la circulación.\nCAPITULO VII\nDE LAS SEÑALES Y SIGNOS DE LOS AGENTES",
+      "id": "dac9e5c9-ba08-476b-8c39-0ba76a76f12a",
+      "label": "[11] Reglamento General de Tránsito y Seguridad Vial, Art. 148",
+      "pageEnd": 38,
+      "pageStart": 38,
+      "sectionTitle": "CAPITULO VI > DE LA DETERMINACION DE VELOCIDAD",
+      "similarity": 0.646932999885526,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "190",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 190.- Se determina que en los establecimientos educativos estatales y particulares, se impartirá la\nenseñanza de las normas, práctica y principios que regulan el tránsito, el uso de las vías públicas, los medios\nde transporte y la formación de conciencia y hábitos de seguridad en el tránsito vehicular.",
+      "id": "4c42770c-6bfd-4f17-9eb6-93dca976db6e",
+      "label": "[12] Reglamento General de Tránsito y Seguridad Vial, Art. 190",
+      "pageEnd": 49,
+      "pageStart": 49,
+      "sectionTitle": "TITULO VI > DE LA SEGURIDAD VIAL",
+      "similarity": 0.645603457793093,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "89",
+      "documentKey": "ley-transporte-terrestre",
+      "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+      "excerpt": "Art. 89.- El Ministerio de Educación en coordinación con el Viceministerio de Transporte, establecerán\nprogramas educativos de seguridad vial.\nCAPITULO II\n\nDE LA SEÑALIZACION VIAL Y OTROS\nDISPOSITIVOS PARA EL CONTROL DEL TRANSITO",
+      "id": "b666692c-caa3-4d90-a136-d112334ff1c0",
+      "label": "[13] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 89",
+      "pageEnd": 20,
+      "pageStart": 19,
+      "sectionTitle": "DEL SISTEMA DE SEGURIDAD VIAL > CAPITULO I > DE LA SEGURIDAD VIAL",
+      "similarity": 0.643712466738565,
+      "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
+      "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
+    },
+    {
+      "articleNumber": "117",
+      "documentKey": "ley-transporte-terrestre",
+      "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+      "excerpt": "Art. 117.- Las infracciones de tránsito y seguridad vial se clasifican en Leves, graves y muy graves. (20)\nPrevio a la adquisición de cualquier vehículo automotor, el interesado deberá cerciorarse en el Registro\nPúblico de Vehículos, que no exista pendiente el pago de multas que se hubieren impuesto respecto del\nmismo, al propietario. (20)\nEn todo caso, la tarjeta de circulación del vehículo de que se trate, sólo podrá renovarse, previo pago de\nla multa. (20)\nCUADRO DE MULTAS DE TRANSITO POR INFRACCIONES LEVES, GRA",
+      "id": "0725c88e-ea49-42ba-a7dd-52eedf8a3bbd",
+      "label": "[14] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 117",
+      "pageEnd": 30,
+      "pageStart": 23,
+      "sectionTitle": "CAPITULO I > DE LOS SEGUROS Y FIANZAS > CAPITULO II",
+      "similarity": 0.639546803575731,
+      "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
+      "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
+    },
+    {
+      "articleNumber": "41",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 41.- Todo vehículo automotor, sus remolques y semirremolques sean de propiedad privada o de\nentidades públicas, deben cumplir obligatoriamente con los siguientes requisitos mínimos en cuanto a\ndispositivos y medidas de seguridad:\n1. Estar provisto de una bocina que no exceda los límites sonoros establecidos en este Reglamento;\n2. Tener un indicador de velocidad instalado a la vista del conductor el cual debe marcar la velocidad\nen kilómetros por hora;\n3. El volante de conducción o dirección debe estar ubicado,",
+      "id": "cb77bd12-14d7-4eab-b7c1-38a9a200c4ac",
+      "label": "[15] Reglamento General de Tránsito y Seguridad Vial, Art. 41",
+      "pageEnd": 14,
+      "pageStart": 13,
+      "sectionTitle": "CAPITULO IV > DE LAS CARACTERISTICAS DE LOS VEHICULOS EN GENERAL",
+      "similarity": 0.635806224686887,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "109",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 109.- Aquel vehículo en circulación que advierta que otro que le sigue tiene el propósito de\nadelantarle, estará obligado a ceñirse al borde derecho de la calzada, salvo que el supuesto cambio de\ndirección a la izquierda o de parada en ese mismo lado.\nAl ser adelantado, se prohibe aumentar velocidad o efectuar maniobras que impidan o dificulten el\nadelantamiento. También estará obligado a disminuir la velocidad de su vehículo cuando una vez iniciada la\nmaniobra de adelantamiento, se produzca alguna situación q",
+      "id": "a27a0d1f-be0f-4912-9706-230e5cdf3c88",
+      "label": "[16] Reglamento General de Tránsito y Seguridad Vial, Art. 109",
+      "pageEnd": 27,
+      "pageStart": 27,
+      "sectionTitle": null,
+      "similarity": 0.613674655118532,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "167",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 167.- Todo conductor deberá mantener con respecto al vehículo que lo anteceda, una distancia\nrazonable y prudente que permita detener el suyo en cualquier caso de emergencia.",
+      "id": "e26386cc-d693-4189-9bd1-f4359bbbf807",
+      "label": "[17] Reglamento General de Tránsito y Seguridad Vial, Art. 167",
+      "pageEnd": 44,
+      "pageStart": 44,
+      "sectionTitle": "DE LA REFRENDA Y REPOSICION PARA LICENCIAS DE MOTORISTAS > CAPITULO III > DE LAS PROHIBICIONES Y DEBERES PARA LOS CONDUCTORES DE VEHICULOS EN GENERAL",
+      "similarity": 0.610389979439681,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "124",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 124.- Al aproximarse a cualquier intersección de vías en que no se tenga prioridad de paso deberá\nprocederse de la siguiente forma:\n1. Si se trata de un acceso controlado por la luz roja de semáforo, el conductor deberá detener el\nvehículo en la línea de parada que esté debidamente demarcada. Si no hubiere, se detendrá cerca\nde la vía que va a cruzar sin obstruir el tránsito transversal. En el caso de que se vaya a realizar un\ngiro a la derecha, si el tránsito en la vía que tiene luz verde lo permite, se puede",
+      "id": "3609a817-1fd4-4508-905f-11f6f4259cc3",
+      "label": "[18] Reglamento General de Tránsito y Seguridad Vial, Art. 124",
+      "pageEnd": 32,
+      "pageStart": 31,
+      "sectionTitle": null,
+      "similarity": 0.606952911825394,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    }
+  ],
+  "generatedAt": "2026-07-04T23:48:29.501Z",
+  "generator": "scripts/generate-learning-modules.mjs",
+  "moduleId": "07-conduccion-defensiva",
+  "originalBrief": {
+    "concepts": "- Manejo a la defensiva como principio.\n- Atencion permanente.\n- Distancia segura.\n- Anticipacion.\n- Reducir velocidad en zonas de riesgo.\n- Ceder paso cuando sea necesario.\n- Evitar maniobras bruscas.\n- Proteger peatones, motos y pasajeros.",
+    "purpose": "Este debe ser el corazon del producto. La persona debe aprender a anticipar errores propios y ajenos antes de que se vuelvan siniestros.",
+    "questions": "- Que significa anticipar?\n- Que debes hacer si no ves bien por lluvia?\n- Por que mantener distancia evita muertes?",
+    "scenarios": "|  ID  |  Situacion  |  Decision segura  |  Consecuencia a explicar  |\n|  01  |  Bus se detiene de repente en una parada  |  Reducir velocidad y no adelantar sin visibilidad  |  Peaton cruzando  |\n|  02  |  Moto aparece en punto ciego  |  Revisar espejos y hombro antes de girar  |  Golpe lateral  |\n|  03  |  Lluvia fuerte reduce visibilidad  |  Bajar velocidad y aumentar distancia  |  Derrape  |",
+    "sourceScope": [
+      "Ley de Transporte Terrestre, Transito y Seguridad Vial",
+      "Reglamento General de Transito y Seguridad Vial",
+      "MVP de Cultura Vial SV"
+    ],
+    "visual": "Animacion 3D de una calle con bus detenido, peaton cruzando y carro que reduce velocidad a tiempo."
+  },
+  "retrievalQuery": "Modulo: Conduccion defensiva\nProposito: Este debe ser el corazon del producto. La persona debe aprender a anticipar errores propios y ajenos antes de que se vuelvan siniestros.\nFuentes esperadas: Ley de Transporte Terrestre, Transito y Seguridad Vial, Reglamento General de Transito y Seguridad Vial, MVP de Cultura Vial SV\n\n---\n\nCobertura normativa para Conduccion defensiva\n- Manejo a la defensiva como principio.\n- Atencion permanente.\n- Distancia segura.\n- Anticipacion.\n- Reducir velocidad en zonas de riesgo.\n- Ceder paso cuando sea necesario.\n- Evitar maniobras bruscas.\n- Proteger peatones, motos y pasajeros.\n|  ID  |  Titulo  |  Fuente esperada  |  Riesgo que conecta  |\n|  01  |  Manejar bien es anticipar  |  Ley y MVP  |  Error de otro conductor  |\n|  02  |  Mantener distancia te da vida  |  Reglamento y MVP  |  Choque por alcance  |\n|  03  |  Mira lejos, cerca y a los lados  |  MVP y reglamento  |  Punto ciego  |\n|  04  |  Baja velocidad antes del riesgo  |  MVP  |  Lluvia, escuela, mercado  |\n|  05  |  No pelees la via  |  MVP  |  Ira vial y choque  |\n\n---\n\nAplicacion practica para conductores: Conduccion defensiva\n|  ID  |  Situacion  |  Decision segura  |  Consecuencia a explicar  |\n|  01  |  Bus se detiene de repente en una parada  |  Reducir velocidad y no adelantar sin visibilidad  |  Peaton cruzando  |\n|  02  |  Moto aparece en punto ciego  |  Revisar espejos y hombro antes de girar  |  Golpe lateral  |\n|  03  |  Lluvia fuerte reduce visibilidad  |  Bajar velocidad y aumentar distancia  |  Derrape  |\n- Que significa anticipar?\n- Que debes hacer si no ves bien por lluvia?\n- Por que mantener distancia evita muertes?\n\n---\n\nSenales, obligaciones, prohibiciones, sanciones, excepciones y decisiones seguras relacionadas con Conduccion defensiva\nAnimacion 3D de una calle con bus detenido, peaton cruzando y carro que reduce velocidad a tiempo.\nLey de Transporte Terrestre, Transito y Seguridad Vial, Reglamento General de Transito y Seguridad Vial, MVP de Cultura Vial SV",
+  "title": "Conduccion defensiva"
+}

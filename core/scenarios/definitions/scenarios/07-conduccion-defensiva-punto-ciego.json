@@ -1,0 +1,145 @@
+{
+  "schemaVersion": "drivelab.scenario.v1",
+  "id": "scenario_conduccion_defensiva_punto_ciego_001",
+  "slug": "conduccion-defensiva-punto-ciego",
+  "title": "Punto ciego antes de cambiar de carril",
+  "description": "El usuario practica revisar espejo, señalizar y confirmar punto ciego antes de moverse.",
+  "moduleBinding": {
+    "moduleId": "07-conduccion-defensiva",
+    "isPrimaryScenario": true
+  },
+  "learning": {
+    "lessonIds": [
+      "07-conduccion-defensiva:punto-ciego",
+      "07-conduccion-defensiva:anticipar-error-ajeno"
+    ],
+    "objectives": [
+      "Comprobar que el espejo no elimina el punto ciego.",
+      "Secuenciar observar, señalizar y cambiar solo con espacio suficiente."
+    ],
+    "feedback": {
+      "success": "Revisaste el punto ciego, viste la moto y esperaste antes de cambiar.",
+      "failure": "El espejo no mostró todo; cambiar sin girar la cabeza produjo un conflicto lateral.",
+      "hints": [
+        "Señalizar no da prioridad automática.",
+        "El punto ciego se confirma con mirada lateral.",
+        "Las motos pueden quedar ocultas aunque parezcan lejos."
+      ]
+    },
+    "legalReferences": [
+      {
+        "jurisdiction": "SV",
+        "document": "Reglamento General de Tránsito y Seguridad Vial",
+        "articleId": "cambio de carril",
+        "ruleCategory": "unsafe-lane-change"
+      }
+    ]
+  },
+  "simulation": {
+    "pattern": "unsafe_lane_change",
+    "durationSeconds": 16,
+    "world": {
+      "environment": "highway",
+      "roadType": "multi_lane_highway",
+      "weather": "clear",
+      "timeOfDay": "day",
+      "units": "meters"
+    },
+    "camera": {
+      "mode": "third_person_follow",
+      "targetActorId": "ego_car",
+      "position": [18, 12, 24],
+      "lookAt": [0, 0, 8],
+      "fov": 62
+    },
+    "assets": [
+      {
+        "id": "asset_sedan",
+        "type": "vehicle",
+        "url": "/models/sedan.glb"
+      },
+      {
+        "id": "asset_motorcycle",
+        "type": "vehicle",
+        "url": "/bike/low%20poly%20dirta%20bike%20with%20rider%201_FBX/DirtBike_With_Player.FBX"
+      }
+    ],
+    "actors": [
+      {
+        "id": "ego_car",
+        "assetId": "asset_sedan",
+        "role": "ego_vehicle",
+        "initialPosition": [0, 0, 18],
+        "initialRotation": [0, 3.1416, 0],
+        "scale": [1, 1, 1],
+        "tags": ["vehicle", "controlled", "lane_change"]
+      },
+      {
+        "id": "motorcycle_blind",
+        "assetId": "asset_motorcycle",
+        "role": "traffic_vehicle",
+        "initialPosition": [-3, 0, 16],
+        "initialRotation": [0, 3.1416, 0],
+        "scale": [1, 1, 1],
+        "tags": ["motorcycle", "blind_spot"]
+      }
+    ],
+    "interactions": [
+      {
+        "id": "decision_blind_spot",
+        "type": "multiple_choice",
+        "appearsAt": 6,
+        "prompt": "Antes de cambiar de carril, ¿qué debés hacer?",
+        "options": [
+          {
+            "id": "mirror_only",
+            "label": "Mirar solo el espejo y cambiar si no se ve nadie",
+            "isCorrect": false,
+            "scoreDelta": -40
+          },
+          {
+            "id": "signal_priority",
+            "label": "Encender vía y cambiar porque ya avisé",
+            "isCorrect": false,
+            "scoreDelta": -35
+          },
+          {
+            "id": "mirror_signal_head",
+            "label": "Mirar espejo, señalizar, revisar punto ciego y esperar espacio",
+            "isCorrect": true,
+            "scoreDelta": 50
+          }
+        ],
+        "correctOptionId": "mirror_signal_head"
+      }
+    ]
+  },
+  "scoring": {
+    "maxScore": 100,
+    "passScore": 75,
+    "metrics": [
+      {
+        "id": "blind_spot_check",
+        "label": "Chequeo de punto ciego",
+        "weight": 45
+      },
+      {
+        "id": "signal_sequence",
+        "label": "Secuencia segura",
+        "weight": 35
+      },
+      {
+        "id": "vulnerable_awareness",
+        "label": "Conciencia de motocicleta",
+        "weight": 20
+      }
+    ]
+  },
+  "metadata": {
+    "difficulty": "intermediate",
+    "estimatedMinutes": 5,
+    "tags": ["defensiva", "punto-ciego", "cambio-carril"],
+    "createdAt": "2026-07-04T00:00:00-06:00",
+    "updatedAt": "2026-07-04T00:00:00-06:00"
+  }
+}

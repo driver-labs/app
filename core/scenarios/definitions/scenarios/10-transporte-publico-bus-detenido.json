@@ -1,0 +1,159 @@
+{
+  "schemaVersion": "drivelab.scenario.v1",
+  "id": "scenario_transporte_publico_bus_001",
+  "slug": "transporte-publico-bus-detenido",
+  "title": "Bus detenido y peatón oculto",
+  "description": "El usuario practica no adelantar un bus detenido sin campo visual despejado.",
+  "moduleBinding": {
+    "moduleId": "10-transporte-publico-y-pasajeros",
+    "isPrimaryScenario": true
+  },
+  "learning": {
+    "lessonIds": [
+      "10-transporte-publico-y-pasajeros:bus-detenido",
+      "10-transporte-publico-y-pasajeros:usuarios-vulnerables"
+    ],
+    "objectives": [
+      "Anticipar peatones que pueden salir frente a un bus detenido.",
+      "Esperar visibilidad suficiente antes de adelantar o rebasar."
+    ],
+    "feedback": {
+      "success": "Esperaste a tener campo visual y evitaste sorprender a un peatón oculto.",
+      "failure": "Adelantar un bus detenido sin visibilidad deja al peatón invisible hasta el último segundo.",
+      "hints": [
+        "Un vehículo grande detenido tapa personas y maniobras.",
+        "Reducí velocidad antes de pasar junto a transporte público.",
+        "La visibilidad manda más que la impaciencia."
+      ]
+    },
+    "legalReferences": [
+      {
+        "jurisdiction": "SV",
+        "document": "Reglamento General de Tránsito y Seguridad Vial",
+        "articleId": "transporte público",
+        "ruleCategory": "blind-overtake"
+      }
+    ]
+  },
+  "simulation": {
+    "pattern": "bus_stop_hazard",
+    "durationSeconds": 16,
+    "world": {
+      "environment": "urban",
+      "roadType": "two_lane_urban",
+      "weather": "clear",
+      "timeOfDay": "dusk",
+      "units": "meters"
+    },
+    "camera": {
+      "mode": "third_person_follow",
+      "targetActorId": "ego_car",
+      "position": [15, 11, 20],
+      "lookAt": [0, 0, 0],
+      "fov": 50
+    },
+    "assets": [
+      {
+        "id": "asset_sedan",
+        "type": "vehicle",
+        "url": "/models/sedan.glb"
+      },
+      {
+        "id": "asset_bus",
+        "type": "vehicle",
+        "url": "/models/van.glb"
+      },
+      {
+        "id": "asset_pedestrian",
+        "type": "character",
+        "url": "primitive:pedestrian"
+      }
+    ],
+    "actors": [
+      {
+        "id": "ego_car",
+        "assetId": "asset_sedan",
+        "role": "ego_vehicle",
+        "initialPosition": [0, 0, 22],
+        "initialRotation": [0, 3.1416, 0],
+        "scale": [1, 1, 1],
+        "tags": ["vehicle", "controlled"]
+      },
+      {
+        "id": "bus_stop",
+        "assetId": "asset_bus",
+        "role": "traffic_vehicle",
+        "initialPosition": [0, 0, 8],
+        "initialRotation": [0, 3.1416, 0],
+        "scale": [1, 1, 1],
+        "tags": ["bus", "stopped"]
+      },
+      {
+        "id": "pedestrian_hidden",
+        "assetId": "asset_pedestrian",
+        "role": "pedestrian",
+        "initialPosition": [-2, 0, 7],
+        "initialRotation": [0, 1.5708, 0],
+        "scale": [1, 1, 1],
+        "tags": ["pedestrian", "crossing", "hidden"]
+      }
+    ],
+    "interactions": [
+      {
+        "id": "decision_bus_stop",
+        "type": "multiple_choice",
+        "appearsAt": 6,
+        "prompt": "Un bus está detenido y limita tu visibilidad. ¿Qué hacés?",
+        "options": [
+          {
+            "id": "blind_pass",
+            "label": "Rebasar rápido porque el bus está detenido",
+            "isCorrect": false,
+            "scoreDelta": -45
+          },
+          {
+            "id": "wait_visibility",
+            "label": "Reducir, esperar campo visual y pasar solo si es seguro",
+            "isCorrect": true,
+            "scoreDelta": 50
+          },
+          {
+            "id": "horn_pass",
+            "label": "Tocar bocina y pasar sin cambiar velocidad",
+            "isCorrect": false,
+            "scoreDelta": -30
+          }
+        ],
+        "correctOptionId": "wait_visibility"
+      }
+    ]
+  },
+  "scoring": {
+    "maxScore": 100,
+    "passScore": 75,
+    "metrics": [
+      {
+        "id": "visibility_management",
+        "label": "Gestión de visibilidad",
+        "weight": 45
+      },
+      {
+        "id": "vulnerable_prediction",
+        "label": "Predicción de peatón",
+        "weight": 35
+      },
+      {
+        "id": "patience",
+        "label": "Decisión paciente",
+        "weight": 20
+      }
+    ]
+  },
+  "metadata": {
+    "difficulty": "intermediate",
+    "estimatedMinutes": 5,
+    "tags": ["transporte-público", "bus", "peatón"],
+    "createdAt": "2026-07-04T00:00:00-06:00",
+    "updatedAt": "2026-07-04T00:00:00-06:00"
+  }
+}

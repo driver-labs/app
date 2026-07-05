@@ -1,0 +1,524 @@
+{
+  "coreIdea": "La práctica para el examen de licencia de conducir no solo se trata de responder preguntas correctamente, sino de entender las normas de tránsito que rigen la seguridad vial. Este conocimiento es esencial para prevenir accidentes y garantizar la seguridad de todos los usuarios de la vía.",
+  "headline": "Práctica para el Examen de Licencia de Conducir",
+  "intro": "Este módulo está diseñado para preparar a los aspirantes a obtener su licencia de conducir en El Salvador. A través de una serie de lecciones, se abordarán las normas de tránsito, señales viales y las mejores prácticas para una conducción segura. La intención es que los participantes no solo memoricen respuestas, sino que comprendan la lógica detrás de cada norma, lo que les permitirá tomar decisiones informadas en la carretera. Al finalizar, los estudiantes estarán mejor equipados para enfrentar el examen y, más importante aún, para conducir de manera responsable y segura.",
+  "applicationCases": [
+    {
+      "title": "Fallo en el Examen de Señales",
+      "situation": "Un usuario falla muchas preguntas relacionadas con señales de tránsito en el examen.",
+      "wrongMove": "No repasar el módulo de señales antes del examen.",
+      "safeMove": "Recomendar el repaso del módulo de señales para mejorar su comprensión.",
+      "why": "Entender las señales es crucial para la seguridad vial y para aprobar el examen.",
+      "citationNumbers": [1, 4]
+    },
+    {
+      "title": "Aprobación del Simulacro sin Conocimiento Real",
+      "situation": "Un usuario aprueba el simulacro de examen pero no comprende las normas de conducción defensiva.",
+      "wrongMove": "Confiar solo en la memorización de respuestas.",
+      "safeMove": "Recomendar la revisión de los escenarios de conducción defensiva.",
+      "why": "La comprensión real de las normas es necesaria para una conducción segura.",
+      "citationNumbers": [3, 4]
+    }
+  ],
+  "checklist": [
+    {
+      "label": "Revisar documentos",
+      "action": "Asegúrate de llevar tu licencia y documentos del vehículo.",
+      "citationNumbers": [1, 4]
+    },
+    {
+      "label": "Uso del cinturón",
+      "action": "Verifica que todos los pasajeros usen el cinturón de seguridad.",
+      "citationNumbers": [11, 12]
+    },
+    {
+      "label": "Conocer señales",
+      "action": "Estudia las señales de tránsito y su significado.",
+      "citationNumbers": [2, 3]
+    },
+    {
+      "label": "Simulacros de examen",
+      "action": "Participa en simulacros para practicar.",
+      "citationNumbers": [1, 4]
+    },
+    {
+      "label": "Revisar el vehículo",
+      "action": "Asegúrate de que tu vehículo esté en condiciones adecuadas para conducir.",
+      "citationNumbers": [4, 5]
+    },
+    {
+      "label": "Repasar infracciones frecuentes",
+      "action": "Antes del simulacro final, repasa las infracciones de circulación, señales y seguridad que suelen aparecer en escenarios reales.",
+      "citationNumbers": [11, 15, 16]
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "No detenerse ante una señal de 'Alto'.",
+      "consequence": "Multa y posible accidente.",
+      "betterHabit": "Detenerse completamente ante todas las señales de 'Alto'.",
+      "citationNumbers": [11, 12]
+    },
+    {
+      "mistake": "No usar el cinturón de seguridad.",
+      "consequence": "Lesiones graves en caso de accidente.",
+      "betterHabit": "Usar siempre el cinturón de seguridad.",
+      "citationNumbers": [11, 12]
+    },
+    {
+      "mistake": "No ceder el paso a peatones.",
+      "consequence": "Multa y riesgo de accidente.",
+      "betterHabit": "Ceder el paso a todos los peatones en zonas designadas.",
+      "citationNumbers": [11, 12]
+    },
+    {
+      "mistake": "Conducir bajo la influencia de alcohol.",
+      "consequence": "Multa muy grave y posible detención.",
+      "betterHabit": "Nunca conducir si has consumido alcohol.",
+      "citationNumbers": [11, 12, 13]
+    }
+  ],
+  "estimatedMinutes": 30,
+  "learningObjectives": [
+    "Identificar las señales de tránsito y su significado.",
+    "Comprender las obligaciones y derechos de los conductores.",
+    "Reconocer las consecuencias de las infracciones de tránsito.",
+    "Aplicar el conocimiento de las normas en situaciones de conducción real.",
+    "Desarrollar habilidades para la toma de decisiones seguras en la carretera."
+  ],
+  "legalFoundation": [
+    {
+      "title": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+      "explanation": "Esta ley establece las bases para la regulación del tránsito y la seguridad vial en El Salvador. Incluye disposiciones sobre la obtención de licencias, las obligaciones de los conductores y las sanciones por infracciones. Es fundamental para garantizar que todos los conductores tengan las aptitudes necesarias para conducir de manera segura.",
+      "citationNumbers": [1]
+    },
+    {
+      "title": "Reglamento General de Tránsito y Seguridad Vial",
+      "explanation": "Este reglamento complementa la ley anterior y detalla las normas específicas que deben seguir los conductores, incluyendo las señales de tránsito, las obligaciones en la conducción y las sanciones por incumplimiento. Es una guía esencial para entender cómo aplicar las normas en la práctica.",
+      "citationNumbers": [3, 4]
+    },
+    {
+      "title": "Manual Centroamericano de Dispositivos Uniformes para el Control del Tránsito",
+      "explanation": "Este manual proporciona directrices sobre la señalización y el control del tránsito, asegurando que las señales sean claras y efectivas para todos los usuarios de la vía. Su cumplimiento es vital para la correcta interpretación de las señales de tránsito.",
+      "citationNumbers": [2, 17]
+    },
+    {
+      "title": "Decreto Legislativo No. 185",
+      "explanation": "Este decreto clasifica las infracciones de tránsito y establece las multas correspondientes. Es importante que los conductores conozcan estas infracciones para evitar sanciones y contribuir a la seguridad vial.",
+      "citationNumbers": [11, 12, 15]
+    }
+  ],
+  "lessons": [
+    {
+      "title": "Señales de Tránsito",
+      "explanation": "Las señales de tránsito son dispositivos que comunican información esencial a los conductores y peatones. Estas señales pueden ser de reglamentación, prevención o información, y cada una tiene un significado específico que debe ser respetado para garantizar la seguridad en las vías.",
+      "normativeDetail": "La ley exige que todas las señales de tránsito sean claras y visibles, y que los conductores las respeten en todo momento. Ignorar estas señales puede resultar en accidentes y sanciones.",
+      "everydayExample": "Por ejemplo, una señal de 'Alto' indica que el conductor debe detenerse completamente antes de continuar. Ignorar esta señal puede causar un accidente en una intersección.",
+      "streetDecision": "Detente completamente ante la señal de 'Alto'.",
+      "risk": "No detenerse puede causar un choque con otro vehículo.",
+      "watchFor": "Presta atención a las señales de advertencia en curvas y zonas escolares.",
+      "citationNumbers": [2, 3, 17]
+    },
+    {
+      "title": "Obligaciones del Conductor",
+      "explanation": "Los conductores tienen varias obligaciones que deben cumplir para garantizar la seguridad vial. Esto incluye llevar siempre la licencia de conducir, el registro del vehículo y respetar las señales de tránsito.",
+      "normativeDetail": "La ley establece que los conductores deben presentar los documentos requeridos a la autoridad de tránsito cuando se les solicite. No hacerlo puede resultar en multas y sanciones.",
+      "everydayExample": "Si un agente de tránsito detiene a un conductor y este no presenta su licencia, puede ser multado y su vehículo puede ser confiscado.",
+      "streetDecision": "Siempre lleva contigo tu licencia y documentos del vehículo.",
+      "risk": "Conducir sin documentos puede resultar en multas y problemas legales.",
+      "watchFor": "Asegúrate de que tu licencia esté vigente y que el vehículo esté registrado.",
+      "citationNumbers": [1, 4, 13]
+    },
+    {
+      "title": "Consecuencias de las Infracciones",
+      "explanation": "Las infracciones de tránsito pueden tener consecuencias graves, incluyendo multas, puntos en la licencia y, en casos extremos, la detención del conductor. Es fundamental conocer las infracciones más comunes y sus sanciones.",
+      "normativeDetail": "La ley clasifica las infracciones en leves, graves y muy graves, cada una con sus respectivas sanciones. Conocer estas clasificaciones ayuda a los conductores a evitar cometer infracciones.",
+      "everydayExample": "Por ejemplo, no ceder el paso a un peatón en una zona de cruce puede resultar en una multa considerable y poner en riesgo la vida del peatón.",
+      "streetDecision": "Cede siempre el paso a los peatones en zonas designadas.",
+      "risk": "No hacerlo puede causar un accidente y una multa.",
+      "watchFor": "Presta atención a las zonas de cruce y a las señales de advertencia.",
+      "citationNumbers": [11, 12, 15]
+    },
+    {
+      "title": "Toma de Decisiones en la Carretera",
+      "explanation": "La toma de decisiones en la carretera es crucial para la seguridad. Los conductores deben evaluar constantemente su entorno y tomar decisiones informadas basadas en las condiciones del tráfico y las señales de tránsito.",
+      "normativeDetail": "La ley exige que los conductores actúen con prudencia y respeten las normas de tránsito para evitar accidentes.",
+      "everydayExample": "Si un conductor ve una señal de 'Curva Peligrosa', debe reducir la velocidad y estar preparado para maniobrar.",
+      "streetDecision": "Reduce la velocidad al acercarte a una curva peligrosa.",
+      "risk": "No hacerlo puede resultar en un accidente.",
+      "watchFor": "Observa las señales de advertencia y ajusta tu velocidad según las condiciones.",
+      "citationNumbers": [5, 7, 16]
+    },
+    {
+      "title": "Simulacros de Examen",
+      "explanation": "Realizar simulacros de examen es una excelente manera de prepararse para el examen de licencia. Estos simulacros ayudan a familiarizarse con el formato de las preguntas y a practicar la toma de decisiones bajo presión.",
+      "normativeDetail": "Los centros de formación autorizados ofrecen simulacros que reflejan el examen real, lo que permite a los aspirantes practicar en un entorno controlado.",
+      "everydayExample": "Un estudiante que realiza un simulacro puede identificar áreas donde necesita mejorar antes de presentarse al examen real.",
+      "streetDecision": "Participa en simulacros de examen para mejorar tus habilidades.",
+      "risk": "No practicar puede llevar a un bajo rendimiento en el examen real.",
+      "watchFor": "Busca centros de formación que ofrezcan simulacros de examen.",
+      "citationNumbers": [1, 4, 9]
+    },
+    {
+      "title": "Importancia de la Educación Vial",
+      "explanation": "La educación vial es fundamental para crear conciencia sobre la seguridad en las vías. Conocer las normas y su aplicación ayuda a prevenir accidentes y fomenta una cultura de respeto entre los usuarios de la vía.",
+      "normativeDetail": "La ley establece que se debe impartir educación vial en las escuelas para formar conductores responsables desde una edad temprana.",
+      "everydayExample": "Los niños que aprenden sobre las señales de tránsito son más propensos a ser peatones seguros en el futuro.",
+      "streetDecision": "Promueve la educación vial en tu comunidad.",
+      "risk": "La falta de educación vial puede resultar en un aumento de accidentes.",
+      "watchFor": "Participa en campañas de educación vial y comparte información con otros.",
+      "citationNumbers": [9, 10]
+    },
+    {
+      "title": "Responsabilidad del Conductor",
+      "explanation": "Cada conductor es responsable de su comportamiento en la carretera. Esto incluye no solo seguir las normas, sino también ser consciente de su entorno y actuar de manera que no ponga en riesgo a otros.",
+      "normativeDetail": "La ley establece que los conductores deben actuar con responsabilidad y no conducir bajo la influencia de alcohol o drogas.",
+      "everydayExample": "Un conductor que decide no usar el cinturón de seguridad está poniendo en riesgo su vida y la de sus pasajeros.",
+      "streetDecision": "Siempre usa el cinturón de seguridad y asegúrate de que todos los pasajeros también lo hagan.",
+      "risk": "No usar el cinturón puede resultar en lesiones graves en caso de accidente.",
+      "watchFor": "Verifica que todos en el vehículo estén usando el cinturón de seguridad.",
+      "citationNumbers": [11, 12, 13]
+    }
+  ],
+  "needsHumanReview": [],
+  "quiz": [
+    {
+      "question": "¿Qué significa una señal de 'Alto'?",
+      "options": [
+        "Detenerse completamente",
+        "Reducir la velocidad",
+        "Continuar sin detenerse"
+      ],
+      "answer": "Detenerse completamente",
+      "explanation": "La señal de 'Alto' indica que el conductor debe detenerse completamente antes de continuar.",
+      "citationNumbers": [2, 3]
+    },
+    {
+      "question": "¿Cuál es la consecuencia de no usar el cinturón de seguridad?",
+      "options": ["Multa", "Lesiones graves", "Ambas"],
+      "answer": "Ambas",
+      "explanation": "No usar el cinturón puede resultar en lesiones graves y multas.",
+      "citationNumbers": [11, 12]
+    },
+    {
+      "question": "¿Qué debes hacer al acercarte a un cruce peatonal?",
+      "options": [
+        "Acelerar",
+        "Ceder el paso a los peatones",
+        "Ignorar a los peatones"
+      ],
+      "answer": "Ceder el paso a los peatones",
+      "explanation": "Es obligatorio ceder el paso a los peatones en un cruce peatonal.",
+      "citationNumbers": [11, 12]
+    },
+    {
+      "question": "¿Qué se requiere para obtener una licencia de conducir?",
+      "options": ["Saber leer y escribir", "Ser mayor de edad", "Ambas"],
+      "answer": "Ambas",
+      "explanation": "Ambos requisitos son necesarios para obtener una licencia de conducir.",
+      "citationNumbers": [8, 10]
+    },
+    {
+      "question": "¿Qué debes hacer si un agente de tránsito te detiene?",
+      "options": ["Ignorarlo", "Presentar tus documentos", "Acelerar y huir"],
+      "answer": "Presentar tus documentos",
+      "explanation": "Es obligatorio presentar los documentos solicitados por un agente de tránsito.",
+      "citationNumbers": [1, 4]
+    }
+  ],
+  "reflection": [
+    "¿Qué aprendiste sobre las señales de tránsito?",
+    "¿Por qué es importante conocer las obligaciones del conductor?",
+    "¿Cómo puedes aplicar lo aprendido en situaciones reales de conducción?",
+    "¿Qué cambios harás en tu comportamiento al conducir?",
+    "¿Cómo puedes contribuir a la seguridad vial en tu comunidad?"
+  ],
+  "scenario": {
+    "title": "Decisión en una Intersección",
+    "situation": "Estás acercándote a una intersección con una señal de 'Alto'.",
+    "unsafeChoice": "Decides no detenerte porque no hay otros vehículos.",
+    "safeDecision": "Detente completamente ante la señal de 'Alto' y verifica que no haya peatones.",
+    "feedback": "No detenerse puede resultar en un accidente grave. Siempre respeta las señales de tránsito.",
+    "citationNumbers": [1, 4, 11]
+  },
+  "vocabulary": [
+    {
+      "term": "Señal de tránsito",
+      "meaning": "Dispositivo que comunica información a los conductores y peatones.",
+      "citationNumbers": [2, 3]
+    },
+    {
+      "term": "Cinturón de seguridad",
+      "meaning": "Dispositivo de seguridad que sujeta al ocupante del vehículo.",
+      "citationNumbers": [11, 12]
+    },
+    {
+      "term": "Infracción",
+      "meaning": "Violación de las normas de tránsito que puede resultar en sanciones.",
+      "citationNumbers": [11, 12]
+    },
+    {
+      "term": "Licencia de conducir",
+      "meaning": "Documento que autoriza a una persona a conducir un vehículo.",
+      "citationNumbers": [8, 10]
+    }
+  ],
+  "whyItMatters": "Conducir es una responsabilidad que implica el conocimiento de las normas de tránsito y la capacidad de tomar decisiones seguras. Las infracciones pueden resultar en accidentes graves que afectan no solo al conductor, sino también a peatones y otros conductores. Al comprender y aplicar las normas, se contribuye a un entorno vial más seguro, lo que es vital en un país donde el tráfico y los accidentes son comunes. La educación vial es clave para reducir el número de siniestros y fomentar una cultura de respeto y cuidado en las vías.",
+  "audience": ["primera-licencia", "refuerzo"],
+  "citations": [
+    {
+      "articleNumber": "65",
+      "documentKey": "ley-transporte-terrestre",
+      "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+      "excerpt": "Art. 65.- El examen para determinar la calidad de poseer las aptitudes físicas y psíquicas para optar a la\nlicencia de conducir, así como la enseñanza de los conocimientos y técnicas para la conducción de vehículos\nse realizará por centros oficiales o privados, debidamente autorizados por el Viceministerio de Transporte.",
+      "id": "dfc74f92-57b5-4afa-ab45-4a3de5067036",
+      "label": "[1] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 65",
+      "pageEnd": 17,
+      "pageStart": 16,
+      "sectionTitle": "CAPITULO II > DE LOS CONDUCTORES",
+      "similarity": 0.623358484878379,
+      "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
+      "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
+    },
+    {
+      "articleNumber": null,
+      "documentKey": "manual-senales-centroamericano",
+      "documentName": "Manual Centroamericano de Dispositivos Uniformes para el Control del Transito",
+      "excerpt": "MANUAL CENTROAMERICANO DE\nDISPOSITIVOS UNIFORMES PARA EL\nCONTROL DEL TRÁNSITO\nIng. Junior Araya Villalobos\nSeñalización Temporal y Dispositivos de Seguridad\n\nAntecedentes del Manual.\n1958 1963 1979 1998 2000 2014\n\nContenido del Manual.\n• Disposiciones Generales.\n• Señales Verticales.\n•Señalización Horizontal y Demarcación Horizontal.\n• Demarcación de Islas en el Pavimento.\n• Semáforos.\n• Dispositivos de Seguridad y Control Temporal del Tránsito para la Ejecución de Trabajos en las Vías.\n• Control de Tránsito en Zon",
+      "id": "6128a54b-9263-4227-8c8e-ef28b8c437c2",
+      "label": "[2] Manual Centroamericano de Dispositivos Uniformes para el Control del Transito, unidad normativa",
+      "pageEnd": 110,
+      "pageStart": 1,
+      "sectionTitle": null,
+      "similarity": 0.599427196346359,
+      "sourcePath": "assets\\Manual_de_Senales.pdf",
+      "sourceUrl": "assets/Manual_de_Senales.pdf"
+    },
+    {
+      "articleNumber": "4",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "35. Opacímetro: dispositivo para medir el grado de opacidad de los gases, humos y partículas del\nescape de un vehículo.\n36. Pasajero: toda persona que aparte del conductor, ocupa un lugar dentro del vehículo.\n37. Permiso Temporal de Aprendizaje: documento que se expide, en forma temporal, para aprender a\nconducir vehículos automotores y que queda supeditado al acatamiento de las disposiciones del\npresente Reglamento.\n38. Peso Bruto del Vehículo: peso total del vehículo que resulta al sumar su peso de acuerdo con la",
+      "id": "86651e5c-2767-4ccd-996b-28039f6d3c5a",
+      "label": "[3] Reglamento General de Tránsito y Seguridad Vial, Art. 4",
+      "pageEnd": 5,
+      "pageStart": 2,
+      "sectionTitle": "FINALIDAD > AMBITO DE APLICACION > DEFINICIONES",
+      "similarity": 0.590505177563502,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "24",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 24.- El examen, revisión y/o inspección técnica vehícular del vehículo automotor, cuando se\nverificare, versará sobre lo siguiente:\n1. Que los números del motor y chasis, el modelo, color, número de asientos y tonelaje, sean los\nmismos que menciona la solicitud y documentos o marcas que presente.\n2. Que el mecanismo destinado a la dirección y control de los vehículos, estén en tal estado de\nfuncionamiento que de ninguna manera constituya peligro y obedezca fácilmente a la voluntad del\nconductor.\n3. Que los apa",
+      "id": "e882b370-24c7-41f6-82bf-c308d1558f98",
+      "label": "[4] Reglamento General de Tránsito y Seguridad Vial, Art. 24",
+      "pageEnd": 10,
+      "pageStart": 9,
+      "sectionTitle": null,
+      "similarity": 0.585945646826446,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "116",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 116.- Dentro de la circulación vehícular deberán tenerse presente y cumplir con exactitud las reglas\nsiguientes:\n1. No deberá conducirse describiendo curvas o atravesar el vehículo.\n2. No podrá sobrepasarse a otro vehículo, sin antes haberlo indicado con la luz direccional, o cuando\nun tercero viene en dirección contraria o cuando el vehículo delantero se acercare a algún trecho\nangosto, curva, puente, etc.\n3. Debe dejarse el vehículo estacionado a más de 10 metros de las esquinas de las intersecciones\nurbanas",
+      "id": "61763ea9-93d7-475e-9761-56a5d1521838",
+      "label": "[5] Reglamento General de Tránsito y Seguridad Vial, Art. 116",
+      "pageEnd": 30,
+      "pageStart": 28,
+      "sectionTitle": null,
+      "similarity": 0.572400205948369,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "4",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 4.- Para la mejor comprensión del Reglamento General de Tránsito y Seguridad Vial, se dan las\nsiguientes definiciones:\n1. Aceleración Libre: Procedimiento que consiste en acelerar el motor, lo más rápidamente posible sin\nbrusquedades, pero en forma contínua, con la palanca de la caja de velocidades en posición de\npunto muerto y el embrague del motor acoplado, a modo de obtener el máximo abastecimiento con\nla bomba de inyección, hasta que el motor gire a su máxima velocidad en vacío. Cuando se alcanza\ndicha vel",
+      "id": "483c0669-f31c-4e93-b06b-1fa25c00a343",
+      "label": "[6] Reglamento General de Tránsito y Seguridad Vial, Art. 4",
+      "pageEnd": 5,
+      "pageStart": 2,
+      "sectionTitle": "FINALIDAD > AMBITO DE APLICACION > DEFINICIONES",
+      "similarity": 0.56774320516336,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "149",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 149.- Las señales y signos de los Agentes de Tránsito indicarán lo siguiente:\n1. Cuando el Agente extienda los dos brazos, indica \"PARO GENERAL\", en este caso todos los\nvehículos harán alto, y mientras tarda la señal, los peatones podrán atravesar libremente por las\nzonas peatonales o por cualquiera de las boca-calles del crucero, pero nunca en sentido diagonal.\n2. Los vehículos tanto la señal de \"ALTO\" como a la de \"PARO GENERAL\" deberán detener su\nmarcha antes de cruzar las franjas de la zona de seguridad se",
+      "id": "8f1db2fa-5b46-4622-b64c-ce8cdf124f71",
+      "label": "[7] Reglamento General de Tránsito y Seguridad Vial, Art. 149",
+      "pageEnd": 39,
+      "pageStart": 38,
+      "sectionTitle": "CAPITULO VI > DE LA DETERMINACION DE VELOCIDAD > CAPITULO VII",
+      "similarity": 0.559915009210009,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "155",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 155.- La licencia para conducir tendrá un Nombre por cada Clase o una Clasificación especifica,\nsegún lo determine el Viceministerio de Transporte, por medio de la Dirección General de Tránsito, debiendo\nconsignarse en la misma, el Número de Identificación Tributaria del Propietario o poseedor legítimo del\nvehículo automotor.\nPara la obtención de una Licencia por primera vez, el solicitante debe cumplir los siguientes requisitos:\n1. Saber leer y escribir.\n\n2. No haber cometido infracciones definidas como grave",
+      "id": "135af1cc-2b86-434f-9381-0db91a9e8ff8",
+      "label": "[8] Reglamento General de Tránsito y Seguridad Vial, Art. 155",
+      "pageEnd": 41,
+      "pageStart": 40,
+      "sectionTitle": "DE LA FIANZA > DEL PERMISO DE APRENDIZAJE > PARA OBTENER LA LICENCIA POR PRIMERA VEZ",
+      "similarity": 0.556603074544478,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "190",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 190.- Se determina que en los establecimientos educativos estatales y particulares, se impartirá la\nenseñanza de las normas, práctica y principios que regulan el tránsito, el uso de las vías públicas, los medios\nde transporte y la formación de conciencia y hábitos de seguridad en el tránsito vehicular.",
+      "id": "4c42770c-6bfd-4f17-9eb6-93dca976db6e",
+      "label": "[9] Reglamento General de Tránsito y Seguridad Vial, Art. 190",
+      "pageEnd": 49,
+      "pageStart": 49,
+      "sectionTitle": "TITULO VI > DE LA SEGURIDAD VIAL",
+      "similarity": 0.556261010275512,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "155",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 155-A.- La Dirección General de Tránsito, previo al cumplimiento de los requisitos exigidos en el\npresente Reglamento, expedirá las licencias de conducir con una vigencia de cinco años. A excepción de la\nque caduca al cumplir el interesado los dieciocho años de edad; las que serán expedidas, en la siguientes\nclases y categorías:\na. Pesada, categoría: T (Trailer);\nb. Liviana;\nc. Particular;\nd. Motociclista, y;\ne. Juvenil, categorías: V (vehículo) o M (Motociclista);\nLa Licencia Pesada autoriza a su titular para",
+      "id": "d371639f-428b-4ede-a4e9-ecd16b2fd923",
+      "label": "[10] Reglamento General de Tránsito y Seguridad Vial, Art. 155",
+      "pageEnd": 42,
+      "pageStart": 41,
+      "sectionTitle": "PARA OBTENER LA LICENCIA POR PRIMERA VEZ",
+      "similarity": 0.554691668655333,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "117",
+      "documentKey": "decreto-legislativo-185",
+      "documentName": "Decreto Legislativo No. 185",
+      "excerpt": "48 No respetar el derecho de vía o interceptar la vía. $100\n49 No mover un vehículo u objeto que obstruya el libre tránsito producto de un $100\nsiniestro vial, siempre que solo existan daños materiales y/o lesiones leves o\npor otras razones que la autoridad competente estime conveniente.\nSEGURIDAD VIAL\n50 No conceder el paso a peatones que se encuentren en zona de peligro $100\n51 Circular más de una persona en el asiento del conductor. $100\n52 No respetar las señales de precaución, cuando hay trabajos de construcci",
+      "id": "16f4f699-15da-4a5b-a183-be8a0748dd7c",
+      "label": "[11] Decreto Legislativo No. 185, Art. 117",
+      "pageEnd": 9,
+      "pageStart": 3,
+      "sectionTitle": null,
+      "similarity": 0.551684834484622,
+      "sourcePath": "assets\\DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf",
+      "sourceUrl": "assets/DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf"
+    },
+    {
+      "articleNumber": "117",
+      "documentKey": "decreto-legislativo-185",
+      "documentName": "Decreto Legislativo No. 185",
+      "excerpt": "\"Art. 117.- Las infracciones de tránsito y seguridad vial se clasifican en leves, graves y muy\ngraves.\nPrevio a la adquisición de cualquier vehículo automotor, el interesado deberá cerciorarse en el\nregistro público de vehículos, que no exista pendiente el pago de multas que se hubieren impuesto\nrespecto del mismo, al propietario o legítimo tenedor.\nEn todo caso, la tarjeta de circulación del vehículo de que se trate sólo podrá renovarse, previo\npago de la multa.\n\nLas multas por infracciones de tránsito, transporte",
+      "id": "c123a45c-b893-4c70-aab5-a4601e31f37c",
+      "label": "[12] Decreto Legislativo No. 185, Art. 117",
+      "pageEnd": 9,
+      "pageStart": 3,
+      "sectionTitle": null,
+      "similarity": 0.546434453963573,
+      "sourcePath": "assets\\DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf",
+      "sourceUrl": "assets/DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf"
+    },
+    {
+      "articleNumber": "66",
+      "documentKey": "decreto-legislativo-185",
+      "documentName": "Decreto Legislativo No. 185",
+      "excerpt": "\"Art. 66.- Todo conductor de vehículo automotor, cuando la autoridad competente lo requiera,\nestará obligado a entregar los documentos solicitados y prestar la colaboración que se demande ante las\ndiferentes circunstancias viales, todo con el objeto de verificar el cumplimiento de la presente ley. Caso\ncontrario, la autoridad de tránsito estará facultada para decomisar la licencia de conducir, además, de la\nimposición de las multas por el cometimiento de las infracciones tipificadas en la presente normativa.\nSe pro",
+      "id": "14c57975-fecc-4d15-a95d-f513bf67881c",
+      "label": "[13] Decreto Legislativo No. 185, Art. 66",
+      "pageEnd": 2,
+      "pageStart": 1,
+      "sectionTitle": "POR TANTO, > REFORMAS A LA LEY DE TRANSPORTE TERRESTRE, TRÁNSITO > Y SEGURIDAD VIAL",
+      "similarity": 0.544554809951778,
+      "sourcePath": "assets\\DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf",
+      "sourceUrl": "assets/DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf"
+    },
+    {
+      "articleNumber": "153",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 153.- Para obtener el permiso de aprendizaje para conducir, válido por 90 días, el aspirante deberá\ncumplir con los requisitos siguientes:\n1. Haber cumplido 15 años de edad, momo mínimo, para la Licencia Juvenil y 18 años de edad, para la\nLicencia Particular o Liviana.\n2. Saber leer y escribir.\n3. Obtener la Tarjeta de Aprendizaje correspondiente.\nSi el solicitante fuere menor de edad, sus representantes legales lo acompañarán en los trámites\ncorrespondientes y responderán civilmente por los daños que ocasione",
+      "id": "0bb1c1cf-ec51-4e6e-ae13-f5c296516673",
+      "label": "[14] Reglamento General de Tránsito y Seguridad Vial, Art. 153",
+      "pageEnd": 40,
+      "pageStart": 40,
+      "sectionTitle": "DE LAS LICENCIAS DE CONDUCIR > DE LA FIANZA > DEL PERMISO DE APRENDIZAJE",
+      "similarity": 0.542278041428129,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "117",
+      "documentKey": "ley-transporte-terrestre",
+      "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+      "excerpt": "Art. 117.- Las infracciones de tránsito y seguridad vial se clasifican en Leves, graves y muy graves. (20)\nPrevio a la adquisición de cualquier vehículo automotor, el interesado deberá cerciorarse en el Registro\nPúblico de Vehículos, que no exista pendiente el pago de multas que se hubieren impuesto respecto del\nmismo, al propietario. (20)\nEn todo caso, la tarjeta de circulación del vehículo de que se trate, sólo podrá renovarse, previo pago de\nla multa. (20)\nCUADRO DE MULTAS DE TRANSITO POR INFRACCIONES LEVES, GRA",
+      "id": "0725c88e-ea49-42ba-a7dd-52eedf8a3bbd",
+      "label": "[15] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 117",
+      "pageEnd": 30,
+      "pageStart": 23,
+      "sectionTitle": "CAPITULO I > DE LOS SEGUROS Y FIANZAS > CAPITULO II",
+      "similarity": 0.529862965402496,
+      "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
+      "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
+    },
+    {
+      "articleNumber": "255",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "68 No respetar derecho de vía al salir de un\nestacionamiento. ¢ 300.00\n69 No disminuir la velocidad en zonas restringidas tales\ncomo: Colegios, escuelas, iglesias, hospitales, centros\ndeportivos, mercados, etc. ¢ 300.00\n70 Sobrepasar a otro vehículo en boca-calle. ¢ 300.00\n71 Colocarse en carril que no le corresponda en boca-calle,\npara iniciar la marcha. ¢ 300.00\n72 No atender la indicación de parada del agente de la\nPolicía Nacional Civil, o Delegado de Tránsito, con la\nseñal de alto en el día y por la noche con ",
+      "id": "8f1ace5f-c303-461e-8850-93f95fb1ab81",
+      "label": "[16] Reglamento General de Tránsito y Seguridad Vial, Art. 255",
+      "pageEnd": 67,
+      "pageStart": 61,
+      "sectionTitle": "TITULO X > DE LAS INFRACCIONES, MULTAS Y SUSPENSIONES > DE LAS MULTAS E INFRACCIONES",
+      "similarity": 0.52675489075611,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": null,
+      "documentKey": "manual-senales-centroamericano",
+      "documentName": "Manual Centroamericano de Dispositivos Uniformes para el Control del Transito",
+      "excerpt": "Señales Verticales.\nSeñales de Información.\n\nSon las que guían o informan al conductor sobre\n\nnombres y ubicación de poblaciones, rutas, destinos,\ndirecciones, kilometrajes, distancias, servicios, puntos de\ninterés, y cualquier otra información geográfica,\nrecreacional y cultural pertinente para facilitar las\ntareas de navegación y orientación de los usuarios\n\nSeñales de Información.\n• Señales de Información de Identificación.\n• Señales de Información de Destino.\n• Señales de Información de Servicios y Turísticas",
+      "id": "061e0b11-d62d-4121-802f-546b81592f7c",
+      "label": "[17] Manual Centroamericano de Dispositivos Uniformes para el Control del Transito, unidad normativa",
+      "pageEnd": 110,
+      "pageStart": 1,
+      "sectionTitle": null,
+      "similarity": 0.476811410141911,
+      "sourcePath": "assets\\Manual_de_Senales.pdf",
+      "sourceUrl": "assets/Manual_de_Senales.pdf"
+    }
+  ],
+  "generatedAt": "2026-07-05T00:02:45.193Z",
+  "generator": "scripts/generate-learning-modules.mjs",
+  "moduleId": "12-practica-para-examen",
+  "originalBrief": {
+    "concepts": "- Preguntas por modulo.\n- Explicacion simple.\n- Fuente oficial.\n- Simulacros mixtos.\n- Historial de errores.\n- Recomendacion de repaso por tema.\n- Preguntas con imagen de senales.",
+    "purpose": "Preparar al usuario para responder preguntas de licencia, pero con explicacion y criterio. El examen debe ser resultado del aprendizaje, no el unico objetivo.",
+    "questions": "- Seleccion multiple por cada modulo.\n- Escenarios de conduccion defensiva.\n- Identificacion de senales.\n- Verdadero/falso para mitos comunes.\n- Simulacro mixto con explicaciones.",
+    "scenarios": "|  ID  |  Situacion  |  Decision segura  |  Consecuencia a explicar  |\n|  01  |  Usuario falla muchas preguntas de senales  |  Recomendar modulo 06  |  Error en calle  |\n|  02  |  Usuario aprueba simulacro pero falla conduccion defensiva  |  Recomendar escenarios  |  Riesgo real no cubierto por memoria  |",
+    "sourceScope": [
+      "Todos los documentos oficiales disponibles",
+      "MVP de Cultura Vial SV"
+    ],
+    "visual": "Pantalla de practica con pregunta, opciones, fuente, explicacion y boton de \"repasar este tema\"."
+  },
+  "retrievalQuery": "Modulo: Practica para examen\nProposito: Preparar al usuario para responder preguntas de licencia, pero con explicacion y criterio. El examen debe ser resultado del aprendizaje, no el unico objetivo.\nFuentes esperadas: Todos los documentos oficiales disponibles, MVP de Cultura Vial SV\n\n---\n\nCobertura normativa para Practica para examen\n- Preguntas por modulo.\n- Explicacion simple.\n- Fuente oficial.\n- Simulacros mixtos.\n- Historial de errores.\n- Recomendacion de repaso por tema.\n- Preguntas con imagen de senales.\n|  ID  |  Titulo  |  Fuente esperada  |  Riesgo que conecta  |\n|  01  |  Como practicar sin memorizar vacio  |  MVP  |  Aprobar sin entender  |\n|  02  |  Lee la explicacion, no solo la respuesta  |  MVP y fuentes  |  Repetir error en calle  |\n|  03  |  Preguntas de senales  |  Manual  |  No reaccionar a tiempo  |\n|  04  |  Simulacro final  |  Todas  |  Diagnostico de preparacion  |\n\n---\n\nAplicacion practica para conductores: Practica para examen\n|  ID  |  Situacion  |  Decision segura  |  Consecuencia a explicar  |\n|  01  |  Usuario falla muchas preguntas de senales  |  Recomendar modulo 06  |  Error en calle  |\n|  02  |  Usuario aprueba simulacro pero falla conduccion defensiva  |  Recomendar escenarios  |  Riesgo real no cubierto por memoria  |\n- Seleccion multiple por cada modulo.\n- Escenarios de conduccion defensiva.\n- Identificacion de senales.\n- Verdadero/falso para mitos comunes.\n- Simulacro mixto con explicaciones.\n\n---\n\nSenales, obligaciones, prohibiciones, sanciones, excepciones y decisiones seguras relacionadas con Practica para examen\nPantalla de practica con pregunta, opciones, fuente, explicacion y boton de \"repasar este tema\".\nTodos los documentos oficiales disponibles, MVP de Cultura Vial SV",
+  "title": "Practica para examen"
+}
