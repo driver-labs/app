@@ -84,34 +84,6 @@
         "tags": ["vehicle", "priority"]
       }
     ],
-    "timeline": [
-      {
-        "id": "ego_infraction_approach",
-        "type": "animate_actor",
-        "actorId": "ego_car",
-        "track": "position",
-        "keyframes": [
-          {
-            "t": 0,
-            "value": [0, 0, 22]
-          },
-          {
-            "t": 6,
-            "value": [0, 0, 7]
-          }
-        ],
-        "interpolation": "smooth"
-      },
-      {
-        "id": "ask_infraction",
-        "type": "trigger",
-        "at": 6,
-        "trigger": {
-          "kind": "show_interaction",
-          "interactionId": "decision_infraction"
-        }
-      }
-    ],
     "interactions": [
       {
         "id": "decision_infraction",

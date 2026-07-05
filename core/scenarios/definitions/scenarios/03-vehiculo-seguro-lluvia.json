@@ -84,34 +84,6 @@
         "tags": ["vehicle", "stopped"]
       }
     ],
-    "timeline": [
-      {
-        "id": "ego_following",
-        "type": "animate_actor",
-        "actorId": "ego_car",
-        "track": "position",
-        "keyframes": [
-          {
-            "t": 0,
-            "value": [0, 0, 26]
-          },
-          {
-            "t": 7,
-            "value": [0, 0, 11]
-          }
-        ],
-        "interpolation": "smooth"
-      },
-      {
-        "id": "ask_rain_margin",
-        "type": "trigger",
-        "at": 6,
-        "trigger": {
-          "kind": "show_interaction",
-          "interactionId": "decision_rain_margin"
-        }
-      }
-    ],
     "interactions": [
       {
         "id": "decision_rain_margin",

@@ -85,51 +85,6 @@
         "tags": ["vulnerable_user", "crossing"]
       }
     ],
-    "timeline": [
-      {
-        "id": "move_ego",
-        "type": "animate_actor",
-        "actorId": "ego_car",
-        "track": "position",
-        "keyframes": [
-          {
-            "t": 0,
-            "value": [0, 0, 24]
-          },
-          {
-            "t": 7,
-            "value": [0, 0, 7]
-          }
-        ],
-        "interpolation": "smooth"
-      },
-      {
-        "id": "move_pedestrian",
-        "type": "animate_actor",
-        "actorId": "pedestrian_1",
-        "track": "position",
-        "keyframes": [
-          {
-            "t": 3,
-            "value": [-4, 0, 2]
-          },
-          {
-            "t": 10,
-            "value": [4, 0, 2]
-          }
-        ],
-        "interpolation": "linear"
-      },
-      {
-        "id": "ask_crosswalk",
-        "type": "trigger",
-        "at": 6,
-        "trigger": {
-          "kind": "show_interaction",
-          "interactionId": "decision_reduce_speed"
-        }
-      }
-    ],
     "interactions": [
       {
         "id": "decision_reduce_speed",

@@ -84,51 +84,6 @@
         "tags": ["vehicle", "priority"]
       }
     ],
-    "timeline": [
-      {
-        "id": "ego_approach",
-        "type": "animate_actor",
-        "actorId": "ego_car",
-        "track": "position",
-        "keyframes": [
-          {
-            "t": 0,
-            "value": [0, 0, 24]
-          },
-          {
-            "t": 7,
-            "value": [0, 0, 7]
-          }
-        ],
-        "interpolation": "smooth"
-      },
-      {
-        "id": "traffic_crosses",
-        "type": "animate_actor",
-        "actorId": "cross_traffic",
-        "track": "position",
-        "keyframes": [
-          {
-            "t": 2,
-            "value": [-18, 0, 2]
-          },
-          {
-            "t": 10,
-            "value": [18, 0, 2]
-          }
-        ],
-        "interpolation": "linear"
-      },
-      {
-        "id": "ask_stop_decision",
-        "type": "trigger",
-        "at": 7,
-        "trigger": {
-          "kind": "show_interaction",
-          "interactionId": "decision_stop_yield"
-        }
-      }
-    ],
     "interactions": [
       {
         "id": "decision_stop_yield",

@@ -89,34 +89,6 @@
         "tags": ["checkpoint", "stopped"]
       }
     ],
-    "timeline": [
-      {
-        "id": "ego_to_checkpoint",
-        "type": "animate_actor",
-        "actorId": "ego_car",
-        "track": "position",
-        "keyframes": [
-          {
-            "t": 0,
-            "value": [0, 0, 20]
-          },
-          {
-            "t": 6,
-            "value": [0, 0, 8]
-          }
-        ],
-        "interpolation": "smooth"
-      },
-      {
-        "id": "ask_documents",
-        "type": "trigger",
-        "at": 6,
-        "trigger": {
-          "kind": "show_interaction",
-          "interactionId": "decision_documents"
-        }
-      }
-    ],
     "interactions": [
       {
         "id": "decision_documents",

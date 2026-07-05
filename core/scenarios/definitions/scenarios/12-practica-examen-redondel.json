@@ -98,34 +98,6 @@
         "tags": ["bus", "priority"]
       }
     ],
-    "timeline": [
-      {
-        "id": "ego_roundabout_approach",
-        "type": "animate_actor",
-        "actorId": "ego_car",
-        "track": "position",
-        "keyframes": [
-          {
-            "t": 0,
-            "value": [0, 0, 22]
-          },
-          {
-            "t": 8,
-            "value": [0, 0, 8]
-          }
-        ],
-        "interpolation": "smooth"
-      },
-      {
-        "id": "ask_roundabout",
-        "type": "trigger",
-        "at": 7,
-        "trigger": {
-          "kind": "show_interaction",
-          "interactionId": "decision_roundabout"
-        }
-      }
-    ],
     "interactions": [
       {
         "id": "decision_roundabout",

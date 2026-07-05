@@ -84,34 +84,6 @@
         "tags": ["motorcycle", "blind_spot"]
       }
     ],
-    "timeline": [
-      {
-        "id": "ego_lane_prepare",
-        "type": "animate_actor",
-        "actorId": "ego_car",
-        "track": "position",
-        "keyframes": [
-          {
-            "t": 0,
-            "value": [0, 0, 18]
-          },
-          {
-            "t": 7,
-            "value": [0, 0, 6]
-          }
-        ],
-        "interpolation": "smooth"
-      },
-      {
-        "id": "ask_blind_spot",
-        "type": "trigger",
-        "at": 6,
-        "trigger": {
-          "kind": "show_interaction",
-          "interactionId": "decision_blind_spot"
-        }
-      }
-    ],
     "interactions": [
       {
         "id": "decision_blind_spot",

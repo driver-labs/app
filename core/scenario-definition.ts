@@ -23,29 +23,6 @@ export const ScenarioActorSchema = z.object({
   tags: z.array(z.string()).default([]),
 });
 
-export const ScenarioTimelineEventSchema = z.object({
-  id: z.string().min(1),
-  type: z.enum(["animate_actor", "trigger"]),
-  actorId: z.string().optional(),
-  track: z.enum(["position", "rotation", "scale"]).optional(),
-  keyframes: z
-    .array(
-      z.object({
-        t: z.number().min(0),
-        value: Vector3Schema,
-      }),
-    )
-    .optional(),
-  interpolation: z.enum(["linear", "smooth"]).optional(),
-  at: z.number().min(0).optional(),
-  trigger: z
-    .object({
-      kind: z.literal("show_interaction"),
-      interactionId: z.string().min(1),
-    })
-    .optional(),
-});
-
 export const ScenarioInteractionSchema = z.object({
   id: z.string().min(1),
   type: z.enum(["multiple_choice"]),
@@ -112,7 +89,6 @@ export const ScenarioDefinitionSchema = z.object({
     }),
     assets: z.array(ScenarioAssetSchema).min(1),
     actors: z.array(ScenarioActorSchema).min(1),
-    timeline: z.array(ScenarioTimelineEventSchema).min(1),
     interactions: z.array(ScenarioInteractionSchema).min(1),
   }),
   scoring: z.object({
@@ -147,7 +123,6 @@ export const ModuleScenarioBindingSchema = z.object({
 
 export type ScenarioAsset = z.infer<typeof ScenarioAssetSchema>;
 export type ScenarioActor = z.infer<typeof ScenarioActorSchema>;
-export type ScenarioTimelineEvent = z.infer<typeof ScenarioTimelineEventSchema>;
 export type ScenarioInteraction = z.infer<typeof ScenarioInteractionSchema>;
 export type ScenarioDefinition = z.infer<typeof ScenarioDefinitionSchema>;
 export type ModuleScenarioBinding = z.infer<typeof ModuleScenarioBindingSchema>;
@@ -361,10 +336,6 @@ export function validateScenarioDefinition(
 ): ScenarioValidationIssue[] {
   const issues: ScenarioValidationIssue[] = [];
   const assetIds = new Set(scenario.simulation.assets.map((asset) => asset.id));
-  const actorIds = new Set(scenario.simulation.actors.map((actor) => actor.id));
-  const interactionIds = new Set(
-    scenario.simulation.interactions.map((interaction) => interaction.id),
-  );
 
   if (binding && binding.moduleId !== scenario.moduleBinding.moduleId) {
     issues.push({
@@ -386,25 +357,6 @@ export function validateScenarioDefinition(
       issues.push({
         id: scenario.id,
         message: `Actor ${actor.id} references missing asset ${actor.assetId}.`,
-      });
-    }
-  }
-
-  for (const event of scenario.simulation.timeline) {
-    if (event.actorId && !actorIds.has(event.actorId)) {
-      issues.push({
-        id: scenario.id,
-        message: `Timeline event ${event.id} references missing actor ${event.actorId}.`,
-      });
-    }
-
-    if (
-      event.trigger?.kind === "show_interaction" &&
-      !interactionIds.has(event.trigger.interactionId)
-    ) {
-      issues.push({
-        id: scenario.id,
-        message: `Timeline event ${event.id} references missing interaction ${event.trigger.interactionId}.`,
       });
     }
   }

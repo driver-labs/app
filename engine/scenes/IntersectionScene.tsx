@@ -1,12 +1,6 @@
-import {
-  Clone,
-  OrbitControls,
-  Text,
-  useGLTF,
-  useTexture,
-} from "@react-three/drei";
+import { Clone, OrbitControls, useGLTF, useTexture } from "@react-three/drei";
 import { useFrame, useLoader } from "@react-three/fiber";
-import { useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 import { FBXLoader, SkeletonUtils, TGALoader } from "three-stdlib";
 import type { Scenario } from "@/core/scenario-schema";
@@ -206,10 +200,6 @@ function FbxModel({
 
   return <primitive object={scene} scale={scale} rotation={[0, yaw, 0]} />;
 }
-DEBRIS.forEach((d) => {
-  useGLTF.preload(d.model);
-});
-
 function Crosswalk({ z }: { z: number }) {
   return (
     <>
@@ -224,6 +214,55 @@ function Crosswalk({ z }: { z: number }) {
         </mesh>
       ))}
     </>
+  );
+}
+
+function LabelPlane({
+  color,
+  fontSize,
+  fontWeight,
+  height,
+  position,
+  text,
+  width,
+}: {
+  color: string;
+  fontSize: number;
+  fontWeight: number;
+  height: number;
+  position: [number, number, number];
+  text: string;
+  width: number;
+}) {
+  const texture = useMemo(() => {
+    const canvas = document.createElement("canvas");
+    canvas.width = 512;
+    canvas.height = 256;
+    const ctx = canvas.getContext("2d");
+    if (ctx) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = color;
+      ctx.font = `${fontWeight} ${fontSize}px Arial, Helvetica, sans-serif`;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText(text, canvas.width / 2, canvas.height / 2);
+    }
+
+    const canvasTexture = new THREE.CanvasTexture(canvas);
+    canvasTexture.colorSpace = THREE.SRGBColorSpace;
+    canvasTexture.minFilter = THREE.LinearFilter;
+    canvasTexture.magFilter = THREE.LinearFilter;
+    canvasTexture.needsUpdate = true;
+    return canvasTexture;
+  }, [color, fontSize, fontWeight, text]);
+
+  useEffect(() => () => texture.dispose(), [texture]);
+
+  return (
+    <mesh position={position}>
+      <planeGeometry args={[width, height]} />
+      <meshBasicMaterial map={texture} transparent toneMapped={false} />
+    </mesh>
   );
 }
 
@@ -242,14 +281,15 @@ function SpeedLimitSign({ limit }: { limit: number }) {
         <ringGeometry args={[0.56, 0.68, 40]} />
         <meshStandardMaterial color="#c0281f" side={THREE.DoubleSide} />
       </mesh>
-      <Text
+      <LabelPlane
         color="#111827"
-        fontSize={0.34}
-        fontWeight={800}
+        fontSize={116}
+        fontWeight={900}
+        height={0.52}
         position={[0, 2.35, 0.08]}
-      >
-        {limit}
-      </Text>
+        text={String(limit)}
+        width={0.82}
+      />
     </group>
   );
 }
@@ -266,16 +306,15 @@ function StopSign() {
           <cylinderGeometry args={[0.7, 0.7, 0.08, 8]} />
           <meshStandardMaterial color="#c0281f" />
         </mesh>
-        <Text
-          anchorX="center"
-          anchorY="middle"
+        <LabelPlane
           color="#ffffff"
-          fontSize={0.24}
+          fontSize={118}
           fontWeight={900}
+          height={0.36}
           position={[0, 0, 0.065]}
-        >
-          ALTO
-        </Text>
+          text="ALTO"
+          width={1.04}
+        />
       </group>
     </group>
   );
@@ -331,6 +370,7 @@ export default function Scene({
   const clearing = useRef(false);
   const crashed = useRef(false);
   const debrisInit = useRef(false);
+  const [showDebris, setShowDebris] = useState(false);
   const crashTime = useRef(0); // instante del choque (clock.elapsedTime)
   const hitIdx = useRef(0); // índice del auto de tráfico impactado
   const playerCrashZ = useRef(0); // z del jugador al momento del choque
@@ -418,6 +458,7 @@ export default function Scene({
       }
       if (best < 2.6 || c.position.z <= 0.2) {
         crashed.current = true;
+        setShowDebris(true);
         crashTime.current = state.clock.elapsedTime;
         hitIdx.current = hit;
         playerCrashZ.current = c.position.z;
@@ -433,11 +474,12 @@ export default function Scene({
     }
 
     if (crashed.current) {
-      if (!debrisInit.current) {
-        debrisInit.current = true;
+      if (showDebris && !debrisInit.current) {
+        let initialized = false;
         for (let i = 0; i < DEBRIS.length; i++) {
           const g = debrisRefs.current[i];
           if (!g) continue;
+          initialized = true;
           // dispersión radial explosiva + mayor altura
           g.position.set(
             impact.x + rnd(-0.8, 0.8),
@@ -449,6 +491,7 @@ export default function Scene({
           debrisState[i].v.set(Math.cos(a) * s, rnd(5, 12), Math.sin(a) * s);
           debrisState[i].spin.set(rnd(-11, 11), rnd(-11, 11), rnd(-11, 11));
         }
+        debrisInit.current = initialized;
       }
       for (let i = 0; i < DEBRIS.length; i++) {
         const g = debrisRefs.current[i];
@@ -607,17 +650,18 @@ export default function Scene({
         ))}
 
         {/* pool de debris */}
-        {DEBRIS.map((dbr, i) => (
-          <group
-            key={dbr.model}
-            ref={(el) => {
-              if (el) debrisRefs.current[i] = el;
-            }}
-            position={[0, -100, 0]}
-          >
-            <Model model={dbr.model} scale={dbr.scale} />
-          </group>
-        ))}
+        {showDebris &&
+          DEBRIS.map((dbr, i) => (
+            <group
+              key={dbr.model}
+              ref={(el) => {
+                if (el) debrisRefs.current[i] = el;
+              }}
+              position={[0, -100, 0]}
+            >
+              <Model model={dbr.model} scale={dbr.scale} />
+            </group>
+          ))}
 
         <CrashEffect impact={impact} crashed={crashed} crashTime={crashTime} />
       </group>
