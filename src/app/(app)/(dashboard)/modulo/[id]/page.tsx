@@ -2,13 +2,11 @@ import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 import {
   AlertTriangle,
-  ArrowRight,
   BookMarked,
   BookOpen,
   BrainCircuit,
   CheckCircle2,
   FileQuestion,
-  FileText,
   HeartPulse,
   ListChecks,
   Route,
@@ -29,7 +27,6 @@ type ModulePageProps = {
   params: Promise<{ id: string }>;
 };
 
-const manualAssetUrl = "/api/assets/manual-senales";
 const audioManifestPath = path.join(
   process.cwd(),
   "public",
@@ -495,19 +492,41 @@ export default async function ModulePage({ params }: ModulePageProps) {
 
   const didacticContent = module.didacticContent;
   const modules = getLearningModules();
-  const moduleIndex = modules.findIndex((item) => item.id === module.id);
-  const previousModule = moduleIndex > 0 ? modules[moduleIndex - 1] : null;
-  const nextModule =
-    moduleIndex >= 0 && moduleIndex < modules.length - 1
-      ? modules[moduleIndex + 1]
-      : null;
-  const hasManualScope = module.sourceScope.some((source) =>
-    source.toLowerCase().includes("manual"),
-  );
   const moduleAudio = getModuleAudio(module.id);
 
   return (
     <section className="module-layout">
+      <nav className="module-course-nav" aria-label="Modulos del curso">
+        <div className="module-course-nav__heading">
+          <p className="eyebrow">
+            <BookOpen aria-hidden="true" size={14} />
+            Curso
+          </p>
+          <h2>Cultura vial</h2>
+        </div>
+        <ol className="module-course-nav__list">
+          {modules.map((item) => {
+            const isActive = item.id === module.id;
+
+            return (
+              <li key={item.id}>
+                <Link
+                  aria-current={isActive ? "page" : undefined}
+                  href={`/modulo/${item.id}`}
+                >
+                  <span className="module-course-nav__number">
+                    {item.id.slice(0, 2)}
+                  </span>
+                  <span className="module-course-nav__copy">
+                    <span>{item.title}</span>
+                  </span>
+                </Link>
+              </li>
+            );
+          })}
+        </ol>
+      </nav>
+
       <article className="module-content">
         <div className="module-hero">
           <p className="eyebrow">
@@ -536,8 +555,6 @@ export default async function ModulePage({ params }: ModulePageProps) {
           </p>
         )}
       </article>
-
-      
     </section>
   );
 }
