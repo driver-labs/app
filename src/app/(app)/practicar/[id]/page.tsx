@@ -1,5 +1,10 @@
 import { notFound } from "next/navigation";
-import { getScenario, getScenarioIds, scenarios } from "@/core/scenarios";
+import {
+  getScenario,
+  getScenarioIds,
+  getScenariosForModule,
+  scenarios,
+} from "@/core/scenarios";
 import { getLearningModule } from "@/lib/content/modules";
 import ScenarioClient from "./ScenarioClient";
 
@@ -25,6 +30,14 @@ export default async function PracticePage({ params }: PracticePageProps) {
   if (!scenario) notFound();
 
   const relatedModule = getLearningModule(scenario.moduleBinding.moduleId);
+  const moduleScenarios = getScenariosForModule(
+    scenario.moduleBinding.moduleId,
+  );
+  const scenarioIndex = scenarios.findIndex((item) => item.id === scenario.id);
+  const nextScenario =
+    scenarioIndex >= 0 && scenarioIndex < scenarios.length - 1
+      ? scenarios[scenarioIndex + 1]
+      : null;
   const otherScenarios = scenarios
     .filter((item) => item.id !== scenario.id)
     .map((item) => ({ id: item.id, title: item.title }));
@@ -43,6 +56,10 @@ export default async function PracticePage({ params }: PracticePageProps) {
           : []
       }
       otherScenarios={otherScenarios}
+      nextScenario={
+        nextScenario ? { id: nextScenario.id, title: nextScenario.title } : null
+      }
+      moduleScenarioCount={moduleScenarios.length}
     />
   );
 }

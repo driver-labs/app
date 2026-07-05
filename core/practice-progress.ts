@@ -54,6 +54,7 @@ export type PracticeProgressStore = {
 
 export const PRACTICE_PROGRESS_KEY = "driver-labs:practice-progress:v1";
 export const LEGACY_COMPLETED_SCENARIOS_KEY = "driver-labs:completed-scenarios";
+export const MAX_STORED_ATTEMPTS = 100;
 
 export const emptyPracticeProgress = (): PracticeProgressStore => ({
   attempts: [],
@@ -68,9 +69,7 @@ export function isCorrectScenarioSelection(
   const selected = new Set(selectedOptionIds);
 
   return interaction.options.every((option) =>
-    option.id === interaction.correctOptionId
-      ? selected.has(option.id)
-      : !selected.has(option.id),
+    option.isCorrect ? selected.has(option.id) : !selected.has(option.id),
   );
 }
 
@@ -131,10 +130,10 @@ export function buildScenarioAttempt({
       });
     }
 
-    if (!selected.has(option.id) && option.id === interaction.correctOptionId) {
+    if (!selected.has(option.id) && option.isCorrect) {
       mistakes.push({
         lessonId: scenario.learning.lessonIds[0],
-        message: "No se eligio la accion segura esperada.",
+        message: "No se eligió la acción segura esperada.",
         type: "missed_safe_action",
       });
     }
@@ -172,7 +171,7 @@ export function applyScenarioAttempt(
   attempt: UserScenarioAttempt,
   totalScenariosForModule = 1,
 ): PracticeProgressStore {
-  const attempts = [...store.attempts, attempt];
+  const attempts = [...store.attempts, attempt].slice(-MAX_STORED_ATTEMPTS);
   const existing = store.modules[attempt.moduleId];
   const moduleAttempts = attempts.filter(
     (item) => item.moduleId === attempt.moduleId,

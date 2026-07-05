@@ -261,14 +261,22 @@ function StopSign() {
         <cylinderGeometry args={[0.06, 0.06, 2.4]} />
         <meshStandardMaterial color="#888" />
       </mesh>
-      <mesh
-        position={[0, 2.4, 0]}
-        rotation={[Math.PI / 2, Math.PI / 8, 0]}
-        castShadow
-      >
-        <cylinderGeometry args={[0.7, 0.7, 0.08, 8]} />
-        <meshStandardMaterial color="#c0281f" />
-      </mesh>
+      <group position={[0, 2.4, 0]} rotation={[0, Math.PI / 8, 0]}>
+        <mesh rotation={[Math.PI / 2, 0, 0]} castShadow>
+          <cylinderGeometry args={[0.7, 0.7, 0.08, 8]} />
+          <meshStandardMaterial color="#c0281f" />
+        </mesh>
+        <Text
+          anchorX="center"
+          anchorY="middle"
+          color="#ffffff"
+          fontSize={0.24}
+          fontWeight={900}
+          position={[0, 0, 0.065]}
+        >
+          ALTO
+        </Text>
+      </group>
     </group>
   );
 }
@@ -353,7 +361,10 @@ export default function Scene({
     if (!c) return;
 
     // En intro y decision se congela el tráfico; la escena arranca tras el título.
-    const trafficCanMove = phase === "approach" || phase === "consequence";
+    const trafficCanMove =
+      phase === "approach" ||
+      (phase === "consequence" &&
+        (!showTrafficLight || !correct || !yielded.current));
     if (!crashed.current && trafficCanMove) {
       for (let i = 0; i < TRAFFIC_LAYOUT.length; i++) {
         const g = trafficRefs.current[i];
@@ -502,12 +513,21 @@ export default function Scene({
         view={view}
         paused={phase === "intro" || phase === "decision"}
       />
-      <OrbitControls target={view.target} maxPolarAngle={Math.PI / 2.15} />
+      <OrbitControls
+        target={view.target}
+        maxPolarAngle={Math.PI / 2.15}
+        minDistance={8}
+        maxDistance={58}
+      />
 
       {/* Grupo del mundo: se desplaza unos frames para simular el shake del choque. */}
       <group ref={world}>
         {showTrafficLight && (
-          <TrafficLight position={[6, 0, 6]} paused={phase === "decision"} />
+          <TrafficLight
+            position={[6, 0, 6]}
+            paused={phase === "decision"}
+            state={phase === "consequence" && correct ? "green" : "red"}
+          />
         )}
         {showStreetLights && (
           <>

@@ -181,7 +181,12 @@ export default function RainBrakingScene({
         view={view}
         paused={phase === "intro" || phase === "decision"}
       />
-      <OrbitControls target={view.target} maxPolarAngle={Math.PI / 2.15} />
+      <OrbitControls
+        target={view.target}
+        maxPolarAngle={Math.PI / 2.15}
+        minDistance={8}
+        maxDistance={58}
+      />
 
       <group ref={world}>
         <StreetLamp

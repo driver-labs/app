@@ -2,7 +2,7 @@
   "schemaVersion": "drivelab.scenario.v1",
   "id": "scenario_infracciones_consecuencias_rojo_001",
   "slug": "infracciones-consecuencias-rojo",
-  "title": "Infraccion observable y consecuencia",
+  "title": "Infracción observable y consecuencia",
   "description": "El usuario identifica una conducta sancionable sostenida por evidencia visible y evita asumir hechos no observados.",
   "moduleBinding": {
     "moduleId": "09-infracciones-y-consecuencias",
@@ -14,14 +14,14 @@
       "09-infracciones-y-consecuencias:sancion"
     ],
     "objectives": [
-      "Separar hechos visibles de suposiciones al analizar una infraccion.",
-      "Entender que una infraccion puede generar sancion y riesgo fisico."
+      "Separar hechos visibles de suposiciones al analizar una infracción.",
+      "Entender que una infracción puede generar sanción y riesgo físico."
     ],
     "feedback": {
       "success": "Identificaste la conducta observable sin inventar hechos adicionales.",
       "failure": "La respuesta segura exige basarse en evidencia visible, no en suposiciones.",
       "hints": [
-        "Primero mira que conducta se observa.",
+        "Primero mirá qué conducta se observa.",
         "No agregues alcohol, fuga u otra falta si la escena no lo muestra.",
         "La consecuencia nace de la conducta probada."
       ]
@@ -62,11 +62,6 @@
         "id": "asset_truck",
         "type": "vehicle",
         "url": "/models/truck.glb"
-      },
-      {
-        "id": "asset_traffic_light",
-        "type": "signal",
-        "url": "/assets/signs/traffic-light.glb"
       }
     ],
     "actors": [
@@ -122,14 +117,8 @@
         "id": "decision_infraction",
         "type": "multiple_choice",
         "appearsAt": 6,
-        "prompt": "Con lo que se observa, que infraccion debes identificar?",
+        "prompt": "Con lo que se observa, ¿qué infracción debés identificar?",
         "options": [
-          {
-            "id": "run_red",
-            "label": "No respetar la luz roja del semaforo",
-            "isCorrect": true,
-            "scoreDelta": 50
-          },
           {
             "id": "alcohol",
             "label": "Conducir bajo efectos de alcohol",
@@ -141,6 +130,12 @@
             "label": "Fugarse del lugar del accidente",
             "isCorrect": false,
             "scoreDelta": -35
+          },
+          {
+            "id": "run_red",
+            "label": "No respetar la luz roja del semáforo",
+            "isCorrect": true,
+            "scoreDelta": 50
           }
         ],
         "correctOptionId": "run_red"
@@ -158,7 +153,7 @@
       },
       {
         "id": "rule_identification",
-        "label": "Identificacion normativa",
+        "label": "Identificación normativa",
         "weight": 35
       },
       {

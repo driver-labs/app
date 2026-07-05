@@ -2,8 +2,8 @@
   "schemaVersion": "drivelab.scenario.v1",
   "id": "scenario_vehiculo_seguro_lluvia_001",
   "slug": "vehiculo-seguro-lluvia",
-  "title": "Vehiculo seguro bajo lluvia",
-  "description": "El usuario practica reducir velocidad y aumentar margen cuando la visibilidad y el frenado dependen del estado del vehiculo.",
+  "title": "Vehículo seguro bajo lluvia",
+  "description": "El usuario practica reducir velocidad y aumentar margen cuando la visibilidad y el frenado dependen del estado del vehículo.",
   "moduleBinding": {
     "moduleId": "03-vehiculo-seguro",
     "isPrimaryScenario": true
@@ -14,23 +14,23 @@
       "03-vehiculo-seguro:neumaticos-y-frenos"
     ],
     "objectives": [
-      "Relacionar el estado del vehiculo con distancia de frenado y visibilidad.",
+      "Relacionar el estado del vehículo con distancia de frenado y visibilidad.",
       "Ajustar velocidad cuando lluvia, llantas o frenos reducen el margen."
     ],
     "feedback": {
       "success": "Aumentaste distancia y bajaste velocidad antes de que el frenado se volviera urgente.",
-      "failure": "Con lluvia y un vehiculo sin margen mecanico, reaccionar tarde casi siempre termina en alcance.",
+      "failure": "Con lluvia y un vehículo sin margen mecánico, reaccionar tarde casi siempre termina en alcance.",
       "hints": [
-        "La lluvia exige mas distancia aunque el limite legal no cambie.",
+        "La lluvia exige más distancia aunque el límite legal no cambie.",
         "El estado de llantas, frenos y luces cambia el riesgo real.",
-        "Reducir temprano vale mas que frenar tarde."
+        "Reducir temprano vale más que frenar tarde."
       ]
     },
     "legalReferences": [
       {
         "jurisdiction": "SV",
-        "document": "Reglamento General de Transito y Seguridad Vial",
-        "articleId": "condiciones del vehiculo",
+        "document": "Reglamento General de Tránsito y Seguridad Vial",
+        "articleId": "condiciones del vehículo",
         "ruleCategory": "speeding"
       }
     ]
@@ -62,11 +62,6 @@
         "id": "asset_hatchback",
         "type": "vehicle",
         "url": "/models/hatchback-sports.glb"
-      },
-      {
-        "id": "asset_crosswalk",
-        "type": "road_marking",
-        "url": "/assets/road/crosswalk.glb"
       }
     ],
     "actors": [
@@ -122,19 +117,19 @@
         "id": "decision_rain_margin",
         "type": "multiple_choice",
         "appearsAt": 6,
-        "prompt": "Que ajuste es mas seguro bajo lluvia y menor visibilidad?",
+        "prompt": "¿Qué ajuste es más seguro bajo lluvia y menor visibilidad?",
         "options": [
+          {
+            "id": "same_speed",
+            "label": "Mantener velocidad porque la vía es conocida",
+            "isCorrect": false,
+            "scoreDelta": -35
+          },
           {
             "id": "increase_gap",
             "label": "Reducir velocidad y aumentar distancia de seguimiento",
             "isCorrect": true,
             "scoreDelta": 50
-          },
-          {
-            "id": "same_speed",
-            "label": "Mantener velocidad porque la via esta conocida",
-            "isCorrect": false,
-            "scoreDelta": -35
           },
           {
             "id": "brake_late",
@@ -153,7 +148,7 @@
     "metrics": [
       {
         "id": "vehicle_condition",
-        "label": "Estado del vehiculo",
+        "label": "Estado del vehículo",
         "weight": 30
       },
       {
@@ -171,7 +166,7 @@
   "metadata": {
     "difficulty": "basic",
     "estimatedMinutes": 4,
-    "tags": ["vehiculo", "lluvia", "frenado"],
+    "tags": ["vehículo", "lluvia", "frenado"],
     "createdAt": "2026-07-04T00:00:00-06:00",
     "updatedAt": "2026-07-04T00:00:00-06:00"
   }

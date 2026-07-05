@@ -3,7 +3,7 @@
   "id": "scenario_peatones_cruce_001",
   "slug": "peatones-cruce-urbano",
   "title": "Cruce peatonal urbano",
-  "description": "El usuario debe identificar a un peaton cruzando y tomar una decision preventiva antes del punto de conflicto.",
+  "description": "El usuario debe identificar a un peatón cruzando y tomar una decisión preventiva antes del punto de conflicto.",
   "moduleBinding": {
     "moduleId": "05-peatones-y-usuarios-vulnerables",
     "isPrimaryScenario": true
@@ -16,21 +16,21 @@
     "objectives": [
       "Reconocer cruces peatonales como zonas de alto riesgo.",
       "Reducir velocidad antes de llegar al punto de conflicto.",
-      "Proteger a usuarios vulnerables mediante conduccion preventiva."
+      "Proteger a usuarios vulnerables mediante conducción preventiva."
     ],
     "feedback": {
       "success": "Identificaste el riesgo a tiempo y actuaste de forma preventiva.",
       "failure": "No anticipaste el cruce peatonal con suficiente tiempo.",
       "hints": [
-        "Observa senales horizontales como paso cebra.",
-        "Reduce velocidad antes del cruce, no encima del cruce.",
-        "Anticipa peatones cerca de intersecciones, escuelas y zonas urbanas."
+        "Observá señales horizontales como el paso cebra.",
+        "Reducí velocidad antes del cruce, no encima del cruce.",
+        "Anticipá peatones cerca de intersecciones, escuelas y zonas urbanas."
       ]
     },
     "legalReferences": [
       {
         "jurisdiction": "SV",
-        "document": "Reglamento General de Transito y Seguridad Vial",
+        "document": "Reglamento General de Tránsito y Seguridad Vial",
         "articleId": "peatones",
         "ruleCategory": "no-pedestrian-yield"
       }
@@ -49,9 +49,9 @@
     "camera": {
       "mode": "third_person_follow",
       "targetActorId": "ego_car",
-      "position": [0, 6, 12],
-      "lookAt": [0, 0, 0],
-      "fov": 55
+      "position": [11, 9, 18],
+      "lookAt": [0, 0, 4],
+      "fov": 58
     },
     "assets": [
       {
@@ -62,12 +62,7 @@
       {
         "id": "asset_pedestrian",
         "type": "character",
-        "url": "/models/cone.glb"
-      },
-      {
-        "id": "asset_crosswalk",
-        "type": "road_marking",
-        "url": "/assets/road/crosswalk.glb"
+        "url": "primitive:pedestrian"
       }
     ],
     "actors": [
@@ -140,11 +135,11 @@
         "id": "decision_reduce_speed",
         "type": "multiple_choice",
         "appearsAt": 6,
-        "prompt": "Cual es la accion mas segura?",
+        "prompt": "¿Cuál es la acción más segura?",
         "options": [
           {
             "id": "accelerate",
-            "label": "Acelerar para pasar antes del peaton",
+            "label": "Acelerar para pasar antes del peatón",
             "isCorrect": false,
             "scoreDelta": -40
           },
@@ -171,17 +166,17 @@
     "metrics": [
       {
         "id": "risk_identification",
-        "label": "Identificacion temprana del riesgo",
+        "label": "Identificación temprana del riesgo",
         "weight": 40
       },
       {
         "id": "safe_decision",
-        "label": "Decision segura",
+        "label": "Decisión segura",
         "weight": 40
       },
       {
         "id": "lesson_understanding",
-        "label": "Comprension de la leccion",
+        "label": "Comprensión de la lección",
         "weight": 20
       }
     ]
@@ -189,7 +184,7 @@
   "metadata": {
     "difficulty": "basic",
     "estimatedMinutes": 4,
-    "tags": ["peatones", "cruce", "conduccion-defensiva"],
+    "tags": ["peatones", "cruce", "conducción-defensiva"],
     "createdAt": "2026-07-04T00:00:00-06:00",
     "updatedAt": "2026-07-04T00:00:00-06:00"
   }

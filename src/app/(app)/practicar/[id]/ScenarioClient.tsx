@@ -18,6 +18,8 @@ type ScenarioClientProps = {
   scenario: ScenarioDefinition;
   relatedModules: ScenarioLink[];
   otherScenarios?: ScenarioLink[];
+  nextScenario?: ScenarioLink | null;
+  moduleScenarioCount?: number;
 };
 
 function SceneSkeleton() {
@@ -59,6 +61,8 @@ export default function ScenarioClient({
   scenario,
   relatedModules,
   otherScenarios = [],
+  nextScenario = null,
+  moduleScenarioCount = 1,
 }: ScenarioClientProps) {
   return (
     <ScenarioPlayer
@@ -66,6 +70,8 @@ export default function ScenarioClient({
       scenario={scenario}
       relatedModules={relatedModules}
       otherScenarios={otherScenarios}
+      nextScenario={nextScenario}
+      moduleScenarioCount={moduleScenarioCount}
     />
   );
 }

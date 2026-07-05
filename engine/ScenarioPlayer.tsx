@@ -3,6 +3,7 @@
 import { Html } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import {
+  ArrowRight,
   BookOpen,
   CheckCircle2,
   CircleAlert,
@@ -15,7 +16,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import type { ComponentType } from "react";
-import { Suspense, useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { ACESFilmicToneMapping } from "three";
 import PracticeBar from "@/components/PracticeBar";
 import {
@@ -33,10 +34,10 @@ import type { ScenarioDefinition } from "@/core/scenario-definition";
 import type { Scenario as PlayableScenario } from "@/core/scenario-schema";
 import { toPlayableScenario } from "@/core/scenarios";
 import type { SceneView } from "./camera/views";
-import { getSceneView } from "./camera/views";
 import type { Pack } from "./models/cars";
 import { PACKS } from "./models/cars";
 import BusStopScene from "./scenes/BusStopScene";
+import CrosswalkScene from "./scenes/CrosswalkScene";
 import DistractionScene from "./scenes/DistractionScene";
 import DocumentCheckpointScene from "./scenes/DocumentCheckpointScene";
 import IntersectionScene from "./scenes/IntersectionScene";
@@ -64,6 +65,7 @@ const DECISION_SCENE_COMPONENTS: Partial<
 > = {
   roundabout: RoundaboutScene,
   "bus-stop": BusStopScene,
+  crosswalk: CrosswalkScene,
   "lane-change": LaneChangeScene,
   "rain-braking": RainBrakingScene,
   distraction: DistractionScene,
@@ -102,6 +104,8 @@ type ScenarioPlayerProps = {
   scenario: ScenarioDefinition;
   relatedModules?: RelatedModuleLink[];
   otherScenarios?: RelatedModuleLink[];
+  nextScenario?: RelatedModuleLink | null;
+  moduleScenarioCount?: number;
   fullscreen?: boolean;
 };
 
@@ -197,8 +201,11 @@ export default function ScenarioPlayer({
   scenario,
   relatedModules = [],
   otherScenarios = [],
+  nextScenario = null,
+  moduleScenarioCount = 1,
   fullscreen = false,
 }: ScenarioPlayerProps) {
+  const decisionPanelRef = useRef<HTMLElement | null>(null);
   const [phase, setPhase] = useState<Phase>("intro");
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [typedTitleLength, setTypedTitleLength] = useState(0);
@@ -209,6 +216,7 @@ export default function ScenarioPlayer({
   const [lastAttempt, setLastAttempt] = useState<UserScenarioAttempt | null>(
     null,
   );
+  const [syncMessage, setSyncMessage] = useState<string | null>(null);
   const [attemptStartedAt, setAttemptStartedAt] = useState(() =>
     new Date().toISOString(),
   );
@@ -218,7 +226,14 @@ export default function ScenarioPlayer({
     [scenario],
   );
   const pack = PACKS.kenney;
-  const view = getSceneView(playableScenario.sceneKind);
+  const view = useMemo<SceneView>(
+    () => ({
+      camera: scenario.simulation.camera.position,
+      fov: scenario.simulation.camera.fov,
+      target: scenario.simulation.camera.lookAt,
+    }),
+    [scenario],
+  );
   const DecisionScene =
     scenario.simulation.pattern === "document_checkpoint"
       ? DocumentCheckpointScene
@@ -236,6 +251,7 @@ export default function ScenarioPlayer({
     setSelectedIds([]);
     setRunKey((key) => key + 1);
     setLastAttempt(null);
+    setSyncMessage(null);
     setAttemptStartedAt(new Date().toISOString());
 
     const progress = readModuleProgress(scenario.moduleBinding.moduleId);
@@ -246,6 +262,18 @@ export default function ScenarioPlayer({
         hasLegacyCompletion(scenario.id),
     );
   }, [scenario.id, scenario.moduleBinding.moduleId]);
+
+  useEffect(() => {
+    if (phase === "approach") {
+      setAttemptStartedAt(new Date().toISOString());
+    }
+  }, [phase]);
+
+  useEffect(() => {
+    if (phase === "decision") {
+      decisionPanelRef.current?.focus();
+    }
+  }, [phase]);
 
   useEffect(() => {
     if (phase !== "intro") return;
@@ -271,6 +299,7 @@ export default function ScenarioPlayer({
     setTypedTitleLength(0);
     setPhase("intro");
     setRunKey((key) => key + 1);
+    setSyncMessage(null);
     setAttemptStartedAt(new Date().toISOString());
   };
 
@@ -291,7 +320,7 @@ export default function ScenarioPlayer({
     const nextProgress = applyScenarioAttempt(
       readPracticeProgress(),
       attempt,
-      1,
+      moduleScenarioCount,
     );
 
     writePracticeProgress(nextProgress);
@@ -303,11 +332,30 @@ export default function ScenarioPlayer({
       setCompleted(true);
     }
 
+    setSyncMessage("Intento guardado en este dispositivo.");
+
     void fetch("/api/practice/attempts", {
       body: JSON.stringify(attempt),
       headers: { "Content-Type": "application/json" },
       method: "POST",
-    }).catch(() => undefined);
+    })
+      .then((response) => {
+        if (response.ok) {
+          setSyncMessage("Intento sincronizado con tu cuenta.");
+          return;
+        }
+
+        setSyncMessage(
+          response.status === 401
+            ? "Guardado en este dispositivo. Iniciá sesión para sincronizar tu progreso."
+            : "Guardado en este dispositivo. No se pudo sincronizar con el servidor.",
+        );
+      })
+      .catch(() => {
+        setSyncMessage(
+          "Guardado en este dispositivo. No se pudo sincronizar con el servidor.",
+        );
+      });
 
     setPhase("consequence");
   };
@@ -328,7 +376,7 @@ export default function ScenarioPlayer({
   const selectionHelp =
     playableScenario.selectionType === "multiple"
       ? "Podés marcar más de una opción antes de confirmar."
-      : "Elegí una sola respuesta.";
+      : "Seleccioná una opción y confirmá tu decisión.";
   const typedTitle = scenario.title.slice(0, typedTitleLength);
   const titleTypingDone = typedTitleLength >= scenario.title.length;
   const showStageTitle =
@@ -351,6 +399,7 @@ export default function ScenarioPlayer({
       data-phase={phase}
     >
       {fullscreen && <PracticeBar />}
+      {fullscreen && <h1 className="sr-only">{scenario.title}</h1>}
 
       <div className="stage">
         <Canvas
@@ -396,7 +445,7 @@ export default function ScenarioPlayer({
                   : "stage-title typing"
             }
             data-intro={titleTypingDone ? "done" : "typing"}
-            aria-live="polite"
+            aria-live={titleTypingDone ? "polite" : "off"}
           >
             <span className="stage-title__label">{practiceLabel}</span>
             <span className="stage-title__text">{stageTitleText}</span>
@@ -456,7 +505,12 @@ export default function ScenarioPlayer({
         )}
 
         {phase === "decision" && (
-          <section className="sidebar-block sidebar-block--current">
+          <section
+            ref={decisionPanelRef}
+            className="sidebar-block sidebar-block--current"
+            tabIndex={-1}
+            aria-live="polite"
+          >
             <p className="sidebar-block__title">
               <ListChecks aria-hidden="true" size={16} />
               Tu decisión
@@ -475,7 +529,7 @@ export default function ScenarioPlayer({
                     onClick={() =>
                       playableScenario.selectionType === "multiple"
                         ? toggleMultiple(choice.id)
-                        : finishSelection([choice.id])
+                        : setSelectedIds([choice.id])
                     }
                   >
                     <span className="choice-index" aria-hidden="true">
@@ -486,17 +540,17 @@ export default function ScenarioPlayer({
                 );
               })}
             </div>
-            {playableScenario.selectionType === "multiple" && (
-              <button
-                className="primary-action"
-                type="button"
-                disabled={selectedIds.length === 0}
-                onClick={() => finishSelection(selectedIds)}
-              >
-                <CheckCircle2 aria-hidden="true" size={18} />
-                Confirmar respuesta
-              </button>
-            )}
+            <button
+              className="primary-action"
+              type="button"
+              disabled={selectedIds.length === 0}
+              onClick={() => finishSelection(selectedIds)}
+            >
+              <CheckCircle2 aria-hidden="true" size={18} />
+              {playableScenario.selectionType === "multiple"
+                ? "Confirmar respuestas"
+                : "Confirmar decisión"}
+            </button>
           </section>
         )}
 
@@ -536,14 +590,54 @@ export default function ScenarioPlayer({
                   ))}
                 </ul>
               )}
-              <button
-                className="primary-action"
-                type="button"
-                onClick={restart}
-              >
-                <RotateCcw aria-hidden="true" size={18} />
-                Reintentar
-              </button>
+              {lastAttempt && (
+                <p className="score-line">
+                  Puntaje: <strong>{lastAttempt.score}/100</strong> · mínimo{" "}
+                  {scenario.scoring.passScore}
+                </p>
+              )}
+              {!correct && scenario.learning.feedback.hints.length > 0 && (
+                <div className="hint-list">
+                  <p className="sidebar-block__title">
+                    <Eye aria-hidden="true" size={16} />
+                    Pistas para revisar
+                  </p>
+                  <ul>
+                    {scenario.learning.feedback.hints.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {syncMessage && <p className="sync-note">{syncMessage}</p>}
+              <div className="result-actions">
+                <button
+                  className="primary-action secondary-action"
+                  type="button"
+                  onClick={restart}
+                >
+                  <RotateCcw aria-hidden="true" size={18} />
+                  Reintentar
+                </button>
+                {correct && nextScenario && (
+                  <Link
+                    className="primary-action"
+                    href={`/practicar/${nextScenario.id}`}
+                  >
+                    <ArrowRight aria-hidden="true" size={18} />
+                    Siguiente práctica
+                  </Link>
+                )}
+                {correct && relatedModules[0] && (
+                  <Link
+                    className="primary-action secondary-action"
+                    href={`/modulo/${relatedModules[0].id}`}
+                  >
+                    <BookOpen aria-hidden="true" size={18} />
+                    Volver al módulo
+                  </Link>
+                )}
+              </div>
             </div>
           </section>
         )}
@@ -559,15 +653,15 @@ export default function ScenarioPlayer({
           <dd>
             {playableScenario.selectionType === "multiple" ? "Varias" : "Única"}
           </dd>
-          <dt>Ultimo puntaje</dt>
+          <dt>Último puntaje del módulo</dt>
           <dd>
             {lastAttempt?.score ?? moduleProgress?.lastScore ?? "Sin intentos"}
           </dd>
-          <dt>Mejor puntaje</dt>
+          <dt>Mejor puntaje del módulo</dt>
           <dd>{moduleProgress?.bestScore ?? "Sin intentos"}</dd>
-          <dt>Intentos</dt>
+          <dt>Intentos del módulo</dt>
           <dd>{moduleProgress?.attemptsCount ?? 0}</dd>
-          <dt>Lecciones practicadas</dt>
+          <dt>Lecciones practicadas del módulo</dt>
           <dd>{moduleProgress?.lessonsPracticed.length ?? 0}</dd>
         </dl>
 

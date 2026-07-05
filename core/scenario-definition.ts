@@ -279,9 +279,6 @@ function actorRole(actor: ScenarioActor): Scenario["actors"][number]["role"] {
 
 export function toPlayableScenario(definition: ScenarioDefinition): Scenario {
   const interaction = definition.simulation.interactions[0];
-  const correctOption = interaction.options.find(
-    (option) => option.id === interaction.correctOptionId,
-  );
   const infraction =
     patternToInfraction[definition.simulation.pattern] ?? "run-stop";
   const rule = TRAFFIC_RULES[infraction];
@@ -309,7 +306,7 @@ export function toPlayableScenario(definition: ScenarioDefinition): Scenario {
     })),
     choices: interaction.options.map((option) => ({
       consequence: option.isCorrect ? "safe-pass" : "near-miss",
-      correct: option.id === correctOption?.id,
+      correct: option.isCorrect,
       id: option.id,
       label: option.label,
     })),
@@ -331,12 +328,19 @@ export function toPlayableScenario(definition: ScenarioDefinition): Scenario {
     lawRefs:
       rule.refs.length > 0
         ? rule.refs
-        : definition.learning.legalReferences.map((reference) => ({
-            code: reference.articleId
-              ? `${reference.document}, ${reference.articleId}`
-              : reference.document,
-            summary: reference.ruleCategory,
-          })),
+        : definition.learning.legalReferences.length > 0
+          ? definition.learning.legalReferences.map((reference) => ({
+              code: reference.articleId
+                ? `${reference.document}, ${reference.articleId}`
+                : reference.document,
+              summary: rule.title,
+            }))
+          : [
+              {
+                code: "Base normativa vial",
+                summary: rule.title,
+              },
+            ],
     learningObjective: definition.learning.objectives[0],
     prompt: interaction.prompt,
     road: toLegacyRoad(definition),
