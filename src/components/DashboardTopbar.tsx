@@ -15,13 +15,22 @@ export default function DashboardTopbar({
   compact = false,
 }: DashboardTopbarProps) {
   const pathname = usePathname();
-  const isRoadmap = pathname === "/roadmap" || pathname.startsWith("/modulo/");
+  const isRoadmap =
+    pathname === "/ruta" ||
+    pathname === "/roadmap" ||
+    pathname.startsWith("/modulo/");
   const isPractice =
+    pathname === "/practica" ||
+    pathname.startsWith("/practica/") ||
     pathname === "/practicar" ||
     pathname.startsWith("/practicar/") ||
     pathname === "/practicas" ||
     pathname.startsWith("/practicas/");
-  const isNews = pathname === "/news" || pathname.startsWith("/news/");
+  const isNews =
+    pathname === "/noticias" ||
+    pathname.startsWith("/noticias/") ||
+    pathname === "/news" ||
+    pathname.startsWith("/news/");
   const isCompact = compact;
 
   const linkClassName =
@@ -39,7 +48,7 @@ export default function DashboardTopbar({
           "inline-flex min-h-11 items-center rounded-lg px-2.5 py-2 no-underline",
           isCompact && "min-h-9 px-1.5 py-1",
         )}
-        href="/roadmap"
+        href="/ruta"
       >
         <Image
           alt="DriverLab"
@@ -66,10 +75,10 @@ export default function DashboardTopbar({
             linkClassName,
             isCompact && "min-h-8 gap-1.5 px-2.5 py-1 text-xs",
           )}
-          href="/roadmap"
+          href="/ruta"
         >
           <MapIcon aria-hidden="true" size={isCompact ? 15 : 17} />
-          Roadmap
+          Ruta
         </Link>
         <Link
           aria-current={isPractice ? "page" : undefined}
@@ -77,10 +86,10 @@ export default function DashboardTopbar({
             linkClassName,
             isCompact && "min-h-8 gap-1.5 px-2.5 py-1 text-xs",
           )}
-          href="/practicar"
+          href="/practica"
         >
           <Car aria-hidden="true" size={isCompact ? 15 : 17} />
-          Practicar
+          Práctica
         </Link>
         <Link
           aria-current={isNews ? "page" : undefined}
@@ -88,7 +97,7 @@ export default function DashboardTopbar({
             linkClassName,
             isCompact && "min-h-8 gap-1.5 px-2.5 py-1 text-xs",
           )}
-          href="/news"
+          href="/noticias"
         >
           <Newspaper aria-hidden="true" size={isCompact ? 15 : 17} />
           Noticias

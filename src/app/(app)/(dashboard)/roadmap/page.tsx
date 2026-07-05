@@ -4,7 +4,7 @@ import { getLearningModules } from "@/lib/content/modules";
 import RoadmapClient, { type RoadmapNode } from "./RoadmapClient";
 
 export const metadata = {
-  title: "Roadmap | DriverLab",
+  title: "Ruta | DriverLab",
 };
 
 export default function RoadmapPage() {
@@ -22,26 +22,25 @@ export default function RoadmapPage() {
       prerequisites: [],
       scenarios,
       summary: module.summary,
-      title: module.didacticContent?.headline ?? module.title,
+      title: module.title,
     };
   });
 
   return (
-    <section className="roadmap-panel" aria-label="Roadmap de módulos">
+    <section className="roadmap-panel" aria-label="Ruta de aprendizaje">
       <div className="roadmap-panel__heading">
         <div>
           <p className="eyebrow">
             <MapIcon aria-hidden="true" size={14} />
             Ruta recomendada
           </p>
-          <h1>Conocimiento legal con RAG y citas</h1>
+          <h1>Tu ruta de aprendizaje</h1>
           <p>
-            Los módulos se alimentan del cerebro documental validado en Supabase
-            y se abren desde este roadmap con contenido didáctico, práctica y
-            evidencia trazable.
+            Avanzá por módulos cortos, practicá decisiones reales y reforzá lo
+            que todavía cuesta antes de salir a la calle.
           </p>
         </div>
-        <span>{nodes.length} pasos</span>
+        <span>{nodes.length} módulos</span>
       </div>
       <RoadmapClient nodes={nodes} />
     </section>

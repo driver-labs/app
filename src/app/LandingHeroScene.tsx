@@ -34,7 +34,7 @@ function CameraRig() {
 
   useFrame(({ clock }) => {
     const drift = Math.sin(clock.elapsedTime * 0.22) * 0.55;
-    camera.position.set(18 + drift, 13.5, 18 - drift * 0.5);
+    camera.position.set(15.5 + drift, 10.8, 15.5 - drift * 0.5);
     camera.lookAt(0, 0.2, 0);
   });
 
@@ -73,7 +73,7 @@ function Vehicle({
     const x = progress - range / 2;
 
     group.position.set(direction === "right" ? x : -x, 0.22, lane);
-    group.rotation.y = direction === "right" ? -Math.PI / 2 : Math.PI / 2;
+    group.rotation.y = direction === "right" ? Math.PI / 2 : -Math.PI / 2;
   });
 
   return (
@@ -214,8 +214,8 @@ function CityBlocks() {
         >
           <boxGeometry args={[width, height, depth]} />
           <meshStandardMaterial
-            color={index % 2 === 0 ? "#0f2740" : "#14324c"}
-            emissive={index % 3 === 0 ? "#071625" : "#06101b"}
+            color={index % 2 === 0 ? "#224762" : "#2a5972"}
+            emissive={index % 3 === 0 ? "#0d2435" : "#0a1a28"}
             roughness={0.72}
           />
         </mesh>
@@ -229,10 +229,12 @@ function HeroWorld() {
     <>
       <CameraRig />
       <Lights />
-      <fog attach="fog" args={["#06111f", 26, 88]} />
-      <color attach="background" args={["#06111f"]} />
+      <ambientLight intensity={0.55} />
+      <directionalLight position={[8, 14, 10]} intensity={1.1} />
+      <fog attach="fog" args={["#0a1d30", 42, 110]} />
+      <color attach="background" args={["#0a1d30"]} />
 
-      <GrassGround color="#0f3f2f" size={140} />
+      <GrassGround color="#1a6f45" size={140} />
       <RoadStrip along="z" length={104} width={12} gap={12} />
       <RoadStrip along="x" length={104} width={12} gap={12} />
       <Crossroad size={12} />
@@ -291,7 +293,7 @@ export default function LandingHeroScene() {
         aria-hidden="true"
         className="absolute inset-0"
         dpr={[1, 1.6]}
-        camera={{ position: [18, 13.5, 18], fov: 42, near: 0.1, far: 120 }}
+        camera={{ position: [15.5, 10.8, 15.5], fov: 48, near: 0.1, far: 120 }}
         shadows
         gl={{
           antialias: true,

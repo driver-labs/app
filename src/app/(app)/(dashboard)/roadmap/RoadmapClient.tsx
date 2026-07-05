@@ -28,7 +28,7 @@ const gridClassName =
   "mt-4 grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3";
 
 const cardClassName =
-  "grid min-h-[250px] content-start gap-3 rounded-lg border border-border bg-card/80 p-3.5 text-card-foreground transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-secondary/35 hover:shadow-lg";
+  "grid min-h-[205px] content-start gap-3 rounded-lg border border-border bg-card/80 p-3.5 text-card-foreground transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-secondary/35 hover:shadow-lg";
 
 const actionClassName =
   "inline-flex min-h-10 items-center justify-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-semibold text-foreground no-underline transition-colors hover:border-muted-foreground/40 hover:bg-muted-foreground/10";
@@ -151,17 +151,11 @@ export default function RoadmapClient({ nodes }: RoadmapClientProps) {
               <h2 className="m-0 text-base font-semibold leading-snug text-foreground">
                 {node.title}
               </h2>
-              <p className="mt-2 line-clamp-2 text-sm leading-6 text-muted-foreground">
-                {node.summary}
+              <p className="mt-2 text-sm font-semibold leading-6 text-muted-foreground">
+                {hasPractice
+                  ? `${completedCount}/${node.scenarios.length} prácticas completadas`
+                  : `${node.lessonCount ?? 0} lecciones`}
               </p>
-            </div>
-
-            <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-muted-foreground">
-              <span>{node.lessonCount ?? 0} lecciones</span>
-              <span aria-hidden="true">·</span>
-              <span>{node.citationCount ?? 0} citas</span>
-              <span aria-hidden="true">·</span>
-              <span>{node.estimatedMinutes ?? 0} min</span>
             </div>
 
             {hasPractice ? (
@@ -180,18 +174,9 @@ export default function RoadmapClient({ nodes }: RoadmapClientProps) {
               </div>
             ) : (
               <p className="m-0 text-sm italic text-foreground/70">
-                {node.lessonCount ?? 0} lecciones · {node.citationCount ?? 0}{" "}
-                citas verificables
+                Empezá con la lectura del módulo.
               </p>
             )}
-
-            <div className="flex flex-wrap items-center gap-2 text-sm text-foreground/75">
-              <span>
-                {hasPractice
-                  ? `${completedCount}/${node.scenarios.length} escenarios`
-                  : `${node.estimatedMinutes ?? 0} min`}
-              </span>
-            </div>
 
             <div className="mt-auto grid grid-cols-2 gap-2">
               {isUnlocked ? (
@@ -210,7 +195,7 @@ export default function RoadmapClient({ nodes }: RoadmapClientProps) {
                   <Link
                     className={actionClassName}
                     key={scenario.id}
-                    href={`/practicar/${scenario.id}`}
+                    href={`/practica/${scenario.id}`}
                     title={scenario.title}
                   >
                     <PlayCircle aria-hidden="true" size={17} />

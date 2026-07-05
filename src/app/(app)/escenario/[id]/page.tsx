@@ -13,5 +13,5 @@ export default async function EscenarioRedirectPage({
   params,
 }: EscenarioRedirectProps) {
   const { id } = await params;
-  redirect(`/practicar/${id}`);
+  redirect(`/practica/${id}`);
 }

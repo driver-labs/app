@@ -19,7 +19,7 @@ export default async function LoginPage() {
       typeof data?.claims?.email === "string" ? data.claims.email : null;
   }
 
-  if (userEmail) redirect("/roadmap");
+  if (userEmail) redirect("/ruta");
 
   return (
     <main className="min-h-screen overflow-x-hidden bg-background px-5 py-6 text-text">

@@ -72,11 +72,11 @@ export default async function Home() {
       .map((module) => getPrimaryScenarioForModule(module.id))
       .find((scenario) => Boolean(scenario)) ?? null;
   const userEmail = await getUserEmail();
-  const primaryHref = userEmail ? "/roadmap" : "/login";
+  const primaryHref = userEmail ? "/ruta" : "/login";
   const primaryLabel = userEmail ? "Continuar ruta" : "Empezar ahora";
   const demoHref = firstScenario
-    ? `/practicar/${firstScenario.id}`
-    : "/practicar";
+    ? `/practica/${firstScenario.id}`
+    : "/practica";
 
   return (
     <main className="min-h-screen bg-background text-foreground">
@@ -84,7 +84,7 @@ export default async function Home() {
         <div className="pointer-events-none absolute inset-0">
           <LandingHeroScene />
         </div>
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(4,13,28,0.98)_0%,rgba(4,13,28,0.78)_46%,rgba(4,13,28,0.24)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(4,13,28,0.96)_0%,rgba(4,13,28,0.76)_38%,rgba(4,13,28,0.16)_74%,rgba(4,13,28,0.02)_100%)]" />
         <div className="absolute inset-x-0 bottom-0 h-52 bg-[linear-gradient(180deg,rgba(4,13,28,0)_0%,hsl(var(--background))_100%)]" />
 
         <nav className="relative z-20 mx-auto flex w-[var(--shell-width)] items-center justify-between gap-3 py-5">
@@ -118,7 +118,7 @@ export default async function Home() {
             </a>
             <Link
               className="inline-flex min-h-10 items-center gap-2 rounded-full px-4 transition hover:bg-white/10 hover:text-white"
-              href="/news"
+              href="/noticias"
             >
               <Newspaper aria-hidden="true" size={16} />
               Blog vial
@@ -144,7 +144,7 @@ export default async function Home() {
           <div className="max-w-4xl">
             <div className="inline-flex min-h-10 items-center gap-2 rounded-full border border-secondary/35 bg-secondary/14 px-4 text-sm font-semibold text-secondary backdrop-blur-md">
               <Sparkles aria-hidden="true" size={16} />
-              Cultura vial moderna para El Salvador
+              Aprende a manejar con criterio
             </div>
             <h1 className="mt-7 text-6xl font-black leading-none text-white md:text-8xl lg:text-9xl">
               DriverLab
@@ -175,7 +175,7 @@ export default async function Home() {
               {[
                 ["12", "módulos"],
                 ["3D", "práctica"],
-                ["RAG", "citas"],
+                ["Ruta", "guiada"],
               ].map(([value, label]) => (
                 <div
                   className="rounded-lg border border-white/12 bg-white/8 px-4 py-3 backdrop-blur-md"
@@ -276,7 +276,7 @@ export default async function Home() {
                   />
                 </div>
                 <h3 className="mt-6 text-lg font-bold leading-snug">
-                  {module.didacticContent?.headline ?? module.title}
+                  {module.title}
                 </h3>
                 <p className="mt-3 line-clamp-3 text-sm leading-6 text-muted-foreground">
                   {module.summary}
@@ -302,7 +302,7 @@ export default async function Home() {
           </div>
           <Link
             className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-primary px-5 text-sm font-bold text-primary-foreground no-underline transition hover:bg-primary/90"
-            href="/news"
+            href="/noticias"
           >
             <Newspaper aria-hidden="true" size={18} />
             Ir al blog vial

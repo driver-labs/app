@@ -11,7 +11,7 @@ import { getLearningModules } from "@/lib/content/modules";
 export const metadata = {
   title: "Modulos | DriverLab",
   description:
-    "Modulos de aprendizaje vial estructurados desde la base documental RAG.",
+    "Modulos de aprendizaje vial estructurados para practicar decisiones seguras.",
 };
 
 export default function ModulesIndexPage() {
@@ -32,15 +32,15 @@ export default function ModulesIndexPage() {
           <div>
             <p className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.16em] text-blue-700">
               <BookOpenCheck aria-hidden="true" size={16} />
-              Base RAG educativa
+              Aprendizaje vial
             </p>
             <h1 className="mt-4 max-w-2xl text-4xl font-bold tracking-normal sm:text-5xl">
               Modulos creados desde la documentacion normativa.
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-8 text-slate-600">
               Cada modulo conserva su fuente esperada, conceptos que debe
-              recuperar la RAG, micro-lecciones, escenarios y preguntas para
-              transformar normativa en decisiones seguras.
+              reforzar, micro-lecciones, escenarios y preguntas para transformar
+              normativa en decisiones claras.
             </p>
           </div>
 

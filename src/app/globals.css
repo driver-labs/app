@@ -200,17 +200,20 @@ html {
 
 .practice-bar {
   grid-column: 1 / -1;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 12px 20px;
+  display: block;
+  padding: 8px 16px;
   background: linear-gradient(
     180deg,
-    rgb(0 0 0 / 0.96) 0%,
-    rgb(0 0 0 / 0.55) 100%
+    rgb(0 0 0 / 0.82) 0%,
+    rgb(0 0 0 / 0.48) 100%
   );
   pointer-events: none;
+}
+
+.practice-bar > * {
+  width: min(100% - 8px, var(--shell-max));
+  margin-inline: auto;
+  pointer-events: auto;
 }
 
 .practice-bar__brand,
@@ -793,6 +796,13 @@ html {
   margin: 0;
 }
 
+.prompt {
+  color: hsl(var(--foreground));
+  font-size: clamp(1.08rem, 1.55vw, 1.35rem);
+  font-weight: 850;
+  line-height: 1.25;
+}
+
 .task-help,
 .rule,
 .scenario-panel__context {
@@ -914,7 +924,8 @@ html {
   padding: 10px 12px;
 }
 
-.hint-list {
+.hint-list,
+.review-details {
   display: grid;
   gap: 8px;
   border: 1px solid rgba(245, 158, 11, 0.28);
@@ -923,7 +934,15 @@ html {
   padding: 12px;
 }
 
-.hint-list ul {
+.review-details summary {
+  cursor: pointer;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.hint-list ul,
+.review-details ul {
   margin: 0;
   padding-left: 1.1rem;
   color: var(--ink-soft);
@@ -1753,14 +1772,14 @@ html {
   .simulator-shell--immersive .scenario-panel {
     grid-row: 3;
     grid-column: 1;
-    max-height: 34dvh;
+    max-height: 42dvh;
     border-top: 1px solid hsl(var(--border) / 0.9);
     border-left: none;
   }
 
   .simulator-shell--immersive .pause-overlay--immersive {
     right: 0;
-    bottom: 34dvh;
+    bottom: 42dvh;
   }
 
   .practice-bar__logo {

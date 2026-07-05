@@ -423,7 +423,7 @@ export default function PracticeDashboardClient({
                         actionClassName,
                         "border-accent/40 bg-accent/15",
                       )}
-                      href={`/practicar/${module.scenario.id}`}
+                      href={`/practica/${module.scenario.id}`}
                     >
                       {isComplete ? (
                         <RotateCcw aria-hidden="true" size={17} />

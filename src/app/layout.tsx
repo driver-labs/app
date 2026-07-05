@@ -12,7 +12,7 @@ const geistSans = Geist({
 export const metadata: Metadata = {
   title: "DriverLab | Aprende. Practica. Conduce mejor.",
   description:
-    "Plataforma de cultura vial para El Salvador con ley clara, practica guiada y conduccion defensiva.",
+    "Plataforma de aprendizaje vial con ley clara, practica guiada y conduccion defensiva.",
 };
 
 export default function RootLayout({

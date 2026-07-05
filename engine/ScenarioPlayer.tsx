@@ -7,10 +7,8 @@ import {
   BookOpen,
   CheckCircle2,
   CircleAlert,
-  Eye,
   ListChecks,
   Pause,
-  PlayCircle,
   RotateCcw,
   Volume2,
   VolumeX,
@@ -204,7 +202,6 @@ function SceneLoader() {
 export default function ScenarioPlayer({
   scenario,
   relatedModules = [],
-  otherScenarios = [],
   nextScenario = null,
   moduleScenarioCount = 1,
   fullscreen = false,
@@ -215,8 +212,6 @@ export default function ScenarioPlayer({
   const [typedTitleLength, setTypedTitleLength] = useState(0);
   const [runKey, setRunKey] = useState(0);
   const [completed, setCompleted] = useState(false);
-  const [moduleProgress, setModuleProgress] =
-    useState<UserModuleProgress | null>(null);
   const [lastAttempt, setLastAttempt] = useState<UserScenarioAttempt | null>(
     null,
   );
@@ -264,7 +259,6 @@ export default function ScenarioPlayer({
     setAttemptStartedAt(new Date().toISOString());
 
     const progress = readModuleProgress(scenario.moduleBinding.moduleId);
-    setModuleProgress(progress);
     setCompleted(
       progress?.status === "completed" ||
         progress?.status === "mastered" ||
@@ -288,6 +282,14 @@ export default function ScenarioPlayer({
     if (phase !== "intro") return;
 
     const fullLength = scenario.title.length;
+    if (fullscreen) {
+      const doneTimer = window.setTimeout(() => {
+        setTypedTitleLength(fullLength);
+        setPhase("approach");
+      }, 700);
+      return () => window.clearTimeout(doneTimer);
+    }
+
     if (typedTitleLength >= fullLength) {
       const doneTimer = window.setTimeout(() => setPhase("approach"), 260);
       return () => window.clearTimeout(doneTimer);
@@ -301,7 +303,7 @@ export default function ScenarioPlayer({
     );
 
     return () => window.clearTimeout(timer);
-  }, [phase, scenario.title, typedTitleLength]);
+  }, [fullscreen, phase, scenario.title, typedTitleLength]);
 
   const restart = () => {
     setSelectedIds([]);
@@ -334,7 +336,6 @@ export default function ScenarioPlayer({
 
     writePracticeProgress(nextProgress);
     setLastAttempt(attempt);
-    setModuleProgress(nextProgress.modules[scenario.moduleBinding.moduleId]);
 
     if (attempt.passed) {
       syncLegacyCompletion(scenario.id);
@@ -389,6 +390,10 @@ export default function ScenarioPlayer({
     playableScenario.selectionType === "multiple"
       ? "Podés marcar más de una opción antes de confirmar."
       : "Seleccioná una opción y confirmá tu decisión.";
+  const questionHelp =
+    phase === "decision"
+      ? selectionHelp
+      : "La pregunta está disponible desde el inicio; observá la escena si necesitás más contexto.";
 
   const narrationText =
     phase === "approach"
@@ -409,11 +414,11 @@ export default function ScenarioPlayer({
   const showStageTitle =
     fullscreen || phase === "intro" || phase === "approach";
   const stageTitleText =
-    fullscreen && phase === "intro" && !titleTypingDone
+    !fullscreen && phase === "intro" && !titleTypingDone
       ? typedTitle
       : scenario.title;
 
-  const practiceLabel = fullscreen ? "Practicar" : "Escenario";
+  const practiceLabel = fullscreen ? "Práctica" : "Escenario";
 
   return (
     <section
@@ -464,9 +469,7 @@ export default function ScenarioPlayer({
           <div
             className={
               fullscreen
-                ? phase === "intro" && !titleTypingDone
-                  ? "stage-title stage-title--corner typing"
-                  : "stage-title stage-title--corner complete"
+                ? "stage-title stage-title--corner complete"
                 : titleTypingDone
                   ? "stage-title complete"
                   : "stage-title typing"
@@ -536,32 +539,19 @@ export default function ScenarioPlayer({
           )}
         </header>
 
-        {phase === "approach" && (
-          <section className="sidebar-block sidebar-block--current">
-            <p className="sidebar-block__title">
-              <Eye aria-hidden="true" size={16} />
-              Qué observar
-            </p>
-            <p className="instruction-text">{hint}</p>
-            <p className="task-help">
-              La escena se pausará cuando llegue el momento de responder.
-            </p>
-          </section>
-        )}
-
-        {phase === "decision" && (
+        {phase !== "consequence" && (
           <section
-            ref={decisionPanelRef}
+            ref={phase === "decision" ? decisionPanelRef : undefined}
             className="sidebar-block sidebar-block--current"
             tabIndex={-1}
-            aria-live="polite"
+            aria-live={phase === "decision" ? "polite" : undefined}
           >
             <p className="sidebar-block__title">
               <ListChecks aria-hidden="true" size={16} />
               Tu decisión
             </p>
             <h2 className="prompt">{playableScenario.prompt}</h2>
-            <p className="task-help">{selectionHelp}</p>
+            <p className="task-help">{questionHelp}</p>
             <div className="choices">
               {playableScenario.choices.map((choice, index) => {
                 const isSelected = selected.has(choice.id);
@@ -623,36 +613,23 @@ export default function ScenarioPlayer({
               <p className="rule">
                 <CircleAlert aria-hidden="true" size={18} />
                 <span>
-                  <strong>Regla:</strong> {playableScenario.rule}
+                  <strong>Para recordar:</strong> {playableScenario.rule}
                 </span>
               </p>
-              {playableScenario.lawRefs.length > 0 && (
-                <ul className="law-refs">
-                  {playableScenario.lawRefs.map((ref) => (
-                    <li key={`${ref.code}-${ref.summary}`}>
-                      <strong>{ref.code}</strong>: {ref.summary}
-                    </li>
-                  ))}
-                </ul>
-              )}
               {lastAttempt && (
                 <p className="score-line">
-                  Puntaje: <strong>{lastAttempt.score}/100</strong> · mínimo{" "}
-                  {scenario.scoring.passScore}
+                  Resultado: <strong>{lastAttempt.score}/100</strong>
                 </p>
               )}
               {!correct && scenario.learning.feedback.hints.length > 0 && (
-                <div className="hint-list">
-                  <p className="sidebar-block__title">
-                    <Eye aria-hidden="true" size={16} />
-                    Pistas para revisar
-                  </p>
+                <details className="review-details">
+                  <summary>Qué revisar</summary>
                   <ul>
                     {scenario.learning.feedback.hints.map((item) => (
                       <li key={item}>{item}</li>
                     ))}
                   </ul>
-                </div>
+                </details>
               )}
               {syncMessage && <p className="sync-note">{syncMessage}</p>}
               <div className="result-actions">
@@ -667,7 +644,7 @@ export default function ScenarioPlayer({
                 {correct && nextScenario && (
                   <Link
                     className="primary-action"
-                    href={`/practicar/${nextScenario.id}`}
+                    href={`/practica/${nextScenario.id}`}
                   >
                     <ArrowRight aria-hidden="true" size={18} />
                     Siguiente práctica
@@ -685,59 +662,6 @@ export default function ScenarioPlayer({
               </div>
             </div>
           </section>
-        )}
-
-        <dl className="scenario-panel__context" aria-label="Resumen">
-          <dt>Modo</dt>
-          <dd>
-            {playableScenario.format === "diagnosis"
-              ? "Diagnóstico"
-              : "Decisión"}
-          </dd>
-          <dt>Respuesta</dt>
-          <dd>
-            {playableScenario.selectionType === "multiple" ? "Varias" : "Única"}
-          </dd>
-          <dt>Último puntaje del módulo</dt>
-          <dd>
-            {lastAttempt?.score ?? moduleProgress?.lastScore ?? "Sin intentos"}
-          </dd>
-          <dt>Mejor puntaje del módulo</dt>
-          <dd>{moduleProgress?.bestScore ?? "Sin intentos"}</dd>
-          <dt>Intentos del módulo</dt>
-          <dd>{moduleProgress?.attemptsCount ?? 0}</dd>
-          <dt>Lecciones practicadas del módulo</dt>
-          <dd>{moduleProgress?.lessonsPracticed.length ?? 0}</dd>
-        </dl>
-
-        {relatedModules.length > 0 && (
-          <nav className="related-links" aria-label="Módulos relacionados">
-            <p className="sidebar-block__title">
-              <BookOpen aria-hidden="true" size={16} />
-              Repasar teoría
-            </p>
-            {relatedModules.map((module) => (
-              <Link key={module.id} href={`/modulo/${module.id}`}>
-                <BookOpen aria-hidden="true" size={17} />
-                {module.title}
-              </Link>
-            ))}
-          </nav>
-        )}
-
-        {otherScenarios.length > 0 && (
-          <nav className="related-links" aria-label="Más prácticas">
-            <p className="sidebar-block__title">
-              <PlayCircle aria-hidden="true" size={16} />
-              Más prácticas
-            </p>
-            {otherScenarios.map((item) => (
-              <Link key={item.id} href={`/practicar/${item.id}`}>
-                <PlayCircle aria-hidden="true" size={17} />
-                {item.title}
-              </Link>
-            ))}
-          </nav>
         )}
       </aside>
     </section>

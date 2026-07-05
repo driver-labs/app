@@ -40,7 +40,7 @@ export default function PracticarIndexPage() {
           }
         : null,
       summary: module.summary,
-      title: module.didacticContent?.headline ?? module.title,
+      title: module.title,
     };
   });
 

@@ -568,7 +568,7 @@ export default async function ModuleDetailPage({ params }: ModulePageProps) {
                 Modulo {module.id.slice(0, 2)}
               </p>
               <h1 className="mt-4 max-w-3xl text-4xl font-bold tracking-normal sm:text-5xl">
-                {didacticContent?.headline ?? module.title}
+                {module.title}
               </h1>
               <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
                 {didacticContent?.intro ?? module.summary}
@@ -605,8 +605,8 @@ export default async function ModuleDetailPage({ params }: ModulePageProps) {
                 </div>
                 <div className="rounded-xl bg-amber-50 p-4 text-amber-900">
                   {didacticContent
-                    ? "Contenido didactico generado desde RAG con citas verificables."
-                    : "Falta generar el contenido didactico desde RAG para este modulo."}
+                    ? "Contenido didactico listo para estudiar y practicar."
+                    : "Falta preparar el contenido didactico para este modulo."}
                 </div>
               </div>
             </aside>

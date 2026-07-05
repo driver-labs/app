@@ -9,12 +9,12 @@ export default function AiGenerator() {
         Generador reservado
       </p>
       <h1 className="mt-4 text-4xl font-bold">
-        Primero validamos el cerebro documental.
+        Primero validamos el contenido de aprendizaje.
       </h1>
       <p className="mt-5 text-lg leading-8 text-slate-600">
         La generación de escenas y quizzes queda fuera de esta fase. El flujo
-        activo es la ingesta normativa, recuperación RAG y renderizado de
-        módulos basados en la documentación.
+        activo prepara la normativa y los módulos para que la experiencia sea
+        clara antes de sumar más automatización.
       </p>
       <div className="mt-8 flex flex-wrap gap-3">
         <Link
@@ -26,9 +26,9 @@ export default function AiGenerator() {
         </Link>
         <Link
           className="inline-flex items-center gap-2 rounded-xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-blue-300 hover:text-blue-700"
-          href="/roadmap"
+          href="/ruta"
         >
-          Ver roadmap
+          Ver ruta
         </Link>
       </div>
     </section>

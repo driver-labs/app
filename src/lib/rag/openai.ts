@@ -72,10 +72,10 @@ export async function createGroundedAnswer({
         {
           role: "system",
           content:
-            "Eres un asistente RAG para normativa vial salvadoreña. " +
+            "Eres un asistente de aprendizaje para normativa vial. " +
             "Responde en español, de forma breve y usando únicamente la evidencia entregada. " +
             "Si la evidencia no basta, responde exactamente: " +
-            "'No tengo evidencia suficiente en los documentos recuperados para responder eso.' " +
+            "'No tengo evidencia suficiente en los documentos disponibles para responder eso.' " +
             "Cuando respondas, incluye marcadores de cita como [1] o [2].",
         },
         {

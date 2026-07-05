@@ -1,6 +1,6 @@
 "use client";
 
-import { Clock3, ExternalLink, Newspaper, PlayCircle } from "lucide-react";
+import { ExternalLink, Newspaper, PlayCircle } from "lucide-react";
 import Link from "next/link";
 
 export type NewsScenarioSummary = {
@@ -31,7 +31,7 @@ const gridClassName =
   "mt-4 grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3";
 
 const cardClassName =
-  "grid min-h-[280px] content-start gap-3 rounded-lg border border-border bg-card/80 p-3.5 text-card-foreground transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-secondary/35 hover:shadow-lg";
+  "grid min-h-[220px] content-start gap-3 rounded-lg border border-border bg-card/80 p-3.5 text-card-foreground transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-secondary/35 hover:shadow-lg";
 
 const actionClassName =
   "inline-flex min-h-10 items-center justify-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-semibold text-foreground no-underline transition-colors hover:border-muted-foreground/40 hover:bg-muted-foreground/10";
@@ -67,8 +67,8 @@ export default function NewsScenariosClient({
               Aún no hay escenarios de noticias
             </h2>
             <p className="mt-2 line-clamp-3 text-sm leading-6 text-muted-foreground">
-              El flujo diario los generará automáticamente a partir de las
-              noticias de tránsito de El Salvador. Volvé más tarde.
+              Pronto vas a encontrar casos recientes convertidos en prácticas
+              cortas.
             </p>
           </div>
         </article>
@@ -93,33 +93,13 @@ export default function NewsScenariosClient({
               </span>
             </div>
 
-            <div>
+            <div className="grid gap-2">
               <h2 className="m-0 text-base font-semibold leading-snug text-foreground">
                 {item.title}
               </h2>
-              <p className="mt-2 line-clamp-2 text-sm leading-6 text-muted-foreground">
-                {item.description}
-              </p>
-            </div>
-
-            <div className="grid gap-1.5 rounded-md border border-secondary/20 bg-secondary/5 px-3 py-2.5">
-              <strong className="line-clamp-2 text-sm font-semibold text-foreground">
-                {item.newsTitle}
-              </strong>
               <span className="text-sm leading-6 text-muted-foreground">
-                Fuente: {item.newsSource}
+                {item.newsSource}
                 {publishedLabel ? ` · ${publishedLabel}` : ""}
-              </span>
-            </div>
-
-            <div className="flex flex-wrap items-center gap-2 text-sm text-foreground/75">
-              <span className="inline-flex items-center gap-1.5">
-                <Clock3 aria-hidden="true" size={15} />
-                {item.estimatedMinutes} min
-              </span>
-              <span className="inline-flex items-center gap-1.5">
-                <Newspaper aria-hidden="true" size={15} />
-                Basado en noticia
               </span>
             </div>
 
@@ -135,7 +115,7 @@ export default function NewsScenariosClient({
               </a>
               <Link
                 className={`${actionClassName} border-accent/40 bg-accent/15`}
-                href={`/news/${item.id}`}
+                href={`/noticias/${item.id}`}
               >
                 <PlayCircle aria-hidden="true" size={17} />
                 Practicar
