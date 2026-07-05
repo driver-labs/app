@@ -53,11 +53,38 @@ export type DidacticCitationReference = {
   citationNumbers: number[];
 };
 
-export type DidacticLesson = DidacticCitationReference & {
+export type DidacticLegalFoundation = DidacticCitationReference & {
   explanation: string;
+  title: string;
+};
+
+export type DidacticLesson = DidacticCitationReference & {
+  everydayExample: string;
+  explanation: string;
+  normativeDetail: string;
   risk: string;
   streetDecision: string;
   title: string;
+  watchFor: string;
+};
+
+export type DidacticApplicationCase = DidacticCitationReference & {
+  safeMove: string;
+  situation: string;
+  title: string;
+  why: string;
+  wrongMove: string;
+};
+
+export type DidacticCommonMistake = DidacticCitationReference & {
+  betterHabit: string;
+  consequence: string;
+  mistake: string;
+};
+
+export type DidacticChecklistItem = DidacticCitationReference & {
+  action: string;
+  label: string;
 };
 
 export type DidacticQuizQuestion = DidacticCitationReference & {
@@ -75,13 +102,24 @@ export type DidacticScenario = DidacticCitationReference & {
   unsafeChoice: string;
 };
 
+export type DidacticVocabularyItem = DidacticCitationReference & {
+  meaning: string;
+  term: string;
+};
+
 export type DidacticModuleContent = {
+  applicationCases: DidacticApplicationCase[];
   citations: DidacticCitation[];
+  checklist: DidacticChecklistItem[];
+  commonMistakes: DidacticCommonMistake[];
   coreIdea: string;
+  estimatedMinutes: number | null;
   generatedAt: string;
   generator: string;
   headline: string;
   intro: string;
+  learningObjectives: string[];
+  legalFoundation: DidacticLegalFoundation[];
   lessons: DidacticLesson[];
   moduleId: string;
   needsHumanReview: string[];
@@ -90,6 +128,7 @@ export type DidacticModuleContent = {
   retrievalQuery: string;
   scenario: DidacticScenario | null;
   title: string;
+  vocabulary: DidacticVocabularyItem[];
   whyItMatters: string;
 };
 
@@ -288,7 +327,9 @@ function readModuleFile(fileName: string): LearningModule {
     audience: asStringArray(frontMatter.audience),
     blocks: parseMarkdownBlocks(body),
     didacticContent,
-    estimatedMinutes: asNumber(frontMatter.estimated_minutes, 10),
+    estimatedMinutes:
+      didacticContent?.estimatedMinutes ??
+      asNumber(frontMatter.estimated_minutes, 10),
     id,
     priority: asNumber(frontMatter.priority, 99),
     rawBody: body,

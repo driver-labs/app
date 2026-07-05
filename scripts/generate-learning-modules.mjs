@@ -18,8 +18,9 @@ const outputDir = path.join(projectRoot, "content", "generated-modules");
 
 const DEFAULT_CHAT_MODEL = "gpt-4o-mini";
 const DEFAULT_EMBEDDING_MODEL = "text-embedding-3-small";
-const DEFAULT_MATCH_COUNT = 10;
-const DEFAULT_MATCH_THRESHOLD = 0.28;
+const DEFAULT_MATCH_COUNT = 8;
+const DEFAULT_MATCH_THRESHOLD = 0.24;
+const MAX_EVIDENCE_CHUNKS = 18;
 
 function loadDotEnv(filePath) {
   if (!existsSync(filePath)) return;
@@ -291,6 +292,55 @@ function buildContext(chunks) {
     .join("\n\n---\n\n");
 }
 
+function buildRetrievalQueries(module) {
+  return [
+    [
+      `Modulo: ${module.title}`,
+      `Proposito: ${module.purpose}`,
+      `Fuentes esperadas: ${module.sourceScope.join(", ")}`,
+    ].join("\n"),
+    [
+      `Cobertura normativa para ${module.title}`,
+      module.concepts,
+      module.microLessons,
+    ].join("\n"),
+    [
+      `Aplicacion practica para conductores: ${module.title}`,
+      module.scenarios,
+      module.questions,
+    ].join("\n"),
+    [
+      `Senales, obligaciones, prohibiciones, sanciones, excepciones y decisiones seguras relacionadas con ${module.title}`,
+      module.visual,
+      module.sourceScope.join(", "),
+    ].join("\n"),
+  ].filter((query) => query.replace(/\s+/g, "").length > 0);
+}
+
+async function retrieveEvidence({ env, queries }) {
+  const byId = new Map();
+
+  for (const query of queries) {
+    const embedding = await createEmbedding({
+      apiKey: env.openaiApiKey,
+      input: query,
+      model: env.openaiEmbeddingModel,
+    });
+    const chunks = await matchChunks({ embedding, env });
+
+    for (const chunk of chunks) {
+      const existing = byId.get(chunk.id);
+      if (!existing || Number(chunk.similarity) > Number(existing.similarity)) {
+        byId.set(chunk.id, chunk);
+      }
+    }
+  }
+
+  return [...byId.values()]
+    .sort((left, right) => Number(right.similarity) - Number(left.similarity))
+    .slice(0, MAX_EVIDENCE_CHUNKS);
+}
+
 function normalizeCitationNumbers(value, max) {
   if (!Array.isArray(value)) return [];
   return [
@@ -318,29 +368,97 @@ function normalizeGeneratedContent(content, chunks) {
       maxCitation,
     ),
   });
+  const normalizeItems = (value) =>
+    Array.isArray(value) ? value.map(normalizeItem) : [];
+  const normalizeTextArray = (value) =>
+    Array.isArray(value) ? value.map(String).filter(Boolean) : [];
 
   return {
     coreIdea: String(candidate.coreIdea ?? ""),
     headline: String(candidate.headline ?? ""),
     intro: String(candidate.intro ?? ""),
-    lessons: Array.isArray(candidate.lessons)
-      ? candidate.lessons.map(normalizeItem)
-      : [],
-    needsHumanReview: Array.isArray(candidate.needsHumanReview)
-      ? candidate.needsHumanReview.map(String)
-      : [],
-    quiz: Array.isArray(candidate.quiz)
-      ? candidate.quiz.map(normalizeItem)
-      : [],
-    reflection: Array.isArray(candidate.reflection)
-      ? candidate.reflection.map(String)
-      : [],
+    applicationCases: normalizeItems(candidate.applicationCases),
+    checklist: normalizeItems(candidate.checklist),
+    commonMistakes: normalizeItems(candidate.commonMistakes),
+    estimatedMinutes: Number(candidate.estimatedMinutes) || null,
+    learningObjectives: normalizeTextArray(candidate.learningObjectives),
+    legalFoundation: normalizeItems(candidate.legalFoundation),
+    lessons: normalizeItems(candidate.lessons),
+    needsHumanReview: normalizeTextArray(candidate.needsHumanReview),
+    quiz: normalizeItems(candidate.quiz),
+    reflection: normalizeTextArray(candidate.reflection),
     scenario: candidate.scenario ? normalizeItem(candidate.scenario) : null,
+    vocabulary: normalizeItems(candidate.vocabulary),
     whyItMatters: String(candidate.whyItMatters ?? ""),
   };
 }
 
-async function createDidacticModule({ chunks, env, module, retrievalQuery }) {
+function wordCount(value) {
+  return String(value ?? "")
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean).length;
+}
+
+function qualityIssues(content) {
+  const issues = [];
+  const minimums = [
+    ["learningObjectives", content.learningObjectives, 4],
+    ["legalFoundation", content.legalFoundation, 4],
+    ["lessons", content.lessons, 6],
+    ["applicationCases", content.applicationCases, 2],
+    ["commonMistakes", content.commonMistakes, 4],
+    ["checklist", content.checklist, 6],
+    ["quiz", content.quiz, 5],
+    ["vocabulary", content.vocabulary, 4],
+    ["reflection", content.reflection, 4],
+  ];
+
+  for (const [name, value, min] of minimums) {
+    const count = Array.isArray(value) ? value.length : 0;
+    if (count < min) issues.push(`${name} tiene ${count}; minimo ${min}.`);
+  }
+
+  const instructionalBody = {
+    applicationCases: content.applicationCases,
+    checklist: content.checklist,
+    commonMistakes: content.commonMistakes,
+    coreIdea: content.coreIdea,
+    intro: content.intro,
+    learningObjectives: content.learningObjectives,
+    legalFoundation: content.legalFoundation,
+    lessons: content.lessons,
+    quiz: content.quiz,
+    reflection: content.reflection,
+    scenario: content.scenario,
+    vocabulary: content.vocabulary,
+    whyItMatters: content.whyItMatters,
+  };
+  const instructionalWords = wordCount(JSON.stringify(instructionalBody));
+  if (instructionalWords < 1400) {
+    issues.push(
+      `contenido didactico tiene ${instructionalWords} palabras; minimo 1400.`,
+    );
+  }
+
+  if (wordCount(content.intro) < 80) {
+    issues.push("intro tiene menos de 80 palabras.");
+  }
+
+  if (wordCount(content.whyItMatters) < 80) {
+    issues.push("whyItMatters tiene menos de 80 palabras.");
+  }
+
+  return issues;
+}
+
+async function createDidacticModule({
+  chunks,
+  env,
+  module,
+  qualityFeedback,
+  retrievalQuery,
+}) {
   const response = await fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
     headers: {
@@ -351,6 +469,7 @@ async function createDidacticModule({ chunks, env, module, retrievalQuery }) {
       model: env.openaiChatModel,
       response_format: { type: "json_object" },
       temperature: 0.2,
+      max_tokens: 7000,
       messages: [
         {
           role: "system",
@@ -358,7 +477,8 @@ async function createDidacticModule({ chunks, env, module, retrievalQuery }) {
             "Eres un disenador instruccional de cultura vial para El Salvador.",
             "Tu tarea es convertir evidencia normativa recuperada por RAG en contenido didactico para aprender con conciencia.",
             "No copies el brief del modulo. Usalo solo como intencion pedagogica.",
-            "Usa lenguaje claro, humano y accionable.",
+            "Usa lenguaje claro, humano, completo y accionable.",
+            "Cada modulo debe sentirse como una clase de calidad: explicar, contextualizar, dar ejemplos y entrenar decisiones reales.",
             "No inventes montos, articulos, obligaciones ni requisitos.",
             "Cada leccion, escenario o pregunta debe incluir citationNumbers con los numeros de evidencia usados.",
             "Si la evidencia no alcanza para una afirmacion, ponlo en needsHumanReview.",
@@ -369,13 +489,26 @@ async function createDidacticModule({ chunks, env, module, retrievalQuery }) {
           role: "user",
           content: [
             "Genera un objeto JSON raiz con EXACTAMENTE estas claves:",
-            "headline, intro, coreIdea, whyItMatters, lessons, scenario, quiz, reflection, needsHumanReview.",
-            "lessons debe tener de 3 a 5 elementos con: title, explanation, streetDecision, risk, citationNumbers.",
+            "headline, intro, estimatedMinutes, learningObjectives, coreIdea, whyItMatters, legalFoundation, lessons, applicationCases, commonMistakes, checklist, scenario, quiz, vocabulary, reflection, needsHumanReview.",
+            "intro debe tener 90 a 130 palabras.",
+            "estimatedMinutes debe reflejar la extension real del modulo, normalmente entre 25 y 40.",
+            "learningObjectives debe tener 4 a 6 objetivos concretos.",
+            "coreIdea debe tener 45 a 70 palabras.",
+            "whyItMatters debe tener 100 a 160 palabras y conectar la norma con vidas reales.",
+            "legalFoundation debe tener 4 a 7 elementos con: title, explanation, citationNumbers. explanation debe explicar la base normativa en 60 a 100 palabras.",
+            "lessons debe tener de 6 a 8 elementos con: title, explanation, normativeDetail, everydayExample, streetDecision, risk, watchFor, citationNumbers.",
+            "En cada lesson: explanation explica el concepto en 45 a 70 palabras; normativeDetail explica que exige o protege la norma en 45 a 80 palabras; everydayExample aterriza el concepto en un caso cotidiano de 35 a 60 palabras.",
+            "No uses campos de una sola oracion en lessons: explanation debe tener 3 oraciones completas, normativeDetail 2 oraciones completas y everydayExample 2 oraciones completas.",
             "streetDecision y safeDecision deben ser acciones directas en imperativo o recomendacion concreta, no preguntas.",
+            "applicationCases debe tener 2 o 3 elementos con: title, situation, wrongMove, safeMove, why, citationNumbers.",
+            "commonMistakes debe tener 4 a 6 elementos con: mistake, consequence, betterHabit, citationNumbers.",
+            "checklist debe tener 6 a 10 elementos con: label, action, citationNumbers.",
             "scenario debe tener: title, situation, unsafeChoice, safeDecision, feedback, citationNumbers.",
-            "quiz debe tener de 1 a 3 elementos con: question, options, answer, explanation, citationNumbers.",
-            "reflection debe tener de 2 a 4 preguntas cortas.",
+            "quiz debe tener de 5 a 7 elementos con: question, options, answer, explanation, citationNumbers.",
+            "vocabulary debe tener 4 a 6 elementos con: term, meaning, citationNumbers.",
+            "reflection debe tener de 4 a 6 preguntas cortas.",
             "citationNumbers debe referirse solo a los numeros de evidencia recuperada.",
+            "Cubre la mayor cantidad posible de aristas relevantes dentro de la evidencia: reglas, senales, obligaciones, prohibiciones, riesgos, excepciones, sanciones o consecuencias cuando aplique.",
             "No devuelvas Markdown.",
             "",
             `BRIEF DEL MODULO:\n${JSON.stringify(module, null, 2)}`,
@@ -383,6 +516,9 @@ async function createDidacticModule({ chunks, env, module, retrievalQuery }) {
             `CONSULTA DE RECUPERACION:\n${retrievalQuery}`,
             "",
             `EVIDENCIA RECUPERADA:\n${buildContext(chunks)}`,
+            qualityFeedback
+              ? `\nCONTROL DE CALIDAD DEL INTENTO ANTERIOR:\n${qualityFeedback}\nRegenera el modulo completo corrigiendo todos esos puntos.`
+              : "",
           ].join("\n"),
         },
       ],
@@ -397,26 +533,40 @@ async function createDidacticModule({ chunks, env, module, retrievalQuery }) {
 }
 
 async function generateModule(module, env) {
-  const retrievalQuery = [
-    `Modulo: ${module.title}`,
-    `Proposito: ${module.purpose}`,
-    `Conceptos: ${module.concepts}`,
-    `Micro-lecciones: ${module.microLessons}`,
-    `Escenarios: ${module.scenarios}`,
-    `Fuentes esperadas: ${module.sourceScope.join(", ")}`,
-  ].join("\n");
-  const embedding = await createEmbedding({
-    apiKey: env.openaiApiKey,
-    input: retrievalQuery,
-    model: env.openaiEmbeddingModel,
-  });
-  const chunks = await matchChunks({ embedding, env });
-  const generated = await createDidacticModule({
-    chunks,
+  const retrievalQueries = buildRetrievalQueries(module);
+  const retrievalQuery = retrievalQueries.join("\n\n---\n\n");
+  const chunks = await retrieveEvidence({
     env,
-    module,
-    retrievalQuery,
+    queries: retrievalQueries,
   });
+  let generated = null;
+  let issues = [];
+
+  for (let attempt = 1; attempt <= 2; attempt += 1) {
+    generated = await createDidacticModule({
+      chunks,
+      env,
+      module,
+      qualityFeedback: issues.join("\n"),
+      retrievalQuery,
+    });
+    issues = qualityIssues(generated);
+    if (issues.length === 0) break;
+    console.warn(`Quality retry needed for ${module.id}: ${issues.join(" ")}`);
+  }
+
+  if (!generated) {
+    throw new Error(`No content generated for ${module.id}.`);
+  }
+
+  if (issues.length > 0) {
+    generated.needsHumanReview = [
+      ...new Set([
+        ...(generated.needsHumanReview ?? []),
+        `Control de calidad pendiente: ${issues.join(" ")}`,
+      ]),
+    ];
+  }
 
   return {
     ...generated,

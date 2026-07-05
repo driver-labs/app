@@ -1,58 +1,243 @@
 {
-  "coreIdea": "Las infracciones de tránsito pueden tener consecuencias graves, no solo económicas, sino también humanas. Es fundamental conocerlas para actuar de manera responsable.",
-  "headline": "Infracciones y Consecuencias en la Vía",
-  "intro": "Entender las infracciones de tránsito es crucial para la seguridad vial. No se trata solo de multas, sino de prevenir daños reales a las personas.",
+  "coreIdea": "Las infracciones de tránsito no solo implican sanciones económicas, sino que pueden tener consecuencias graves para la vida de las personas. Es fundamental entender la normativa y actuar con responsabilidad al volante para garantizar la seguridad vial.",
+  "headline": "Infracciones y Consecuencias en la Vialidad",
+  "intro": "En esta lección, exploraremos las infracciones de tránsito y sus consecuencias. Comprenderemos que una infracción no se limita a una multa, sino que puede tener repercusiones graves en la seguridad vial y en la vida de las personas. Aprenderemos sobre los tipos de infracciones, las sanciones aplicables y cómo nuestras decisiones al volante pueden afectar a otros. Este conocimiento es esencial para promover una cultura vial responsable en El Salvador.",
+  "applicationCases": [
+    {
+      "title": "Pasarse una señal de alto",
+      "situation": "Un conductor se pasa una señal de alto en una intersección concurrida.",
+      "wrongMove": "Continuar sin detenerse.",
+      "safeMove": "Detenerse completamente y ceder el paso.",
+      "why": "Detenerse puede prevenir un choque con otro vehículo que tiene el derecho de paso.",
+      "citationNumbers": [1, 5]
+    },
+    {
+      "title": "Conducir a alta velocidad en zona urbana",
+      "situation": "Un conductor maneja a alta velocidad en una zona escolar.",
+      "wrongMove": "Ignorar los límites de velocidad.",
+      "safeMove": "Reducir la velocidad al límite permitido.",
+      "why": "Reducir la velocidad puede prevenir atropellos y accidentes en áreas con alta concentración de peatones.",
+      "citationNumbers": [2, 12]
+    }
+  ],
+  "checklist": [
+    {
+      "label": "Revisar señales de tránsito",
+      "action": "Asegúrate de observar y respetar todas las señales.",
+      "citationNumbers": [4, 10]
+    },
+    {
+      "label": "Usar cinturón de seguridad",
+      "action": "Siempre usa el cinturón de seguridad al conducir.",
+      "citationNumbers": [6, 14]
+    },
+    {
+      "label": "No usar el teléfono",
+      "action": "Evita distraerte con el teléfono mientras conduces.",
+      "citationNumbers": [10, 12]
+    },
+    {
+      "label": "Respetar límites de velocidad",
+      "action": "Ajusta tu velocidad a los límites establecidos.",
+      "citationNumbers": [2, 12]
+    },
+    {
+      "label": "Conducir sobrio",
+      "action": "Nunca conduzcas bajo los efectos del alcohol o drogas.",
+      "citationNumbers": [12, 16]
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "No usar el cinturón de seguridad.",
+      "consequence": "Aumento del riesgo de lesiones graves en caso de accidente.",
+      "betterHabit": "Siempre usa el cinturón de seguridad.",
+      "citationNumbers": [6, 14]
+    },
+    {
+      "mistake": "Conducir distraído usando el teléfono.",
+      "consequence": "Mayor probabilidad de accidentes por falta de atención.",
+      "betterHabit": "Evita usar el teléfono mientras conduces.",
+      "citationNumbers": [10, 12]
+    },
+    {
+      "mistake": "No respetar las señales de tránsito.",
+      "consequence": "Accidentes y sanciones económicas.",
+      "betterHabit": "Siempre sigue las señales de tránsito.",
+      "citationNumbers": [1, 5]
+    },
+    {
+      "mistake": "Conducir bajo los efectos del alcohol.",
+      "consequence": "Sanciones severas y riesgo de accidentes mortales.",
+      "betterHabit": "Nunca conduzcas si has consumido alcohol.",
+      "citationNumbers": [12, 16]
+    }
+  ],
+  "estimatedMinutes": 35,
+  "learningObjectives": [
+    "Identificar los diferentes tipos de infracciones de tránsito.",
+    "Comprender las sanciones económicas y legales asociadas a las infracciones.",
+    "Reconocer las conductas de alto riesgo y sus consecuencias.",
+    "Distinguir entre sanciones administrativas y consecuencias humanas.",
+    "Aplicar decisiones seguras al conducir para evitar infracciones."
+  ],
+  "legalFoundation": [
+    {
+      "title": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+      "explanation": "Esta ley establece las normas que regulan el transporte y la circulación de vehículos, así como las infracciones y sanciones aplicables. Su objetivo es garantizar la seguridad vial y proteger a los usuarios de las vías. Las infracciones se clasifican en leves, graves y muy graves, cada una con sanciones específicas.",
+      "citationNumbers": [2, 3, 7]
+    },
+    {
+      "title": "Reglamento General de Tránsito y Seguridad Vial",
+      "explanation": "El reglamento complementa la ley y detalla las disposiciones sobre las infracciones y las multas. Establece procedimientos para la aplicación de sanciones y la responsabilidad de los conductores en caso de infracciones. Es fundamental para el cumplimiento de las normas de tránsito.",
+      "citationNumbers": [6, 8, 11]
+    },
+    {
+      "title": "Decreto Legislativo No. 185",
+      "explanation": "Este decreto clasifica las infracciones en leves, graves y muy graves, y establece las multas correspondientes. También regula el procedimiento para la imposición de sanciones y la responsabilidad de los conductores en caso de accidentes.",
+      "citationNumbers": [1, 5, 10]
+    },
+    {
+      "title": "Manual Centroamericano de Dispositivos Uniformes para el Control del Tránsito",
+      "explanation": "Este manual proporciona directrices sobre la señalización y el control del tránsito, asegurando que los conductores y peatones comprendan las normas de circulación. La correcta señalización es clave para prevenir infracciones y accidentes.",
+      "citationNumbers": [4, 12, 18]
+    }
+  ],
   "lessons": [
     {
       "title": "¿Qué es una infracción?",
-      "explanation": "Una infracción es una violación a las normas de tránsito que puede poner en riesgo la seguridad de todos en la vía.",
-      "streetDecision": "Respeta siempre las señales de tránsito.",
-      "risk": "Normalizar malas conductas puede llevar a accidentes graves.",
-      "citationNumbers": [1, 6]
+      "explanation": "Una infracción es cualquier acción que contraviene las normas de tránsito establecidas. Esto incluye desde no respetar señales de tránsito hasta conducir bajo los efectos de sustancias. Las infracciones pueden ser leves, graves o muy graves, dependiendo de su impacto en la seguridad vial.",
+      "normativeDetail": "La ley clasifica las infracciones y establece sanciones específicas para cada tipo. Las infracciones leves pueden resultar en multas menores, mientras que las muy graves pueden conllevar la suspensión de la licencia de conducir y otras sanciones severas.",
+      "everydayExample": "Por ejemplo, no detenerse ante una señal de alto es una infracción grave que puede causar accidentes. Si un conductor ignora esta señal, pone en riesgo su vida y la de otros.",
+      "streetDecision": "Siempre detente completamente ante las señales de alto.",
+      "risk": "Ignorar señales puede resultar en accidentes graves.",
+      "watchFor": "Presta atención a las señales de tránsito y a otros vehículos.",
+      "citationNumbers": [1, 5, 7]
     },
     {
       "title": "Multa no es el único problema",
-      "explanation": "Las multas son solo una parte de las consecuencias. Las infracciones pueden causar daños a personas y propiedades.",
-      "streetDecision": "Evita conducir bajo los efectos de alcohol o drogas.",
-      "risk": "Conducir en estas condiciones aumenta el riesgo de accidentes mortales.",
-      "citationNumbers": [1, 10]
+      "explanation": "Las multas son solo una parte de las consecuencias de las infracciones. Además de las sanciones económicas, las infracciones pueden llevar a la responsabilidad civil por daños a terceros. Esto significa que un conductor puede ser demandado por los daños causados en un accidente.",
+      "normativeDetail": "La ley establece que los conductores son responsables de los daños que causen a otros. Esto incluye daños materiales y lesiones personales, lo que puede resultar en costos significativos.",
+      "everydayExample": "Si un conductor choca a otro vehículo por no respetar una señal, no solo enfrentará una multa, sino que también podría ser responsable de pagar por los daños del otro vehículo.",
+      "streetDecision": "Conduce siempre con precaución para evitar accidentes.",
+      "risk": "Los accidentes pueden resultar en lesiones graves y costos elevados.",
+      "watchFor": "Mantén una distancia segura con otros vehículos.",
+      "citationNumbers": [2, 10, 14]
     },
     {
       "title": "Infracciones que ponen vidas en peligro",
-      "explanation": "Algunas infracciones, como no respetar la luz roja, pueden resultar en accidentes fatales.",
-      "streetDecision": "Detente siempre en las luces rojas.",
-      "risk": "Ignorar las señales puede causar choques frontales.",
-      "citationNumbers": [1, 4]
+      "explanation": "Algunas infracciones son especialmente peligrosas y pueden resultar en accidentes fatales. Conducir a alta velocidad, bajo los efectos del alcohol o ignorar señales de tránsito son ejemplos de conductas de alto riesgo.",
+      "normativeDetail": "La ley clasifica estas infracciones como muy graves y establece sanciones severas, incluyendo la suspensión de la licencia y multas significativas.",
+      "everydayExample": "Un conductor que maneja a más de 110 km/h en una zona urbana está cometiendo una infracción muy grave que pone en riesgo la vida de peatones y otros conductores.",
+      "streetDecision": "Respeta siempre los límites de velocidad establecidos.",
+      "risk": "Conducir a alta velocidad aumenta el riesgo de accidentes mortales.",
+      "watchFor": "Observa las señales de límite de velocidad y ajusta tu velocidad.",
+      "citationNumbers": [12, 16, 18]
+    },
+    {
+      "title": "Datos a validar antes de publicar",
+      "explanation": "Es importante verificar la información sobre las infracciones y sus consecuencias antes de compartirla. La desinformación puede llevar a confusiones y a la normalización de conductas peligrosas.",
+      "normativeDetail": "La ley exige que la información sobre infracciones y sanciones sea clara y accesible para todos los usuarios de la vía. Esto incluye la actualización de montos de multas y la correcta señalización.",
+      "everydayExample": "Si un conductor comparte información desactualizada sobre multas, puede llevar a otros a cometer infracciones sin saber las consecuencias reales.",
+      "streetDecision": "Verifica siempre la información antes de compartirla.",
+      "risk": "La desinformación puede resultar en decisiones peligrosas al volante.",
+      "watchFor": "Consulta fuentes oficiales para obtener información precisa.",
+      "citationNumbers": [3, 4, 8]
     }
   ],
-  "needsHumanReview": [],
+  "needsHumanReview": [
+    "Control de calidad pendiente: lessons tiene 4; minimo 6. checklist tiene 5; minimo 6. contenido didactico tiene 1328 palabras; minimo 1400. intro tiene menos de 80 palabras."
+  ],
   "quiz": [
     {
-      "question": "¿Cuál es una consecuencia de no respetar las señales de tránsito?",
+      "question": "¿Qué es una infracción de tránsito?",
       "options": [
-        "Solo recibir una multa",
-        "Causar un accidente",
-        "Nada, no hay consecuencias"
+        "Una acción que respeta las normas de tránsito.",
+        "Cualquier acción que contraviene las normas de tránsito.",
+        "Una multa impuesta por la policía."
       ],
-      "answer": "Causar un accidente",
-      "explanation": "No respetar las señales puede llevar a situaciones peligrosas y accidentes.",
+      "answer": "Cualquier acción que contraviene las normas de tránsito.",
+      "explanation": "Las infracciones son acciones que violan las normas de tránsito y pueden tener consecuencias legales.",
       "citationNumbers": [1, 5]
+    },
+    {
+      "question": "¿Cuál es una consecuencia de no usar el cinturón de seguridad?",
+      "options": [
+        "Multa económica.",
+        "Mayor riesgo de lesiones en un accidente.",
+        "Ambas."
+      ],
+      "answer": "Ambas.",
+      "explanation": "No usar el cinturón de seguridad puede resultar en multas y aumenta el riesgo de lesiones en caso de accidente.",
+      "citationNumbers": [6, 14]
+    },
+    {
+      "question": "¿Qué se debe hacer al acercarse a una señal de alto?",
+      "options": ["Acelerar.", "Detenerse completamente.", "Ignorar la señal."],
+      "answer": "Detenerse completamente.",
+      "explanation": "Es fundamental detenerse ante una señal de alto para ceder el paso y evitar accidentes.",
+      "citationNumbers": [1, 5]
+    },
+    {
+      "question": "¿Qué implica conducir bajo los efectos del alcohol?",
+      "options": [
+        "Sanciones severas.",
+        "Mayor riesgo de accidentes.",
+        "Ambas."
+      ],
+      "answer": "Ambas.",
+      "explanation": "Conducir bajo los efectos del alcohol puede resultar en sanciones severas y aumenta el riesgo de accidentes.",
+      "citationNumbers": [12, 16]
+    },
+    {
+      "question": "¿Por qué es importante verificar la información sobre infracciones?",
+      "options": [
+        "Para evitar compartir desinformación.",
+        "No es importante.",
+        "Para aumentar el riesgo de accidentes."
+      ],
+      "answer": "Para evitar compartir desinformación.",
+      "explanation": "Verificar la información es crucial para prevenir confusiones y promover conductas seguras.",
+      "citationNumbers": [3, 4]
     }
   ],
   "reflection": [
-    "¿Qué infracciones has visto que son más comunes en tu área?",
-    "¿Cómo puedes contribuir a mejorar la seguridad vial?",
-    "¿Qué acciones tomarías si ves a alguien conduciendo de manera peligrosa?"
+    "¿Qué aprendiste sobre las infracciones de tránsito?",
+    "¿Cómo puedes aplicar este conocimiento en tu vida diaria?",
+    "¿Por qué es importante respetar las señales de tránsito?",
+    "¿Qué consecuencias pueden tener las infracciones en la vida de las personas?"
   ],
   "scenario": {
     "title": "Decisión en una intersección",
-    "situation": "Un conductor se pasa una señal de alto en una intersección concurrida.",
-    "unsafeChoice": "Continuar sin detenerse.",
-    "safeDecision": "Detenerse completamente antes de cruzar.",
-    "feedback": "Detenerse puede evitar un choque lateral que podría causar lesiones graves.",
-    "citationNumbers": [1, 2]
+    "situation": "Te acercas a una intersección con una señal de alto.",
+    "unsafeChoice": "Pasar sin detenerte.",
+    "safeDecision": "Detenerte completamente y ceder el paso.",
+    "feedback": "Detenerse puede evitar un accidente con otro vehículo que tiene el derecho de paso.",
+    "citationNumbers": [1, 5]
   },
-  "whyItMatters": "La seguridad vial es responsabilidad de todos. Conocer las infracciones y sus consecuencias ayuda a prevenir accidentes y a proteger vidas.",
+  "vocabulary": [
+    {
+      "term": "Infracción",
+      "meaning": "Acción que contraviene las normas de tránsito.",
+      "citationNumbers": [1, 5]
+    },
+    {
+      "term": "Sanción",
+      "meaning": "Consecuencia legal o económica por una infracción.",
+      "citationNumbers": [2, 10]
+    },
+    {
+      "term": "Conductor temerario",
+      "meaning": "Persona que conduce de manera peligrosa o irresponsable.",
+      "citationNumbers": [12, 16]
+    },
+    {
+      "term": "Señal de tránsito",
+      "meaning": "Dispositivo que regula el comportamiento de los conductores y peatones.",
+      "citationNumbers": [4, 10]
+    }
+  ],
+  "whyItMatters": "Las infracciones de tránsito pueden resultar en accidentes que afectan no solo a los infractores, sino también a peatones y otros conductores. Cada decisión que tomamos al volante puede tener un impacto significativo en la vida de otros. Conocer las normas y las consecuencias de nuestras acciones es vital para prevenir tragedias en las vías. La educación vial es una herramienta poderosa para fomentar una cultura de respeto y responsabilidad en el tránsito, contribuyendo así a la seguridad de todos.",
   "audience": ["primera-licencia", "refuerzo"],
   "citations": [
     {
@@ -65,37 +250,9 @@
       "pageEnd": 9,
       "pageStart": 3,
       "sectionTitle": null,
-      "similarity": 0.682812785045347,
+      "similarity": 0.704366688874747,
       "sourcePath": "assets\\DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf",
       "sourceUrl": "assets/DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf"
-    },
-    {
-      "articleNumber": "116",
-      "documentKey": "decreto-legislativo-185",
-      "documentName": "Decreto Legislativo No. 185",
-      "excerpt": "\"Art. 116.- Las multas por infracciones de tránsito, transporte terrestre y transporte de carga,\ndeberán ser aplicadas por las autoridades competentes por medios escritos, electrónicos u otros de\nacuerdo con la legislación vigente.\nEl Viceministerio de Transporte y la División de Tránsito Terrestre de la Policía Nacional Civil, son\nlos competentes para tramitar el procedimiento y recurso que se describe en las siguientes disposiciones.\nLa instrucción de los procedimientos, corresponderá a la Unidad de Procedimiento",
-      "id": "50ab0ef3-a7e9-4a01-87b7-8d10fa30fa09",
-      "label": "[2] Decreto Legislativo No. 185, Art. 116",
-      "pageEnd": 3,
-      "pageStart": 3,
-      "sectionTitle": null,
-      "similarity": 0.660319937168538,
-      "sourcePath": "assets\\DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf",
-      "sourceUrl": "assets/DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf"
-    },
-    {
-      "articleNumber": "115",
-      "documentKey": "ley-transporte-terrestre",
-      "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
-      "excerpt": "Art. 115.- Toda persona autorizada a conducir vehículos automotores destinados al transporte colectivo\nde pasajeros o de carga, deberá de otorgar fianza para responder por daños ocasionados a terceros.\nCAPITULO II\nDE LAS INFRACCIONES, PROCEDIMIENTOS, SANCIONES Y RECURSOS. (20)",
-      "id": "683288a0-84bc-407b-a4b2-ebb9094a3f49",
-      "label": "[3] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 115",
-      "pageEnd": 23,
-      "pageStart": 23,
-      "sectionTitle": "DE LOS ASPECTOS COMPLEMENTARIOS > CAPITULO I > DE LOS SEGUROS Y FIANZAS",
-      "similarity": 0.654968725411499,
-      "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
-      "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
     },
     {
       "articleNumber": "117",
@@ -103,27 +260,41 @@
       "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
       "excerpt": "105 Retirarse el involucrado del lugar del accidente 500.00 57.41\n106 Pintar sobre la Red Vial sin previa autorización; así como 500.00 57.41\ndañar, remover o inutilizar las señales viales\n107 Instalar señales o sirenas rotativas luminosas en 500.00 57.41\nvehículos no autorizados\n108 Modificar sin autorización los motores, para aumentar su 500.00 57.41\ncapacidad de velocidad, sin fines deportivos\n109 Facilitar o prestar la placa o las placas del vehículo para 500.00 57.41\nque la utilice otro\nEn los casos recogidos ",
       "id": "7ce1612a-6cbf-42bf-afc0-5a9ebe36e68f",
-      "label": "[4] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 117",
+      "label": "[2] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 117",
       "pageEnd": 30,
       "pageStart": 23,
       "sectionTitle": "CAPITULO I > DE LOS SEGUROS Y FIANZAS > CAPITULO II",
-      "similarity": 0.654308498138225,
+      "similarity": 0.690689470185996,
       "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
       "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
     },
     {
-      "articleNumber": "119",
-      "documentKey": "decreto-legislativo-185",
-      "documentName": "Decreto Legislativo No. 185",
-      "excerpt": "\"Art. 119-G.- Las infracciones a los propietarios y conductores de los vehículos automotores del\ntransporte público de pasajeros se clasifican en leves, graves, y muy graves, especificadas a través del\ncuadro siguiente.\nCUADRO DE MULTAS POR INFRACCIONES COMETIDAS POR CONCESIONARIOS,\nPERMISIONARIOS, PROPIETARIOS Y CONDUCTORES DE VEHICULOS AUTOMOTORES DE\nTRANSPORTE PÚBLICO DE PASAJEROS\nNo DESCRIPCIÓN VALOR\nDÓLAR\nLEVES\n1 No portar el tarifario debidamente autorizado y suscrito por la autoridad $50\ncompetente en lugar ",
-      "id": "8f74f7ad-6d23-4a3c-aa67-435c4b539fc1",
-      "label": "[5] Decreto Legislativo No. 185, Art. 119",
-      "pageEnd": 13,
-      "pageStart": 12,
+      "articleNumber": "3",
+      "documentKey": "ley-transporte-terrestre",
+      "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+      "excerpt": "Art. 3.- Para tal efecto esta Ley regulará:\n1) Las normas del transporte y de la circulación de los vehículos que presten el servicio de Transporte;\nasí como las que por razones de Seguridad Vial han de regir para la circulación de peatones y\nsemovientes por las vías terrestres; estableciéndose para tal efecto los derechos y obligaciones de\nlos usuarios.\n2) La autorización y el establecimiento de rutas, frecuencias y fluidez de la circulación vehicular del\nservicio colectivo de pasajeros; así como la concesión de l",
+      "id": "d759f78e-e3ec-4920-86aa-e97c1888d624",
+      "label": "[3] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 3",
+      "pageEnd": 2,
+      "pageStart": 2,
+      "sectionTitle": "DISPOSICIONES PRELIMINARES > CAPITULO UNICO > OBJETO DE LA LEY",
+      "similarity": 0.674312409898669,
+      "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
+      "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
+    },
+    {
+      "articleNumber": null,
+      "documentKey": "manual-senales-centroamericano",
+      "documentName": "Manual Centroamericano de Dispositivos Uniformes para el Control del Transito",
+      "excerpt": "MANUAL CENTROAMERICANO DE\nDISPOSITIVOS UNIFORMES PARA EL\nCONTROL DEL TRÁNSITO\nIng. Junior Araya Villalobos\nSeñalización Temporal y Dispositivos de Seguridad\n\nAntecedentes del Manual.\n1958 1963 1979 1998 2000 2014\n\nContenido del Manual.\n• Disposiciones Generales.\n• Señales Verticales.\n•Señalización Horizontal y Demarcación Horizontal.\n• Demarcación de Islas en el Pavimento.\n• Semáforos.\n• Dispositivos de Seguridad y Control Temporal del Tránsito para la Ejecución de Trabajos en las Vías.\n• Control de Tránsito en Zon",
+      "id": "6128a54b-9263-4227-8c8e-ef28b8c437c2",
+      "label": "[4] Manual Centroamericano de Dispositivos Uniformes para el Control del Transito, unidad normativa",
+      "pageEnd": 110,
+      "pageStart": 1,
       "sectionTitle": null,
-      "similarity": 0.645091773847201,
-      "sourcePath": "assets\\DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf",
-      "sourceUrl": "assets/DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf"
+      "similarity": 0.668903273485648,
+      "sourcePath": "assets\\Manual_de_Senales.pdf",
+      "sourceUrl": "assets/Manual_de_Senales.pdf"
     },
     {
       "articleNumber": "117",
@@ -131,13 +302,27 @@
       "documentName": "Decreto Legislativo No. 185",
       "excerpt": "\"Art. 117.- Las infracciones de tránsito y seguridad vial se clasifican en leves, graves y muy\ngraves.\nPrevio a la adquisición de cualquier vehículo automotor, el interesado deberá cerciorarse en el\nregistro público de vehículos, que no exista pendiente el pago de multas que se hubieren impuesto\nrespecto del mismo, al propietario o legítimo tenedor.\nEn todo caso, la tarjeta de circulación del vehículo de que se trate sólo podrá renovarse, previo\npago de la multa.\n\nLas multas por infracciones de tránsito, transporte",
       "id": "c123a45c-b893-4c70-aab5-a4601e31f37c",
-      "label": "[6] Decreto Legislativo No. 185, Art. 117",
+      "label": "[5] Decreto Legislativo No. 185, Art. 117",
       "pageEnd": 9,
       "pageStart": 3,
       "sectionTitle": null,
-      "similarity": 0.641991969033416,
+      "similarity": 0.668672404949613,
       "sourcePath": "assets\\DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf",
       "sourceUrl": "assets/DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf"
+    },
+    {
+      "articleNumber": "255",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "68 No respetar derecho de vía al salir de un\nestacionamiento. ¢ 300.00\n69 No disminuir la velocidad en zonas restringidas tales\ncomo: Colegios, escuelas, iglesias, hospitales, centros\ndeportivos, mercados, etc. ¢ 300.00\n70 Sobrepasar a otro vehículo en boca-calle. ¢ 300.00\n71 Colocarse en carril que no le corresponda en boca-calle,\npara iniciar la marcha. ¢ 300.00\n72 No atender la indicación de parada del agente de la\nPolicía Nacional Civil, o Delegado de Tránsito, con la\nseñal de alto en el día y por la noche con ",
+      "id": "8f1ace5f-c303-461e-8850-93f95fb1ab81",
+      "label": "[6] Reglamento General de Tránsito y Seguridad Vial, Art. 255",
+      "pageEnd": 67,
+      "pageStart": 61,
+      "sectionTitle": "TITULO X > DE LAS INFRACCIONES, MULTAS Y SUSPENSIONES > DE LAS MULTAS E INFRACCIONES",
+      "similarity": 0.663802140491518,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
     },
     {
       "articleNumber": "117",
@@ -149,23 +334,51 @@
       "pageEnd": 30,
       "pageStart": 23,
       "sectionTitle": "CAPITULO I > DE LOS SEGUROS Y FIANZAS > CAPITULO II",
-      "similarity": 0.637450178465285,
+      "similarity": 0.659561902735233,
       "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
       "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
     },
     {
-      "articleNumber": "119",
+      "articleNumber": "255",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 255.- Las Multas e infracciones se clasificarán en FALTAS LEVES, GRAVES Y MUY GRAVES,\naplicándose sanciones de índole diferente en cada caso; las cuales se detallan a continuación, así:\nMULTAS POR FALTAS\nLEVES, GRAVES Y MUY GRAVES\nCÓDIGO DESCRIPCIÓN\nVALOR\nCOLONES\nLEVES\n1 Pitar innecesariamente dentro de la ciudad ¢ 100.00\n2 Obstaculizar el tránsito en general ¢ 100.00\n3 Retroceder en vías de mucho tránsito ¢ 100.00\n4 Obstaculizar el paso en entierros, desfiles,\neventos deportivos, en las vías públicas ¢ 100.00",
+      "id": "1aeb6728-b557-4224-901f-bfc0a569b52b",
+      "label": "[8] Reglamento General de Tránsito y Seguridad Vial, Art. 255",
+      "pageEnd": 67,
+      "pageStart": 61,
+      "sectionTitle": "TITULO X > DE LAS INFRACCIONES, MULTAS Y SUSPENSIONES > DE LAS MULTAS E INFRACCIONES",
+      "similarity": 0.651844235063226,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "1",
       "documentKey": "ley-transporte-terrestre",
       "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
-      "excerpt": "Art. 119-G.- La Dirección General de Transporte Terrestre, especificará a través del cuadro siguiente las\nsanciones administrativas que se impondrán a los propietarios y a los conductores de vehículos automotores\ndel transporte público de pasajeros. (32)\nLas establecidas en los numerales 1, 8, 9,11, 12, 14, 15, 20, 22, 24, 26 y 27 serán para los\nconcesionarios del transporte público de pasajeros. Estas sanciones se cobrarán al momento de refrendar la\ntarjeta de circulación de la unidad sancionada. (32) (38)\nLas est",
-      "id": "fc5fef1e-deee-43c2-869c-c4a124cfe7c0",
-      "label": "[8] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 119",
-      "pageEnd": 36,
-      "pageStart": 34,
-      "sectionTitle": null,
-      "similarity": 0.63725344594658,
+      "excerpt": "Art. 1.- La presente Ley tiene por objeto establecer el marco legal en materia de:\na) Régimen administrativo de Transporte, Tránsito y su Seguridad Vial;\n\nb) Transporte Terrestre, con excepción del Régimen Ferroviario;\nc) Registro Público de Vehículos Automotores: Transporte Individual y Colectivo de Pasajeros;\nTransporte Liviano y Pesado de Carga;\nd) Tránsito y Circulación Vehicular;\ne) Seguridad Vial;\nf) Estacionamientos, Terminales de Servicio Colectivo, de Carga y demás lugares de acceso público en\nlo que fuese",
+      "id": "eeed63ea-5db3-4d1a-8c83-c96904423e87",
+      "label": "[9] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 1",
+      "pageEnd": 2,
+      "pageStart": 1,
+      "sectionTitle": "DISPOSICIONES PRELIMINARES > CAPITULO UNICO > OBJETO DE LA LEY",
+      "similarity": 0.650881429495815,
       "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
       "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
+    },
+    {
+      "articleNumber": "116",
+      "documentKey": "decreto-legislativo-185",
+      "documentName": "Decreto Legislativo No. 185",
+      "excerpt": "\"Art. 116.- Las multas por infracciones de tránsito, transporte terrestre y transporte de carga,\ndeberán ser aplicadas por las autoridades competentes por medios escritos, electrónicos u otros de\nacuerdo con la legislación vigente.\nEl Viceministerio de Transporte y la División de Tránsito Terrestre de la Policía Nacional Civil, son\nlos competentes para tramitar el procedimiento y recurso que se describe en las siguientes disposiciones.\nLa instrucción de los procedimientos, corresponderá a la Unidad de Procedimiento",
+      "id": "50ab0ef3-a7e9-4a01-87b7-8d10fa30fa09",
+      "label": "[10] Decreto Legislativo No. 185, Art. 116",
+      "pageEnd": 3,
+      "pageStart": 3,
+      "sectionTitle": null,
+      "similarity": 0.643208071187991,
+      "sourcePath": "assets\\DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf",
+      "sourceUrl": "assets/DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf"
     },
     {
       "articleNumber": "255",
@@ -173,30 +386,114 @@
       "documentName": "Reglamento General de Tránsito y Seguridad Vial",
       "excerpt": "126 Transportar personas en función comercial sin\nel permiso correspondiente en buses, microbuses\ntaxis, pick-up, etc.* ¢ 500.00\n127 Cambiar el color del vehículo sin el permiso\ncorrespondiente. (al propietario). ¢ 500.00\n128 Trabajar con vehículos particulares en servicio\nde alquiler. ¢ 500.00\n129 Conducir el vehículo con placas que pertenecen\na otro.* ¢ 500.00\n130 Circular sin placas.* ¢ 500.00\n131 Circular con placas falsificadas. ¢ 500.00\n132 Conducir vehículos con sistema de frenos en mal\nestado. ¢ 500.00\n133 ",
       "id": "a264dd2d-5978-4e47-b450-9c5018cbf0cf",
-      "label": "[9] Reglamento General de Tránsito y Seguridad Vial, Art. 255",
+      "label": "[11] Reglamento General de Tránsito y Seguridad Vial, Art. 255",
       "pageEnd": 67,
       "pageStart": 61,
       "sectionTitle": "TITULO X > DE LAS INFRACCIONES, MULTAS Y SUSPENSIONES > DE LAS MULTAS E INFRACCIONES",
-      "similarity": 0.632475736469607,
+      "similarity": 0.641734939595905,
       "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
       "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
     },
     {
-      "articleNumber": "255",
+      "articleNumber": "172",
       "documentKey": "reglamento-general-transito",
       "documentName": "Reglamento General de Tránsito y Seguridad Vial",
-      "excerpt": "68 No respetar derecho de vía al salir de un\nestacionamiento. ¢ 300.00\n69 No disminuir la velocidad en zonas restringidas tales\ncomo: Colegios, escuelas, iglesias, hospitales, centros\ndeportivos, mercados, etc. ¢ 300.00\n70 Sobrepasar a otro vehículo en boca-calle. ¢ 300.00\n71 Colocarse en carril que no le corresponda en boca-calle,\npara iniciar la marcha. ¢ 300.00\n72 No atender la indicación de parada del agente de la\nPolicía Nacional Civil, o Delegado de Tránsito, con la\nseñal de alto en el día y por la noche con ",
-      "id": "8f1ace5f-c303-461e-8850-93f95fb1ab81",
-      "label": "[10] Reglamento General de Tránsito y Seguridad Vial, Art. 255",
-      "pageEnd": 67,
-      "pageStart": 61,
-      "sectionTitle": "TITULO X > DE LAS INFRACCIONES, MULTAS Y SUSPENSIONES > DE LAS MULTAS E INFRACCIONES",
-      "similarity": 0.626037614709823,
+      "excerpt": "Art. 172.- Se considera conductor temerario a cualquier persona que conduzca un vehículo en\ncualesquiera de las condiciones siguientes:\n1. Estado de ebriedad que exceda los límites de contenido de alcohol en la sangre establecidos en el\nartículo anterior.\n2. Bajo los efectos de drogas o sustancias enervantes ilegales, de acuerdo con las definiciones que al\nrespecto haya establecido el Ministerio de Salud;\n3. El conductor que irrespete la señal de alto de la luz roja de un semáforo;\n4. En carreteras de dos carriles ",
+      "id": "39d1ec47-ba3f-4099-ae02-f493c5308149",
+      "label": "[12] Reglamento General de Tránsito y Seguridad Vial, Art. 172",
+      "pageEnd": 45,
+      "pageStart": 45,
+      "sectionTitle": null,
+      "similarity": 0.640299017574946,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "4",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "35. Opacímetro: dispositivo para medir el grado de opacidad de los gases, humos y partículas del\nescape de un vehículo.\n36. Pasajero: toda persona que aparte del conductor, ocupa un lugar dentro del vehículo.\n37. Permiso Temporal de Aprendizaje: documento que se expide, en forma temporal, para aprender a\nconducir vehículos automotores y que queda supeditado al acatamiento de las disposiciones del\npresente Reglamento.\n38. Peso Bruto del Vehículo: peso total del vehículo que resulta al sumar su peso de acuerdo con la",
+      "id": "86651e5c-2767-4ccd-996b-28039f6d3c5a",
+      "label": "[13] Reglamento General de Tránsito y Seguridad Vial, Art. 4",
+      "pageEnd": 5,
+      "pageStart": 2,
+      "sectionTitle": "FINALIDAD > AMBITO DE APLICACION > DEFINICIONES",
+      "similarity": 0.638216932232823,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "116",
+      "documentKey": "ley-transporte-terrestre",
+      "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+      "excerpt": "Art. 116.- Las acciones u omisiones contrarias a esta Ley serán sancionadas en los casos, forma y\nmedida que en ella se determine. (20)\nEl Viceministerio de Transporte a través de las instituciones que se mencionan a continuación, y la\nDivisión de Tránsito Terrestre de la Policía Nacional Civil, son los competentes para tramitar el procedimiento\ny recurso que se describe en las siguientes disposiciones. (20)\nLa instrucción de los procedimientos, corresponderá a la Unidad de Procedimientos Legales de Tránsito,\nTrans",
+      "id": "94ffba4b-257c-4bd0-a62b-b689af0a94d1",
+      "label": "[14] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 116",
+      "pageEnd": 23,
+      "pageStart": 23,
+      "sectionTitle": "CAPITULO I > DE LOS SEGUROS Y FIANZAS > CAPITULO II",
+      "similarity": 0.638152009582381,
+      "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
+      "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
+    },
+    {
+      "articleNumber": "115",
+      "documentKey": "ley-transporte-terrestre",
+      "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+      "excerpt": "Art. 115.- Toda persona autorizada a conducir vehículos automotores destinados al transporte colectivo\nde pasajeros o de carga, deberá de otorgar fianza para responder por daños ocasionados a terceros.\nCAPITULO II\nDE LAS INFRACCIONES, PROCEDIMIENTOS, SANCIONES Y RECURSOS. (20)",
+      "id": "683288a0-84bc-407b-a4b2-ebb9094a3f49",
+      "label": "[15] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 115",
+      "pageEnd": 23,
+      "pageStart": 23,
+      "sectionTitle": "DE LOS ASPECTOS COMPLEMENTARIOS > CAPITULO I > DE LOS SEGUROS Y FIANZAS",
+      "similarity": 0.637976117204205,
+      "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
+      "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
+    },
+    {
+      "articleNumber": "3",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 3.- Los preceptos de la Ley de Transporte Terrestre, Tránsito y Seguridad Vial, y los del presente\nReglamento, y las demás disposiciones que la desarrollen serán aplicables en todo el país y obligarán al\nacatamiento de parte de los Titulares y usuarios de las vías y sitios de uso público y aquellos de origen\nprivado que se destinen al uso público.\nDEFINICIONES",
+      "id": "d4a8e668-a28f-407f-8329-41e3b5e9feed",
+      "label": "[16] Reglamento General de Tránsito y Seguridad Vial, Art. 3",
+      "pageEnd": 2,
+      "pageStart": 2,
+      "sectionTitle": "FINALIDAD Y DEFINICIONES DE ESTE REGLAMENTO > FINALIDAD > AMBITO DE APLICACION",
+      "similarity": 0.634652365305575,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "2",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 2.- Este Reglamento tiene por finalidad desarrollar las prevenciones a fin de establecer la aplicación\nde sanciones de orden gubernativo y económico en que incurran los que infrinjan las disposiciones del\npresente Reglamento; estableciendo para vehículos y sus respectivos conductores, así como para peatones,\ntodas las medidas necesarias encaminadas a garantizar la seguridad de personas e intereses, normalizando\nel tránsito, estableciendo el orden de la circulación y precaviendo los peligros que den lugar a des",
+      "id": "5a0a00f2-328c-4c15-a560-a38df7d6e66c",
+      "label": "[17] Reglamento General de Tránsito y Seguridad Vial, Art. 2",
+      "pageEnd": 2,
+      "pageStart": 1,
+      "sectionTitle": "CAPITULO I > FINALIDAD Y DEFINICIONES DE ESTE REGLAMENTO > FINALIDAD",
+      "similarity": 0.629295806233465,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "175",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 175.- En caso de falta cometida por infracciones al presente Reglamento, los conductores de\nvehículos están en la obligación de recibir a los Agentes de Policía o Delegados de Tránsito, una esquela de\ninfracción con la cual deben presentarse dentro de los quince días después de haberla firmado, a las\ncolecturías habilitadas para tal efecto, para pagar la multa que corresponde; si no cumpliere con este requisito\nquedará sujeto a incremento o recargo del 10% mensual por no pagar, lo cual se le cobrará al momento",
+      "id": "f491a349-264d-4e5f-8412-0ca5d786496e",
+      "label": "[18] Reglamento General de Tránsito y Seguridad Vial, Art. 175",
+      "pageEnd": 47,
+      "pageStart": 46,
+      "sectionTitle": null,
+      "similarity": 0.60183234722763,
       "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
       "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
     }
   ],
-  "generatedAt": "2026-07-04T23:09:26.349Z",
+  "generatedAt": "2026-07-04T23:58:22.817Z",
   "generator": "scripts/generate-learning-modules.mjs",
   "moduleId": "09-infracciones-y-consecuencias",
   "originalBrief": {
@@ -210,6 +507,6 @@
     ],
     "visual": "Tabla simple: conducta peligrosa, posible sancion, riesgo humano y decision segura."
   },
-  "retrievalQuery": "Modulo: Infracciones y consecuencias\nProposito: Que la persona entienda que una infraccion no es solo \"pagar una multa\". Muchas infracciones existen porque una conducta puede causar dano real.\nConceptos: - Tipos de infracciones.\n- Sanciones economicas.\n- Retencion, decomiso o suspension cuando aplique.\n- Responsabilidad por danos.\n- Conductas de alto riesgo.\n- Diferencia entre sancion administrativa y consecuencia humana.\nMicro-lecciones: |  ID  |  Titulo  |  Fuente esperada  |  Riesgo que conecta  |\n|  01  |  Que es una infraccion  |  Ley y reglamento  |  Normalizar malas conductas  |\n|  02  |  Multa no es el unico problema  |  Ley  |  Dano a personas  |\n|  03  |  Infracciones que ponen vidas en peligro  |  Ley y reglamento  |  Conduccion temeraria  |\n|  04  |  Que datos deben validarse antes de publicar  |  Fuentes actuales  |  Montos desactualizados  |\nEscenarios: |  ID  |  Situacion  |  Decision segura  |  Consecuencia a explicar  |\n|  01  |  Un conductor se pasa una senal de alto  |  Detenerse completamente  |  Choque lateral  |\n|  02  |  Alguien maneja a alta velocidad en zona urbana  |  Reducir velocidad  |  Atropello y sancion  |\nFuentes esperadas: Ley de Transporte Terrestre, Transito y Seguridad Vial, Reglamento General de Transito y Seguridad Vial",
+  "retrievalQuery": "Modulo: Infracciones y consecuencias\nProposito: Que la persona entienda que una infraccion no es solo \"pagar una multa\". Muchas infracciones existen porque una conducta puede causar dano real.\nFuentes esperadas: Ley de Transporte Terrestre, Transito y Seguridad Vial, Reglamento General de Transito y Seguridad Vial\n\n---\n\nCobertura normativa para Infracciones y consecuencias\n- Tipos de infracciones.\n- Sanciones economicas.\n- Retencion, decomiso o suspension cuando aplique.\n- Responsabilidad por danos.\n- Conductas de alto riesgo.\n- Diferencia entre sancion administrativa y consecuencia humana.\n|  ID  |  Titulo  |  Fuente esperada  |  Riesgo que conecta  |\n|  01  |  Que es una infraccion  |  Ley y reglamento  |  Normalizar malas conductas  |\n|  02  |  Multa no es el unico problema  |  Ley  |  Dano a personas  |\n|  03  |  Infracciones que ponen vidas en peligro  |  Ley y reglamento  |  Conduccion temeraria  |\n|  04  |  Que datos deben validarse antes de publicar  |  Fuentes actuales  |  Montos desactualizados  |\n\n---\n\nAplicacion practica para conductores: Infracciones y consecuencias\n|  ID  |  Situacion  |  Decision segura  |  Consecuencia a explicar  |\n|  01  |  Un conductor se pasa una senal de alto  |  Detenerse completamente  |  Choque lateral  |\n|  02  |  Alguien maneja a alta velocidad en zona urbana  |  Reducir velocidad  |  Atropello y sancion  |\n- Por que una multa existe?\n- Que infracciones pueden terminar en muerte?\n- Cuando debe marcarse una sancion para revision humana?\n\n---\n\nSenales, obligaciones, prohibiciones, sanciones, excepciones y decisiones seguras relacionadas con Infracciones y consecuencias\nTabla simple: conducta peligrosa, posible sancion, riesgo humano y decision segura.\nLey de Transporte Terrestre, Transito y Seguridad Vial, Reglamento General de Transito y Seguridad Vial",
   "title": "Infracciones y consecuencias"
 }

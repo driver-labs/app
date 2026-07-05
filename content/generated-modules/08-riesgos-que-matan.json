@@ -1,93 +1,388 @@
 {
-  "coreIdea": "Algunas conductas al volante no son simples errores, sino decisiones que pueden tener consecuencias fatales. Es crucial entender los riesgos asociados con el alcohol, la velocidad, la distracción y las condiciones climáticas.",
+  "coreIdea": "La conducción segura implica reconocer y evitar riesgos que pueden resultar en accidentes fatales. Comprender la normativa y las consecuencias de nuestras acciones al volante es esencial para proteger nuestras vidas y las de los demás.",
   "headline": "Riesgos que matan",
-  "intro": "La seguridad vial es fundamental para proteger la vida de todos los usuarios de la carretera. Conocer y respetar las normas de tránsito puede marcar la diferencia entre la vida y la muerte.",
+  "intro": "La seguridad vial es un tema crítico que afecta a todos los usuarios de la vía. En este módulo, exploraremos los riesgos más comunes que pueden resultar en accidentes fatales, como el consumo de alcohol, el exceso de velocidad y la distracción por el uso del celular. Aprenderemos cómo estas conductas no son simples errores, sino decisiones que pueden tener consecuencias devastadoras. A través de ejemplos y situaciones reales, nos prepararemos para tomar decisiones más seguras al volante y proteger nuestras vidas y las de los demás.",
+  "applicationCases": [
+    {
+      "title": "Uso del celular mientras conduces",
+      "situation": "Recibes un mensaje de texto mientras manejas.",
+      "wrongMove": "Decides leer y responder el mensaje.",
+      "safeMove": "Ignoras el mensaje y te detienes en un lugar seguro para responder.",
+      "why": "Responder mensajes mientras conduces puede distraerte y causar un accidente.",
+      "citationNumbers": [12, 14]
+    },
+    {
+      "title": "Conducir después de beber",
+      "situation": "Sales de una fiesta y has consumido alcohol.",
+      "wrongMove": "Decides conducir a casa pensando que estás bien.",
+      "safeMove": "Llamas a un taxi o pides a un amigo que te lleve.",
+      "why": "Conducir bajo los efectos del alcohol puede resultar en un accidente fatal.",
+      "citationNumbers": [5, 14]
+    }
+  ],
+  "checklist": [
+    {
+      "label": "Revisa tu estado",
+      "action": "Asegúrate de no estar bajo los efectos del alcohol o drogas.",
+      "citationNumbers": [5, 14]
+    },
+    {
+      "label": "Verifica tu velocidad",
+      "action": "Respeta siempre los límites de velocidad establecidos.",
+      "citationNumbers": [6, 10]
+    },
+    {
+      "label": "Mantén la distancia",
+      "action": "Asegúrate de mantener una distancia segura con el vehículo de adelante.",
+      "citationNumbers": [2, 6]
+    },
+    {
+      "label": "Desactiva el celular",
+      "action": "Evita usar el celular mientras conduces.",
+      "citationNumbers": [12, 14]
+    },
+    {
+      "label": "Ajusta tus luces",
+      "action": "Usa luces bajas al conducir de noche o en condiciones de poca visibilidad.",
+      "citationNumbers": [8, 10]
+    },
+    {
+      "label": "Toma descansos",
+      "action": "Detente a descansar si sientes fatiga al conducir.",
+      "citationNumbers": [5, 10]
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Conducir bajo los efectos del alcohol.",
+      "consequence": "Accidentes graves y sanciones legales.",
+      "betterHabit": "Usar transporte alternativo si has bebido.",
+      "citationNumbers": [5, 14]
+    },
+    {
+      "mistake": "No respetar los límites de velocidad.",
+      "consequence": "Mayor riesgo de accidentes y multas.",
+      "betterHabit": "Ajustar la velocidad según las condiciones de la vía.",
+      "citationNumbers": [6, 10]
+    },
+    {
+      "mistake": "Usar el celular mientras se conduce.",
+      "consequence": "Distracción que puede causar accidentes.",
+      "betterHabit": "Desactivar notificaciones o usar manos libres.",
+      "citationNumbers": [12, 14]
+    },
+    {
+      "mistake": "No mantener distancia de seguridad.",
+      "consequence": "Colisiones por falta de tiempo para frenar.",
+      "betterHabit": "Mantener al menos dos segundos de distancia.",
+      "citationNumbers": [2, 6]
+    }
+  ],
+  "estimatedMinutes": 35,
+  "learningObjectives": [
+    "Identificar los principales riesgos viales que pueden causar accidentes fatales.",
+    "Comprender la normativa relacionada con la conducción segura.",
+    "Desarrollar habilidades para tomar decisiones seguras al volante.",
+    "Reconocer las consecuencias legales de las infracciones de tránsito.",
+    "Promover hábitos de conducción responsables y conscientes."
+  ],
+  "legalFoundation": [
+    {
+      "title": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+      "explanation": "Esta ley regula las normas de circulación y transporte en El Salvador, estableciendo derechos y obligaciones para todos los usuarios de la vía. Su objetivo es garantizar la seguridad vial y prevenir accidentes, promoviendo un comportamiento responsable entre conductores y peatones.",
+      "citationNumbers": [3]
+    },
+    {
+      "title": "Reglamento General de Tránsito y Seguridad Vial",
+      "explanation": "El reglamento complementa la ley, especificando las reglas que deben seguir los conductores y las sanciones por infracciones. Incluye disposiciones sobre velocidad, uso de dispositivos de seguridad y comportamiento en la vía, esenciales para la seguridad de todos.",
+      "citationNumbers": [2]
+    },
+    {
+      "title": "Infracciones y Sanciones",
+      "explanation": "Las infracciones de tránsito se clasifican en leves, graves y muy graves, con sanciones que varían según la gravedad de la falta. Esto incluye desde multas económicas hasta la suspensión de la licencia de conducir, dependiendo de la infracción cometida.",
+      "citationNumbers": [9, 11]
+    },
+    {
+      "title": "Señales de Tránsito",
+      "explanation": "Las señales de tránsito son dispositivos que regulan y controlan el flujo vehicular. Su correcta interpretación y obediencia son cruciales para prevenir accidentes y garantizar la seguridad en las vías.",
+      "citationNumbers": [1, 4]
+    }
+  ],
   "lessons": [
     {
       "title": "Alcohol y volante no se mezclan",
-      "explanation": "Conducir bajo los efectos del alcohol aumenta significativamente el riesgo de accidentes. La ley prohíbe esta práctica y establece sanciones severas.",
-      "streetDecision": "No conduzcas si has consumido alcohol.",
-      "risk": "Muerte, sanción grave.",
-      "citationNumbers": [1, 8]
+      "explanation": "Conducir bajo los efectos del alcohol disminuye la capacidad de reacción y juicio del conductor. Esto incrementa el riesgo de accidentes graves, ya que el conductor puede no ser capaz de reaccionar a tiempo ante situaciones peligrosas.",
+      "normativeDetail": "La ley prohíbe conducir con un nivel de alcohol en sangre superior al permitido, estableciendo sanciones severas para quienes infrinjan esta norma. Las consecuencias pueden incluir multas, suspensión de la licencia y responsabilidad penal en caso de accidentes.",
+      "everydayExample": "Imagina salir de una fiesta y decidir conducir a casa. Aunque pienses que puedes manejar, el alcohol afecta tu percepción y coordinación. Un pequeño error puede resultar en un accidente fatal.",
+      "streetDecision": "Nunca conduzcas si has consumido alcohol.",
+      "risk": "Accidentes fatales por pérdida de control.",
+      "watchFor": "Síntomas de embriaguez, como mareos o confusión.",
+      "citationNumbers": [5, 14]
     },
     {
       "title": "La velocidad quita tiempo para frenar",
-      "explanation": "Conducir a alta velocidad reduce el tiempo de reacción ante imprevistos, aumentando el riesgo de atropellos o choques.",
-      "streetDecision": "Respeta los límites de velocidad establecidos.",
-      "risk": "Atropello o choque.",
-      "citationNumbers": [1, 3]
+      "explanation": "Conducir a alta velocidad reduce el tiempo disponible para reaccionar ante imprevistos. Esto puede resultar en accidentes, ya que el conductor no tiene suficiente tiempo para frenar o evitar un obstáculo.",
+      "normativeDetail": "La normativa establece límites de velocidad que deben ser respetados en todas las vías. Exceder estos límites puede resultar en sanciones severas y aumenta el riesgo de accidentes.",
+      "everydayExample": "Si conduces a 100 km/h en una zona de 60 km/h, un peatón que cruce la calle puede ser fatalmente atropellado porque no tuviste tiempo de frenar.",
+      "streetDecision": "Respeta siempre los límites de velocidad establecidos.",
+      "risk": "Mayor probabilidad de colisiones y atropellos.",
+      "watchFor": "Señales de límite de velocidad y condiciones de la vía.",
+      "citationNumbers": [6, 10]
     },
     {
       "title": "El celular te roba la mirada",
-      "explanation": "Usar el celular mientras conduces distrae tu atención y puede llevar a accidentes fatales.",
-      "streetDecision": "No uses el celular mientras manejas.",
-      "risk": "Distracción que puede causar accidentes.",
-      "citationNumbers": [1, 8]
+      "explanation": "Usar el celular mientras conduces distrae tu atención y reduce tu capacidad de reacción. Esta distracción puede ser fatal, ya que te impide observar el entorno y reaccionar ante peligros.",
+      "normativeDetail": "La ley prohíbe el uso de dispositivos móviles mientras se conduce, estableciendo sanciones para quienes no cumplan con esta norma. La distracción es una de las principales causas de accidentes de tráfico.",
+      "everydayExample": "Recibir un mensaje de texto mientras conduces puede hacer que pierdas la concentración. En solo unos segundos, puedes perder el control del vehículo y causar un accidente.",
+      "streetDecision": "No uses el celular mientras conduces; espera a detenerte.",
+      "risk": "Accidentes por falta de atención.",
+      "watchFor": "Mensajes o llamadas que puedan esperar.",
+      "citationNumbers": [12, 14]
     },
     {
       "title": "Lluvia: frena antes",
-      "explanation": "Las condiciones de lluvia hacen que las carreteras sean resbaladizas, aumentando el riesgo de derrapes.",
-      "streetDecision": "Reduce la velocidad y aumenta la distancia de frenado en condiciones de lluvia.",
-      "risk": "Derrape y pérdida de control del vehículo.",
-      "citationNumbers": [1, 3]
+      "explanation": "Conducir en condiciones de lluvia requiere mayor precaución. La carretera se vuelve resbaladiza, lo que aumenta el riesgo de derrapes y accidentes si no se reduce la velocidad adecuadamente.",
+      "normativeDetail": "La normativa exige a los conductores moderar la velocidad y aumentar la distancia de seguridad en condiciones climáticas adversas, como la lluvia, para evitar accidentes.",
+      "everydayExample": "Si llueve y mantienes la misma velocidad que en un día soleado, podrías perder el control al frenar. Es crucial adaptarse a las condiciones del clima.",
+      "streetDecision": "Reduce la velocidad y aumenta la distancia de seguridad en lluvia.",
+      "risk": "Derrapes y colisiones por falta de control.",
+      "watchFor": "Condiciones de la carretera y visibilidad reducida.",
+      "citationNumbers": [2, 4]
     },
     {
       "title": "Noche: ver menos exige ir más despacio",
-      "explanation": "La visibilidad es reducida durante la noche, lo que requiere mayor precaución al conducir.",
-      "streetDecision": "Conduce a una velocidad moderada durante la noche.",
-      "risk": "Reacción tardía ante obstáculos.",
-      "citationNumbers": [1, 3]
+      "explanation": "Conducir de noche limita la visibilidad y aumenta el riesgo de accidentes. Es fundamental ajustar la velocidad para tener tiempo suficiente de reacción ante cualquier imprevisto.",
+      "normativeDetail": "La ley establece que los conductores deben utilizar luces adecuadas y moderar la velocidad al conducir de noche, para garantizar su seguridad y la de los demás.",
+      "everydayExample": "Al conducir a alta velocidad de noche, puedes no ver un obstáculo a tiempo. Esto puede resultar en un accidente grave si no reduces la velocidad.",
+      "streetDecision": "Conduce a una velocidad moderada y usa luces bajas al cruzarte con otros vehículos.",
+      "risk": "Accidentes por visibilidad reducida.",
+      "watchFor": "Obstáculos en la carretera y otros vehículos.",
+      "citationNumbers": [8, 10]
+    },
+    {
+      "title": "No guardar distancia",
+      "explanation": "Mantener una distancia adecuada entre vehículos es crucial para evitar colisiones. Si el vehículo de adelante frena repentinamente, no tendrás tiempo suficiente para reaccionar si estás demasiado cerca.",
+      "normativeDetail": "La normativa exige a los conductores mantener una distancia de seguridad que permita frenar sin colisionar. No cumplir con esta norma puede resultar en accidentes y sanciones.",
+      "everydayExample": "Si sigues a otro vehículo muy de cerca, podrías chocar si este frena de repente. Mantener distancia te da tiempo para reaccionar.",
+      "streetDecision": "Mantén al menos dos segundos de distancia con el vehículo de adelante.",
+      "risk": "Colisiones por falta de tiempo para frenar.",
+      "watchFor": "Comportamiento del vehículo de adelante.",
+      "citationNumbers": [2, 6]
+    },
+    {
+      "title": "Cansancio al volante",
+      "explanation": "Conducir cansado afecta tu concentración y tiempo de reacción. La fatiga puede ser tan peligrosa como conducir bajo los efectos del alcohol, aumentando el riesgo de accidentes.",
+      "normativeDetail": "La ley no solo prohíbe conducir bajo la influencia de sustancias, sino que también se espera que los conductores estén en condiciones óptimas para manejar. La fatiga puede ser considerada una infracción si resulta en un accidente.",
+      "everydayExample": "Si has estado manejando por muchas horas sin descansar, tu capacidad para reaccionar se ve comprometida. Esto puede llevar a un accidente si no tomas un descanso.",
+      "streetDecision": "Detente y descansa si sientes fatiga al conducir.",
+      "risk": "Accidentes por falta de atención y reacción lenta.",
+      "watchFor": "Señales de cansancio, como dificultad para mantener los ojos abiertos.",
+      "citationNumbers": [5, 10]
     }
   ],
   "needsHumanReview": [],
   "quiz": [
     {
-      "question": "¿Cuál es una consecuencia de conducir bajo los efectos del alcohol?",
+      "question": "¿Qué debes hacer si has consumido alcohol?",
       "options": [
-        "Aumento de la velocidad",
-        "Sanciones legales",
-        "Mayor concentración"
+        "Conducir con precaución",
+        "Llamar a un taxi",
+        "Conducir rápido para llegar a casa"
       ],
-      "answer": "Sanciones legales",
-      "explanation": "Conducir bajo los efectos del alcohol es ilegal y puede resultar en severas sanciones y accidentes.",
-      "citationNumbers": [1, 8]
+      "answer": "Llamar a un taxi",
+      "explanation": "Conducir bajo los efectos del alcohol es peligroso y puede resultar en un accidente.",
+      "citationNumbers": [5, 14]
     },
     {
-      "question": "¿Qué debes hacer en condiciones de lluvia?",
-      "options": ["Aumentar la velocidad", "Frenar antes", "Usar luces altas"],
-      "answer": "Frenar antes",
-      "explanation": "Es crucial reducir la velocidad y aumentar la distancia de frenado en condiciones de lluvia para evitar derrapes.",
-      "citationNumbers": [1, 3]
+      "question": "¿Cuál es la distancia segura que debes mantener con el vehículo de adelante?",
+      "options": ["1 segundo", "2 segundos", "3 segundos"],
+      "answer": "2 segundos",
+      "explanation": "Mantener al menos dos segundos de distancia te da tiempo para reaccionar ante imprevistos.",
+      "citationNumbers": [2, 6]
+    },
+    {
+      "question": "¿Qué debes hacer si llueve?",
+      "options": [
+        "Aumentar la velocidad",
+        "Disminuir la velocidad",
+        "Conducir como siempre"
+      ],
+      "answer": "Disminuir la velocidad",
+      "explanation": "La lluvia hace que la carretera sea resbaladiza, por lo que es importante reducir la velocidad.",
+      "citationNumbers": [4, 10]
+    },
+    {
+      "question": "¿Es seguro usar el celular mientras conduces?",
+      "options": ["Sí", "No", "Solo si es urgente"],
+      "answer": "No",
+      "explanation": "Usar el celular mientras conduces distrae tu atención y aumenta el riesgo de accidentes.",
+      "citationNumbers": [12, 14]
+    },
+    {
+      "question": "¿Qué debes hacer si te sientes cansado al volante?",
+      "options": [
+        "Seguir conduciendo",
+        "Tomar un descanso",
+        "Aumentar la música"
+      ],
+      "answer": "Tomar un descanso",
+      "explanation": "La fatiga afecta tu capacidad de reacción y concentración, por lo que es mejor descansar.",
+      "citationNumbers": [5, 10]
     }
   ],
   "reflection": [
-    "¿Por qué es importante no usar el celular mientras conduces?",
-    "¿Qué medidas puedes tomar para conducir de manera más segura en la noche?",
-    "¿Cómo afecta el alcohol tu capacidad para conducir?",
-    "¿Qué cambios harías en tu comportamiento al volante después de aprender sobre estos riesgos?"
+    "¿Qué cambios harás en tu comportamiento al conducir?",
+    "¿Cómo puedes ayudar a otros a ser conductores más seguros?",
+    "¿Qué situaciones te han hecho sentir inseguro al volante?",
+    "¿Cómo puedes aplicar lo aprendido en tu vida diaria?"
   ],
   "scenario": {
-    "title": "Uso del celular mientras manejas",
-    "situation": "Recibes un mensaje mientras conduces.",
-    "unsafeChoice": "Decides leer y responder el mensaje mientras sigues manejando.",
+    "title": "Mensaje mientras conduces",
+    "situation": "Recibes un mensaje de texto mientras manejas.",
+    "unsafeChoice": "Decides leer el mensaje mientras conduces.",
     "safeDecision": "No uses el celular hasta que te detengas en un lugar seguro.",
-    "feedback": "Usar el celular mientras conduces puede llevar a un accidente en segundos. Mantén tu atención en la carretera.",
-    "citationNumbers": [1, 8]
+    "feedback": "Usar el celular mientras conduces es una de las principales causas de accidentes. Siempre es mejor esperar a estar detenido para responder.",
+    "citationNumbers": [12, 14]
   },
-  "whyItMatters": "Cada año, miles de personas pierden la vida en accidentes de tránsito. Conducir de manera responsable no solo protege tu vida, sino también la de los demás.",
+  "vocabulary": [
+    {
+      "term": "Alcohol",
+      "meaning": "Sustancia que puede afectar la capacidad de conducción.",
+      "citationNumbers": [5]
+    },
+    {
+      "term": "Velocidad",
+      "meaning": "Rapidez a la que se desplaza un vehículo.",
+      "citationNumbers": [6]
+    },
+    {
+      "term": "Distracción",
+      "meaning": "Cualquier cosa que desvíe la atención del conductor.",
+      "citationNumbers": [12]
+    },
+    {
+      "term": "Distancia de seguridad",
+      "meaning": "Espacio que se debe mantener entre vehículos para evitar colisiones.",
+      "citationNumbers": [2]
+    },
+    {
+      "term": "Fatiga",
+      "meaning": "Estado de cansancio que afecta la capacidad de reacción.",
+      "citationNumbers": [5]
+    }
+  ],
+  "whyItMatters": "La seguridad vial es fundamental para la protección de todos los usuarios de la vía. Cada año, miles de personas pierden la vida en accidentes de tráfico, muchos de los cuales son evitables. Conducir bajo la influencia del alcohol, a alta velocidad o distraído por el celular son comportamientos que incrementan significativamente el riesgo de accidentes. Al entender y aplicar las normas de tránsito, no solo cumplimos con la ley, sino que también contribuimos a crear un entorno más seguro para todos. La vida de un ser querido puede depender de una decisión consciente al volante.",
   "audience": ["primera-licencia", "refuerzo"],
   "citations": [
+    {
+      "articleNumber": null,
+      "documentKey": "manual-senales-centroamericano",
+      "documentName": "Manual Centroamericano de Dispositivos Uniformes para el Control del Transito",
+      "excerpt": "MANUAL CENTROAMERICANO DE\nDISPOSITIVOS UNIFORMES PARA EL\nCONTROL DEL TRÁNSITO\nIng. Junior Araya Villalobos\nSeñalización Temporal y Dispositivos de Seguridad\n\nAntecedentes del Manual.\n1958 1963 1979 1998 2000 2014\n\nContenido del Manual.\n• Disposiciones Generales.\n• Señales Verticales.\n•Señalización Horizontal y Demarcación Horizontal.\n• Demarcación de Islas en el Pavimento.\n• Semáforos.\n• Dispositivos de Seguridad y Control Temporal del Tránsito para la Ejecución de Trabajos en las Vías.\n• Control de Tránsito en Zon",
+      "id": "6128a54b-9263-4227-8c8e-ef28b8c437c2",
+      "label": "[1] Manual Centroamericano de Dispositivos Uniformes para el Control del Transito, unidad normativa",
+      "pageEnd": 110,
+      "pageStart": 1,
+      "sectionTitle": null,
+      "similarity": 0.665590906997086,
+      "sourcePath": "assets\\Manual_de_Senales.pdf",
+      "sourceUrl": "assets/Manual_de_Senales.pdf"
+    },
+    {
+      "articleNumber": "116",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 116.- Dentro de la circulación vehícular deberán tenerse presente y cumplir con exactitud las reglas\nsiguientes:\n1. No deberá conducirse describiendo curvas o atravesar el vehículo.\n2. No podrá sobrepasarse a otro vehículo, sin antes haberlo indicado con la luz direccional, o cuando\nun tercero viene en dirección contraria o cuando el vehículo delantero se acercare a algún trecho\nangosto, curva, puente, etc.\n3. Debe dejarse el vehículo estacionado a más de 10 metros de las esquinas de las intersecciones\nurbanas",
+      "id": "61763ea9-93d7-475e-9761-56a5d1521838",
+      "label": "[2] Reglamento General de Tránsito y Seguridad Vial, Art. 116",
+      "pageEnd": 30,
+      "pageStart": 28,
+      "sectionTitle": null,
+      "similarity": 0.658564054877031,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "3",
+      "documentKey": "ley-transporte-terrestre",
+      "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+      "excerpt": "Art. 3.- Para tal efecto esta Ley regulará:\n1) Las normas del transporte y de la circulación de los vehículos que presten el servicio de Transporte;\nasí como las que por razones de Seguridad Vial han de regir para la circulación de peatones y\nsemovientes por las vías terrestres; estableciéndose para tal efecto los derechos y obligaciones de\nlos usuarios.\n2) La autorización y el establecimiento de rutas, frecuencias y fluidez de la circulación vehicular del\nservicio colectivo de pasajeros; así como la concesión de l",
+      "id": "d759f78e-e3ec-4920-86aa-e97c1888d624",
+      "label": "[3] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 3",
+      "pageEnd": 2,
+      "pageStart": 2,
+      "sectionTitle": "DISPOSICIONES PRELIMINARES > CAPITULO UNICO > OBJETO DE LA LEY",
+      "similarity": 0.649803737279639,
+      "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
+      "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
+    },
+    {
+      "articleNumber": "91",
+      "documentKey": "ley-transporte-terrestre",
+      "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+      "excerpt": "Art. 91.- Todo conductor está obligado a obedecer, respetar y no dañar la señalización vial y otros\ndispositivos para el control del tránsito, ya sea que establezca una prevención, restricción o prohibición y a\nadaptar su comportamiento al mensaje del resto de señales informativas que se encuentren en las vías.",
+      "id": "c0159412-0e70-4770-9cab-7058dea141cb",
+      "label": "[4] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 91",
+      "pageEnd": 20,
+      "pageStart": 20,
+      "sectionTitle": "DE LA SEGURIDAD VIAL > CAPITULO II > DISPOSITIVOS PARA EL CONTROL DEL TRANSITO",
+      "similarity": 0.641309948911217,
+      "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
+      "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
+    },
     {
       "articleNumber": "172",
       "documentKey": "reglamento-general-transito",
       "documentName": "Reglamento General de Tránsito y Seguridad Vial",
       "excerpt": "Art. 172.- Se considera conductor temerario a cualquier persona que conduzca un vehículo en\ncualesquiera de las condiciones siguientes:\n1. Estado de ebriedad que exceda los límites de contenido de alcohol en la sangre establecidos en el\nartículo anterior.\n2. Bajo los efectos de drogas o sustancias enervantes ilegales, de acuerdo con las definiciones que al\nrespecto haya establecido el Ministerio de Salud;\n3. El conductor que irrespete la señal de alto de la luz roja de un semáforo;\n4. En carreteras de dos carriles ",
       "id": "39d1ec47-ba3f-4099-ae02-f493c5308149",
-      "label": "[1] Reglamento General de Tránsito y Seguridad Vial, Art. 172",
+      "label": "[5] Reglamento General de Tránsito y Seguridad Vial, Art. 172",
       "pageEnd": 45,
       "pageStart": 45,
       "sectionTitle": null,
-      "similarity": 0.659989736212874,
+      "similarity": 0.638832158679753,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "148",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 148.- Ninguna persona podrá conducir un vehículo a una velocidad mayor a la que sea razonable y\nprudente, bajo las condiciones existentes, debiendo considerar los riesgos y peligros presentes y posibles.\nAsimismo, no deberá conducirse un vehículo a una velocidad tan baja que impida el desplazamiento normal y\nadecuado de la circulación.\nCAPITULO VII\nDE LAS SEÑALES Y SIGNOS DE LOS AGENTES",
+      "id": "dac9e5c9-ba08-476b-8c39-0ba76a76f12a",
+      "label": "[6] Reglamento General de Tránsito y Seguridad Vial, Art. 148",
+      "pageEnd": 38,
+      "pageStart": 38,
+      "sectionTitle": "CAPITULO VI > DE LA DETERMINACION DE VELOCIDAD",
+      "similarity": 0.636530657196148,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "4",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "35. Opacímetro: dispositivo para medir el grado de opacidad de los gases, humos y partículas del\nescape de un vehículo.\n36. Pasajero: toda persona que aparte del conductor, ocupa un lugar dentro del vehículo.\n37. Permiso Temporal de Aprendizaje: documento que se expide, en forma temporal, para aprender a\nconducir vehículos automotores y que queda supeditado al acatamiento de las disposiciones del\npresente Reglamento.\n38. Peso Bruto del Vehículo: peso total del vehículo que resulta al sumar su peso de acuerdo con la",
+      "id": "86651e5c-2767-4ccd-996b-28039f6d3c5a",
+      "label": "[7] Reglamento General de Tránsito y Seguridad Vial, Art. 4",
+      "pageEnd": 5,
+      "pageStart": 2,
+      "sectionTitle": "FINALIDAD > AMBITO DE APLICACION > DEFINICIONES",
+      "similarity": 0.636435392161035,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "149",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 149.- Las señales y signos de los Agentes de Tránsito indicarán lo siguiente:\n1. Cuando el Agente extienda los dos brazos, indica \"PARO GENERAL\", en este caso todos los\nvehículos harán alto, y mientras tarda la señal, los peatones podrán atravesar libremente por las\nzonas peatonales o por cualquiera de las boca-calles del crucero, pero nunca en sentido diagonal.\n2. Los vehículos tanto la señal de \"ALTO\" como a la de \"PARO GENERAL\" deberán detener su\nmarcha antes de cruzar las franjas de la zona de seguridad se",
+      "id": "8f1db2fa-5b46-4622-b64c-ce8cdf124f71",
+      "label": "[8] Reglamento General de Tránsito y Seguridad Vial, Art. 149",
+      "pageEnd": 39,
+      "pageStart": 38,
+      "sectionTitle": "CAPITULO VI > DE LA DETERMINACION DE VELOCIDAD > CAPITULO VII",
+      "similarity": 0.629578720324211,
       "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
       "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
     },
@@ -97,27 +392,13 @@
       "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
       "excerpt": "Art. 117.- Las infracciones de tránsito y seguridad vial se clasifican en Leves, graves y muy graves. (20)\nPrevio a la adquisición de cualquier vehículo automotor, el interesado deberá cerciorarse en el Registro\nPúblico de Vehículos, que no exista pendiente el pago de multas que se hubieren impuesto respecto del\nmismo, al propietario. (20)\nEn todo caso, la tarjeta de circulación del vehículo de que se trate, sólo podrá renovarse, previo pago de\nla multa. (20)\nCUADRO DE MULTAS DE TRANSITO POR INFRACCIONES LEVES, GRA",
       "id": "0725c88e-ea49-42ba-a7dd-52eedf8a3bbd",
-      "label": "[2] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 117",
+      "label": "[9] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 117",
       "pageEnd": 30,
       "pageStart": 23,
       "sectionTitle": "CAPITULO I > DE LOS SEGUROS Y FIANZAS > CAPITULO II",
-      "similarity": 0.649391326588196,
+      "similarity": 0.621877512618788,
       "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
       "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
-    },
-    {
-      "articleNumber": "116",
-      "documentKey": "reglamento-general-transito",
-      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
-      "excerpt": "Art. 116.- Dentro de la circulación vehícular deberán tenerse presente y cumplir con exactitud las reglas\nsiguientes:\n1. No deberá conducirse describiendo curvas o atravesar el vehículo.\n2. No podrá sobrepasarse a otro vehículo, sin antes haberlo indicado con la luz direccional, o cuando\nun tercero viene en dirección contraria o cuando el vehículo delantero se acercare a algún trecho\nangosto, curva, puente, etc.\n3. Debe dejarse el vehículo estacionado a más de 10 metros de las esquinas de las intersecciones\nurbanas",
-      "id": "61763ea9-93d7-475e-9761-56a5d1521838",
-      "label": "[3] Reglamento General de Tránsito y Seguridad Vial, Art. 116",
-      "pageEnd": 30,
-      "pageStart": 28,
-      "sectionTitle": null,
-      "similarity": 0.647528924729879,
-      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
-      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
     },
     {
       "articleNumber": "255",
@@ -125,25 +406,11 @@
       "documentName": "Reglamento General de Tránsito y Seguridad Vial",
       "excerpt": "68 No respetar derecho de vía al salir de un\nestacionamiento. ¢ 300.00\n69 No disminuir la velocidad en zonas restringidas tales\ncomo: Colegios, escuelas, iglesias, hospitales, centros\ndeportivos, mercados, etc. ¢ 300.00\n70 Sobrepasar a otro vehículo en boca-calle. ¢ 300.00\n71 Colocarse en carril que no le corresponda en boca-calle,\npara iniciar la marcha. ¢ 300.00\n72 No atender la indicación de parada del agente de la\nPolicía Nacional Civil, o Delegado de Tránsito, con la\nseñal de alto en el día y por la noche con ",
       "id": "8f1ace5f-c303-461e-8850-93f95fb1ab81",
-      "label": "[4] Reglamento General de Tránsito y Seguridad Vial, Art. 255",
+      "label": "[10] Reglamento General de Tránsito y Seguridad Vial, Art. 255",
       "pageEnd": 67,
       "pageStart": 61,
       "sectionTitle": "TITULO X > DE LAS INFRACCIONES, MULTAS Y SUSPENSIONES > DE LAS MULTAS E INFRACCIONES",
-      "similarity": 0.646713643913174,
-      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
-      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
-    },
-    {
-      "articleNumber": "255",
-      "documentKey": "reglamento-general-transito",
-      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
-      "excerpt": "Art. 255.- Las Multas e infracciones se clasificarán en FALTAS LEVES, GRAVES Y MUY GRAVES,\naplicándose sanciones de índole diferente en cada caso; las cuales se detallan a continuación, así:\nMULTAS POR FALTAS\nLEVES, GRAVES Y MUY GRAVES\nCÓDIGO DESCRIPCIÓN\nVALOR\nCOLONES\nLEVES\n1 Pitar innecesariamente dentro de la ciudad ¢ 100.00\n2 Obstaculizar el tránsito en general ¢ 100.00\n3 Retroceder en vías de mucho tránsito ¢ 100.00\n4 Obstaculizar el paso en entierros, desfiles,\neventos deportivos, en las vías públicas ¢ 100.00",
-      "id": "1aeb6728-b557-4224-901f-bfc0a569b52b",
-      "label": "[5] Reglamento General de Tránsito y Seguridad Vial, Art. 255",
-      "pageEnd": 67,
-      "pageStart": 61,
-      "sectionTitle": "TITULO X > DE LAS INFRACCIONES, MULTAS Y SUSPENSIONES > DE LAS MULTAS E INFRACCIONES",
-      "similarity": 0.632853638578288,
+      "similarity": 0.617087843704724,
       "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
       "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
     },
@@ -153,13 +420,41 @@
       "documentName": "Decreto Legislativo No. 185",
       "excerpt": "\"Art. 117.- Las infracciones de tránsito y seguridad vial se clasifican en leves, graves y muy\ngraves.\nPrevio a la adquisición de cualquier vehículo automotor, el interesado deberá cerciorarse en el\nregistro público de vehículos, que no exista pendiente el pago de multas que se hubieren impuesto\nrespecto del mismo, al propietario o legítimo tenedor.\nEn todo caso, la tarjeta de circulación del vehículo de que se trate sólo podrá renovarse, previo\npago de la multa.\n\nLas multas por infracciones de tránsito, transporte",
       "id": "c123a45c-b893-4c70-aab5-a4601e31f37c",
-      "label": "[6] Decreto Legislativo No. 185, Art. 117",
+      "label": "[11] Decreto Legislativo No. 185, Art. 117",
       "pageEnd": 9,
       "pageStart": 3,
       "sectionTitle": null,
-      "similarity": 0.631935980295344,
+      "similarity": 0.615827185359111,
       "sourcePath": "assets\\DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf",
       "sourceUrl": "assets/DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf"
+    },
+    {
+      "articleNumber": "177",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 177.- A todo conductor de vehículos que huyere del lugar del accidente, se aplicará la sanción\nrespectiva de conformidad con este Reglamento, sin perjuicio de lo que establece la Ley de Procedimientos\nEspeciales sobre Accidentes de Tránsito.\nSi el motorista no huyere, no presenta muestras de haber ingerido bebidas embriagantes o\nestupefacientes y se presentare voluntariamente a dar aviso de lo ocurrido a la Policía Nacional Civil o a la\nautoridad más inmediata, y auxiliare a las víctimas conduciéndolas al hosp",
+      "id": "4080f052-22bd-4703-8930-f54924cf96be",
+      "label": "[12] Reglamento General de Tránsito y Seguridad Vial, Art. 177",
+      "pageEnd": 47,
+      "pageStart": 47,
+      "sectionTitle": "CAPITULO IV > DE LOS ACCIDENTES",
+      "similarity": 0.614582106983704,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "115",
+      "documentKey": "ley-transporte-terrestre",
+      "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+      "excerpt": "Art. 115.- Toda persona autorizada a conducir vehículos automotores destinados al transporte colectivo\nde pasajeros o de carga, deberá de otorgar fianza para responder por daños ocasionados a terceros.\nCAPITULO II\nDE LAS INFRACCIONES, PROCEDIMIENTOS, SANCIONES Y RECURSOS. (20)",
+      "id": "683288a0-84bc-407b-a4b2-ebb9094a3f49",
+      "label": "[13] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 115",
+      "pageEnd": 23,
+      "pageStart": 23,
+      "sectionTitle": "DE LOS ASPECTOS COMPLEMENTARIOS > CAPITULO I > DE LOS SEGUROS Y FIANZAS",
+      "similarity": 0.611539878686983,
+      "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
+      "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
     },
     {
       "articleNumber": "117",
@@ -167,41 +462,27 @@
       "documentName": "Decreto Legislativo No. 185",
       "excerpt": "puedan afectar la visibilidad de los demás conductores y en caso de tener los\nde fábrica, utilizarlos en la vía pública.\n104 Conducir con el motor apagado o en neutro. $150\n105 No respetar la señal vial de alto o de ceder el paso. $150\n106 No respetar la luz roja del semáforo. $150\n107 Sobrepasar un vehículo cuando otro venga en dirección opuesta y dicha $150\nmaniobra cause peligro.\n108 Conducir vehículos con sistema de frenos en mal estado. $150\n109 Utilizar la vía pública para competencias automovilísticas sin au",
       "id": "b4a169bf-852c-423e-a61d-497b82cf6f88",
-      "label": "[7] Decreto Legislativo No. 185, Art. 117",
+      "label": "[14] Decreto Legislativo No. 185, Art. 117",
       "pageEnd": 9,
       "pageStart": 3,
       "sectionTitle": null,
-      "similarity": 0.629459593094397,
+      "similarity": 0.609477909137259,
       "sourcePath": "assets\\DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf",
       "sourceUrl": "assets/DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf"
     },
     {
-      "articleNumber": "170",
+      "articleNumber": "255",
       "documentKey": "reglamento-general-transito",
       "documentName": "Reglamento General de Tránsito y Seguridad Vial",
-      "excerpt": "Art. 170.- Se prohíbe terminantemente a los conductores de vehículos ingerir bebidas embriagantes u\notros tóxicos enervantes mientras se encuentren manejando. El que contraviniere esta disposición será\ncastigado con las penas impuestas por el presente Reglamento.\nLa autoridad de tránsito que requiera a un conductor sospechoso de conducir bajo los efectos de licor o\ndrogas, deberá tener una justificación razonable para suponer que la persona estaba conduciendo el vehículo\nautomotor en ese estado.\nEl conductor tendrá",
-      "id": "d01316e2-821b-43ca-9dc9-33431f2a6d7a",
-      "label": "[8] Reglamento General de Tránsito y Seguridad Vial, Art. 170",
-      "pageEnd": 45,
-      "pageStart": 44,
-      "sectionTitle": "CAPITULO III > DE LAS PROHIBICIONES Y DEBERES PARA LOS CONDUCTORES DE VEHICULOS EN GENERAL",
-      "similarity": 0.627860968127206,
+      "excerpt": "Art. 255.- Las Multas e infracciones se clasificarán en FALTAS LEVES, GRAVES Y MUY GRAVES,\naplicándose sanciones de índole diferente en cada caso; las cuales se detallan a continuación, así:\nMULTAS POR FALTAS\nLEVES, GRAVES Y MUY GRAVES\nCÓDIGO DESCRIPCIÓN\nVALOR\nCOLONES\nLEVES\n1 Pitar innecesariamente dentro de la ciudad ¢ 100.00\n2 Obstaculizar el tránsito en general ¢ 100.00\n3 Retroceder en vías de mucho tránsito ¢ 100.00\n4 Obstaculizar el paso en entierros, desfiles,\neventos deportivos, en las vías públicas ¢ 100.00",
+      "id": "1aeb6728-b557-4224-901f-bfc0a569b52b",
+      "label": "[15] Reglamento General de Tránsito y Seguridad Vial, Art. 255",
+      "pageEnd": 67,
+      "pageStart": 61,
+      "sectionTitle": "TITULO X > DE LAS INFRACCIONES, MULTAS Y SUSPENSIONES > DE LAS MULTAS E INFRACCIONES",
+      "similarity": 0.605161558328316,
       "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
       "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
-    },
-    {
-      "articleNumber": "4",
-      "documentKey": "decreto-legislativo-185",
-      "documentName": "Decreto Legislativo No. 185",
-      "excerpt": "Art. 4.- Incorpórase en el artículo 77, los incisos 2° y 3°, de la siguiente manera:\n\"La licencia para conducir automotores será suspendida por la Dirección General de Tránsito,\ncuando el conductor sea sorprendido conduciendo bajo los efectos de bebidas embriagantes,\nestupefacientes o enervantes, sin perjuicio del grado de alcoholemia o sustancia consumida; esta\ntransgresión a las normas de seguridad vial, además será constitutiva del delito de conducción peligrosa\nde vehículos automotores, por lo cual, se deberá p",
-      "id": "83d4a88b-3b76-4461-9f3b-85c586201e3e",
-      "label": "[9] Decreto Legislativo No. 185, Art. 4",
-      "pageEnd": 3,
-      "pageStart": 2,
-      "sectionTitle": "REFORMAS A LA LEY DE TRANSPORTE TERRESTRE, TRÁNSITO > Y SEGURIDAD VIAL",
-      "similarity": 0.626811610918958,
-      "sourcePath": "assets\\DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf",
-      "sourceUrl": "assets/DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf"
     },
     {
       "articleNumber": "117",
@@ -209,16 +490,44 @@
       "documentName": "Decreto Legislativo No. 185",
       "excerpt": "48 No respetar el derecho de vía o interceptar la vía. $100\n49 No mover un vehículo u objeto que obstruya el libre tránsito producto de un $100\nsiniestro vial, siempre que solo existan daños materiales y/o lesiones leves o\npor otras razones que la autoridad competente estime conveniente.\nSEGURIDAD VIAL\n50 No conceder el paso a peatones que se encuentren en zona de peligro $100\n51 Circular más de una persona en el asiento del conductor. $100\n52 No respetar las señales de precaución, cuando hay trabajos de construcci",
       "id": "16f4f699-15da-4a5b-a183-be8a0748dd7c",
-      "label": "[10] Decreto Legislativo No. 185, Art. 117",
+      "label": "[16] Decreto Legislativo No. 185, Art. 117",
       "pageEnd": 9,
       "pageStart": 3,
       "sectionTitle": null,
-      "similarity": 0.625047052488425,
+      "similarity": 0.595329678427957,
       "sourcePath": "assets\\DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf",
       "sourceUrl": "assets/DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf"
+    },
+    {
+      "articleNumber": "2",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 2.- Este Reglamento tiene por finalidad desarrollar las prevenciones a fin de establecer la aplicación\nde sanciones de orden gubernativo y económico en que incurran los que infrinjan las disposiciones del\npresente Reglamento; estableciendo para vehículos y sus respectivos conductores, así como para peatones,\ntodas las medidas necesarias encaminadas a garantizar la seguridad de personas e intereses, normalizando\nel tránsito, estableciendo el orden de la circulación y precaviendo los peligros que den lugar a des",
+      "id": "5a0a00f2-328c-4c15-a560-a38df7d6e66c",
+      "label": "[17] Reglamento General de Tránsito y Seguridad Vial, Art. 2",
+      "pageEnd": 2,
+      "pageStart": 1,
+      "sectionTitle": "CAPITULO I > FINALIDAD Y DEFINICIONES DE ESTE REGLAMENTO > FINALIDAD",
+      "similarity": 0.590515503192131,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "81",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 81.- Prohíbese, especialmente, a los conductores de estos vehículos:\n1. Efectuar la operación de aprovisionarlos de combustible, con pasajeros en su interior.\n2. Llevar pasajeros en las escaleras, puertas, parrillas, pescantes, o colgados en el exterior.\n3. Llevar las puertas abiertas, cuando el vehículo se encuentre en movimiento.\n4. Ponerlo en movimiento o no detenerlo completamente cuando haya pasajeros que deseen subir o\nbajar del vehículo.\n5. Aumentar o disminuir la velocidad del vehículo con el objeto de",
+      "id": "b58c8f7d-166d-4ce1-b6e4-47d4e9f619a5",
+      "label": "[18] Reglamento General de Tránsito y Seguridad Vial, Art. 81",
+      "pageEnd": 21,
+      "pageStart": 21,
+      "sectionTitle": "CAPITULO IX > DE LOS VEHICULOS DEL TRANSPORTE COLECTIVO DE PASAJEROS",
+      "similarity": 0.588861172689689,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
     }
   ],
-  "generatedAt": "2026-07-04T23:09:15.693Z",
+  "generatedAt": "2026-07-04T23:49:49.026Z",
   "generator": "scripts/generate-learning-modules.mjs",
   "moduleId": "08-riesgos-que-matan",
   "originalBrief": {
@@ -233,6 +542,6 @@
     ],
     "visual": "Comparacion de dos escenas: conductor atento frenando a tiempo y conductor viendo celular que no alcanza a reaccionar."
   },
-  "retrievalQuery": "Modulo: Riesgos que matan\nProposito: Que la persona vea que algunas conductas no son \"errores pequenos\". Pueden matar al conductor, pasajeros o personas inocentes.\nConceptos: - Alcohol y alcoholemia.\n- Exceso de velocidad.\n- Distraccion por celular.\n- Cansancio.\n- No guardar distancia.\n- Lluvia.\n- Noche.\n- No usar casco o cinturon si aplica en fuentes.\nMicro-lecciones: |  ID  |  Titulo  |  Fuente esperada  |  Riesgo que conecta  |\n|  01  |  Alcohol y volante no se mezclan  |  Reglamento y ley  |  Muerte, sancion grave  |\n|  02  |  La velocidad quita tiempo para frenar  |  Reglamento y senales  |  Atropello o choque  |\n|  03  |  El celular te roba la mirada  |  MVP y normativa  |  Distraccion  |\n|  04  |  Lluvia: frena antes  |  MVP y reglamento  |  Derrape  |\n|  05  |  Noche: ver menos exige ir mas despacio  |  MVP  |  Reaccion tardia  |\nEscenarios: |  ID  |  Situacion  |  Decision segura  |  Consecuencia a explicar  |\n|  01  |  Recibes mensaje mientras manejas  |  No usar celular hasta detenerte  |  Atropello en segundos  |\n|  02  |  Sales de una fiesta y bebiste  |  No conducir  |  Muerte, multa, proceso legal  |\nFuentes esperadas: Ley de Transporte Terrestre, Transito y Seguridad Vial, Reglamento General de Transito y Seguridad Vial, MVP de Cultura Vial SV",
+  "retrievalQuery": "Modulo: Riesgos que matan\nProposito: Que la persona vea que algunas conductas no son \"errores pequenos\". Pueden matar al conductor, pasajeros o personas inocentes.\nFuentes esperadas: Ley de Transporte Terrestre, Transito y Seguridad Vial, Reglamento General de Transito y Seguridad Vial, MVP de Cultura Vial SV\n\n---\n\nCobertura normativa para Riesgos que matan\n- Alcohol y alcoholemia.\n- Exceso de velocidad.\n- Distraccion por celular.\n- Cansancio.\n- No guardar distancia.\n- Lluvia.\n- Noche.\n- No usar casco o cinturon si aplica en fuentes.\n|  ID  |  Titulo  |  Fuente esperada  |  Riesgo que conecta  |\n|  01  |  Alcohol y volante no se mezclan  |  Reglamento y ley  |  Muerte, sancion grave  |\n|  02  |  La velocidad quita tiempo para frenar  |  Reglamento y senales  |  Atropello o choque  |\n|  03  |  El celular te roba la mirada  |  MVP y normativa  |  Distraccion  |\n|  04  |  Lluvia: frena antes  |  MVP y reglamento  |  Derrape  |\n|  05  |  Noche: ver menos exige ir mas despacio  |  MVP  |  Reaccion tardia  |\n\n---\n\nAplicacion practica para conductores: Riesgos que matan\n|  ID  |  Situacion  |  Decision segura  |  Consecuencia a explicar  |\n|  01  |  Recibes mensaje mientras manejas  |  No usar celular hasta detenerte  |  Atropello en segundos  |\n|  02  |  Sales de una fiesta y bebiste  |  No conducir  |  Muerte, multa, proceso legal  |\n- Por que el alcohol vuelve peligroso manejar?\n- Que cambia cuando manejas bajo lluvia?\n- Que puede pasar en dos segundos mirando el celular?\n\n---\n\nSenales, obligaciones, prohibiciones, sanciones, excepciones y decisiones seguras relacionadas con Riesgos que matan\nComparacion de dos escenas: conductor atento frenando a tiempo y conductor viendo celular que no alcanza a reaccionar.\nLey de Transporte Terrestre, Transito y Seguridad Vial, Reglamento General de Transito y Seguridad Vial, MVP de Cultura Vial SV",
   "title": "Riesgos que matan"
 }

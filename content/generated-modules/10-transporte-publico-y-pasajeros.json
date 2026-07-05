@@ -1,106 +1,303 @@
 {
-  "coreIdea": "Comprender que el transporte público mueve muchas vidas al mismo tiempo y que un error puede afectar a pasajeros, peatones y otros conductores.",
+  "coreIdea": "El transporte público es un servicio que requiere un alto nivel de responsabilidad y cumplimiento de normas. Los conductores deben garantizar la seguridad de los pasajeros, mientras que estos últimos tienen derechos que deben ser respetados. La seguridad vial es una prioridad que involucra a todos los usuarios de la vía.",
   "headline": "Transporte público y pasajeros",
-  "intro": "El transporte público es una parte esencial de la vida urbana, pero conlleva responsabilidades importantes para garantizar la seguridad de todos.",
+  "intro": "El transporte público es una parte esencial de la vida urbana en El Salvador, ya que conecta a las personas con sus destinos diarios. Sin embargo, este servicio implica una gran responsabilidad tanto para los conductores como para los pasajeros. Es crucial entender las normas que rigen el transporte público para garantizar la seguridad de todos los usuarios de la vía. En este módulo, aprenderemos sobre las obligaciones y derechos de los pasajeros, así como las responsabilidades de los conductores. La seguridad vial es un compromiso compartido que puede salvar vidas.",
+  "applicationCases": [
+    {
+      "title": "Bus detenido y peatón cruza",
+      "situation": "Un bus está detenido en una parada y un peatón cruza frente a él.",
+      "wrongMove": "Acelerar sin esperar a que el peatón haya cruzado.",
+      "safeMove": "Reducir la velocidad y esperar a que el peatón cruce completamente.",
+      "why": "Esto previene atropellos y asegura la seguridad de todos los usuarios de la vía.",
+      "citationNumbers": [3, 12]
+    },
+    {
+      "title": "Microbús cambia de carril",
+      "situation": "Un microbús cambia de carril de golpe sin señalizar.",
+      "wrongMove": "No mantener distancia con el vehículo que está adelante.",
+      "safeMove": "Mantener una distancia segura y usar las luces direccionales.",
+      "why": "Esto evita colisiones y asegura un cambio de carril seguro.",
+      "citationNumbers": [4, 8]
+    }
+  ],
+  "checklist": [
+    {
+      "label": "Verificar el estado del vehículo",
+      "action": "Asegúrate de que el bus esté en condiciones adecuadas antes de iniciar el viaje.",
+      "citationNumbers": [2, 6]
+    },
+    {
+      "label": "Cumplir con las paradas autorizadas",
+      "action": "Detente siempre en las paradas designadas para subir y bajar pasajeros.",
+      "citationNumbers": [3, 12]
+    },
+    {
+      "label": "Respetar los derechos de los pasajeros",
+      "action": "Asegúrate de que todos los pasajeros sean tratados con respeto.",
+      "citationNumbers": [2, 5]
+    },
+    {
+      "label": "Mantener una distancia segura",
+      "action": "Siempre mantén una distancia adecuada con otros vehículos.",
+      "citationNumbers": [4, 15]
+    },
+    {
+      "label": "Usar las luces direccionales",
+      "action": "Indica siempre tus maniobras con las luces direccionales.",
+      "citationNumbers": [8, 12]
+    },
+    {
+      "label": "No permitir que los pasajeros viajen en condiciones inseguras",
+      "action": "Asegúrate de que todos los pasajeros estén sentados y seguros.",
+      "citationNumbers": [2, 15]
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "No detenerse en paradas autorizadas.",
+      "consequence": "Pone en riesgo a los pasajeros y puede resultar en multas.",
+      "betterHabit": "Siempre detenerse en las paradas designadas.",
+      "citationNumbers": [5, 15]
+    },
+    {
+      "mistake": "Permitir que los pasajeros bajen mientras el vehículo está en movimiento.",
+      "consequence": "Aumenta el riesgo de accidentes y lesiones.",
+      "betterHabit": "Esperar a que el vehículo esté completamente detenido.",
+      "citationNumbers": [6, 15]
+    },
+    {
+      "mistake": "Conducir de manera agresiva para competir por pasajeros.",
+      "consequence": "Puede causar accidentes graves y sanciones severas.",
+      "betterHabit": "Conducir de manera calmada y respetuosa.",
+      "citationNumbers": [4, 15]
+    },
+    {
+      "mistake": "No respetar los derechos de los pasajeros.",
+      "consequence": "Puede resultar en quejas y pérdida de licencia.",
+      "betterHabit": "Tratar a todos los pasajeros con respeto y dignidad.",
+      "citationNumbers": [2, 5]
+    }
+  ],
+  "estimatedMinutes": 35,
+  "learningObjectives": [
+    "Identificar las responsabilidades de los conductores de transporte público.",
+    "Reconocer los derechos de los pasajeros en el transporte colectivo.",
+    "Aplicar las normas de seguridad en paradas y durante el ascenso y descenso de pasajeros.",
+    "Entender las sanciones por infracciones en el transporte público.",
+    "Desarrollar hábitos de conducción segura en la proximidad de paradas de bus."
+  ],
+  "legalFoundation": [
+    {
+      "title": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+      "explanation": "Esta ley regula el transporte y la circulación de vehículos, estableciendo derechos y obligaciones para los usuarios. También se encarga de la autorización de rutas y frecuencias del servicio colectivo de pasajeros, así como de las sanciones por infracciones. Es fundamental para garantizar la seguridad vial en el país.",
+      "citationNumbers": [1, 2]
+    },
+    {
+      "title": "Reglamento General de Tránsito y Seguridad Vial",
+      "explanation": "Este reglamento complementa la ley anterior, estableciendo normas específicas para la circulación de vehículos y la seguridad vial. Incluye disposiciones sobre el transporte colectivo de pasajeros, asegurando que se cumplan estándares de seguridad y calidad en el servicio.",
+      "citationNumbers": [3, 4]
+    },
+    {
+      "title": "Infracciones y Sanciones",
+      "explanation": "Las infracciones en el transporte público se clasifican en leves, graves y muy graves, cada una con sanciones específicas. Esto asegura que los conductores y propietarios de vehículos de transporte público cumplan con las normas establecidas, promoviendo la seguridad en las vías.",
+      "citationNumbers": [5, 7]
+    },
+    {
+      "title": "Responsabilidad de los Conductores",
+      "explanation": "Los conductores de transporte público tienen la obligación de garantizar la seguridad de los pasajeros, utilizando vehículos en condiciones adecuadas y respetando las paradas autorizadas. Esto es esencial para prevenir accidentes y asegurar un servicio de calidad.",
+      "citationNumbers": [6, 15]
+    }
+  ],
   "lessons": [
     {
       "title": "Un bus lleva muchas responsabilidades",
-      "explanation": "Los conductores de buses deben ser conscientes de que su vehículo transporta a muchas personas y cualquier error puede tener graves consecuencias.",
-      "streetDecision": "Conduce con precaución y mantén la atención en la vía.",
-      "risk": "Lesiones múltiples en caso de un accidente.",
-      "citationNumbers": [1, 4]
+      "explanation": "Los conductores de buses tienen la responsabilidad de garantizar la seguridad de sus pasajeros. Esto incluye mantener el vehículo en buen estado y seguir las normas de tránsito. Un error puede resultar en lesiones múltiples, afectando a todos los que viajan en el bus.",
+      "normativeDetail": "La ley exige que los vehículos de transporte público cumplan con normas de seguridad y que los conductores estén debidamente autorizados. Esto protege a los pasajeros y asegura un servicio de calidad.",
+      "everydayExample": "Imagina un bus que frena bruscamente porque el conductor no está atento. Esto puede causar que los pasajeros se lastimen. Por eso, es vital que el conductor esté siempre alerta y cumpla con las normas.",
+      "streetDecision": "Verifica que el vehículo esté en condiciones adecuadas antes de iniciar el viaje.",
+      "risk": "Lesiones a pasajeros por frenadas bruscas o accidentes.",
+      "watchFor": "Condiciones mecánicas del vehículo y comportamiento del conductor.",
+      "citationNumbers": [1, 2, 5]
     },
     {
       "title": "Paradas seguras",
-      "explanation": "Es crucial que los conductores realicen paradas en lugares autorizados para garantizar la seguridad de los pasajeros al subir y bajar.",
-      "streetDecision": "Detén el bus solo en paradas autorizadas.",
-      "risk": "Peatones subiendo o bajando en lugares peligrosos.",
-      "citationNumbers": [2, 9]
+      "explanation": "Las paradas de bus deben ser lugares seguros para que los pasajeros suban y bajen. Los conductores deben detenerse en las paradas autorizadas y permitir que los pasajeros se bajen antes de continuar. Esto ayuda a prevenir accidentes.",
+      "normativeDetail": "La normativa establece que los conductores deben realizar paradas en lugares designados y no deben permitir que los pasajeros bajen mientras el vehículo está en movimiento.",
+      "everydayExample": "Cuando un bus se detiene en una parada, los pasajeros deben esperar a que el bus esté completamente parado antes de bajar. Esto evita que alguien se caiga o se lastime.",
+      "streetDecision": "Siempre detente en las paradas autorizadas y espera a que todos los pasajeros bajen antes de continuar.",
+      "risk": "Accidentes al bajar o subir del bus si no se respeta la parada.",
+      "watchFor": "Señales de tránsito que indican paradas autorizadas.",
+      "citationNumbers": [3, 12, 15]
     },
     {
       "title": "Pasajeros también tienen derechos",
-      "explanation": "Los pasajeros tienen derecho a un servicio seguro y de calidad, y los conductores deben respetar esos derechos.",
-      "streetDecision": "Trata a todos los pasajeros con respeto y educación.",
-      "risk": "Servicio inseguro que puede poner en peligro a los usuarios.",
-      "citationNumbers": [6, 10]
+      "explanation": "Los pasajeros tienen derechos que deben ser respetados por los conductores. Esto incluye el derecho a un servicio seguro y a ser tratados con respeto. Conocer estos derechos ayuda a los pasajeros a exigir un mejor servicio.",
+      "normativeDetail": "La ley protege a los pasajeros al establecer que los conductores deben brindar un servicio seguro y de calidad. Esto incluye no permitir que los pasajeros viajen en condiciones peligrosas.",
+      "everydayExample": "Si un pasajero se siente incómodo porque el conductor está manejando de manera peligrosa, tiene derecho a pedir que se detenga y que lo deje bajar.",
+      "streetDecision": "Conoce tus derechos como pasajero y no dudes en exigir un servicio seguro.",
+      "risk": "Viajar en condiciones inseguras que pueden resultar en accidentes.",
+      "watchFor": "Comportamiento del conductor y condiciones del vehículo.",
+      "citationNumbers": [2, 5, 18]
     },
     {
       "title": "No competir en la vía",
-      "explanation": "Los conductores no deben intentar competir por pasajeros, ya que esto puede resultar en maniobras peligrosas.",
-      "streetDecision": "Mantén una velocidad segura y evita maniobras arriesgadas.",
-      "risk": "Velocidad y maniobras peligrosas que pueden causar accidentes.",
-      "citationNumbers": [3, 9]
+      "explanation": "Los conductores de transporte público no deben competir entre sí por pasajeros. Esto puede llevar a maniobras peligrosas y a accidentes. Es importante mantener la calma y conducir de manera responsable.",
+      "normativeDetail": "La normativa prohíbe que los conductores se disputen pasajeros, ya que esto pone en riesgo la seguridad vial. Las sanciones por esta conducta son severas.",
+      "everydayExample": "Si un microbús intenta adelantar a otro en una curva, puede causar un accidente grave. Los conductores deben ser conscientes de que la seguridad es lo primero.",
+      "streetDecision": "Mantén una distancia segura de otros vehículos y evita maniobras peligrosas.",
+      "risk": "Accidentes graves por maniobras imprudentes.",
+      "watchFor": "Otros vehículos que intentan competir por pasajeros.",
+      "citationNumbers": [4, 15, 18]
     }
   ],
-  "needsHumanReview": [],
+  "needsHumanReview": [
+    "Control de calidad pendiente: lessons tiene 4; minimo 6. whyItMatters tiene menos de 80 palabras."
+  ],
   "quiz": [
     {
-      "question": "¿Cuál es la responsabilidad principal de un conductor de transporte público?",
+      "question": "¿Qué deben hacer los conductores al acercarse a una parada de bus?",
       "options": [
-        "A. Acelerar para llegar más rápido",
-        "B. Garantizar la seguridad de los pasajeros",
-        "C. Ignorar las señales de tránsito"
+        "Acelerar para pasar rápido.",
+        "Reducir la velocidad y detenerse.",
+        "Cambiar de carril sin señalizar."
       ],
-      "answer": "B",
-      "explanation": "Los conductores deben garantizar la seguridad de los pasajeros en todo momento.",
-      "citationNumbers": [2, 6]
+      "answer": "Reducir la velocidad y detenerse.",
+      "explanation": "Es crucial detenerse en las paradas autorizadas para garantizar la seguridad de los pasajeros.",
+      "citationNumbers": [3, 12]
+    },
+    {
+      "question": "¿Cuáles son los derechos de los pasajeros en el transporte público?",
+      "options": [
+        "No tienen derechos.",
+        "Tienen derecho a un servicio seguro.",
+        "Deben pagar más si el servicio es malo."
+      ],
+      "answer": "Tienen derecho a un servicio seguro.",
+      "explanation": "La ley protege a los pasajeros y garantiza que reciban un servicio de calidad.",
+      "citationNumbers": [2, 5]
+    },
+    {
+      "question": "¿Qué sanción puede recibir un conductor por no detenerse en una parada autorizada?",
+      "options": ["Ninguna.", "Una multa leve.", "Una multa muy grave."],
+      "answer": "Una multa muy grave.",
+      "explanation": "Las sanciones por infracciones en el transporte público son severas para garantizar la seguridad.",
+      "citationNumbers": [5, 7]
+    },
+    {
+      "question": "¿Qué deben hacer los pasajeros al bajar de un bus?",
+      "options": [
+        "Bajar mientras el bus está en movimiento.",
+        "Esperar a que el bus esté completamente detenido.",
+        "Bajar por la puerta delantera mientras el bus se mueve."
+      ],
+      "answer": "Esperar a que el bus esté completamente detenido.",
+      "explanation": "Bajar de un bus en movimiento puede causar accidentes y lesiones.",
+      "citationNumbers": [6, 15]
+    },
+    {
+      "question": "¿Por qué es importante mantener una distancia segura con otros vehículos?",
+      "options": [
+        "Para competir por pasajeros.",
+        "Para evitar colisiones.",
+        "No es importante."
+      ],
+      "answer": "Para evitar colisiones.",
+      "explanation": "Mantener una distancia segura es fundamental para prevenir accidentes en la vía.",
+      "citationNumbers": [4, 15]
     }
   ],
   "reflection": [
-    "¿Por qué es importante detenerse en paradas autorizadas?",
-    "¿Qué riesgos enfrentas al no respetar las normas de tránsito?",
-    "¿Cómo puedes contribuir a la seguridad vial como pasajero?"
+    "¿Cómo puedes contribuir a la seguridad en el transporte público?",
+    "¿Qué derechos consideras más importantes para los pasajeros?",
+    "¿Cómo afecta la conducta de un conductor a la seguridad de los pasajeros?",
+    "¿Qué harías si observas una infracción en el transporte público?"
   ],
   "scenario": {
     "title": "Situación en una parada de bus",
-    "situation": "Un bus está detenido en una parada y un peatón cruza al frente sin mirar.",
-    "unsafeChoice": "Acelera para pasar antes de que el peatón cruce.",
-    "safeDecision": "Reduce la velocidad y espera a que el peatón cruce completamente.",
-    "feedback": "Reducir la velocidad y esperar es crucial para evitar atropellos y garantizar la seguridad de todos.",
-    "citationNumbers": [3, 8]
+    "situation": "Un bus está detenido en una parada y un peatón cruza frente a él.",
+    "unsafeChoice": "Acelerar sin esperar a que el peatón cruce.",
+    "safeDecision": "Reducir la velocidad y esperar a que el peatón cruce completamente.",
+    "feedback": "Al reducir la velocidad, evitas un posible atropello y garantizas la seguridad de todos.",
+    "citationNumbers": [3, 12]
   },
-  "whyItMatters": "La seguridad vial es fundamental para prevenir accidentes y proteger a todos los usuarios de la vía.",
+  "vocabulary": [
+    {
+      "term": "Pasajero",
+      "meaning": "Toda persona que ocupa un lugar dentro del vehículo, aparte del conductor.",
+      "citationNumbers": [11]
+    },
+    {
+      "term": "Parada",
+      "meaning": "Lugar designado donde los vehículos de transporte público deben detenerse para que los pasajeros suban y bajen.",
+      "citationNumbers": [3]
+    },
+    {
+      "term": "Infracción",
+      "meaning": "Violación de las normas de tránsito que puede resultar en sanciones.",
+      "citationNumbers": [5]
+    },
+    {
+      "term": "Conductor",
+      "meaning": "Persona autorizada para manejar un vehículo de transporte público.",
+      "citationNumbers": [2]
+    }
+  ],
+  "whyItMatters": "La seguridad en el transporte público no solo afecta a los pasajeros, sino también a peatones y otros conductores. Un mal manejo o una falta de atención puede resultar en accidentes graves, poniendo en riesgo vidas. Comprender y aplicar las normas de transporte público es vital para crear un entorno más seguro en nuestras ciudades. Al respetar estas normas, contribuimos a una cultura vial más responsable, protegiendo a todos los que comparten la vía.",
   "audience": ["refuerzo", "transporte-publico", "usuarios"],
   "citations": [
-    {
-      "articleNumber": "119",
-      "documentKey": "ley-transporte-terrestre",
-      "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
-      "excerpt": "Art. 119-G.- La Dirección General de Transporte Terrestre, especificará a través del cuadro siguiente las\nsanciones administrativas que se impondrán a los propietarios y a los conductores de vehículos automotores\ndel transporte público de pasajeros. (32)\nLas establecidas en los numerales 1, 8, 9,11, 12, 14, 15, 20, 22, 24, 26 y 27 serán para los\nconcesionarios del transporte público de pasajeros. Estas sanciones se cobrarán al momento de refrendar la\ntarjeta de circulación de la unidad sancionada. (32) (38)\nLas est",
-      "id": "fc5fef1e-deee-43c2-869c-c4a124cfe7c0",
-      "label": "[1] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 119",
-      "pageEnd": 36,
-      "pageStart": 34,
-      "sectionTitle": null,
-      "similarity": 0.678686578097733,
-      "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
-      "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
-    },
     {
       "articleNumber": "3",
       "documentKey": "ley-transporte-terrestre",
       "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
       "excerpt": "Art. 3.- Para tal efecto esta Ley regulará:\n1) Las normas del transporte y de la circulación de los vehículos que presten el servicio de Transporte;\nasí como las que por razones de Seguridad Vial han de regir para la circulación de peatones y\nsemovientes por las vías terrestres; estableciéndose para tal efecto los derechos y obligaciones de\nlos usuarios.\n2) La autorización y el establecimiento de rutas, frecuencias y fluidez de la circulación vehicular del\nservicio colectivo de pasajeros; así como la concesión de l",
       "id": "d759f78e-e3ec-4920-86aa-e97c1888d624",
-      "label": "[2] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 3",
+      "label": "[1] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 3",
       "pageEnd": 2,
       "pageStart": 2,
       "sectionTitle": "DISPOSICIONES PRELIMINARES > CAPITULO UNICO > OBJETO DE LA LEY",
-      "similarity": 0.676334149850102,
+      "similarity": 0.728808855458678,
       "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
       "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
     },
     {
-      "articleNumber": "116",
+      "articleNumber": "32",
+      "documentKey": "ley-transporte-terrestre",
+      "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+      "excerpt": "Art. 32.- Toda persona natural o jurídica a la que se le haya autorizado para la prestación del servicio de\ntransporte colectivo de pasajeros, estará obligada a brindar el servicio en unidades de transporte que\ngaranticen la seguridad de los usuarios, pudiendo la autoridad que confirió la autorización exigir utilización de\nvehículos cuyo modelo y estado cumpla con normas aceptables para tal objeto. Las líneas y rutas son\npropiedad del Estado, las cuales son otorgadas en concesión a los prestatarios a través del Vic",
+      "id": "4fd164bf-3502-4702-b2fd-27e046a292b6",
+      "label": "[2] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 32",
+      "pageEnd": 11,
+      "pageStart": 11,
+      "sectionTitle": "(38) (56)",
+      "similarity": 0.700813264226569,
+      "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
+      "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
+    },
+    {
+      "articleNumber": "3",
       "documentKey": "reglamento-general-transito",
       "documentName": "Reglamento General de Tránsito y Seguridad Vial",
-      "excerpt": "Art. 116.- Dentro de la circulación vehícular deberán tenerse presente y cumplir con exactitud las reglas\nsiguientes:\n1. No deberá conducirse describiendo curvas o atravesar el vehículo.\n2. No podrá sobrepasarse a otro vehículo, sin antes haberlo indicado con la luz direccional, o cuando\nun tercero viene en dirección contraria o cuando el vehículo delantero se acercare a algún trecho\nangosto, curva, puente, etc.\n3. Debe dejarse el vehículo estacionado a más de 10 metros de las esquinas de las intersecciones\nurbanas",
-      "id": "61763ea9-93d7-475e-9761-56a5d1521838",
-      "label": "[3] Reglamento General de Tránsito y Seguridad Vial, Art. 116",
-      "pageEnd": 30,
-      "pageStart": 28,
+      "excerpt": "Art. 3.- Los preceptos de la Ley de Transporte Terrestre, Tránsito y Seguridad Vial, y los del presente\nReglamento, y las demás disposiciones que la desarrollen serán aplicables en todo el país y obligarán al\nacatamiento de parte de los Titulares y usuarios de las vías y sitios de uso público y aquellos de origen\nprivado que se destinen al uso público.\nDEFINICIONES",
+      "id": "d4a8e668-a28f-407f-8329-41e3b5e9feed",
+      "label": "[3] Reglamento General de Tránsito y Seguridad Vial, Art. 3",
+      "pageEnd": 2,
+      "pageStart": 2,
+      "sectionTitle": "FINALIDAD Y DEFINICIONES DE ESTE REGLAMENTO > FINALIDAD > AMBITO DE APLICACION",
+      "similarity": 0.692865841880735,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "78",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 78.- Los vehículos que transporten material peligroso además de lo establecido en los Tratados\nInternacionales deberán cumplir con las normas siguientes:\n1. Portar un permiso otorgado conjuntamente por la Dirección General de Transporte Terrestre, y la\nDirección General de Tránsito.\n2. Someterse al horario, rutas y regulaciones que el Viceministerio de Transporte dicte; y\n3. Cumplir con el reglamento específico cobre Control de Carga.\nCAPITULO IX\nDE LOS VEHICULOS DEL TRANSPORTE COLECTIVO DE PASAJEROS",
+      "id": "3fe5d6fd-c304-4588-accf-268960d41c5b",
+      "label": "[4] Reglamento General de Tránsito y Seguridad Vial, Art. 78",
+      "pageEnd": 20,
+      "pageStart": 20,
       "sectionTitle": null,
-      "similarity": 0.67046576933398,
+      "similarity": 0.686069035011504,
       "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
       "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
     },
@@ -110,39 +307,81 @@
       "documentName": "Decreto Legislativo No. 185",
       "excerpt": "\"Art. 119-G.- Las infracciones a los propietarios y conductores de los vehículos automotores del\ntransporte público de pasajeros se clasifican en leves, graves, y muy graves, especificadas a través del\ncuadro siguiente.\nCUADRO DE MULTAS POR INFRACCIONES COMETIDAS POR CONCESIONARIOS,\nPERMISIONARIOS, PROPIETARIOS Y CONDUCTORES DE VEHICULOS AUTOMOTORES DE\nTRANSPORTE PÚBLICO DE PASAJEROS\nNo DESCRIPCIÓN VALOR\nDÓLAR\nLEVES\n1 No portar el tarifario debidamente autorizado y suscrito por la autoridad $50\ncompetente en lugar ",
       "id": "8f74f7ad-6d23-4a3c-aa67-435c4b539fc1",
-      "label": "[4] Decreto Legislativo No. 185, Art. 119",
+      "label": "[5] Decreto Legislativo No. 185, Art. 119",
       "pageEnd": 13,
       "pageStart": 12,
       "sectionTitle": null,
-      "similarity": 0.668482055880574,
+      "similarity": 0.682327125784999,
       "sourcePath": "assets\\DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf",
       "sourceUrl": "assets/DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf"
     },
     {
-      "articleNumber": "4",
+      "articleNumber": "115",
+      "documentKey": "ley-transporte-terrestre",
+      "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+      "excerpt": "Art. 115.- Toda persona autorizada a conducir vehículos automotores destinados al transporte colectivo\nde pasajeros o de carga, deberá de otorgar fianza para responder por daños ocasionados a terceros.\nCAPITULO II\nDE LAS INFRACCIONES, PROCEDIMIENTOS, SANCIONES Y RECURSOS. (20)",
+      "id": "683288a0-84bc-407b-a4b2-ebb9094a3f49",
+      "label": "[6] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 115",
+      "pageEnd": 23,
+      "pageStart": 23,
+      "sectionTitle": "DE LOS ASPECTOS COMPLEMENTARIOS > CAPITULO I > DE LOS SEGUROS Y FIANZAS",
+      "similarity": 0.680352948277047,
+      "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
+      "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
+    },
+    {
+      "articleNumber": "119",
+      "documentKey": "ley-transporte-terrestre",
+      "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
+      "excerpt": "Art. 119-G.- La Dirección General de Transporte Terrestre, especificará a través del cuadro siguiente las\nsanciones administrativas que se impondrán a los propietarios y a los conductores de vehículos automotores\ndel transporte público de pasajeros. (32)\nLas establecidas en los numerales 1, 8, 9,11, 12, 14, 15, 20, 22, 24, 26 y 27 serán para los\nconcesionarios del transporte público de pasajeros. Estas sanciones se cobrarán al momento de refrendar la\ntarjeta de circulación de la unidad sancionada. (32) (38)\nLas est",
+      "id": "fc5fef1e-deee-43c2-869c-c4a124cfe7c0",
+      "label": "[7] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 119",
+      "pageEnd": 36,
+      "pageStart": 34,
+      "sectionTitle": null,
+      "similarity": 0.679700333274145,
+      "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
+      "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
+    },
+    {
+      "articleNumber": "116",
       "documentKey": "reglamento-general-transito",
       "documentName": "Reglamento General de Tránsito y Seguridad Vial",
-      "excerpt": "Art. 4.- Para la mejor comprensión del Reglamento General de Tránsito y Seguridad Vial, se dan las\nsiguientes definiciones:\n1. Aceleración Libre: Procedimiento que consiste en acelerar el motor, lo más rápidamente posible sin\nbrusquedades, pero en forma contínua, con la palanca de la caja de velocidades en posición de\npunto muerto y el embrague del motor acoplado, a modo de obtener el máximo abastecimiento con\nla bomba de inyección, hasta que el motor gire a su máxima velocidad en vacío. Cuando se alcanza\ndicha vel",
-      "id": "483c0669-f31c-4e93-b06b-1fa25c00a343",
-      "label": "[5] Reglamento General de Tránsito y Seguridad Vial, Art. 4",
-      "pageEnd": 5,
-      "pageStart": 2,
-      "sectionTitle": "FINALIDAD > AMBITO DE APLICACION > DEFINICIONES",
-      "similarity": 0.663689947052378,
+      "excerpt": "Art. 116.- Dentro de la circulación vehícular deberán tenerse presente y cumplir con exactitud las reglas\nsiguientes:\n1. No deberá conducirse describiendo curvas o atravesar el vehículo.\n2. No podrá sobrepasarse a otro vehículo, sin antes haberlo indicado con la luz direccional, o cuando\nun tercero viene en dirección contraria o cuando el vehículo delantero se acercare a algún trecho\nangosto, curva, puente, etc.\n3. Debe dejarse el vehículo estacionado a más de 10 metros de las esquinas de las intersecciones\nurbanas",
+      "id": "61763ea9-93d7-475e-9761-56a5d1521838",
+      "label": "[8] Reglamento General de Tránsito y Seguridad Vial, Art. 116",
+      "pageEnd": 30,
+      "pageStart": 28,
+      "sectionTitle": null,
+      "similarity": 0.678352323099217,
       "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
       "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
     },
     {
-      "articleNumber": "32",
+      "articleNumber": "10",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 10.- Los vehículos sujetos al presente Reglamento, son todos aquellos destinados a circular por las\nvías públicas para el transporte de pasajeros y carga. Los vehículos que caminen sobre rieles, se sujetarán a\nsus respectivos reglamentos.",
+      "id": "9329619a-9403-4a36-8f97-79045038f070",
+      "label": "[9] Reglamento General de Tránsito y Seguridad Vial, Art. 10",
+      "pageEnd": 6,
+      "pageStart": 6,
+      "sectionTitle": "DE LA ADMINISTRACION DEL TRANSITO > CAPITULO I > DE LOS VEHICULOS SUJETOS A ESTE REGLAMENTO",
+      "similarity": 0.667314316847376,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "1",
       "documentKey": "ley-transporte-terrestre",
       "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
-      "excerpt": "Art. 32.- Toda persona natural o jurídica a la que se le haya autorizado para la prestación del servicio de\ntransporte colectivo de pasajeros, estará obligada a brindar el servicio en unidades de transporte que\ngaranticen la seguridad de los usuarios, pudiendo la autoridad que confirió la autorización exigir utilización de\nvehículos cuyo modelo y estado cumpla con normas aceptables para tal objeto. Las líneas y rutas son\npropiedad del Estado, las cuales son otorgadas en concesión a los prestatarios a través del Vic",
-      "id": "4fd164bf-3502-4702-b2fd-27e046a292b6",
-      "label": "[6] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 32",
-      "pageEnd": 11,
-      "pageStart": 11,
-      "sectionTitle": "(38) (56)",
-      "similarity": 0.653082195600013,
+      "excerpt": "Art. 1.- La presente Ley tiene por objeto establecer el marco legal en materia de:\na) Régimen administrativo de Transporte, Tránsito y su Seguridad Vial;\n\nb) Transporte Terrestre, con excepción del Régimen Ferroviario;\nc) Registro Público de Vehículos Automotores: Transporte Individual y Colectivo de Pasajeros;\nTransporte Liviano y Pesado de Carga;\nd) Tránsito y Circulación Vehicular;\ne) Seguridad Vial;\nf) Estacionamientos, Terminales de Servicio Colectivo, de Carga y demás lugares de acceso público en\nlo que fuese",
+      "id": "eeed63ea-5db3-4d1a-8c83-c96904423e87",
+      "label": "[10] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 1",
+      "pageEnd": 2,
+      "pageStart": 1,
+      "sectionTitle": "DISPOSICIONES PRELIMINARES > CAPITULO UNICO > OBJETO DE LA LEY",
+      "similarity": 0.666245614381422,
       "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
       "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
     },
@@ -152,25 +391,53 @@
       "documentName": "Reglamento General de Tránsito y Seguridad Vial",
       "excerpt": "35. Opacímetro: dispositivo para medir el grado de opacidad de los gases, humos y partículas del\nescape de un vehículo.\n36. Pasajero: toda persona que aparte del conductor, ocupa un lugar dentro del vehículo.\n37. Permiso Temporal de Aprendizaje: documento que se expide, en forma temporal, para aprender a\nconducir vehículos automotores y que queda supeditado al acatamiento de las disposiciones del\npresente Reglamento.\n38. Peso Bruto del Vehículo: peso total del vehículo que resulta al sumar su peso de acuerdo con la",
       "id": "86651e5c-2767-4ccd-996b-28039f6d3c5a",
-      "label": "[7] Reglamento General de Tránsito y Seguridad Vial, Art. 4",
+      "label": "[11] Reglamento General de Tránsito y Seguridad Vial, Art. 4",
       "pageEnd": 5,
       "pageStart": 2,
       "sectionTitle": "FINALIDAD > AMBITO DE APLICACION > DEFINICIONES",
-      "similarity": 0.651884559762532,
+      "similarity": 0.662143298531841,
       "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
       "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
     },
     {
-      "articleNumber": "3",
+      "articleNumber": "124",
       "documentKey": "reglamento-general-transito",
       "documentName": "Reglamento General de Tránsito y Seguridad Vial",
-      "excerpt": "Art. 3.- Los preceptos de la Ley de Transporte Terrestre, Tránsito y Seguridad Vial, y los del presente\nReglamento, y las demás disposiciones que la desarrollen serán aplicables en todo el país y obligarán al\nacatamiento de parte de los Titulares y usuarios de las vías y sitios de uso público y aquellos de origen\nprivado que se destinen al uso público.\nDEFINICIONES",
-      "id": "d4a8e668-a28f-407f-8329-41e3b5e9feed",
-      "label": "[8] Reglamento General de Tránsito y Seguridad Vial, Art. 3",
-      "pageEnd": 2,
-      "pageStart": 2,
-      "sectionTitle": "FINALIDAD Y DEFINICIONES DE ESTE REGLAMENTO > FINALIDAD > AMBITO DE APLICACION",
-      "similarity": 0.649785659372064,
+      "excerpt": "Art. 124.- Al aproximarse a cualquier intersección de vías en que no se tenga prioridad de paso deberá\nprocederse de la siguiente forma:\n1. Si se trata de un acceso controlado por la luz roja de semáforo, el conductor deberá detener el\nvehículo en la línea de parada que esté debidamente demarcada. Si no hubiere, se detendrá cerca\nde la vía que va a cruzar sin obstruir el tránsito transversal. En el caso de que se vaya a realizar un\ngiro a la derecha, si el tránsito en la vía que tiene luz verde lo permite, se puede",
+      "id": "3609a817-1fd4-4508-905f-11f6f4259cc3",
+      "label": "[12] Reglamento General de Tránsito y Seguridad Vial, Art. 124",
+      "pageEnd": 32,
+      "pageStart": 31,
+      "sectionTitle": null,
+      "similarity": 0.649983723822862,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "105",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 105.- Un vehículo parado o estacionado en una vía o procedente de las vías de acceso a la misma\nque pretenda incorporarse a la circulación, deberá cerciorarse previamente, de que pueda hacerlo sin peligro\npara los demás usuarios, cediendo el paso a otros vehículos y teniendo en cuenta la posición, trayectoria y\nvelocidad de éstos.\nLos demás vehículos en circulación facilitarán en la medida de lo posible, dicha maniobra, especialmente\nsi se trata de un vehículo de transporte colectivo de pasajeros o de escolare",
+      "id": "8d369cf0-8571-4ba5-8fc3-e1c78452d700",
+      "label": "[13] Reglamento General de Tránsito y Seguridad Vial, Art. 105",
+      "pageEnd": 26,
+      "pageStart": 26,
+      "sectionTitle": null,
+      "similarity": 0.637405197393206,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "98",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 98.- En la Circulación Vehicular todo conductor deberá atender y ejecutar las reglas que se dan a\ncontinuación:\n1. Conducir siempre por la derecha de la vía\n2. Al entrar a una calle o carretera principal, cederá el paso a todos los vehículos que circulen en esa\nvía, aunque vengan de la derecha o izquierda.\n3. Ceder al paso a todo peatón que camine sobre la zona peatonal o de seguridad peatonal.\n4. Detener por completo la marcha y ceder el paso siempre que llegue a una señal de ALTO o de\nPARADA. Si no hubiere e",
+      "id": "ffaaed31-ef4e-477e-b4c4-8eb1dc795a74",
+      "label": "[14] Reglamento General de Tránsito y Seguridad Vial, Art. 98",
+      "pageEnd": 25,
+      "pageStart": 24,
+      "sectionTitle": "CAPITULO II > DE LAS REGLAS DE CIRCULACION VEHICULAR DE CARACTER GENERAL",
+      "similarity": 0.637035095284987,
       "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
       "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
     },
@@ -180,30 +447,58 @@
       "documentName": "Reglamento General de Tránsito y Seguridad Vial",
       "excerpt": "Art. 81.- Prohíbese, especialmente, a los conductores de estos vehículos:\n1. Efectuar la operación de aprovisionarlos de combustible, con pasajeros en su interior.\n2. Llevar pasajeros en las escaleras, puertas, parrillas, pescantes, o colgados en el exterior.\n3. Llevar las puertas abiertas, cuando el vehículo se encuentre en movimiento.\n4. Ponerlo en movimiento o no detenerlo completamente cuando haya pasajeros que deseen subir o\nbajar del vehículo.\n5. Aumentar o disminuir la velocidad del vehículo con el objeto de",
       "id": "b58c8f7d-166d-4ce1-b6e4-47d4e9f619a5",
-      "label": "[9] Reglamento General de Tránsito y Seguridad Vial, Art. 81",
+      "label": "[15] Reglamento General de Tránsito y Seguridad Vial, Art. 81",
       "pageEnd": 21,
       "pageStart": 21,
       "sectionTitle": "CAPITULO IX > DE LOS VEHICULOS DEL TRANSPORTE COLECTIVO DE PASAJEROS",
-      "similarity": 0.64573236456756,
+      "similarity": 0.636468753806376,
       "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
       "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
     },
     {
-      "articleNumber": "115",
+      "articleNumber": "190",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 190.- Se determina que en los establecimientos educativos estatales y particulares, se impartirá la\nenseñanza de las normas, práctica y principios que regulan el tránsito, el uso de las vías públicas, los medios\nde transporte y la formación de conciencia y hábitos de seguridad en el tránsito vehicular.",
+      "id": "4c42770c-6bfd-4f17-9eb6-93dca976db6e",
+      "label": "[16] Reglamento General de Tránsito y Seguridad Vial, Art. 190",
+      "pageEnd": 49,
+      "pageStart": 49,
+      "sectionTitle": "TITULO VI > DE LA SEGURIDAD VIAL",
+      "similarity": 0.627087479187116,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "95",
+      "documentKey": "reglamento-general-transito",
+      "documentName": "Reglamento General de Tránsito y Seguridad Vial",
+      "excerpt": "Art. 95.- Todo peatón está obligado a tener precaución y deberá observar las reglas siguientes:\n1. Es prohibido bajar o subir a un vehículo cuando éste se encuentre en movimiento, o viajar en los\nestribos, portezuelas, capotas y parrillas.\n2. Toda espera de vehículos se hará siempre en los lugares de parada previamente establecidos.\nAsimismo al bajar de un vehículo no podrá cruzarse la vía hasta que el vehículo haya abandonado el\nlugar de parada, y no hacerlo nunca por el frente del vehículo",
+      "id": "e6fe2bc3-915f-429f-9040-e60132a9d1b2",
+      "label": "[17] Reglamento General de Tránsito y Seguridad Vial, Art. 95",
+      "pageEnd": 24,
+      "pageStart": 24,
+      "sectionTitle": "DE LA CIRCULACION EN LA VIA PUBLICA > CAPITULO I > DE LAS REGLAS PARA USUARIOS DE LA VIA",
+      "similarity": 0.618493847165684,
+      "sourcePath": "assets\\REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf",
+      "sourceUrl": "assets/REGLAMENTO-GENERAL-DE-TRANSITO-Y-SEGURIDAD-VIAL.pdf"
+    },
+    {
+      "articleNumber": "117",
       "documentKey": "ley-transporte-terrestre",
       "documentName": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
-      "excerpt": "Art. 115.- Toda persona autorizada a conducir vehículos automotores destinados al transporte colectivo\nde pasajeros o de carga, deberá de otorgar fianza para responder por daños ocasionados a terceros.\nCAPITULO II\nDE LAS INFRACCIONES, PROCEDIMIENTOS, SANCIONES Y RECURSOS. (20)",
-      "id": "683288a0-84bc-407b-a4b2-ebb9094a3f49",
-      "label": "[10] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 115",
-      "pageEnd": 23,
+      "excerpt": "Art. 117.- Las infracciones de tránsito y seguridad vial se clasifican en Leves, graves y muy graves. (20)\nPrevio a la adquisición de cualquier vehículo automotor, el interesado deberá cerciorarse en el Registro\nPúblico de Vehículos, que no exista pendiente el pago de multas que se hubieren impuesto respecto del\nmismo, al propietario. (20)\nEn todo caso, la tarjeta de circulación del vehículo de que se trate, sólo podrá renovarse, previo pago de\nla multa. (20)\nCUADRO DE MULTAS DE TRANSITO POR INFRACCIONES LEVES, GRA",
+      "id": "0725c88e-ea49-42ba-a7dd-52eedf8a3bbd",
+      "label": "[18] Ley de Transporte Terrestre, Tránsito y Seguridad Vial, Art. 117",
+      "pageEnd": 30,
       "pageStart": 23,
-      "sectionTitle": "DE LOS ASPECTOS COMPLEMENTARIOS > CAPITULO I > DE LOS SEGUROS Y FIANZAS",
-      "similarity": 0.637482704299611,
+      "sectionTitle": "CAPITULO I > DE LOS SEGUROS Y FIANZAS > CAPITULO II",
+      "similarity": 0.6145795401211,
       "sourcePath": "assets\\Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf",
       "sourceUrl": "assets/Ley_de_Transporte_Terrestre_Transito_y_Seguridad_Vial.pdf"
     }
   ],
-  "generatedAt": "2026-07-04T23:09:35.402Z",
+  "generatedAt": "2026-07-04T23:59:29.258Z",
   "generator": "scripts/generate-learning-modules.mjs",
   "moduleId": "10-transporte-publico-y-pasajeros",
   "originalBrief": {
@@ -217,6 +512,6 @@
     ],
     "visual": "Escena de parada de bus con pasajeros subiendo, peaton cruzando y carro manteniendo distancia."
   },
-  "retrievalQuery": "Modulo: Transporte publico y pasajeros\nProposito: Que la persona comprenda que el transporte publico mueve muchas vidas al mismo tiempo. Un error puede afectar a pasajeros, peatones y otros conductores.\nConceptos: - Transporte publico colectivo.\n- Usuarios y pasajeros.\n- Rutas, paradas, terminales y autorizaciones.\n- Conductores autorizados.\n- Seguridad y calidad del servicio.\n- Responsabilidad con pasajeros.\n- Carga y transporte especial cuando aplique.\nMicro-lecciones: |  ID  |  Titulo  |  Fuente esperada  |  Riesgo que conecta  |\n|  01  |  Un bus lleva muchas responsabilidades  |  Reglamento transporte  |  Lesiones multiples  |\n|  02  |  Paradas seguras  |  Reglamento y manual  |  Peatones subiendo o bajando  |\n|  03  |  Pasajeros tambien tienen derechos  |  Reglamento transporte  |  Servicio inseguro  |\n|  04  |  No competir en la via  |  MVP y reglamento  |  Velocidad y maniobras peligrosas  |\nEscenarios: |  ID  |  Situacion  |  Decision segura  |  Consecuencia a explicar  |\n|  01  |  Bus detenido en parada y peaton cruza al frente  |  Reducir velocidad y esperar visibilidad  |  Atropello  |\n|  02  |  Microbus cambia de carril de golpe  |  Mantener distancia  |  Choque  |\nFuentes esperadas: Reglamento General de Transporte Terrestre, Ley de Transporte Terrestre, Transito y Seguridad Vial",
+  "retrievalQuery": "Modulo: Transporte publico y pasajeros\nProposito: Que la persona comprenda que el transporte publico mueve muchas vidas al mismo tiempo. Un error puede afectar a pasajeros, peatones y otros conductores.\nFuentes esperadas: Reglamento General de Transporte Terrestre, Ley de Transporte Terrestre, Transito y Seguridad Vial\n\n---\n\nCobertura normativa para Transporte publico y pasajeros\n- Transporte publico colectivo.\n- Usuarios y pasajeros.\n- Rutas, paradas, terminales y autorizaciones.\n- Conductores autorizados.\n- Seguridad y calidad del servicio.\n- Responsabilidad con pasajeros.\n- Carga y transporte especial cuando aplique.\n|  ID  |  Titulo  |  Fuente esperada  |  Riesgo que conecta  |\n|  01  |  Un bus lleva muchas responsabilidades  |  Reglamento transporte  |  Lesiones multiples  |\n|  02  |  Paradas seguras  |  Reglamento y manual  |  Peatones subiendo o bajando  |\n|  03  |  Pasajeros tambien tienen derechos  |  Reglamento transporte  |  Servicio inseguro  |\n|  04  |  No competir en la via  |  MVP y reglamento  |  Velocidad y maniobras peligrosas  |\n\n---\n\nAplicacion practica para conductores: Transporte publico y pasajeros\n|  ID  |  Situacion  |  Decision segura  |  Consecuencia a explicar  |\n|  01  |  Bus detenido en parada y peaton cruza al frente  |  Reducir velocidad y esperar visibilidad  |  Atropello  |\n|  02  |  Microbus cambia de carril de golpe  |  Mantener distancia  |  Choque  |\n- Por que debes tener cuidado cerca de una parada de bus?\n- Que riesgo hay al adelantar un bus detenido?\n- Que responsabilidad tiene quien transporta pasajeros?\n\n---\n\nSenales, obligaciones, prohibiciones, sanciones, excepciones y decisiones seguras relacionadas con Transporte publico y pasajeros\nEscena de parada de bus con pasajeros subiendo, peaton cruzando y carro manteniendo distancia.\nReglamento General de Transporte Terrestre, Ley de Transporte Terrestre, Transito y Seguridad Vial",
   "title": "Transporte publico y pasajeros"
 }
