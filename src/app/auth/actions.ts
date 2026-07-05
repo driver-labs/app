@@ -114,7 +114,7 @@ export async function authenticate(values: AuthFormValues): Promise<AuthState> {
   }
 
   revalidatePath("/", "layout");
-  redirect("/");
+  redirect("/roadmap");
 }
 
 export async function signOut() {
