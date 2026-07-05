@@ -8,6 +8,7 @@ import type { Scenario } from "@/core/scenario-schema";
 import type { SceneView } from "../camera/views";
 import RainyAmbience from "../env/RainyAmbience";
 import { GrassGround, RoadStrip } from "../env/RoadKit";
+import AttentionArrow from "../fx/AttentionArrow";
 import NearMissEffect from "../fx/NearMissEffect";
 import type { Pack } from "../models/cars";
 import Pedestrian from "../models/Pedestrian";
@@ -231,6 +232,8 @@ export default function BusStopScene({
         <group ref={ped} position={[laneX, 0, BUS_Z + PED_HIDDEN_Z]}>
           <Pedestrian walking shirtColor="#dc2626" />
         </group>
+
+        <AttentionArrow height={2.6} target={ped} />
 
         <NearMissEffect
           impact={impact}

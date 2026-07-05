@@ -9,6 +9,7 @@ import type { SceneView } from "../camera/views";
 import RainyAmbience from "../env/RainyAmbience";
 import { GrassGround, RoadStrip } from "../env/RoadKit";
 import StreetLamp from "../env/StreetLamp";
+import AttentionArrow from "../fx/AttentionArrow";
 import NearMissEffect from "../fx/NearMissEffect";
 import type { Pack } from "../models/cars";
 import Pedestrian from "../models/Pedestrian";
@@ -223,6 +224,8 @@ export default function RainBrakingScene({
             />
           </mesh>
         </group>
+
+        <AttentionArrow target={lead} />
 
         <group ref={ped} position={[-roadWidth / 2 - 0.8, 0, CROSSWALK_Z]}>
           <Pedestrian walking shirtColor="#f59e0b" />

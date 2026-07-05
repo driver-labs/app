@@ -13,6 +13,7 @@ import {
   RoadStrip,
   Roundabout,
 } from "../env/RoadKit";
+import AttentionArrow from "../fx/AttentionArrow";
 import CrashEffect from "../fx/CrashEffect";
 import type { Pack } from "../models/cars";
 import type { Phase } from "../types";
@@ -263,6 +264,8 @@ export default function RoundaboutScene({
         <group ref={moto} position={ringPos(MOTO_START_ANGLE)}>
           <Model model={motoModel} scale={pack.scale} yaw={CAR_YAW} />
         </group>
+
+        <AttentionArrow target={moto} />
 
         <group ref={bus} position={ringPos(BUS_START_ANGLE)}>
           <Model model={busModel} scale={pack.scale} yaw={CAR_YAW} />

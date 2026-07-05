@@ -8,6 +8,7 @@ import type { Scenario } from "@/core/scenario-schema";
 import type { SceneView } from "../camera/views";
 import RainyAmbience from "../env/RainyAmbience";
 import { GrassGround, RoadStrip } from "../env/RoadKit";
+import AttentionArrow from "../fx/AttentionArrow";
 import NearMissEffect from "../fx/NearMissEffect";
 import type { Pack } from "../models/cars";
 import type { Phase } from "../types";
@@ -28,8 +29,9 @@ const DRIFT_X = 1.3;
 const BRAKE_DECEL = 12;
 const NEAR_MISS_TRIGGER_GAP = 2.2;
 const HAZARD_Z = -6;
-const HAZARD_START_X = -10;
-const HAZARD_TARGET_X = -1.4;
+// Offsets relativos al carril del jugador (laneX), no posiciones absolutas.
+const HAZARD_START_OFFSET = -10;
+const HAZARD_TARGET_OFFSET = -1.4;
 
 type Props = {
   phase: Phase;
@@ -70,6 +72,9 @@ export default function DistractionScene({
   const impact = useMemo(() => new THREE.Vector3(), []);
 
   const roadWidth = Math.max(8, scenario.road.lanes * 4.6);
+  const laneX = roadWidth / 4;
+  const hazardStartX = laneX + HAZARD_START_OFFSET;
+  const hazardTargetX = laneX + HAZARD_TARGET_OFFSET;
   const playerActor = scenario.actors.find((actor) => actor.role === "player");
   const hazardActor = scenario.actors.find(
     (actor) => actor.kind === "motorcycle",
@@ -114,8 +119,8 @@ export default function DistractionScene({
       p.position.z -= SAFE_SPEED * d;
       const hazardT = Math.min(1, ct / 1.6);
       hz.position.x = THREE.MathUtils.lerp(
-        HAZARD_START_X,
-        HAZARD_TARGET_X,
+        hazardStartX,
+        hazardTargetX,
         hazardT,
       );
       hz.position.z = HAZARD_Z;
@@ -141,30 +146,26 @@ export default function DistractionScene({
 
     if (blind) {
       p.position.x = THREE.MathUtils.lerp(
-        0,
-        DRIFT_X,
+        laneX,
+        laneX + DRIFT_X,
         Math.min(1, bt / DISTRACTION_DURATION),
       );
       if (driftStrip.current) {
         const startZ = driftStartZ.current;
         const curZ = p.position.z;
         const len = Math.max(0.05, startZ - curZ);
-        driftStrip.current.position.set(0, 0.03, (startZ + curZ) / 2);
+        driftStrip.current.position.set(laneX, 0.03, (startZ + curZ) / 2);
         driftStrip.current.scale.set(1, len, 1);
         driftStrip.current.visible = true;
       }
     } else if (!braking.current) {
-      const dx = 0 - p.position.x;
+      const dx = laneX - p.position.x;
       const step = 3 * d;
       p.position.x += Math.abs(dx) < step ? dx : Math.sign(dx) * step;
     }
 
     const hazardT = Math.min(1, bt / (DISTRACTION_DURATION * 0.9));
-    hz.position.x = THREE.MathUtils.lerp(
-      HAZARD_START_X,
-      HAZARD_TARGET_X,
-      hazardT,
-    );
+    hz.position.x = THREE.MathUtils.lerp(hazardStartX, hazardTargetX, hazardT);
     hz.position.z = HAZARD_Z;
 
     if (!braking.current && !blind) {
@@ -219,7 +220,7 @@ export default function DistractionScene({
           <meshBasicMaterial color="#f97316" transparent opacity={0.32} />
         </mesh>
 
-        <group ref={player} position={[0, 0, 30]}>
+        <group ref={player} position={[laneX, 0, 30]}>
           <Model model={playerModel} scale={pack.scale} yaw={CAR_YAW} />
           <mesh position={[0, 1.35, -0.1]}>
             <boxGeometry args={[0.22, 0.12, 0.02]} />
@@ -234,11 +235,13 @@ export default function DistractionScene({
 
         <group
           ref={hazard}
-          position={[HAZARD_START_X, 0, HAZARD_Z]}
+          position={[hazardStartX, 0, HAZARD_Z]}
           rotation={[0, Math.PI / 2, 0]}
         >
           <Model model={hazardModel} scale={pack.scale} yaw={0} />
         </group>
+
+        <AttentionArrow target={hazard} />
 
         <NearMissEffect
           impact={impact}

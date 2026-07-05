@@ -8,6 +8,7 @@ import type { Scenario } from "@/core/scenario-schema";
 import type { SceneView } from "../camera/views";
 import RainyAmbience from "../env/RainyAmbience";
 import { GrassGround, RoadStrip } from "../env/RoadKit";
+import AttentionArrow from "../fx/AttentionArrow";
 import CrashEffect from "../fx/CrashEffect";
 import type { Pack } from "../models/cars";
 import type { Phase } from "../types";
@@ -196,6 +197,8 @@ export default function LaneChangeScene({
         <group ref={moto} position={[-laneX, 0, MOTO_START_Z]}>
           <Model model={motoModel} scale={pack.scale} yaw={CAR_YAW} />
         </group>
+
+        <AttentionArrow target={moto} />
 
         <CrashEffect impact={impact} crashed={crashed} crashTime={crashTime} />
       </group>

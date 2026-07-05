@@ -6,6 +6,7 @@ import type { Scenario } from "@/core/scenario-schema";
 import type { SceneView } from "../camera/views";
 import RainyAmbience from "../env/RainyAmbience";
 import { GrassGround, RoadStrip } from "../env/RoadKit";
+import AttentionArrow from "../fx/AttentionArrow";
 import type { Pack } from "../models/cars";
 import type { Phase } from "../types";
 import { CAR_YAW, Model } from "./IntersectionScene";
@@ -191,6 +192,8 @@ export default function OvertakeScene({
           yaw={0}
         />
       </group>
+
+      <AttentionArrow target={oncoming} />
     </>
   );
 }
