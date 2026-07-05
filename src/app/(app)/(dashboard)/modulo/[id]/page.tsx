@@ -559,7 +559,7 @@ export default async function ModulePage({ params }: ModulePageProps) {
           <section>
             <p className="eyebrow">
               <AlertTriangle aria-hidden="true" size={14} />
-              Requiere revision
+              Requiere revisión
             </p>
             <ul className="detail-list">
               {didacticContent.needsHumanReview.map((item) => (
