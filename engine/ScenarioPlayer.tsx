@@ -16,7 +16,20 @@ import Link from "next/link";
 import type { ComponentType } from "react";
 import { Suspense, useEffect, useMemo, useState } from "react";
 import PracticeBar from "@/components/PracticeBar";
-import type { Scenario } from "@/core/scenario-schema";
+import {
+  applyScenarioAttempt,
+  buildScenarioAttempt,
+  emptyPracticeProgress,
+  isCorrectScenarioSelection,
+  LEGACY_COMPLETED_SCENARIOS_KEY,
+  PRACTICE_PROGRESS_KEY,
+  type PracticeProgressStore,
+  type UserModuleProgress,
+  type UserScenarioAttempt,
+} from "@/core/practice-progress";
+import type { ScenarioDefinition } from "@/core/scenario-definition";
+import type { Scenario as PlayableScenario } from "@/core/scenario-schema";
+import { toPlayableScenario } from "@/core/scenarios";
 import type { SceneView } from "./camera/views";
 import { getSceneView } from "./camera/views";
 import type { Pack } from "./models/cars";
@@ -33,7 +46,7 @@ import type { Phase } from "./types";
 type DecisionSceneProps = {
   phase: Phase;
   correct: boolean;
-  scenario: Scenario;
+  scenario: PlayableScenario;
   pack: Pack;
   view: SceneView;
   layoutSeed: string;
@@ -44,7 +57,7 @@ type DecisionSceneProps = {
 // tiene componente dedicado (intersection-light, crosswalk, curve) cae en
 // IntersectionScene, igual que antes de este lookup.
 const DECISION_SCENE_COMPONENTS: Partial<
-  Record<Scenario["sceneKind"], ComponentType<DecisionSceneProps>>
+  Record<PlayableScenario["sceneKind"], ComponentType<DecisionSceneProps>>
 > = {
   roundabout: RoundaboutScene,
   "bus-stop": BusStopScene,
@@ -53,7 +66,6 @@ const DECISION_SCENE_COMPONENTS: Partial<
   distraction: DistractionScene,
 };
 
-const PROGRESS_KEY = "driver-labs:completed-scenarios";
 const TITLE_TYPING_MS = 44;
 
 type RelatedModuleLink = {
@@ -62,50 +74,85 @@ type RelatedModuleLink = {
 };
 
 type ScenarioPlayerProps = {
-  scenario: Scenario;
+  scenario: ScenarioDefinition;
   relatedModules?: RelatedModuleLink[];
   otherScenarios?: RelatedModuleLink[];
   fullscreen?: boolean;
 };
 
-const difficultyLabel: Record<Scenario["difficulty"], string> = {
+const difficultyLabel: Record<PlayableScenario["difficulty"], string> = {
   easy: "Fácil",
   medium: "Media",
   hard: "Difícil",
 };
 
-function readCompletedScenarioIds(): Set<string> {
-  if (typeof window === "undefined") return new Set();
+function readPracticeProgress(): PracticeProgressStore {
+  if (typeof window === "undefined") return emptyPracticeProgress();
 
   try {
     const parsed: unknown = JSON.parse(
-      window.localStorage.getItem(PROGRESS_KEY) ?? "[]",
+      window.localStorage.getItem(PRACTICE_PROGRESS_KEY) ?? "{}",
     );
-    if (!Array.isArray(parsed)) return new Set();
-    return new Set(
-      parsed.filter((item): item is string => typeof item === "string"),
-    );
+    if (!parsed || typeof parsed !== "object") return emptyPracticeProgress();
+
+    const store = parsed as Partial<PracticeProgressStore>;
+    return {
+      attempts: Array.isArray(store.attempts) ? store.attempts : [],
+      modules:
+        store.modules && typeof store.modules === "object" ? store.modules : {},
+    };
   } catch {
-    return new Set();
+    return emptyPracticeProgress();
   }
 }
 
-function writeCompletedScenario(id: string) {
+function writePracticeProgress(store: PracticeProgressStore) {
   if (typeof window === "undefined") return;
 
-  const completed = readCompletedScenarioIds();
-  completed.add(id);
-  window.localStorage.setItem(PROGRESS_KEY, JSON.stringify([...completed]));
+  window.localStorage.setItem(PRACTICE_PROGRESS_KEY, JSON.stringify(store));
   window.dispatchEvent(new Event("driver-labs-progress"));
 }
 
-function isCorrectSelection(scenario: Scenario, selectedIds: string[]) {
-  if (selectedIds.length === 0) return false;
-  const selected = new Set(selectedIds);
+function readModuleProgress(moduleId: string): UserModuleProgress | null {
+  return readPracticeProgress().modules[moduleId] ?? null;
+}
 
-  return scenario.choices.every((choice) =>
-    choice.correct ? selected.has(choice.id) : !selected.has(choice.id),
-  );
+function syncLegacyCompletion(scenarioId: string) {
+  if (typeof window === "undefined") return;
+
+  try {
+    const parsed: unknown = JSON.parse(
+      window.localStorage.getItem(LEGACY_COMPLETED_SCENARIOS_KEY) ?? "[]",
+    );
+    const completed = new Set(
+      Array.isArray(parsed)
+        ? parsed.filter((item): item is string => typeof item === "string")
+        : [],
+    );
+    completed.add(scenarioId);
+    window.localStorage.setItem(
+      LEGACY_COMPLETED_SCENARIOS_KEY,
+      JSON.stringify([...completed]),
+    );
+  } catch {
+    window.localStorage.setItem(
+      LEGACY_COMPLETED_SCENARIOS_KEY,
+      JSON.stringify([scenarioId]),
+    );
+  }
+}
+
+function hasLegacyCompletion(scenarioId: string) {
+  if (typeof window === "undefined") return false;
+
+  try {
+    const parsed: unknown = JSON.parse(
+      window.localStorage.getItem(LEGACY_COMPLETED_SCENARIOS_KEY) ?? "[]",
+    );
+    return Array.isArray(parsed) && parsed.includes(scenarioId);
+  } catch {
+    return false;
+  }
 }
 
 function SceneLoader() {
@@ -130,13 +177,25 @@ export default function ScenarioPlayer({
   const [typedTitleLength, setTypedTitleLength] = useState(0);
   const [runKey, setRunKey] = useState(0);
   const [completed, setCompleted] = useState(false);
+  const [moduleProgress, setModuleProgress] =
+    useState<UserModuleProgress | null>(null);
+  const [lastAttempt, setLastAttempt] = useState<UserScenarioAttempt | null>(
+    null,
+  );
+  const [attemptStartedAt, setAttemptStartedAt] = useState(() =>
+    new Date().toISOString(),
+  );
 
+  const playableScenario = useMemo(
+    () => toPlayableScenario(scenario),
+    [scenario],
+  );
   const pack = PACKS.kenney;
-  const view = getSceneView(scenario.sceneKind);
+  const view = getSceneView(playableScenario.sceneKind);
   const DecisionScene =
-    DECISION_SCENE_COMPONENTS[scenario.sceneKind] ?? IntersectionScene;
+    DECISION_SCENE_COMPONENTS[playableScenario.sceneKind] ?? IntersectionScene;
   const correct = useMemo(
-    () => isCorrectSelection(scenario, selectedIds),
+    () => isCorrectScenarioSelection(scenario, selectedIds),
     [scenario, selectedIds],
   );
   const selected = useMemo(() => new Set(selectedIds), [selectedIds]);
@@ -146,8 +205,17 @@ export default function ScenarioPlayer({
     setTypedTitleLength(0);
     setSelectedIds([]);
     setRunKey((key) => key + 1);
-    setCompleted(readCompletedScenarioIds().has(scenario.id));
-  }, [scenario.id]);
+    setLastAttempt(null);
+    setAttemptStartedAt(new Date().toISOString());
+
+    const progress = readModuleProgress(scenario.moduleBinding.moduleId);
+    setModuleProgress(progress);
+    setCompleted(
+      progress?.status === "completed" ||
+        progress?.status === "mastered" ||
+        hasLegacyCompletion(scenario.id),
+    );
+  }, [scenario.id, scenario.moduleBinding.moduleId]);
 
   useEffect(() => {
     if (phase !== "intro") return;
@@ -173,15 +241,44 @@ export default function ScenarioPlayer({
     setTypedTitleLength(0);
     setPhase("intro");
     setRunKey((key) => key + 1);
+    setAttemptStartedAt(new Date().toISOString());
   };
 
   const finishSelection = (nextSelectedIds: string[]) => {
     setSelectedIds(nextSelectedIds);
-    const answeredCorrectly = isCorrectSelection(scenario, nextSelectedIds);
-    if (answeredCorrectly) {
-      writeCompletedScenario(scenario.id);
+    const completedAt = new Date().toISOString();
+    const attempt = buildScenarioAttempt({
+      completedAt,
+      id:
+        typeof crypto !== "undefined" && "randomUUID" in crypto
+          ? crypto.randomUUID()
+          : `${scenario.id}-${Date.now()}`,
+      scenario,
+      selectedOptionIds: nextSelectedIds,
+      startedAt: attemptStartedAt,
+      userId: "local",
+    });
+    const nextProgress = applyScenarioAttempt(
+      readPracticeProgress(),
+      attempt,
+      1,
+    );
+
+    writePracticeProgress(nextProgress);
+    setLastAttempt(attempt);
+    setModuleProgress(nextProgress.modules[scenario.moduleBinding.moduleId]);
+
+    if (attempt.passed) {
+      syncLegacyCompletion(scenario.id);
       setCompleted(true);
     }
+
+    void fetch("/api/practice/attempts", {
+      body: JSON.stringify(attempt),
+      headers: { "Content-Type": "application/json" },
+      method: "POST",
+    }).catch(() => undefined);
+
     setPhase("consequence");
   };
 
@@ -194,11 +291,11 @@ export default function ScenarioPlayer({
   };
 
   const hint =
-    scenario.format === "diagnosis"
+    playableScenario.format === "diagnosis"
       ? "Observá la maniobra y respondé cuando la escena se pause."
       : "El vehículo se aproxima al punto de conflicto.";
   const selectionHelp =
-    scenario.selectionType === "multiple"
+    playableScenario.selectionType === "multiple"
       ? "Podés marcar más de una opción antes de confirmar."
       : "Elegí una sola respuesta.";
   const typedTitle = scenario.title.slice(0, typedTitleLength);
@@ -220,6 +317,7 @@ export default function ScenarioPlayer({
           : "simulator-shell"
       }
       aria-label={scenario.title}
+      data-phase={phase}
     >
       {fullscreen && <PracticeBar />}
 
@@ -232,10 +330,10 @@ export default function ScenarioPlayer({
           camera={{ position: view.camera, fov: view.fov }}
         >
           <Suspense fallback={<SceneLoader />}>
-            {scenario.sceneKind === "straight-overtake" ? (
+            {playableScenario.sceneKind === "straight-overtake" ? (
               <OvertakeScene
                 phase={phase}
-                scenario={scenario}
+                scenario={playableScenario}
                 pack={pack}
                 view={view}
                 onDone={() => setPhase("decision")}
@@ -244,7 +342,7 @@ export default function ScenarioPlayer({
               <DecisionScene
                 phase={phase}
                 correct={correct}
-                scenario={scenario}
+                scenario={playableScenario}
                 layoutSeed={scenario.id}
                 pack={pack}
                 view={view}
@@ -290,7 +388,9 @@ export default function ScenarioPlayer({
       <aside className="scenario-panel">
         <header className="scenario-panel__header">
           <div className="scenario-panel__status">
-            <span>Dificultad {difficultyLabel[scenario.difficulty]}</span>
+            <span>
+              Dificultad {difficultyLabel[playableScenario.difficulty]}
+            </span>
             <span
               className={completed ? "status-pill complete" : "status-pill"}
             >
@@ -324,10 +424,10 @@ export default function ScenarioPlayer({
               <ListChecks aria-hidden="true" size={16} />
               Tu decisión
             </p>
-            <h2 className="prompt">{scenario.prompt}</h2>
+            <h2 className="prompt">{playableScenario.prompt}</h2>
             <p className="task-help">{selectionHelp}</p>
             <div className="choices">
-              {scenario.choices.map((choice, index) => {
+              {playableScenario.choices.map((choice, index) => {
                 const isSelected = selected.has(choice.id);
                 return (
                   <button
@@ -336,7 +436,7 @@ export default function ScenarioPlayer({
                     type="button"
                     aria-pressed={isSelected}
                     onClick={() =>
-                      scenario.selectionType === "multiple"
+                      playableScenario.selectionType === "multiple"
                         ? toggleMultiple(choice.id)
                         : finishSelection([choice.id])
                     }
@@ -349,7 +449,7 @@ export default function ScenarioPlayer({
                 );
               })}
             </div>
-            {scenario.selectionType === "multiple" && (
+            {playableScenario.selectionType === "multiple" && (
               <button
                 className="primary-action"
                 type="button"
@@ -380,17 +480,19 @@ export default function ScenarioPlayer({
                 ) : (
                   <XCircle aria-hidden="true" size={22} />
                 )}
-                {correct ? scenario.feedback.success : scenario.feedback.fail}
+                {correct
+                  ? playableScenario.feedback.success
+                  : playableScenario.feedback.fail}
               </p>
               <p className="rule">
                 <CircleAlert aria-hidden="true" size={18} />
                 <span>
-                  <strong>Regla:</strong> {scenario.rule}
+                  <strong>Regla:</strong> {playableScenario.rule}
                 </span>
               </p>
-              {scenario.lawRefs.length > 0 && (
+              {playableScenario.lawRefs.length > 0 && (
                 <ul className="law-refs">
-                  {scenario.lawRefs.map((ref) => (
+                  {playableScenario.lawRefs.map((ref) => (
                     <li key={`${ref.code}-${ref.summary}`}>
                       <strong>{ref.code}</strong>: {ref.summary}
                     </li>
@@ -412,10 +514,24 @@ export default function ScenarioPlayer({
         <dl className="scenario-panel__context" aria-label="Resumen">
           <dt>Modo</dt>
           <dd>
-            {scenario.format === "diagnosis" ? "Diagnóstico" : "Decisión"}
+            {playableScenario.format === "diagnosis"
+              ? "Diagnóstico"
+              : "Decisión"}
           </dd>
           <dt>Respuesta</dt>
-          <dd>{scenario.selectionType === "multiple" ? "Varias" : "Única"}</dd>
+          <dd>
+            {playableScenario.selectionType === "multiple" ? "Varias" : "Única"}
+          </dd>
+          <dt>Ultimo puntaje</dt>
+          <dd>
+            {lastAttempt?.score ?? moduleProgress?.lastScore ?? "Sin intentos"}
+          </dd>
+          <dt>Mejor puntaje</dt>
+          <dd>{moduleProgress?.bestScore ?? "Sin intentos"}</dd>
+          <dt>Intentos</dt>
+          <dd>{moduleProgress?.attemptsCount ?? 0}</dd>
+          <dt>Lecciones practicadas</dt>
+          <dd>{moduleProgress?.lessonsPracticed.length ?? 0}</dd>
         </dl>
 
         {relatedModules.length > 0 && (

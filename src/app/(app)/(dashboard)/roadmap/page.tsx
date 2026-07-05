@@ -1,4 +1,5 @@
 import { Map as MapIcon } from "lucide-react";
+import { getScenariosForModule } from "@/core/scenarios";
 import { getLearningModules } from "@/lib/content/modules";
 import RoadmapClient, { type RoadmapNode } from "./RoadmapClient";
 
@@ -7,16 +8,23 @@ export const metadata = {
 };
 
 export default function RoadmapPage() {
-  const nodes: RoadmapNode[] = getLearningModules().map((module) => ({
-    citationCount: module.didacticContent?.citations.length ?? 0,
-    estimatedMinutes: module.estimatedMinutes,
-    id: module.id,
-    lessonCount: module.didacticContent?.lessons.length ?? 0,
-    prerequisites: [],
-    scenarios: [],
-    summary: module.summary,
-    title: module.didacticContent?.headline ?? module.title,
-  }));
+  const nodes: RoadmapNode[] = getLearningModules().map((module) => {
+    const scenarios = getScenariosForModule(module.id).map((scenario) => ({
+      id: scenario.id,
+      title: scenario.title,
+    }));
+
+    return {
+      citationCount: module.didacticContent?.citations.length ?? 0,
+      estimatedMinutes: module.estimatedMinutes,
+      id: module.id,
+      lessonCount: module.didacticContent?.lessons.length ?? 0,
+      prerequisites: [],
+      scenarios,
+      summary: module.summary,
+      title: module.didacticContent?.headline ?? module.title,
+    };
+  });
 
   return (
     <section className="roadmap-panel" aria-label="Roadmap de módulos">

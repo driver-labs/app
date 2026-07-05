@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
-import { modulesForScenario } from "@/core/links";
-import { knowledgeModules } from "@/core/modules";
 import { getScenario, getScenarioIds, scenarios } from "@/core/scenarios";
+import { getLearningModule } from "@/lib/content/modules";
 import ScenarioClient from "./ScenarioClient";
 
 type PracticePageProps = {
@@ -25,7 +24,7 @@ export default async function PracticePage({ params }: PracticePageProps) {
   const scenario = getScenario(id);
   if (!scenario) notFound();
 
-  const relatedModules = modulesForScenario(scenario, knowledgeModules);
+  const relatedModule = getLearningModule(scenario.moduleBinding.moduleId);
   const otherScenarios = scenarios
     .filter((item) => item.id !== scenario.id)
     .map((item) => ({ id: item.id, title: item.title }));
@@ -33,10 +32,16 @@ export default async function PracticePage({ params }: PracticePageProps) {
   return (
     <ScenarioClient
       scenario={scenario}
-      relatedModules={relatedModules.map((module) => ({
-        id: module.id,
-        title: module.title,
-      }))}
+      relatedModules={
+        relatedModule
+          ? [
+              {
+                id: relatedModule.id,
+                title: relatedModule.title,
+              },
+            ]
+          : []
+      }
       otherScenarios={otherScenarios}
     />
   );

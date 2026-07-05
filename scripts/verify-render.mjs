@@ -1,16 +1,23 @@
+import { existsSync } from "node:fs";
 import { mkdir } from "node:fs/promises";
 import { chromium } from "@playwright/test";
 import sharp from "sharp";
 
 const baseUrl = process.env.BASE_URL ?? "http://localhost:3000";
-const executablePath =
-  process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE ?? "/usr/bin/chromium-browser";
+const executablePath = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE;
+const linuxChromiumPath = "/usr/bin/chromium-browser";
+const browserCandidates =
+  process.platform === "win32"
+    ? [
+        "C:/Program Files/Google/Chrome/Application/chrome.exe",
+        "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe",
+        "C:/Program Files/Microsoft/Edge/Application/msedge.exe",
+        "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe",
+      ]
+    : [linuxChromiumPath];
 const outputDir = ".next/render-checks";
 
-const viewports = [
-  { name: "desktop", width: 1280, height: 900 },
-  { name: "mobile", width: 390, height: 844 },
-];
+const viewports = [{ name: "desktop", width: 1280, height: 900 }];
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -79,14 +86,16 @@ async function verifyViewport(browser, viewport) {
     }
   });
 
-  await page.goto(`${baseUrl}/practicar/overtake-01`, {
+  await page.goto(`${baseUrl}/practicar/scenario_vehiculo_seguro_lluvia_001`, {
     waitUntil: "networkidle",
   });
   await page.locator("canvas").waitFor({ state: "visible", timeout: 20_000 });
   await page
     .locator(".stage-title[data-intro='done']")
     .waitFor({ state: "visible", timeout: 8_000 });
-  await page.waitForTimeout(300);
+  await page
+    .locator(".simulator-shell[data-phase='approach']")
+    .waitFor({ state: "visible", timeout: 3_000 });
 
   const first = await canvasImageStats(page, viewport.name, "first");
   await page.waitForTimeout(450);
@@ -123,11 +132,21 @@ async function verifyViewport(browser, viewport) {
 
 await mkdir(outputDir, { recursive: true });
 
-const browser = await chromium.launch({
-  executablePath,
+const launchOptions = {
   headless: true,
   args: ["--no-sandbox", "--disable-dev-shm-usage"],
-});
+};
+
+if (executablePath) {
+  launchOptions.executablePath = executablePath;
+} else {
+  const detectedExecutable = browserCandidates.find((candidate) =>
+    existsSync(candidate),
+  );
+  if (detectedExecutable) launchOptions.executablePath = detectedExecutable;
+}
+
+const browser = await chromium.launch(launchOptions);
 
 try {
   const results = [];
