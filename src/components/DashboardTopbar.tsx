@@ -15,7 +15,10 @@ export default function DashboardTopbar({
   const pathname = usePathname();
   const isRoadmap = pathname === "/roadmap" || pathname.startsWith("/modulo/");
   const isPractice =
-    pathname === "/practicar" || pathname.startsWith("/practicar/");
+    pathname === "/practicar" ||
+    pathname.startsWith("/practicar/") ||
+    pathname === "/practicas" ||
+    pathname.startsWith("/practicas/");
   const isCompact = compact || isPractice;
 
   return (

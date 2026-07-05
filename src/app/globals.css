@@ -100,8 +100,9 @@ html {
 
 .practice-shell {
   position: relative;
-  height: 100dvh;
-  overflow: hidden;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  overflow-y: auto;
   background: var(--background);
   color: var(--foreground);
   --practice-chrome-height: 44px;
@@ -178,6 +179,273 @@ html {
   border-color: rgba(6, 182, 212, 0.35);
   background: rgba(6, 182, 212, 0.12);
   color: var(--foreground);
+}
+
+.practice-dashboard {
+  width: var(--shell-width);
+  margin: 0 auto;
+  padding: 18px 0 56px;
+}
+
+.practice-dashboard__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: flex-end;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 20px;
+}
+
+.practice-dashboard__header h1 {
+  max-width: 760px;
+  margin: 8px 0 0;
+  color: var(--foreground);
+  font-size: clamp(1.9rem, 4vw, 3.2rem);
+  line-height: 1.02;
+}
+
+.practice-dashboard__header p:not(.eyebrow) {
+  max-width: 720px;
+  margin: 12px 0 0;
+  color: var(--secondary-text);
+  line-height: 1.7;
+}
+
+.practice-dashboard__stats {
+  display: grid;
+  min-width: min(100%, 290px);
+  gap: 8px;
+}
+
+.practice-dashboard__stats span {
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.82);
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+  font-weight: 750;
+  padding: 8px 10px;
+}
+
+.practice-validation {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+  border: 1px solid rgba(245, 158, 11, 0.42);
+  border-radius: 8px;
+  background: rgba(245, 158, 11, 0.1);
+  color: #fed7aa;
+  padding: 14px;
+}
+
+.practice-validation p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-weight: 800;
+}
+
+.practice-validation ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.practice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.practice-card {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+  min-height: 420px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.9);
+  padding: 16px;
+}
+
+.practice-card__top,
+.practice-card__meta,
+.practice-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.practice-card__top > span:first-child {
+  display: inline-flex;
+  width: 38px;
+  height: 38px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: rgba(6, 182, 212, 0.14);
+  color: var(--secondary);
+  font-weight: 900;
+}
+
+.practice-status {
+  display: inline-flex;
+  min-height: 30px;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--ink-muted);
+  font-size: 0.76rem;
+  font-weight: 850;
+  padding: 6px 9px;
+}
+
+.practice-status--done {
+  border-color: rgba(34, 197, 94, 0.34);
+  background: rgba(34, 197, 94, 0.12);
+  color: #86efac;
+}
+
+.practice-status--ready {
+  border-color: rgba(6, 182, 212, 0.34);
+  background: rgba(6, 182, 212, 0.12);
+  color: #67e8f9;
+}
+
+.practice-status--pending {
+  border-color: rgba(245, 158, 11, 0.34);
+  background: rgba(245, 158, 11, 0.11);
+  color: #facc15;
+}
+
+.practice-card h2 {
+  margin: 0;
+  color: var(--foreground);
+  font-size: 1.08rem;
+  line-height: 1.25;
+}
+
+.practice-card p {
+  margin: 8px 0 0;
+  color: var(--ink-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.practice-card__scenario {
+  display: grid;
+  gap: 6px;
+  border-left: 3px solid var(--secondary);
+  background: rgba(6, 182, 212, 0.08);
+  padding: 10px 12px;
+}
+
+.practice-card__scenario strong {
+  color: var(--foreground);
+  font-size: 0.94rem;
+}
+
+.practice-card__scenario span {
+  color: var(--secondary-text);
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.practice-card__scenario--pending {
+  border-color: var(--warning);
+  background: rgba(245, 158, 11, 0.08);
+}
+
+.practice-card__metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+}
+
+.practice-card__metrics div {
+  display: grid;
+  gap: 4px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(2, 8, 23, 0.35);
+  padding: 8px;
+}
+
+.practice-card__metrics dt {
+  color: var(--ink-muted);
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.practice-card__metrics dd {
+  margin: 0;
+  color: var(--foreground);
+  font-weight: 850;
+}
+
+.practice-card__mistake {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  border: 1px solid rgba(248, 113, 113, 0.26);
+  border-radius: 8px;
+  background: rgba(127, 29, 29, 0.14);
+  color: #fecaca;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  margin: 0;
+  padding: 8px 10px;
+}
+
+.practice-card__mistake svg {
+  flex: 0 0 auto;
+  margin-top: 2px;
+}
+
+.practice-card__meta {
+  justify-content: flex-start;
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+}
+
+.practice-card__meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.practice-card__actions {
+  margin-top: auto;
+  justify-content: flex-start;
+}
+
+.practice-card__actions a,
+.practice-card__actions .disabled-link {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--foreground);
+  font-size: 0.86rem;
+  font-weight: 850;
+  padding: 8px 11px;
+  text-decoration: none;
+}
+
+.practice-card__actions a:last-child {
+  border-color: rgba(34, 197, 94, 0.34);
+  background: rgba(34, 197, 94, 0.14);
 }
 
 .simulator-shell {
@@ -1367,7 +1635,30 @@ html {
   }
 }
 
+@media (max-width: 1120px) {
+  .practice-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 860px) {
+  .practice-dashboard__header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .practice-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .practice-card {
+    min-height: auto;
+  }
+
+  .practice-card__metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .simulator-shell:not(.simulator-shell--immersive),
   .simulator-shell--fullscreen:not(.simulator-shell--immersive) {
     grid-template-columns: 1fr;

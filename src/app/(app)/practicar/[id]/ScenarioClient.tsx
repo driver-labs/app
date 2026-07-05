@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import PracticeBar from "@/components/PracticeBar";
-import type { Scenario } from "@/core/scenario-schema";
+import type { ScenarioDefinition } from "@/core/scenario-definition";
 
 const ScenarioPlayer = dynamic(() => import("@/engine/ScenarioPlayer"), {
   ssr: false,
@@ -15,7 +15,7 @@ type ScenarioLink = {
 };
 
 type ScenarioClientProps = {
-  scenario: Scenario;
+  scenario: ScenarioDefinition;
   relatedModules: ScenarioLink[];
   otherScenarios?: ScenarioLink[];
 };

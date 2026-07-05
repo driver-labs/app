@@ -10,8 +10,11 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-
-const PROGRESS_KEY = "driver-labs:completed-scenarios";
+import {
+  LEGACY_COMPLETED_SCENARIOS_KEY,
+  PRACTICE_PROGRESS_KEY,
+  type PracticeProgressStore,
+} from "@/core/practice-progress";
 
 export type RoadmapNode = {
   id: string;
@@ -30,13 +33,28 @@ type RoadmapClientProps = {
 
 function readCompletedScenarioIds(): Set<string> {
   try {
-    const parsed: unknown = JSON.parse(
-      window.localStorage.getItem(PROGRESS_KEY) ?? "[]",
+    const progress: unknown = JSON.parse(
+      window.localStorage.getItem(PRACTICE_PROGRESS_KEY) ?? "{}",
     );
-    if (!Array.isArray(parsed)) return new Set();
-    return new Set(
-      parsed.filter((item): item is string => typeof item === "string"),
+    const completed = new Set<string>();
+
+    if (progress && typeof progress === "object") {
+      const store = progress as Partial<PracticeProgressStore>;
+      for (const attempt of store.attempts ?? []) {
+        if (attempt.passed) completed.add(attempt.scenarioId);
+      }
+    }
+
+    const legacy: unknown = JSON.parse(
+      window.localStorage.getItem(LEGACY_COMPLETED_SCENARIOS_KEY) ?? "[]",
     );
+    if (Array.isArray(legacy)) {
+      for (const item of legacy) {
+        if (typeof item === "string") completed.add(item);
+      }
+    }
+
+    return completed;
   } catch {
     return new Set();
   }
@@ -73,7 +91,8 @@ export default function RoadmapClient({ nodes }: RoadmapClientProps) {
   }, [completedScenarios, nodes]);
 
   const resetProgress = () => {
-    window.localStorage.removeItem(PROGRESS_KEY);
+    window.localStorage.removeItem(PRACTICE_PROGRESS_KEY);
+    window.localStorage.removeItem(LEGACY_COMPLETED_SCENARIOS_KEY);
     setCompletedScenarios(new Set());
     window.dispatchEvent(new Event("driver-labs-progress"));
   };
