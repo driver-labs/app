@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  BookOpen,
-  CheckCircle2,
-  Lock,
-  PlayCircle,
-  RotateCcw,
-  Unlock,
-} from "lucide-react";
+import { BookOpen, Lock, PlayCircle, RotateCcw } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import {
@@ -98,7 +91,7 @@ export default function RoadmapClient({ nodes }: RoadmapClientProps) {
   };
 
   return (
-    <div className="roadmap-list">
+    <div className="practice-grid">
       {nodes.map((node, index) => {
         const isComplete = completedModules.has(node.id);
         const isUnlocked = node.prerequisites.every((id) =>
@@ -112,91 +105,88 @@ export default function RoadmapClient({ nodes }: RoadmapClientProps) {
           node.scenarios.length > 0
             ? completedCount / node.scenarios.length
             : 0;
-        const StatusIcon = isComplete
-          ? CheckCircle2
-          : isUnlocked
-            ? Unlock
-            : Lock;
 
         return (
-          <article
-            className={
-              isComplete
-                ? "roadmap-node complete"
-                : isUnlocked
-                  ? "roadmap-node unlocked"
-                  : "roadmap-node locked"
-            }
-            key={node.id}
-          >
-            <div className="roadmap-node__index">{index + 1}</div>
-            <div className="roadmap-node__body">
-              <div className="roadmap-node__heading">
-                <div>
-                  <p className="eyebrow roadmap-status">
-                    <StatusIcon aria-hidden="true" size={14} />
-                    {isComplete
-                      ? "completado"
-                      : isUnlocked
-                        ? "disponible"
-                        : "bloqueado"}
-                  </p>
-                  <h2>{node.title}</h2>
-                </div>
-                <span>
-                  {hasPractice
-                    ? `${completedCount}/${node.scenarios.length}`
-                    : `${node.estimatedMinutes ?? 0} min`}
-                </span>
+          <article className="practice-card" key={node.id}>
+            <div className="practice-card__top">
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <span
+                className={
+                  isComplete
+                    ? "practice-status practice-status--done"
+                    : isUnlocked
+                      ? "practice-status practice-status--ready"
+                      : "practice-status practice-status--pending"
+                }
+              >
+                {isComplete
+                  ? "Completado"
+                  : isUnlocked
+                    ? "Disponible"
+                    : "Bloqueado"}
+              </span>
+            </div>
+
+            <div>
+              <h2>{node.title}</h2>
+              <p className="practice-card__summary">{node.summary}</p>
+            </div>
+
+            {hasPractice ? (
+              <div
+                aria-label={`${completedCount} de ${node.scenarios.length} escenarios completados`}
+                aria-valuemax={node.scenarios.length}
+                aria-valuemin={0}
+                aria-valuenow={completedCount}
+                className="progress-track"
+                role="progressbar"
+              >
+                <span style={{ width: `${progress * 100}%` }} />
               </div>
-              <p>{node.summary}</p>
-              {hasPractice ? (
-                <div
-                  aria-label={`${completedCount} de ${node.scenarios.length} escenarios completados`}
-                  aria-valuemax={node.scenarios.length}
-                  aria-valuemin={0}
-                  aria-valuenow={completedCount}
-                  className="progress-track"
-                  role="progressbar"
-                >
-                  <span style={{ width: `${progress * 100}%` }} />
-                </div>
+            ) : (
+              <p className="practice-card__empty">
+                {node.lessonCount ?? 0} lecciones · {node.citationCount ?? 0}{" "}
+                citas verificables
+              </p>
+            )}
+
+            <div className="practice-card__meta">
+              <span>
+                {hasPractice
+                  ? `${completedCount}/${node.scenarios.length} escenarios`
+                  : `${node.estimatedMinutes ?? 0} min`}
+              </span>
+            </div>
+
+            <div className="practice-card__actions">
+              {isUnlocked ? (
+                <Link href={`/modulo/${node.id}`}>
+                  <BookOpen aria-hidden="true" size={17} />
+                  Abrir módulo
+                </Link>
               ) : (
-                <p className="muted">
-                  {node.lessonCount ?? 0} lecciones · {node.citationCount ?? 0}{" "}
-                  citas verificables
-                </p>
+                <span aria-disabled="true" className="disabled-link">
+                  <Lock aria-hidden="true" size={17} />
+                  Completa prerequisitos
+                </span>
               )}
-              <div className="roadmap-actions">
-                {isUnlocked ? (
-                  <Link href={`/modulo/${node.id}`}>
-                    <BookOpen aria-hidden="true" size={17} />
-                    Abrir módulo
+              {node.scenarios.map((scenario) =>
+                isUnlocked ? (
+                  <Link key={scenario.id} href={`/practicar/${scenario.id}`}>
+                    <PlayCircle aria-hidden="true" size={17} />
+                    {scenario.title}
                   </Link>
                 ) : (
-                  <span aria-disabled="true" className="disabled-link">
+                  <span
+                    aria-disabled="true"
+                    className="disabled-link"
+                    key={scenario.id}
+                  >
                     <Lock aria-hidden="true" size={17} />
-                    Completa prerequisitos
+                    {scenario.title}
                   </span>
-                )}
-                {node.scenarios.map((scenario) =>
-                  isUnlocked ? (
-                    <Link key={scenario.id} href={`/practicar/${scenario.id}`}>
-                      <PlayCircle aria-hidden="true" size={17} />
-                      {scenario.title}
-                    </Link>
-                  ) : (
-                    <span
-                      aria-disabled="true"
-                      className="disabled-link"
-                      key={scenario.id}
-                    >
-                      <Lock aria-hidden="true" size={17} />
-                      {scenario.title}
-                    </span>
-                  ),
-                )}
-              </div>
+                ),
+              )}
             </div>
           </article>
         );
@@ -204,6 +194,7 @@ export default function RoadmapClient({ nodes }: RoadmapClientProps) {
 
       <button
         className="secondary-action"
+        style={{ gridColumn: "1 / -1" }}
         type="button"
         onClick={resetProgress}
       >
