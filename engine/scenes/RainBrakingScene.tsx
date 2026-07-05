@@ -7,6 +7,7 @@ import * as THREE from "three";
 import type { Scenario } from "@/core/scenario-schema";
 import type { SceneView } from "../camera/views";
 import RainyAmbience from "../env/RainyAmbience";
+import { GrassGround, RoadStrip } from "../env/RoadKit";
 import StreetLamp from "../env/StreetLamp";
 import NearMissEffect from "../fx/NearMissEffect";
 import type { Pack } from "../models/cars";
@@ -188,28 +189,8 @@ export default function RainBrakingScene({
         />
         <StreetLamp position={[-laneX - 4, 0, 10]} rotationY={Math.PI / 4} />
 
-        <mesh
-          rotation={[-Math.PI / 2, 0, 0]}
-          position={[0, -0.02, 0]}
-          receiveShadow
-        >
-          <planeGeometry args={[160, 200]} />
-          <meshStandardMaterial color="#2c3a33" />
-        </mesh>
-        <mesh rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
-          <planeGeometry args={[roadWidth, 200]} />
-          <meshStandardMaterial color="#33363c" />
-        </mesh>
-        {[-roadWidth / 2 + 0.15, roadWidth / 2 - 0.15].map((x) => (
-          <mesh
-            key={`edge-${x}`}
-            rotation={[-Math.PI / 2, 0, 0]}
-            position={[x, 0.02, 0]}
-          >
-            <planeGeometry args={[0.14, 200]} />
-            <meshStandardMaterial color="#dcdcdc" />
-          </mesh>
-        ))}
+        <GrassGround color="#2c3a33" size={200} />
+        <RoadStrip along="z" length={140} width={roadWidth} />
         <CrosswalkStripes roadWidth={roadWidth} z={CROSSWALK_Z} />
 
         <group ref={player} position={[laneX, 0, 34]}>

@@ -12,6 +12,7 @@ import { FBXLoader, SkeletonUtils, TGALoader } from "three-stdlib";
 import type { Scenario } from "@/core/scenario-schema";
 import type { SceneView } from "../camera/views";
 import RainyAmbience from "../env/RainyAmbience";
+import { Crossroad, GrassGround, RoadStrip } from "../env/RoadKit";
 import StreetLamp from "../env/StreetLamp";
 import TrafficLight from "../env/TrafficLight";
 import CrashEffect from "../fx/CrashEffect";
@@ -207,61 +208,6 @@ function FbxModel({
 DEBRIS.forEach((d) => {
   useGLTF.preload(d.model);
 });
-
-function LaneDashes({ axis }: { axis: "z" | "x" }) {
-  return (
-    <>
-      {Array.from({ length: 26 }, (_, i) => {
-        const p = -62 + i * 5;
-        if (Math.abs(p) < 6) return null;
-        const pos: [number, number, number] =
-          axis === "z" ? [0, 0.02, p] : [p, 0.02, 0];
-        const size: [number, number] = axis === "z" ? [0.25, 2.6] : [2.6, 0.25];
-        return (
-          <mesh
-            key={`${axis}-${p}`}
-            position={pos}
-            rotation={[-Math.PI / 2, 0, 0]}
-          >
-            <planeGeometry args={size} />
-            <meshStandardMaterial color="#e8c33a" />
-          </mesh>
-        );
-      })}
-    </>
-  );
-}
-
-function CenterMarkings({
-  axis,
-  centerLine,
-}: {
-  axis: "z" | "x";
-  centerLine: Scenario["road"]["centerLine"];
-}) {
-  if (centerLine === "dashed") return <LaneDashes axis={axis} />;
-
-  const offsets = centerLine === "double-solid" ? [-0.18, 0.18] : [0];
-  return (
-    <>
-      {offsets.map((offset) => {
-        const position: [number, number, number] =
-          axis === "z" ? [offset, 0.02, 0] : [0, 0.02, offset];
-        const size: [number, number] = axis === "z" ? [0.16, 150] : [150, 0.16];
-        return (
-          <mesh
-            key={`${axis}-${centerLine}-${offset}`}
-            position={position}
-            rotation={[-Math.PI / 2, 0, 0]}
-          >
-            <planeGeometry args={size} />
-            <meshStandardMaterial color="#e8c33a" />
-          </mesh>
-        );
-      })}
-    </>
-  );
-}
 
 function Crosswalk({ z }: { z: number }) {
   return (
@@ -569,31 +515,12 @@ export default function Scene({
           </>
         )}
 
-        {/* pasto */}
-        <mesh
-          rotation={[-Math.PI / 2, 0, 0]}
-          position={[0, -0.02, 0]}
-          receiveShadow
-        >
-          <planeGeometry args={[160, 160]} />
-          <meshStandardMaterial color="#3f7d4f" />
-        </mesh>
-        {/* calles */}
-        <mesh rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
-          <planeGeometry args={[roadWidth, 160]} />
-          <meshStandardMaterial color="#3a3a3f" />
-        </mesh>
-        <mesh
-          rotation={[-Math.PI / 2, 0, 0]}
-          position={[0, 0.001, 0]}
-          receiveShadow
-        >
-          <planeGeometry args={[160, roadWidth]} />
-          <meshStandardMaterial color="#3a3a3f" />
-        </mesh>
+        {/* piso + cruce en X con tiles del kit modular */}
+        <GrassGround size={160} />
+        <Crossroad size={roadWidth} />
+        <RoadStrip along="z" length={120} width={roadWidth} gap={roadWidth} />
+        <RoadStrip along="x" length={120} width={roadWidth} gap={roadWidth} />
 
-        <CenterMarkings axis="z" centerLine={scenario.road.centerLine} />
-        <CenterMarkings axis="x" centerLine={scenario.road.centerLine} />
         {scenario.road.crosswalk && <Crosswalk z={STOP_Z - 1.1} />}
 
         {/* línea de ALTO */}

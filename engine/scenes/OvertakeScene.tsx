@@ -5,6 +5,7 @@ import type * as THREE from "three";
 import type { Scenario } from "@/core/scenario-schema";
 import type { SceneView } from "../camera/views";
 import RainyAmbience from "../env/RainyAmbience";
+import { GrassGround, RoadStrip } from "../env/RoadKit";
 import type { Pack } from "../models/cars";
 import type { Phase } from "../types";
 import { CAR_YAW, Model } from "./IntersectionScene";
@@ -160,32 +161,11 @@ export default function OvertakeScene({
       />
       <OrbitControls target={view.target} maxPolarAngle={Math.PI / 2.15} />
 
-      {/* pasto */}
-      <mesh
-        rotation={[-Math.PI / 2, 0, 0]}
-        position={[0, -0.02, 0]}
-        receiveShadow
-      >
-        <planeGeometry args={[160, 200]} />
-        <meshStandardMaterial color="#3f7d4f" />
-      </mesh>
-      {/* calle (a lo largo de Z) */}
-      <mesh rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
-        <planeGeometry args={[roadWidth, 200]} />
-        <meshStandardMaterial color="#3a3a3f" />
-      </mesh>
+      {/* piso + calzada recta con tiles del kit; la línea central se dibuja
+          encima porque su estilo (continua/doble) es la clave didáctica aquí */}
+      <GrassGround color="#3f7d4f" size={200} />
+      <RoadStrip along="z" length={140} width={roadWidth} />
       <CenterLine centerLine={scenario.road.centerLine} />
-      {/* bordes blancos */}
-      {[-roadWidth / 2 + 0.15, roadWidth / 2 - 0.15].map((x) => (
-        <mesh
-          key={`edge-line-${x}`}
-          rotation={[-Math.PI / 2, 0, 0]}
-          position={[x, 0.02, 0]}
-        >
-          <planeGeometry args={[0.14, 200]} />
-          <meshStandardMaterial color="#dcdcdc" />
-        </mesh>
-      ))}
 
       {/* auto lento — carril derecho */}
       <group ref={slow} position={[laneX, 0, 2]}>

@@ -7,6 +7,7 @@ import * as THREE from "three";
 import type { Scenario } from "@/core/scenario-schema";
 import type { SceneView } from "../camera/views";
 import RainyAmbience from "../env/RainyAmbience";
+import { GrassGround, RoadStrip } from "../env/RoadKit";
 import NearMissEffect from "../fx/NearMissEffect";
 import type { Pack } from "../models/cars";
 import type { Phase } from "../types";
@@ -209,28 +210,8 @@ export default function DistractionScene({
       <OrbitControls target={view.target} maxPolarAngle={Math.PI / 2.15} />
 
       <group ref={world}>
-        <mesh
-          rotation={[-Math.PI / 2, 0, 0]}
-          position={[0, -0.02, 0]}
-          receiveShadow
-        >
-          <planeGeometry args={[160, 200]} />
-          <meshStandardMaterial color="#4a4f57" />
-        </mesh>
-        <mesh rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
-          <planeGeometry args={[roadWidth, 200]} />
-          <meshStandardMaterial color="#3a3a3f" />
-        </mesh>
-        {[-roadWidth / 2 + 0.15, roadWidth / 2 - 0.15].map((x) => (
-          <mesh
-            key={`edge-${x}`}
-            rotation={[-Math.PI / 2, 0, 0]}
-            position={[x, 0.02, 0]}
-          >
-            <planeGeometry args={[0.14, 200]} />
-            <meshStandardMaterial color="#dcdcdc" />
-          </mesh>
-        ))}
+        <GrassGround color="#4a4f57" size={200} />
+        <RoadStrip along="z" length={140} width={roadWidth} />
 
         {/* franja que marca cuánto avanzó el auto mientras no miraba la calle */}
         <mesh ref={driftStrip} rotation={[-Math.PI / 2, 0, 0]} visible={false}>

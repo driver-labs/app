@@ -7,6 +7,12 @@ import * as THREE from "three";
 import type { Scenario } from "@/core/scenario-schema";
 import type { SceneView } from "../camera/views";
 import RainyAmbience from "../env/RainyAmbience";
+import {
+  GrassGround,
+  ROUNDABOUT_TILE,
+  RoadStrip,
+  Roundabout,
+} from "../env/RoadKit";
 import CrashEffect from "../fx/CrashEffect";
 import type { Pack } from "../models/cars";
 import type { Phase } from "../types";
@@ -20,7 +26,6 @@ import { actorModel, CAR_YAW, Model } from "./IntersectionScene";
 // de fundirse al anillo; no ceder = choque lateral con la moto.
 
 const RING_MID_R = 7;
-const RING_INNER_R = 4.2;
 const RING_OUTER_R = 9.8;
 const STUB_LENGTH = 26;
 const STUB_WIDTH = 6.4;
@@ -40,6 +45,12 @@ const BUS_START_ANGLE = Math.PI + 0.8;
 
 const CRASH_TRIGGER_DIST = 2.4;
 const MOTO_CLEAR_ANGLE = -0.35;
+
+// Escala del tile de rotonda para que su carril de circulación quede en RING_MID_R.
+const ROUNDABOUT_SCALE = RING_MID_R / ROUNDABOUT_TILE.laneRadius;
+// Huella del tile 3x3: sirve de hueco central para encajar los brazos rectos.
+const ARM_GAP = 3 * ROUNDABOUT_SCALE;
+const ARM_LENGTH = 2 * (RING_OUTER_R + STUB_LENGTH * 0.7);
 
 function ringPos(angle: number, radius = RING_MID_R): [number, number, number] {
   return [radius * Math.sin(angle), 0, radius * Math.cos(angle)];
@@ -220,64 +231,21 @@ export default function RoundaboutScene({
       <OrbitControls target={view.target} maxPolarAngle={Math.PI / 2.15} />
 
       <group ref={world}>
-        <mesh
-          rotation={[-Math.PI / 2, 0, 0]}
-          position={[0, -0.02, 0]}
-          receiveShadow
-        >
-          <planeGeometry args={[160, 160]} />
-          <meshStandardMaterial color="#3f7d4f" />
-        </mesh>
-
-        {/* brazos rectos: sur (entrada del jugador) y norte */}
-        <mesh
-          rotation={[-Math.PI / 2, 0, 0]}
-          position={[0, 0, RING_OUTER_R + STUB_LENGTH / 2]}
-          receiveShadow
-        >
-          <planeGeometry args={[STUB_WIDTH, STUB_LENGTH]} />
-          <meshStandardMaterial color="#3a3a3f" />
-        </mesh>
-        <mesh
-          rotation={[-Math.PI / 2, 0, 0]}
-          position={[0, 0, -(RING_OUTER_R + STUB_LENGTH / 2)]}
-          receiveShadow
-        >
-          <planeGeometry args={[STUB_WIDTH, STUB_LENGTH]} />
-          <meshStandardMaterial color="#3a3a3f" />
-        </mesh>
-        {/* brazos rectos: oeste (salida) y este */}
-        <mesh
-          rotation={[-Math.PI / 2, 0, 0]}
-          position={[-(RING_OUTER_R + STUB_LENGTH / 2), 0, 0]}
-          receiveShadow
-        >
-          <planeGeometry args={[STUB_LENGTH, STUB_WIDTH]} />
-          <meshStandardMaterial color="#3a3a3f" />
-        </mesh>
-        <mesh
-          rotation={[-Math.PI / 2, 0, 0]}
-          position={[RING_OUTER_R + STUB_LENGTH / 2, 0, 0]}
-          receiveShadow
-        >
-          <planeGeometry args={[STUB_LENGTH, STUB_WIDTH]} />
-          <meshStandardMaterial color="#3a3a3f" />
-        </mesh>
-
-        {/* anillo circulante */}
-        <mesh
-          rotation={[-Math.PI / 2, 0, 0]}
-          position={[0, 0.005, 0]}
-          receiveShadow
-        >
-          <ringGeometry args={[RING_INNER_R, RING_OUTER_R, 56]} />
-          <meshStandardMaterial color="#3a3a3f" />
-        </mesh>
-        {/* isla central */}
-        <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.01, 0]}>
-          <circleGeometry args={[RING_INNER_R, 40]} />
-          <meshStandardMaterial color="#356b43" />
-        </mesh>
+        {/* piso + rotonda del kit; los brazos rectos se encajan a ras del tile */}
+        <GrassGround size={160} />
+        <Roundabout scale={ROUNDABOUT_SCALE} />
+        <RoadStrip
+          along="z"
+          length={ARM_LENGTH}
+          width={STUB_WIDTH}
+          gap={ARM_GAP}
+        />
+        <RoadStrip
+          along="x"
+          length={ARM_LENGTH}
+          width={STUB_WIDTH}
+          gap={ARM_GAP}
+        />
 
         {/* línea de "cede el paso" en la entrada sur */}
         <mesh

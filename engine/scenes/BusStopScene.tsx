@@ -7,6 +7,7 @@ import * as THREE from "three";
 import type { Scenario } from "@/core/scenario-schema";
 import type { SceneView } from "../camera/views";
 import RainyAmbience from "../env/RainyAmbience";
+import { GrassGround, RoadStrip } from "../env/RoadKit";
 import NearMissEffect from "../fx/NearMissEffect";
 import type { Pack } from "../models/cars";
 import Pedestrian from "../models/Pedestrian";
@@ -195,28 +196,9 @@ export default function BusStopScene({
       <OrbitControls target={view.target} maxPolarAngle={Math.PI / 2.15} />
 
       <group ref={world}>
-        <mesh
-          rotation={[-Math.PI / 2, 0, 0]}
-          position={[0, -0.02, 0]}
-          receiveShadow
-        >
-          <planeGeometry args={[160, 200]} />
-          <meshStandardMaterial color="#3f7d4f" />
-        </mesh>
-        <mesh rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
-          <planeGeometry args={[roadWidth, 200]} />
-          <meshStandardMaterial color="#3a3a3f" />
-        </mesh>
-        {[-roadWidth / 2 + 0.15, roadWidth / 2 - 0.15].map((x) => (
-          <mesh
-            key={`edge-${x}`}
-            rotation={[-Math.PI / 2, 0, 0]}
-            position={[x, 0.02, 0]}
-          >
-            <planeGeometry args={[0.14, 200]} />
-            <meshStandardMaterial color="#dcdcdc" />
-          </mesh>
-        ))}
+        <GrassGround color="#3f7d4f" size={200} />
+        <RoadStrip along="z" length={140} width={roadWidth} />
+        {/* línea central amarilla: el adelantamiento al bus la cruza */}
         <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.02, 0]}>
           <planeGeometry args={[0.16, 200]} />
           <meshStandardMaterial color="#e8c33a" />

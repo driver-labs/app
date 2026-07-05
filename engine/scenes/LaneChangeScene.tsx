@@ -7,6 +7,7 @@ import * as THREE from "three";
 import type { Scenario } from "@/core/scenario-schema";
 import type { SceneView } from "../camera/views";
 import RainyAmbience from "../env/RainyAmbience";
+import { GrassGround, RoadStrip } from "../env/RoadKit";
 import CrashEffect from "../fx/CrashEffect";
 import type { Pack } from "../models/cars";
 import type { Phase } from "../types";
@@ -171,28 +172,13 @@ export default function LaneChangeScene({
       />
 
       <group ref={world}>
-        <mesh
-          rotation={[-Math.PI / 2, 0, 0]}
-          position={[0, -0.02, 0]}
-          receiveShadow
-        >
-          <planeGeometry args={[160, 200]} />
-          <meshStandardMaterial color="#5f6b57" />
+        <GrassGround color="#5f6b57" size={200} />
+        <RoadStrip along="z" length={140} width={roadWidth} />
+        {/* línea central amarilla: separa los dos carriles del cambio */}
+        <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.02, 0]}>
+          <planeGeometry args={[0.14, 200]} />
+          <meshStandardMaterial color="#e8c33a" />
         </mesh>
-        <mesh rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
-          <planeGeometry args={[roadWidth, 200]} />
-          <meshStandardMaterial color="#3a3a3f" />
-        </mesh>
-        {[0, -roadWidth / 2 + 0.15, roadWidth / 2 - 0.15].map((x) => (
-          <mesh
-            key={`line-${x}`}
-            rotation={[-Math.PI / 2, 0, 0]}
-            position={[x, 0.02, 0]}
-          >
-            <planeGeometry args={[0.14, 200]} />
-            <meshStandardMaterial color={x === 0 ? "#e8c33a" : "#dcdcdc"} />
-          </mesh>
-        ))}
 
         <group ref={player} position={[laneX, 0, PLAYER_START_Z]}>
           <Model model={playerModel} scale={pack.scale} yaw={CAR_YAW} />
