@@ -42,7 +42,8 @@ function CameraRig() {
 }
 
 type VehicleProps = {
-  direction: "left" | "right";
+  axis: "x" | "z";
+  direction: -1 | 1;
   lane: number;
   model: string;
   offset: number;
@@ -51,6 +52,7 @@ type VehicleProps = {
 };
 
 function Vehicle({
+  axis,
   direction,
   lane,
   model,
@@ -70,10 +72,16 @@ function Vehicle({
     const progress = reducedMotion
       ? offset % range
       : (clock.elapsedTime * speed + offset) % range;
-    const x = progress - range / 2;
+    const trackPosition = (progress - range / 2) * direction;
 
-    group.position.set(direction === "right" ? x : -x, 0.22, lane);
-    group.rotation.y = direction === "right" ? Math.PI / 2 : -Math.PI / 2;
+    if (axis === "x") {
+      group.position.set(trackPosition, 0.22, lane);
+      group.rotation.y = direction === 1 ? -Math.PI / 2 : Math.PI / 2;
+      return;
+    }
+
+    group.position.set(lane, 0.22, trackPosition);
+    group.rotation.y = direction === 1 ? Math.PI : 0;
   });
 
   return (
@@ -246,36 +254,41 @@ function HeroWorld() {
 
       <Vehicle
         model={VEHICLES[0]}
-        direction="right"
+        axis="x"
+        direction={1}
         lane={-2.9}
         offset={2}
         speed={6.4}
       />
       <Vehicle
         model={VEHICLES[1]}
-        direction="left"
+        axis="x"
+        direction={-1}
         lane={2.9}
         offset={18}
         speed={5.8}
       />
       <Vehicle
         model={VEHICLES[2]}
-        direction="right"
+        axis="z"
+        direction={1}
         lane={-2.9}
         offset={34}
-        speed={6.1}
+        speed={5.1}
       />
       <Vehicle
         model={VEHICLES[3]}
-        direction="left"
+        axis="z"
+        direction={-1}
         lane={2.9}
         offset={52}
-        speed={5.5}
+        speed={4.9}
       />
       <Vehicle
         model={VEHICLES[4]}
-        direction="right"
-        lane={8.4}
+        axis="x"
+        direction={1}
+        lane={-2.9}
         offset={26}
         speed={3.2}
         scale={2.05}

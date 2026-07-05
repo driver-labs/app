@@ -201,70 +201,21 @@ html {
 .practice-bar {
   grid-column: 1 / -1;
   display: block;
-  padding: 8px 16px;
-  background: linear-gradient(
-    180deg,
-    rgb(0 0 0 / 0.82) 0%,
-    rgb(0 0 0 / 0.48) 100%
-  );
+  padding: 16px var(--shell-gutter) 8px;
+  background: hsl(var(--background));
+  border-bottom: 1px solid hsl(var(--border) / 0.45);
   pointer-events: none;
+  z-index: 20;
 }
 
 .practice-bar > * {
-  width: min(100% - 8px, var(--shell-max));
+  width: var(--shell-width);
   margin-inline: auto;
   pointer-events: auto;
 }
 
-.practice-bar__brand,
-.practice-bar__nav {
-  pointer-events: auto;
-}
-
-.practice-bar__brand {
-  display: inline-flex;
-  align-items: center;
-  border-radius: 8px;
-  padding: 4px 6px;
-  text-decoration: none;
-}
-
-.practice-bar__logo {
-  display: block;
-  width: 88px;
-  height: auto;
-  opacity: 0.95;
-}
-
-.practice-bar__nav {
-  display: inline-flex;
-  gap: 4px;
-  align-items: center;
-  border: 1px solid hsl(var(--border) / 0.7);
-  border-radius: 999px;
-  background: hsl(var(--card) / 0.65);
-  padding: 3px;
-}
-
-.practice-bar__nav a {
-  display: inline-flex;
-  min-height: 36px;
-  align-items: center;
-  gap: 7px;
-  border: 1px solid transparent;
-  border-radius: 999px;
-  color: var(--ink-muted);
-  font-size: 0.84rem;
-  font-weight: 700;
-  padding: 6px 14px;
-  text-decoration: none;
-}
-
-.practice-bar__nav a:hover,
-.practice-bar__nav a[aria-current="page"] {
-  border-color: hsl(var(--muted-foreground) / 0.35);
-  background: hsl(var(--muted-foreground) / 0.12);
-  color: hsl(var(--foreground));
+.practice-bar > header {
+  margin-bottom: 0;
 }
 
 /* ── Diorama animado de la vista previa ──
