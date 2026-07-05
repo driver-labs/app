@@ -1,0 +1,179 @@
+{
+  "generatedAt": "2026-07-05T12:41:39.377Z",
+  "model": "gpt-4o-mini-tts",
+  "modules": {
+    "01-fundamentos-legales": {
+      "segments": [
+        {
+          "label": "Parte 1 de 3",
+          "src": "/audio/modules/01-fundamentos-legales-part-01.mp3"
+        },
+        {
+          "label": "Parte 2 de 3",
+          "src": "/audio/modules/01-fundamentos-legales-part-02.mp3"
+        },
+        {
+          "label": "Parte 3 de 3",
+          "src": "/audio/modules/01-fundamentos-legales-part-03.mp3"
+        }
+      ],
+      "title": "Fundamentos Legales de la Seguridad Vial"
+    },
+    "02-licencia-y-documentos": {
+      "segments": [
+        {
+          "label": "Parte 1 de 3",
+          "src": "/audio/modules/02-licencia-y-documentos-part-01.mp3"
+        },
+        {
+          "label": "Parte 2 de 3",
+          "src": "/audio/modules/02-licencia-y-documentos-part-02.mp3"
+        },
+        {
+          "label": "Parte 3 de 3",
+          "src": "/audio/modules/02-licencia-y-documentos-part-03.mp3"
+        }
+      ],
+      "title": "Licencia y Documentos: Todo lo que Necesitas Saber para Conducir Legalmente"
+    },
+    "03-vehiculo-seguro": {
+      "segments": [
+        {
+          "label": "Parte 1 de 2",
+          "src": "/audio/modules/03-vehiculo-seguro-part-01.mp3"
+        },
+        {
+          "label": "Parte 2 de 2",
+          "src": "/audio/modules/03-vehiculo-seguro-part-02.mp3"
+        }
+      ],
+      "title": "Vehículo Seguro: Claves para una Conducción Responsable"
+    },
+    "04-reglas-de-circulacion": {
+      "segments": [
+        {
+          "label": "Parte 1 de 2",
+          "src": "/audio/modules/04-reglas-de-circulacion-part-01.mp3"
+        },
+        {
+          "label": "Parte 2 de 2",
+          "src": "/audio/modules/04-reglas-de-circulacion-part-02.mp3"
+        }
+      ],
+      "title": "Reglas de Circulación: Seguridad Vial en El Salvador"
+    },
+    "05-peatones-y-usuarios-vulnerables": {
+      "segments": [
+        {
+          "label": "Parte 1 de 3",
+          "src": "/audio/modules/05-peatones-y-usuarios-vulnerables-part-01.mp3"
+        },
+        {
+          "label": "Parte 2 de 3",
+          "src": "/audio/modules/05-peatones-y-usuarios-vulnerables-part-02.mp3"
+        },
+        {
+          "label": "Parte 3 de 3",
+          "src": "/audio/modules/05-peatones-y-usuarios-vulnerables-part-03.mp3"
+        }
+      ],
+      "title": "Peatones y usuarios vulnerables"
+    },
+    "06-senalizacion-vial": {
+      "segments": [
+        {
+          "label": "Parte 1 de 2",
+          "src": "/audio/modules/06-senalizacion-vial-part-01.mp3"
+        },
+        {
+          "label": "Parte 2 de 2",
+          "src": "/audio/modules/06-senalizacion-vial-part-02.mp3"
+        }
+      ],
+      "title": "Señalización Vial: Entendiendo los Mensajes en la Vía"
+    },
+    "07-conduccion-defensiva": {
+      "segments": [
+        {
+          "label": "Parte 1 de 2",
+          "src": "/audio/modules/07-conduccion-defensiva-part-01.mp3"
+        },
+        {
+          "label": "Parte 2 de 2",
+          "src": "/audio/modules/07-conduccion-defensiva-part-02.mp3"
+        }
+      ],
+      "title": "Conducción Defensiva: Seguridad Vial en Acción"
+    },
+    "08-riesgos-que-matan": {
+      "segments": [
+        {
+          "label": "Parte 1 de 2",
+          "src": "/audio/modules/08-riesgos-que-matan-part-01.mp3"
+        },
+        {
+          "label": "Parte 2 de 2",
+          "src": "/audio/modules/08-riesgos-que-matan-part-02.mp3"
+        }
+      ],
+      "title": "Riesgos que matan"
+    },
+    "09-infracciones-y-consecuencias": {
+      "segments": [
+        {
+          "label": "Parte 1 de 2",
+          "src": "/audio/modules/09-infracciones-y-consecuencias-part-01.mp3"
+        },
+        {
+          "label": "Parte 2 de 2",
+          "src": "/audio/modules/09-infracciones-y-consecuencias-part-02.mp3"
+        }
+      ],
+      "title": "Infracciones y Consecuencias en la Vialidad"
+    },
+    "10-transporte-publico-y-pasajeros": {
+      "segments": [
+        {
+          "label": "Parte 1 de 2",
+          "src": "/audio/modules/10-transporte-publico-y-pasajeros-part-01.mp3"
+        },
+        {
+          "label": "Parte 2 de 2",
+          "src": "/audio/modules/10-transporte-publico-y-pasajeros-part-02.mp3"
+        }
+      ],
+      "title": "Transporte público y pasajeros"
+    },
+    "11-motociclistas": {
+      "segments": [
+        {
+          "label": "Parte 1 de 2",
+          "src": "/audio/modules/11-motociclistas-part-01.mp3"
+        },
+        {
+          "label": "Parte 2 de 2",
+          "src": "/audio/modules/11-motociclistas-part-02.mp3"
+        }
+      ],
+      "title": "Seguridad Vial para Motociclistas"
+    },
+    "12-practica-para-examen": {
+      "segments": [
+        {
+          "label": "Parte 1 de 3",
+          "src": "/audio/modules/12-practica-para-examen-part-01.mp3"
+        },
+        {
+          "label": "Parte 2 de 3",
+          "src": "/audio/modules/12-practica-para-examen-part-02.mp3"
+        },
+        {
+          "label": "Parte 3 de 3",
+          "src": "/audio/modules/12-practica-para-examen-part-03.mp3"
+        }
+      ],
+      "title": "Práctica para el Examen de Licencia de Conducir"
+    }
+  },
+  "voice": "marin"
+}

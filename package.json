@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "biome check",
     "format": "biome format --write",
+    "audio:generate": "node scripts/generate-module-audio.mjs",
     "modules:generate": "node scripts/generate-learning-modules.mjs",
     "rag:dry-run": "node scripts/run-python-ingest.mjs --dry-run",
     "rag:ingest": "node scripts/run-python-ingest.mjs",
