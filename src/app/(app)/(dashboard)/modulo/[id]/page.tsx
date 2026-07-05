@@ -1,3 +1,5 @@
+import { existsSync, readFileSync } from "node:fs";
+import path from "node:path";
 import {
   AlertTriangle,
   ArrowRight,
@@ -15,6 +17,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ModuleAudioPlayer } from "@/components/ModuleAudioPlayer";
 import {
   type DidacticModuleContent,
   getLearningModule,
@@ -27,6 +30,36 @@ type ModulePageProps = {
 };
 
 const manualAssetUrl = "/api/assets/manual-senales";
+const audioManifestPath = path.join(
+  process.cwd(),
+  "public",
+  "audio",
+  "modules",
+  "manifest.json",
+);
+
+type ModuleAudioManifest = {
+  modules: Record<
+    string,
+    {
+      segments: Array<{ label: string; src: string }>;
+      title: string;
+    }
+  >;
+};
+
+function getModuleAudio(moduleId: string) {
+  if (!existsSync(audioManifestPath)) return null;
+
+  try {
+    const manifest = JSON.parse(
+      readFileSync(audioManifestPath, "utf8"),
+    ) as ModuleAudioManifest;
+    return manifest.modules[moduleId] ?? null;
+  } catch {
+    return null;
+  }
+}
 
 function CitationRefs({
   citations,
@@ -471,6 +504,7 @@ export default async function ModulePage({ params }: ModulePageProps) {
   const hasManualScope = module.sourceScope.some((source) =>
     source.toLowerCase().includes("manual"),
   );
+  const moduleAudio = getModuleAudio(module.id);
 
   return (
     <section className="module-layout">
@@ -481,6 +515,12 @@ export default async function ModulePage({ params }: ModulePageProps) {
             Modulo {module.id.slice(0, 2)}
           </p>
           <h1>{didacticContent?.headline ?? module.title}</h1>
+          {moduleAudio ? (
+            <ModuleAudioPlayer
+              moduleTitle={moduleAudio.title}
+              segments={moduleAudio.segments}
+            />
+          ) : null}
           <p className="lede">{didacticContent?.intro ?? module.summary}</p>
           <ul className="module-tags" aria-label="Etiquetas del modulo">
             {module.tags.map((tag) => (
@@ -497,81 +537,7 @@ export default async function ModulePage({ params }: ModulePageProps) {
         )}
       </article>
 
-      <aside className="module-sidebar">
-        <section>
-          <p className="eyebrow">
-            <FileText aria-hidden="true" size={14} />
-            Citas usadas
-          </p>
-          {didacticContent ? (
-            <ul className="detail-list">
-              {didacticContent.citations.map((citation, index) => (
-                <li key={citation.id}>
-                  <CheckCircle2 aria-hidden="true" size={17} />
-                  <strong>
-                    [{index + 1}] {citation.documentName}
-                  </strong>
-                  <span>
-                    {citation.articleNumber
-                      ? `Art. ${citation.articleNumber}`
-                      : "Unidad normativa"}
-                    {citation.pageStart && citation.pageEnd
-                      ? `, paginas ${citation.pageStart}-${citation.pageEnd}`
-                      : ""}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          ) : null}
-          {hasManualScope ? (
-            <div className="link-stack mt-4">
-              <Link href={manualAssetUrl} target="_blank">
-                <FileText aria-hidden="true" size={17} />
-                Abrir manual de senales
-              </Link>
-            </div>
-          ) : null}
-        </section>
-
-        <section>
-          <p className="eyebrow">Navegacion</p>
-          <div className="link-stack">
-            {previousModule ? (
-              <Link href={`/modulo/${previousModule.id}`}>
-                <ArrowRight
-                  aria-hidden="true"
-                  className="rotate-180"
-                  size={17}
-                />
-                Anterior: {previousModule.title}
-              </Link>
-            ) : null}
-            {nextModule ? (
-              <Link href={`/modulo/${nextModule.id}`}>
-                <ArrowRight aria-hidden="true" size={17} />
-                Siguiente: {nextModule.title}
-              </Link>
-            ) : null}
-          </div>
-        </section>
-
-        {didacticContent?.needsHumanReview.length ? (
-          <section>
-            <p className="eyebrow">
-              <AlertTriangle aria-hidden="true" size={14} />
-              Requiere revisión
-            </p>
-            <ul className="detail-list">
-              {didacticContent.needsHumanReview.map((item) => (
-                <li key={item}>
-                  <AlertTriangle aria-hidden="true" size={17} />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </section>
-        ) : null}
-      </aside>
+      
     </section>
   );
 }
