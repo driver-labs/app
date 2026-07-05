@@ -742,6 +742,25 @@ html {
   color: var(--success);
 }
 
+.narration-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  padding: 6px 10px;
+  color: var(--ink-muted);
+  background: var(--surface);
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.narration-toggle:hover,
+.narration-toggle[aria-pressed="true"] {
+  color: var(--ink);
+  border-color: var(--primary);
+}
+
 .eyebrow {
   margin: 0 0 6px;
   color: var(--secondary);
