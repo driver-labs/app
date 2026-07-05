@@ -339,6 +339,13 @@ html {
   line-height: 1.6;
 }
 
+.practice-card__summary {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
 .practice-card__scenario {
   display: grid;
   gap: 6px;
@@ -390,6 +397,13 @@ html {
   margin: 0;
   color: var(--foreground);
   font-weight: 850;
+}
+
+.practice-card__empty {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.86rem;
+  font-style: italic;
 }
 
 .practice-card__mistake {

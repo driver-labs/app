@@ -211,7 +211,7 @@ export default function PracticeDashboardClient({
 
               <div>
                 <h2>{module.title}</h2>
-                <p>{module.summary}</p>
+                <p className="practice-card__summary">{module.summary}</p>
               </div>
 
               {module.scenario ? (
@@ -226,36 +226,42 @@ export default function PracticeDashboardClient({
                 </div>
               )}
 
-              <dl className="practice-card__metrics">
-                <div>
-                  <dt>Ultimo</dt>
-                  <dd>{moduleProgress?.lastScore ?? "-"}</dd>
-                </div>
-                <div>
-                  <dt>Mejor</dt>
-                  <dd>{moduleProgress?.bestScore ?? "-"}</dd>
-                </div>
-                <div>
-                  <dt>Intentos</dt>
-                  <dd>{moduleProgress?.attemptsCount ?? 0}</dd>
-                </div>
-                <div>
-                  <dt>Practicadas</dt>
-                  <dd>{practicedCount}</dd>
-                </div>
-                <div>
-                  <dt>Aprendidas</dt>
-                  <dd>{learnedCount}</dd>
-                </div>
-                <div>
-                  <dt>Errores</dt>
-                  <dd>{mistakes.length}</dd>
-                </div>
-                <div>
-                  <dt>Avance</dt>
-                  <dd>{moduleProgress?.progressPercent ?? 0}%</dd>
-                </div>
-              </dl>
+              {moduleProgress ? (
+                <dl className="practice-card__metrics">
+                  <div>
+                    <dt>Ultimo</dt>
+                    <dd>{moduleProgress.lastScore ?? "-"}</dd>
+                  </div>
+                  <div>
+                    <dt>Mejor</dt>
+                    <dd>{moduleProgress.bestScore ?? "-"}</dd>
+                  </div>
+                  <div>
+                    <dt>Intentos</dt>
+                    <dd>{moduleProgress.attemptsCount}</dd>
+                  </div>
+                  <div>
+                    <dt>Practicadas</dt>
+                    <dd>{practicedCount}</dd>
+                  </div>
+                  <div>
+                    <dt>Aprendidas</dt>
+                    <dd>{learnedCount}</dd>
+                  </div>
+                  <div>
+                    <dt>Errores</dt>
+                    <dd>{mistakes.length}</dd>
+                  </div>
+                  <div>
+                    <dt>Avance</dt>
+                    <dd>{moduleProgress.progressPercent}%</dd>
+                  </div>
+                </dl>
+              ) : (
+                <p className="practice-card__empty">
+                  Todavia no practicaste este modulo — sumá tu primer intento.
+                </p>
+              )}
 
               {lastMistake && (
                 <p className="practice-card__mistake">
