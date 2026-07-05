@@ -78,12 +78,12 @@ function Vehicle({
 
     if (axis === "x") {
       group.position.set(trackPosition, 0.22, lane);
-      group.rotation.y = direction === 1 ? -Math.PI / 2 : Math.PI / 2;
+      group.rotation.y = direction === 1 ? Math.PI / 2 : -Math.PI / 2;
       return;
     }
 
     group.position.set(lane, 0.22, trackPosition);
-    group.rotation.y = direction === 1 ? Math.PI : 0;
+    group.rotation.y = direction === 1 ? 0 : Math.PI;
   });
 
   return (
@@ -287,7 +287,7 @@ function HeroWorld() {
         axis="x"
         direction={1}
         offset={26}
-        speed={3.2}
+        speed={6.4}
         scale={1.75}
       />
 
