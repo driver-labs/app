@@ -120,6 +120,20 @@ export const TRAFFIC_RULES = {
     refs: [],
     confirmed: false,
   },
+  "blind-overtake": {
+    title: "Adelantar sin visibilidad suficiente",
+    explanation:
+      "No debés adelantar o avanzar junto a un vehículo grande (como un bus detenido) si no tenés campo visual despejado. Puede haber un peatón cruzando justo delante, oculto por el vehículo.",
+    refs: [],
+    confirmed: false,
+  },
+  "unsafe-lane-change": {
+    title: "Cambiar de carril sin revisar el punto ciego",
+    explanation:
+      "Antes de cambiar de carril debés revisar el espejo Y girar la cabeza para chequear el punto ciego, además de señalizar. Una motocicleta puede estar ahí sin que la veas en el espejo.",
+    refs: [],
+    confirmed: false,
+  },
 } as const satisfies Record<string, RuleEntry>;
 
 export type InfractionType = keyof typeof TRAFFIC_RULES;

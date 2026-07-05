@@ -1,5 +1,6 @@
 import type { KnowledgeModule } from "../knowledge";
 import { adelantamiento } from "./adelantamiento";
+import { conduccionDefensiva } from "./conduccion-defensiva";
 import { prioridadDePaso } from "./prioridad-de-paso";
 import { senalesDeReglamentacion } from "./senales-de-reglamentacion";
 import { velocidadYDistancias } from "./velocidad-y-distancias";
@@ -9,6 +10,7 @@ export const knowledgeModules: KnowledgeModule[] = [
   prioridadDePaso,
   adelantamiento,
   velocidadYDistancias,
+  conduccionDefensiva,
 ];
 
 export const getKnowledgeModule = (id: string): KnowledgeModule | undefined =>

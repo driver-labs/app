@@ -104,7 +104,7 @@ const SPEED_BY_LEVEL: Record<Scenario["actors"][number]["speed"], number> = {
 };
 const CROSSWALK_STRIPES = [-3, -1.8, -0.6, 0.6, 1.8, 3];
 
-function actorModel(
+export function actorModel(
   actor: Scenario["actors"][number] | undefined,
   fallback: string,
 ) {

@@ -20,8 +20,12 @@ export const SceneKind = z.enum([
   "intersection-light", // 🔨 (semáforo listo, falta la lógica de cruce)
   "straight-overtake", // ✅
   "crosswalk", // 🔮
-  "roundabout", // 🔮
+  "roundabout", // ✅
   "curve", // 🔮
+  "bus-stop", // ✅ bus detenido + peatón oculto
+  "lane-change", // ✅ punto ciego al cambiar de carril
+  "rain-braking", // ✅ distancia de frenado con lluvia
+  "distraction", // ✅ celular al volante
 ]);
 
 // ── B. Ambientación (→ RainyAmbience / Lights) ──
@@ -54,6 +58,7 @@ export const Maneuver = z.enum([
   "cross", // 🔮
   "overtake", // ✅
   "stop-yield", // ✅
+  "change-lane", // ✅
 ]);
 export const SpeedLevel = z.enum(["slow", "normal", "fast", "speeding"]); // 🔨
 export const StartLane = z.enum(["right", "left", "oncoming", "sidewalk"]); // 🔨
