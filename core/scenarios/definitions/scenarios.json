@@ -381,7 +381,7 @@
         {
           "id": "asset_hatchback",
           "type": "vehicle",
-          "url": "/cars/hatchback.glb"
+          "url": "/models/hatchback-sports.glb"
         },
         {
           "id": "asset_crosswalk",
@@ -542,7 +542,7 @@
       },
       "assets": [
         { "id": "asset_sedan", "type": "vehicle", "url": "/models/sedan.glb" },
-        { "id": "asset_pickup", "type": "vehicle", "url": "/cars/pickup.glb" },
+        { "id": "asset_pickup", "type": "vehicle", "url": "/models/truck.glb" },
         {
           "id": "asset_traffic_light",
           "type": "signal",

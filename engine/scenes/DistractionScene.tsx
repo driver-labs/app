@@ -69,7 +69,7 @@ export default function DistractionScene({
   const nearMissTime = useRef(0);
   const impact = useMemo(() => new THREE.Vector3(), []);
 
-  const roadWidth = Math.max(6, scenario.road.lanes * 3.6);
+  const roadWidth = Math.max(8, scenario.road.lanes * 4.6);
   const playerActor = scenario.actors.find((actor) => actor.role === "player");
   const hazardActor = scenario.actors.find(
     (actor) => actor.kind === "motorcycle",

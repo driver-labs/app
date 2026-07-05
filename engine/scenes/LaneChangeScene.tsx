@@ -58,7 +58,7 @@ export default function LaneChangeScene({
   const motoBaseX = useRef(0);
   const impact = useMemo(() => new THREE.Vector3(), []);
 
-  const roadWidth = Math.max(8, scenario.road.lanes * 3.8);
+  const roadWidth = Math.max(10, scenario.road.lanes * 4.8);
   const laneX = roadWidth / 4;
   const playerActor = scenario.actors.find((actor) => actor.role === "player");
   const motoActor = scenario.actors.find(

@@ -100,14 +100,22 @@ export default function RainyAmbience({
         args={[
           isNight ? "#7fa8c8" : "#eaf2ff",
           isNight ? "#0a1420" : "#3a4658",
-          isNight ? 1.0 : 1.25,
+          isNight ? 0.7 : 0.85,
         ]}
       />
       <directionalLight
         position={isNight ? [6, 14, -6] : [12, 22, 8]}
-        intensity={isNight || isFog ? 0.55 : 2.1}
-        color={isNight ? "#cfe0f0" : "#ffffff"}
+        intensity={isNight || isFog ? 0.65 : 1.5}
+        color={isNight ? "#cfe0f0" : "#fff7e8"}
         castShadow
+        shadow-mapSize={[2048, 2048]}
+        shadow-bias={-0.0004}
+        shadow-camera-near={1}
+        shadow-camera-far={80}
+        shadow-camera-left={-40}
+        shadow-camera-right={40}
+        shadow-camera-top={40}
+        shadow-camera-bottom={-40}
       />
 
       {isRain && (
