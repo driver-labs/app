@@ -2,13 +2,11 @@ import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 import {
   AlertTriangle,
-  ArrowRight,
   BookMarked,
   BookOpen,
   BrainCircuit,
   CheckCircle2,
   FileQuestion,
-  FileText,
   HeartPulse,
   ListChecks,
   Route,
@@ -29,7 +27,6 @@ type ModulePageProps = {
   params: Promise<{ id: string }>;
 };
 
-const manualAssetUrl = "/api/assets/manual-senales";
 const audioManifestPath = path.join(
   process.cwd(),
   "public",
@@ -78,7 +75,7 @@ function CitationRefs({
 
         return (
           <span
-            className="rounded-full bg-blue-50 px-3 py-1 text-xs font-bold text-blue-700"
+            className="module-citation-badge rounded-full px-3 py-1 text-xs font-bold"
             key={`${citation.id}-${number}`}
             title={citation.label}
           >
@@ -104,7 +101,7 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
 
   return (
     <div className="grid gap-8">
-      <section className="rounded-2xl bg-blue-50 p-5">
+      <section className="module-dark-card rounded-2xl p-5">
         <p className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.12em] text-blue-700">
           <BrainCircuit aria-hidden="true" size={15} />
           Idea central
@@ -116,7 +113,7 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
 
       {learningObjectives.length ? (
         <section>
-          <h2 className="inline-flex items-center gap-2 text-2xl font-bold text-slate-950">
+          <h2 className="inline-flex items-center gap-2 text-2xl font-bold text-white">
             <ListChecks
               aria-hidden="true"
               className="text-blue-700"
@@ -127,7 +124,7 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
           <ul className="mt-4 grid gap-3 md:grid-cols-2">
             {learningObjectives.map((objective) => (
               <li
-                className="flex gap-3 rounded-xl border border-slate-200 bg-white p-4 leading-7 text-slate-700"
+                className="module-dark-card module-dark-card--compact flex gap-3 rounded-xl p-4 leading-7"
                 key={objective}
               >
                 <CheckCircle2
@@ -143,25 +140,25 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
       ) : null}
 
       <section>
-        <h2 className="inline-flex items-center gap-2 text-2xl font-bold text-slate-950">
+        <h2 className="inline-flex items-center gap-2 text-2xl font-bold text-white">
           <HeartPulse aria-hidden="true" className="text-rose-600" size={24} />
           Por que importa
         </h2>
-        <p className="mt-3 max-w-3xl text-base leading-8 text-slate-700">
+        <p className="mt-3 max-w-3xl text-base leading-8 text-white">
           {content.whyItMatters}
         </p>
       </section>
 
       {legalFoundation.length ? (
         <section>
-          <h2 className="inline-flex items-center gap-2 text-2xl font-bold text-slate-950">
+          <h2 className="inline-flex items-center gap-2 text-2xl font-bold text-white">
             <Scale aria-hidden="true" className="text-blue-700" size={24} />
             Base normativa
           </h2>
           <div className="mt-5 grid gap-4">
             {legalFoundation.map((item, index) => (
               <article
-                className="rounded-2xl border border-slate-200 bg-white p-5"
+                className="module-dark-card rounded-2xl p-5"
                 key={`${item.title}-${index}`}
               >
                 <p className="text-sm font-bold uppercase tracking-[0.12em] text-slate-500">
@@ -184,11 +181,11 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
       ) : null}
 
       <section>
-        <h2 className="text-2xl font-bold text-slate-950">Lecciones</h2>
+        <h2 className="text-2xl font-bold text-white">Lecciones</h2>
         <div className="mt-5 grid gap-4">
           {lessons.map((lesson, index) => (
             <article
-              className="rounded-2xl border border-slate-200 bg-white p-5"
+              className="module-dark-card rounded-2xl p-5"
               key={`${lesson.title}-${index}`}
             >
               <p className="text-sm font-bold uppercase tracking-[0.12em] text-slate-500">
@@ -201,13 +198,13 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
                 {lesson.explanation}
               </p>
               {lesson.normativeDetail ? (
-                <div className="mt-4 rounded-xl bg-blue-50 p-4 text-blue-950">
+                <div className="module-dark-inset module-dark-inset--info mt-4 rounded-xl p-4">
                   <p className="text-sm font-bold">Que protege la norma</p>
                   <p className="mt-2 leading-7">{lesson.normativeDetail}</p>
                 </div>
               ) : null}
               {lesson.everydayExample ? (
-                <div className="mt-3 rounded-xl bg-slate-50 p-4 text-slate-700">
+                <div className="module-dark-inset mt-3 rounded-xl p-4">
                   <p className="text-sm font-bold text-slate-950">
                     Ejemplo cotidiano
                   </p>
@@ -215,20 +212,20 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
                 </div>
               ) : null}
               <div className="mt-4 grid gap-3 md:grid-cols-2">
-                <div className="rounded-xl bg-emerald-50 p-4 text-emerald-950">
+                <div className="module-dark-inset module-dark-inset--success rounded-xl p-4">
                   <p className="inline-flex items-center gap-2 text-sm font-bold">
                     <CheckCircle2 aria-hidden="true" size={16} />
                     Decision segura
                   </p>
                   <p className="mt-2 leading-7">{lesson.streetDecision}</p>
                 </div>
-                <div className="rounded-xl bg-rose-50 p-4 text-rose-950">
+                <div className="module-dark-inset module-dark-inset--danger rounded-xl p-4">
                   <p className="text-sm font-bold">Riesgo que evita</p>
                   <p className="mt-2 leading-7">{lesson.risk}</p>
                 </div>
               </div>
               {lesson.watchFor ? (
-                <div className="mt-3 rounded-xl bg-amber-50 p-4 text-amber-950">
+                <div className="module-dark-inset module-dark-inset--warning mt-3 rounded-xl p-4">
                   <p className="inline-flex items-center gap-2 text-sm font-bold">
                     <AlertTriangle aria-hidden="true" size={16} />
                     Observa esto en la via
@@ -247,14 +244,14 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
 
       {applicationCases.length ? (
         <section>
-          <h2 className="inline-flex items-center gap-2 text-2xl font-bold text-slate-950">
+          <h2 className="inline-flex items-center gap-2 text-2xl font-bold text-white">
             <Route aria-hidden="true" className="text-blue-700" size={24} />
             Casos aplicados
           </h2>
           <div className="mt-5 grid gap-4">
             {applicationCases.map((item, index) => (
               <article
-                className="rounded-2xl border border-slate-200 bg-slate-50 p-5"
+                className="module-dark-card rounded-2xl p-5"
                 key={`${item.title}-${index}`}
               >
                 <h3 className="text-xl font-semibold text-slate-950">
@@ -264,11 +261,11 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
                   {item.situation}
                 </p>
                 <div className="mt-4 grid gap-3 md:grid-cols-2">
-                  <div className="rounded-xl bg-rose-100 p-4 text-rose-950">
+                  <div className="module-dark-inset module-dark-inset--danger rounded-xl p-4">
                     <p className="text-sm font-bold">Movimiento riesgoso</p>
                     <p className="mt-2 leading-7">{item.wrongMove}</p>
                   </div>
-                  <div className="rounded-xl bg-emerald-100 p-4 text-emerald-950">
+                  <div className="module-dark-inset module-dark-inset--success rounded-xl p-4">
                     <p className="text-sm font-bold">Movimiento seguro</p>
                     <p className="mt-2 leading-7">{item.safeMove}</p>
                   </div>
@@ -286,7 +283,7 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
 
       {commonMistakes.length ? (
         <section>
-          <h2 className="inline-flex items-center gap-2 text-2xl font-bold text-slate-950">
+          <h2 className="inline-flex items-center gap-2 text-2xl font-bold text-white">
             <AlertTriangle
               aria-hidden="true"
               className="text-amber-600"
@@ -297,7 +294,7 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
           <div className="mt-5 grid gap-4 md:grid-cols-2">
             {commonMistakes.map((item, index) => (
               <article
-                className="rounded-2xl border border-slate-200 bg-white p-5"
+                className="module-dark-card rounded-2xl p-5"
                 key={`${item.mistake}-${index}`}
               >
                 <h3 className="text-lg font-semibold text-slate-950">
@@ -320,7 +317,7 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
       ) : null}
 
       {checklist.length ? (
-        <section className="rounded-2xl bg-emerald-50 p-5">
+        <section className="module-dark-card rounded-2xl p-5">
           <h2 className="inline-flex items-center gap-2 text-2xl font-bold text-slate-950">
             <ListChecks
               aria-hidden="true"
@@ -332,7 +329,7 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
           <ul className="mt-5 grid gap-4">
             {checklist.map((item, index) => (
               <li
-                className="rounded-xl bg-white p-4 text-slate-700"
+                className="module-dark-inset rounded-xl p-4"
                 key={`${item.label}-${index}`}
               >
                 <p className="font-semibold text-slate-950">{item.label}</p>
@@ -348,7 +345,7 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
       ) : null}
 
       {content.scenario ? (
-        <section className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+        <section className="module-dark-card rounded-2xl p-5">
           <h2 className="text-2xl font-bold text-slate-950">
             Escenario de conciencia
           </h2>
@@ -359,11 +356,11 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
             {content.scenario.situation}
           </p>
           <div className="mt-4 grid gap-3 md:grid-cols-2">
-            <div className="rounded-xl bg-rose-100 p-4 text-rose-950">
+            <div className="module-dark-inset module-dark-inset--danger rounded-xl p-4">
               <p className="text-sm font-bold">Decision riesgosa</p>
               <p className="mt-2 leading-7">{content.scenario.unsafeChoice}</p>
             </div>
-            <div className="rounded-xl bg-emerald-100 p-4 text-emerald-950">
+            <div className="module-dark-inset module-dark-inset--success rounded-xl p-4">
               <p className="text-sm font-bold">Decision segura</p>
               <p className="mt-2 leading-7">{content.scenario.safeDecision}</p>
             </div>
@@ -379,7 +376,7 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
       ) : null}
 
       <section>
-        <h2 className="inline-flex items-center gap-2 text-2xl font-bold text-slate-950">
+        <h2 className="inline-flex items-center gap-2 text-2xl font-bold text-white">
           <FileQuestion
             aria-hidden="true"
             className="text-blue-700"
@@ -390,7 +387,7 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
         <div className="mt-5 grid gap-4">
           {quiz.map((item, index) => (
             <article
-              className="rounded-2xl border border-slate-200 bg-white p-5"
+              className="module-dark-card rounded-2xl p-5"
               key={`${item.question}-${index}`}
             >
               <h3 className="text-lg font-semibold text-slate-950">
@@ -401,8 +398,8 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
                   <li
                     className={
                       option === item.answer
-                        ? "rounded-xl border border-emerald-300 bg-emerald-50 px-4 py-3 text-emerald-950"
-                        : "rounded-xl border border-slate-200 px-4 py-3 text-slate-700"
+                        ? "module-answer module-answer--correct rounded-xl px-4 py-3"
+                        : "module-answer rounded-xl px-4 py-3"
                     }
                     key={option}
                   >
@@ -424,7 +421,7 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
 
       {vocabulary.length ? (
         <section>
-          <h2 className="inline-flex items-center gap-2 text-2xl font-bold text-slate-950">
+          <h2 className="inline-flex items-center gap-2 text-2xl font-bold text-white">
             <BookMarked
               aria-hidden="true"
               className="text-blue-700"
@@ -435,7 +432,7 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
           <dl className="mt-5 grid gap-4 md:grid-cols-2">
             {vocabulary.map((item, index) => (
               <div
-                className="rounded-2xl border border-slate-200 bg-white p-5"
+                className="module-dark-card rounded-2xl p-5"
                 key={`${item.term}-${index}`}
               >
                 <dt className="text-lg font-semibold text-slate-950">
@@ -454,7 +451,7 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
         </section>
       ) : null}
 
-      <section className="rounded-2xl bg-slate-100 p-5">
+      <section className="module-dark-card rounded-2xl p-5">
         <h2 className="text-2xl font-bold text-slate-950">
           Preguntas para pensar antes de manejar
         </h2>
@@ -495,19 +492,41 @@ export default async function ModulePage({ params }: ModulePageProps) {
 
   const didacticContent = module.didacticContent;
   const modules = getLearningModules();
-  const moduleIndex = modules.findIndex((item) => item.id === module.id);
-  const previousModule = moduleIndex > 0 ? modules[moduleIndex - 1] : null;
-  const nextModule =
-    moduleIndex >= 0 && moduleIndex < modules.length - 1
-      ? modules[moduleIndex + 1]
-      : null;
-  const hasManualScope = module.sourceScope.some((source) =>
-    source.toLowerCase().includes("manual"),
-  );
   const moduleAudio = getModuleAudio(module.id);
 
   return (
     <section className="module-layout">
+      <nav className="module-course-nav" aria-label="Modulos del curso">
+        <div className="module-course-nav__heading">
+          <p className="eyebrow">
+            <BookOpen aria-hidden="true" size={14} />
+            Curso
+          </p>
+          <h2>Cultura vial</h2>
+        </div>
+        <ol className="module-course-nav__list">
+          {modules.map((item) => {
+            const isActive = item.id === module.id;
+
+            return (
+              <li key={item.id}>
+                <Link
+                  aria-current={isActive ? "page" : undefined}
+                  href={`/modulo/${item.id}`}
+                >
+                  <span className="module-course-nav__number">
+                    {item.id.slice(0, 2)}
+                  </span>
+                  <span className="module-course-nav__copy">
+                    <span>{item.title}</span>
+                  </span>
+                </Link>
+              </li>
+            );
+          })}
+        </ol>
+      </nav>
+
       <article className="module-content">
         <div className="module-hero">
           <p className="eyebrow">
@@ -536,82 +555,6 @@ export default async function ModulePage({ params }: ModulePageProps) {
           </p>
         )}
       </article>
-
-      <aside className="module-sidebar">
-        <section>
-          <p className="eyebrow">
-            <FileText aria-hidden="true" size={14} />
-            Citas usadas
-          </p>
-          {didacticContent ? (
-            <ul className="detail-list">
-              {didacticContent.citations.map((citation, index) => (
-                <li key={citation.id}>
-                  <CheckCircle2 aria-hidden="true" size={17} />
-                  <strong>
-                    [{index + 1}] {citation.documentName}
-                  </strong>
-                  <span>
-                    {citation.articleNumber
-                      ? `Art. ${citation.articleNumber}`
-                      : "Unidad normativa"}
-                    {citation.pageStart && citation.pageEnd
-                      ? `, paginas ${citation.pageStart}-${citation.pageEnd}`
-                      : ""}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          ) : null}
-          {hasManualScope ? (
-            <div className="link-stack mt-4">
-              <Link href={manualAssetUrl} target="_blank">
-                <FileText aria-hidden="true" size={17} />
-                Abrir manual de senales
-              </Link>
-            </div>
-          ) : null}
-        </section>
-
-        <section>
-          <p className="eyebrow">Navegacion</p>
-          <div className="link-stack">
-            {previousModule ? (
-              <Link href={`/modulo/${previousModule.id}`}>
-                <ArrowRight
-                  aria-hidden="true"
-                  className="rotate-180"
-                  size={17}
-                />
-                Anterior: {previousModule.title}
-              </Link>
-            ) : null}
-            {nextModule ? (
-              <Link href={`/modulo/${nextModule.id}`}>
-                <ArrowRight aria-hidden="true" size={17} />
-                Siguiente: {nextModule.title}
-              </Link>
-            ) : null}
-          </div>
-        </section>
-
-        {didacticContent?.needsHumanReview.length ? (
-          <section>
-            <p className="eyebrow">
-              <AlertTriangle aria-hidden="true" size={14} />
-              Requiere revision
-            </p>
-            <ul className="detail-list">
-              {didacticContent.needsHumanReview.map((item) => (
-                <li key={item}>
-                  <AlertTriangle aria-hidden="true" size={17} />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </section>
-        ) : null}
-      </aside>
     </section>
   );
 }
