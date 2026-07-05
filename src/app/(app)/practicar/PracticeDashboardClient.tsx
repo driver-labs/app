@@ -177,6 +177,16 @@ export default function PracticeDashboardClient({
       <section className="practice-grid" aria-label="Modulos disponibles">
         {modules.map((module) => {
           const moduleProgress = progress.modules[module.id];
+          const moduleAttempts = progress.attempts.filter(
+            (attempt) => attempt.moduleId === module.id,
+          );
+          const mistakes = moduleAttempts.flatMap(
+            (attempt) => attempt.mistakes,
+          );
+          const lastMistake = mistakes.at(-1);
+          const practicedCount =
+            moduleProgress?.lessonsPracticed.length ?? module.lessonCount;
+          const learnedCount = moduleProgress?.lessonsLearned.length ?? 0;
           const label = statusLabel(module.scenario, moduleProgress?.status);
           const isComplete =
             moduleProgress?.status === "completed" ||
@@ -230,10 +240,29 @@ export default function PracticeDashboardClient({
                   <dd>{moduleProgress?.attemptsCount ?? 0}</dd>
                 </div>
                 <div>
+                  <dt>Practicadas</dt>
+                  <dd>{practicedCount}</dd>
+                </div>
+                <div>
+                  <dt>Aprendidas</dt>
+                  <dd>{learnedCount}</dd>
+                </div>
+                <div>
+                  <dt>Errores</dt>
+                  <dd>{mistakes.length}</dd>
+                </div>
+                <div>
                   <dt>Avance</dt>
                   <dd>{moduleProgress?.progressPercent ?? 0}%</dd>
                 </div>
               </dl>
+
+              {lastMistake && (
+                <p className="practice-card__mistake">
+                  <AlertTriangle aria-hidden="true" size={15} />
+                  <span>Ultimo error: {lastMistake.message}</span>
+                </p>
+              )}
 
               <div className="practice-card__meta">
                 <span>
@@ -243,9 +272,7 @@ export default function PracticeDashboardClient({
                 </span>
                 <span>
                   <BookOpen aria-hidden="true" size={15} />
-                  {moduleProgress?.lessonsPracticed.length ??
-                    module.lessonCount}{" "}
-                  lecciones
+                  {practicedCount} lecciones practicadas
                 </span>
               </div>
 

@@ -365,7 +365,7 @@ html {
 
 .practice-card__metrics {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 8px;
   margin: 0;
 }
@@ -390,6 +390,25 @@ html {
   margin: 0;
   color: var(--foreground);
   font-weight: 850;
+}
+
+.practice-card__mistake {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  border: 1px solid rgba(248, 113, 113, 0.26);
+  border-radius: 8px;
+  background: rgba(127, 29, 29, 0.14);
+  color: #fecaca;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  margin: 0;
+  padding: 8px 10px;
+}
+
+.practice-card__mistake svg {
+  flex: 0 0 auto;
+  margin-top: 2px;
 }
 
 .practice-card__meta {
