@@ -12,16 +12,16 @@ export default function AiGenerator() {
         Primero validamos el cerebro documental.
       </h1>
       <p className="mt-5 text-lg leading-8 text-slate-600">
-        La generacion de escenas y quizzes queda fuera de esta fase. El flujo
-        activo es la ingesta normativa, recuperacion RAG y renderizado de
-        modulos basados en la documentacion.
+        La generación de escenas y quizzes queda fuera de esta fase. El flujo
+        activo es la ingesta normativa, recuperación RAG y renderizado de
+        módulos basados en la documentación.
       </p>
       <div className="mt-8 flex flex-wrap gap-3">
         <Link
           className="inline-flex items-center gap-2 rounded-xl bg-blue-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-800"
           href="/modulos"
         >
-          Ver modulos
+          Ver módulos
           <ArrowRight aria-hidden="true" size={16} />
         </Link>
         <Link

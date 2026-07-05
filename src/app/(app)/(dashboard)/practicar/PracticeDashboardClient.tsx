@@ -134,12 +134,12 @@ export default function PracticeDashboardClient({
         <div>
           <p className="eyebrow">
             <PlayCircle aria-hidden="true" size={14} />
-            Practicas 3D
+            Prácticas 3D
           </p>
-          <h1>Practica cada modulo con una escena interactiva</h1>
+          <h1>Practicá cada módulo con una escena interactiva</h1>
           <p>
-            Cada tarjeta usa el catalogo educativo actual y su escenario
-            asociado por registry. El avance se calcula por modulo y escenario.
+            Cada tarjeta usa el catálogo educativo actual y su escenario
+            asociado por registry. El avance se calcula por módulo y escenario.
           </p>
         </div>
         <section className="practice-dashboard__stats" aria-label="Resumen">
@@ -174,7 +174,7 @@ export default function PracticeDashboardClient({
         </section>
       )}
 
-      <section className="practice-grid" aria-label="Modulos disponibles">
+      <section className="practice-grid" aria-label="Módulos disponibles">
         {modules.map((module) => {
           const moduleProgress = progress.modules[module.id];
           const moduleAttempts = progress.attempts.filter(
@@ -222,14 +222,14 @@ export default function PracticeDashboardClient({
               ) : (
                 <div className="practice-card__scenario practice-card__scenario--pending">
                   <strong>Escenario pendiente de crear</strong>
-                  <span>El modulo permanece visible y controlado.</span>
+                  <span>El módulo permanece visible y controlado.</span>
                 </div>
               )}
 
               {moduleProgress ? (
                 <dl className="practice-card__metrics">
                   <div>
-                    <dt>Ultimo</dt>
+                    <dt>Último</dt>
                     <dd>{moduleProgress.lastScore ?? "-"}</dd>
                   </div>
                   <div>
@@ -259,14 +259,14 @@ export default function PracticeDashboardClient({
                 </dl>
               ) : (
                 <p className="practice-card__empty">
-                  Todavia no practicaste este modulo — sumá tu primer intento.
+                  Todavía no practicaste este módulo — sumá tu primer intento.
                 </p>
               )}
 
               {lastMistake && (
                 <p className="practice-card__mistake">
                   <AlertTriangle aria-hidden="true" size={15} />
-                  <span>Ultimo error: {lastMistake.message}</span>
+                  <span>Último error: {lastMistake.message}</span>
                 </p>
               )}
 
