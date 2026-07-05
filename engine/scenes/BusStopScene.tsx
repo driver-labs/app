@@ -8,6 +8,7 @@ import type { Scenario } from "@/core/scenario-schema";
 import type { SceneView } from "../camera/views";
 import RainyAmbience from "../env/RainyAmbience";
 import { GrassGround, RoadStrip } from "../env/RoadKit";
+import AttentionArrow from "../fx/AttentionArrow";
 import NearMissEffect from "../fx/NearMissEffect";
 import type { Pack } from "../models/cars";
 import Pedestrian from "../models/Pedestrian";
@@ -53,6 +54,7 @@ export default function BusStopScene({
 }: Props) {
   const world = useRef<THREE.Group | null>(null);
   const player = useRef<THREE.Group | null>(null);
+  const bus = useRef<THREE.Group | null>(null);
   const ped = useRef<THREE.Group | null>(null);
 
   const reached = useRef(false);
@@ -66,7 +68,7 @@ export default function BusStopScene({
   const nearMissTime = useRef(0);
   const impact = useMemo(() => new THREE.Vector3(), []);
 
-  const roadWidth = Math.max(8, scenario.road.lanes * 3.8);
+  const roadWidth = Math.max(10, scenario.road.lanes * 4.8);
   const laneX = roadWidth / 4;
   const playerActor = scenario.actors.find((actor) => actor.role === "player");
   const busActor = scenario.actors.find((actor) => actor.kind === "bus");
@@ -208,7 +210,7 @@ export default function BusStopScene({
           <Model model={playerModel} scale={pack.scale} yaw={CAR_YAW} />
         </group>
 
-        <group position={[laneX, 0, BUS_Z]}>
+        <group ref={bus} position={[laneX, 0, BUS_Z]}>
           <Model model={busModel} scale={pack.scale} yaw={CAR_YAW} />
           <mesh position={[0.5, 0.55, 1.4]}>
             <boxGeometry args={[0.28, 0.14, 0.08]} />
@@ -231,6 +233,8 @@ export default function BusStopScene({
         <group ref={ped} position={[laneX, 0, BUS_Z + PED_HIDDEN_Z]}>
           <Pedestrian walking shirtColor="#dc2626" />
         </group>
+
+        <AttentionArrow height={4.7} target={bus} />
 
         <NearMissEffect
           impact={impact}

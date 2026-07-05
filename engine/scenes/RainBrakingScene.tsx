@@ -9,6 +9,7 @@ import type { SceneView } from "../camera/views";
 import RainyAmbience from "../env/RainyAmbience";
 import { GrassGround, RoadStrip } from "../env/RoadKit";
 import StreetLamp from "../env/StreetLamp";
+import AttentionArrow from "../fx/AttentionArrow";
 import NearMissEffect from "../fx/NearMissEffect";
 import type { Pack } from "../models/cars";
 import Pedestrian from "../models/Pedestrian";
@@ -85,7 +86,7 @@ export default function RainBrakingScene({
   const nearMissTime = useRef(0);
   const impact = useMemo(() => new THREE.Vector3(), []);
 
-  const roadWidth = Math.max(8, scenario.road.lanes * 3.8);
+  const roadWidth = Math.max(10, scenario.road.lanes * 4.8);
   const laneX = roadWidth / 4;
   const playerActor = scenario.actors.find((actor) => actor.role === "player");
   const leadActor = scenario.actors.find(
@@ -223,6 +224,8 @@ export default function RainBrakingScene({
             />
           </mesh>
         </group>
+
+        <AttentionArrow target={lead} />
 
         <group ref={ped} position={[-roadWidth / 2 - 0.8, 0, CROSSWALK_Z]}>
           <Pedestrian walking shirtColor="#f59e0b" />

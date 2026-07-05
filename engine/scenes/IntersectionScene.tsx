@@ -15,6 +15,7 @@ import RainyAmbience from "../env/RainyAmbience";
 import { Crossroad, GrassGround, RoadStrip } from "../env/RoadKit";
 import StreetLamp from "../env/StreetLamp";
 import TrafficLight from "../env/TrafficLight";
+import AttentionArrow from "../fx/AttentionArrow";
 import CrashEffect from "../fx/CrashEffect";
 import type { Pack } from "../models/cars";
 import type { Phase } from "../types";
@@ -81,16 +82,16 @@ const MODEL_BY_KIND: Record<Scenario["actors"][number]["kind"], string> = {
 const MODEL_SLUGS: Record<string, string> = {
   ambulance: "/models/ambulance.glb",
   bus: "/models/van.glb",
-  compact: "/cars/compact.glb",
-  coupe: "/cars/coupe.glb",
+  compact: "/models/hatchback-sports.glb",
+  coupe: "/models/sedan-sports.glb",
   firetruck: "/models/firetruck.glb",
-  hatchback: "/cars/hatchback.glb",
+  hatchback: "/models/hatchback-sports.glb",
   motorcycle:
     "/bike/low%20poly%20dirta%20bike%20with%20rider%201_FBX/DirtBike_With_Player.FBX",
-  pickup: "/cars/pickup.glb",
+  pickup: "/models/truck.glb",
   police: "/models/police.glb",
   sedan: "/models/sedan.glb",
-  sport: "/cars/sport.glb",
+  sport: "/models/sedan-sports.glb",
   suv: "/models/suv.glb",
   taxi: "/models/taxi.glb",
   truck: "/models/truck.glb",
@@ -332,7 +333,8 @@ export default function Scene({
   const playerModel = actorModel(playerActor, pack.player);
   const playerSpeed = SPEED_BY_LEVEL[playerActor?.speed ?? "normal"];
   const shouldCrashOnWrongAnswer = scenario.event.outcome === "crash";
-  const roadWidth = Math.max(6, scenario.road.lanes * 3.6);
+  const roadWidth = Math.max(8, scenario.road.lanes * 4.6);
+  const laneX = roadWidth / 4;
   const showTrafficLight =
     scenario.road.control === "traffic-light" ||
     scenario.sceneKind === "intersection-light";
@@ -395,7 +397,7 @@ export default function Scene({
       let best = Infinity;
       for (let i = 0; i < TRAFFIC_LAYOUT.length; i++) {
         const dist = Math.hypot(
-          trafficX.current[i],
+          trafficX.current[i] - c.position.x,
           TRAFFIC_LAYOUT[i].z - c.position.z,
         );
         if (dist < best) {
@@ -410,7 +412,7 @@ export default function Scene({
         playerCrashZ.current = c.position.z;
         const g = trafficRefs.current[hit];
         impact.set(
-          (g ? g.position.x : 0) / 2,
+          ((g ? g.position.x : 0) + c.position.x) / 2,
           0.6,
           (c.position.z + TRAFFIC_LAYOUT[hit].z) / 2,
         );
@@ -541,7 +543,7 @@ export default function Scene({
         )}
 
         {/* auto del jugador (con faros encendidos + luz hacia adelante) */}
-        <group ref={car} position={[0, 0, START_Z]}>
+        <group ref={car} position={[laneX, 0, START_Z]}>
           <Model model={playerModel} scale={pack.scale} yaw={CAR_YAW} />
           <mesh position={[0.55, 0.6, -2.2]}>
             <boxGeometry args={[0.32, 0.16, 0.1]} />
@@ -567,6 +569,8 @@ export default function Scene({
             color="#fff2c0"
           />
         </group>
+
+        <AttentionArrow target={car} />
 
         {/* tráfico que cruza */}
         {TRAFFIC_LAYOUT.map((t, i) => (

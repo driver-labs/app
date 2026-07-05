@@ -13,6 +13,7 @@ import {
   RoadStrip,
   Roundabout,
 } from "../env/RoadKit";
+import AttentionArrow from "../fx/AttentionArrow";
 import CrashEffect from "../fx/CrashEffect";
 import type { Pack } from "../models/cars";
 import type { Phase } from "../types";
@@ -25,10 +26,10 @@ import { actorModel, CAR_YAW, Model } from "./IntersectionScene";
 // circulan dentro del anillo. Ceder el paso = esperar a que la moto pase antes
 // de fundirse al anillo; no ceder = choque lateral con la moto.
 
-const RING_MID_R = 7;
-const RING_OUTER_R = 9.8;
+const RING_MID_R = 9;
+const RING_OUTER_R = 12.6;
 const STUB_LENGTH = 26;
-const STUB_WIDTH = 6.4;
+const STUB_WIDTH = 8.2;
 
 const PLAYER_START_Z = 24;
 const DECISION_Z = RING_OUTER_R + 2.2;
@@ -263,6 +264,8 @@ export default function RoundaboutScene({
         <group ref={moto} position={ringPos(MOTO_START_ANGLE)}>
           <Model model={motoModel} scale={pack.scale} yaw={CAR_YAW} />
         </group>
+
+        <AttentionArrow target={moto} />
 
         <group ref={bus} position={ringPos(BUS_START_ANGLE)}>
           <Model model={busModel} scale={pack.scale} yaw={CAR_YAW} />

@@ -16,6 +16,7 @@ import {
 import Link from "next/link";
 import type { ComponentType } from "react";
 import { Suspense, useEffect, useMemo, useState } from "react";
+import { ACESFilmicToneMapping } from "three";
 import PracticeBar from "@/components/PracticeBar";
 import {
   applyScenarioAttempt,
@@ -66,6 +67,28 @@ const DECISION_SCENE_COMPONENTS: Partial<
   "lane-change": LaneChangeScene,
   "rain-braking": RainBrakingScene,
   distraction: DistractionScene,
+};
+
+// Qué vehículo/actor mirar durante el approach, por tipo de escena. Sin esto
+// el hint era un genérico "el vehículo se aproxima al punto de conflicto" que
+// no decía a qué prestarle atención.
+const APPROACH_HINTS: Partial<Record<PlayableScenario["sceneKind"], string>> = {
+  "intersection-stop":
+    "Prestá atención al tráfico que cruza — la prioridad se define por quién llegó primero.",
+  "intersection-light":
+    "Mirá el semáforo y el tráfico que cruza antes de decidir.",
+  "straight-overtake":
+    "Fijate en el vehículo que viene de frente antes de adelantar.",
+  crosswalk: "Prestá atención a los peatones que pueden cruzar.",
+  roundabout:
+    "Mirá los vehículos que ya circulan dentro de la rotonda — tienen prioridad.",
+  curve: "Prestá atención a la curva y a lo que pueda venir de frente.",
+  "bus-stop": "Fijate si hay peatones ocultos frente al bus detenido.",
+  "lane-change":
+    "Revisá tu punto ciego — puede haber una moto antes de cambiar de carril.",
+  "rain-braking":
+    "Prestá atención a la distancia con el vehículo de adelante; el pavimento está mojado.",
+  distraction: "Notá la distracción al volante que pone en riesgo la decisión.",
 };
 
 const TITLE_TYPING_MS = 44;
@@ -199,8 +222,8 @@ export default function ScenarioPlayer({
   const DecisionScene =
     scenario.simulation.pattern === "document_checkpoint"
       ? DocumentCheckpointScene
-      : DECISION_SCENE_COMPONENTS[playableScenario.sceneKind] ??
-        IntersectionScene;
+      : (DECISION_SCENE_COMPONENTS[playableScenario.sceneKind] ??
+        IntersectionScene);
   const correct = useMemo(
     () => isCorrectScenarioSelection(scenario, selectedIds),
     [scenario, selectedIds],
@@ -300,7 +323,8 @@ export default function ScenarioPlayer({
   const hint =
     playableScenario.format === "diagnosis"
       ? "Observá la maniobra y respondé cuando la escena se pause."
-      : "El vehículo se aproxima al punto de conflicto.";
+      : (APPROACH_HINTS[playableScenario.sceneKind] ??
+        "El vehículo se aproxima al punto de conflicto.");
   const selectionHelp =
     playableScenario.selectionType === "multiple"
       ? "Podés marcar más de una opción antes de confirmar."
@@ -335,6 +359,7 @@ export default function ScenarioPlayer({
           role="img"
           shadows
           camera={{ position: view.camera, fov: view.fov }}
+          gl={{ toneMapping: ACESFilmicToneMapping, toneMappingExposure: 1.05 }}
         >
           <Suspense fallback={<SceneLoader />}>
             {playableScenario.sceneKind === "straight-overtake" ? (

@@ -6,6 +6,7 @@ import type { Scenario } from "@/core/scenario-schema";
 import type { SceneView } from "../camera/views";
 import RainyAmbience from "../env/RainyAmbience";
 import { GrassGround, RoadStrip } from "../env/RoadKit";
+import AttentionArrow from "../fx/AttentionArrow";
 import type { Pack } from "../models/cars";
 import type { Phase } from "../types";
 import { CAR_YAW, Model } from "./IntersectionScene";
@@ -103,7 +104,7 @@ export default function OvertakeScene({
   const slowSpeed = SPEED_BY_LEVEL[slowActor?.speed ?? "slow"];
   const rogueSpeed = SPEED_BY_LEVEL[rogueActor?.speed ?? "fast"];
   const oncomingSpeed = SPEED_BY_LEVEL[oncomingActor?.speed ?? "normal"];
-  const roadWidth = Math.max(8, scenario.road.lanes * 3.8);
+  const roadWidth = Math.max(10, scenario.road.lanes * 4.8);
   const laneX = roadWidth / 4;
 
   useFrame((_, delta) => {
@@ -191,6 +192,8 @@ export default function OvertakeScene({
           yaw={0}
         />
       </group>
+
+      <AttentionArrow target={rogue} />
     </>
   );
 }

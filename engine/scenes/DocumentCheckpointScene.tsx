@@ -1,6 +1,6 @@
 "use client";
 
-import { OrbitControls, Text } from "@react-three/drei";
+import { Html, OrbitControls } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
@@ -8,6 +8,7 @@ import type { Scenario } from "@/core/scenario-schema";
 import type { SceneView } from "../camera/views";
 import RainyAmbience from "../env/RainyAmbience";
 import { GrassGround, RoadStrip } from "../env/RoadKit";
+import AttentionArrow from "../fx/AttentionArrow";
 import type { Pack } from "../models/cars";
 import type { Phase } from "../types";
 import { actorModel, CAR_YAW, Model } from "./IntersectionScene";
@@ -179,26 +180,34 @@ function DocumentSign() {
         <boxGeometry args={[3.9, 1.25, 0.08]} />
         <meshStandardMaterial color="#111827" roughness={0.72} />
       </mesh>
-      <Text
-        anchorX="center"
-        anchorY="middle"
-        color="#f8fafc"
-        fontSize={0.24}
-        maxWidth={3.35}
-        position={[0, 1.34, 0]}
-      >
-        Documentos, por favor
-      </Text>
-      <Text
-        anchorX="center"
-        anchorY="middle"
-        color="#93c5fd"
-        fontSize={0.16}
-        maxWidth={3.2}
-        position={[0, 1.02, 0]}
-      >
-        Control de transito
-      </Text>
+      <Html center distanceFactor={8} position={[0, 1.2, 0.04]}>
+        <div
+          style={{
+            color: "#f8fafc",
+            fontFamily:
+              "Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif",
+            fontSize: "14px",
+            fontWeight: 800,
+            lineHeight: 1.08,
+            textAlign: "center",
+            textShadow: "0 1px 2px rgba(0,0,0,0.35)",
+            width: "150px",
+          }}
+        >
+          <span>Documentos, por favor</span>
+          <span
+            style={{
+              color: "#93c5fd",
+              display: "block",
+              fontSize: "10px",
+              fontWeight: 700,
+              marginTop: "5px",
+            }}
+          >
+            Control de transito
+          </span>
+        </div>
+      </Html>
     </group>
   );
 }
@@ -367,6 +376,8 @@ export default function DocumentCheckpointScene({
         <Headlights />
         {phase === "consequence" && <BrakeLights />}
       </group>
+
+      <AttentionArrow target={player} />
 
       <group ref={police} position={[policeStartX, 0, START_Z + 10]}>
         <Model model={policeModel} scale={pack.scale} yaw={CAR_YAW} />

@@ -44,9 +44,9 @@ export const SCENE_VIEWS: Record<
     fov: 50,
   },
   "lane-change": {
-    camera: [16, 11, 16],
-    target: [0, 0, 4],
-    fov: 50,
+    camera: [18, 12, 24],
+    target: [0, 0, 8],
+    fov: 62,
   },
   "rain-braking": {
     camera: [15, 11, 26],

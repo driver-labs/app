@@ -1,6 +1,6 @@
 "use client";
 
-import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
+import { OrbitControls } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
@@ -8,16 +8,15 @@ import type { Scenario } from "@/core/scenario-schema";
 import type { SceneView } from "../camera/views";
 import RainyAmbience from "../env/RainyAmbience";
 import { GrassGround, RoadStrip } from "../env/RoadKit";
+import AttentionArrow from "../fx/AttentionArrow";
 import CrashEffect from "../fx/CrashEffect";
 import type { Pack } from "../models/cars";
 import type { Phase } from "../types";
 import { actorModel, CAR_YAW, Model } from "./IntersectionScene";
 
 // Escena de DECISIÓN: una moto viaja en el punto ciego del carril izquierdo
-// mientras el jugador quiere cambiar de carril. En el punto de decisión, la
-// cámara corta a una vista cenital que resalta la zona ciega — un corte
-// deliberado (no un paneo), así que se resuelve con dos <PerspectiveCamera>
-// mutuamente excluyentes en vez de pelear con OrbitControls.
+// mientras el jugador quiere cambiar de carril. La flecha marca la moto para
+// que el usuario relacione la decisión con el actor vulnerable correcto.
 
 const PLAYER_START_Z = 26;
 const MOTO_START_Z = 33;
@@ -58,7 +57,7 @@ export default function LaneChangeScene({
   const motoBaseX = useRef(0);
   const impact = useMemo(() => new THREE.Vector3(), []);
 
-  const roadWidth = Math.max(8, scenario.road.lanes * 3.8);
+  const roadWidth = Math.max(10, scenario.road.lanes * 4.8);
   const laneX = roadWidth / 4;
   const playerActor = scenario.actors.find((actor) => actor.role === "player");
   const motoActor = scenario.actors.find(
@@ -154,22 +153,7 @@ export default function LaneChangeScene({
         view={view}
         paused={phase === "intro" || phase === "decision"}
       />
-
-      {phase === "decision" ? (
-        <PerspectiveCamera
-          makeDefault
-          position={[laneX * -0.5, 24, DECISION_Z + 1]}
-          fov={48}
-          onUpdate={(self) => self.lookAt(-laneX * 0.5, 0, DECISION_Z + 3)}
-        />
-      ) : (
-        <PerspectiveCamera makeDefault position={view.camera} fov={view.fov} />
-      )}
-      <OrbitControls
-        target={view.target}
-        maxPolarAngle={Math.PI / 2.15}
-        enabled={phase !== "decision"}
-      />
+      <OrbitControls target={view.target} maxPolarAngle={Math.PI / 2.15} />
 
       <group ref={world}>
         <GrassGround color="#5f6b57" size={200} />
@@ -196,6 +180,8 @@ export default function LaneChangeScene({
         <group ref={moto} position={[-laneX, 0, MOTO_START_Z]}>
           <Model model={motoModel} scale={pack.scale} yaw={CAR_YAW} />
         </group>
+
+        <AttentionArrow target={moto} />
 
         <CrashEffect impact={impact} crashed={crashed} crashTime={crashTime} />
       </group>
