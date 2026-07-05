@@ -11,7 +11,16 @@ export type SceneView = {
 
 /** Vistas por tipo de escena — única fuente para Canvas y colocación de props. */
 export const SCENE_VIEWS: Record<
-  Extract<SceneKind, "intersection-stop" | "straight-overtake">,
+  Extract<
+    SceneKind,
+    | "intersection-stop"
+    | "straight-overtake"
+    | "roundabout"
+    | "bus-stop"
+    | "lane-change"
+    | "rain-braking"
+    | "distraction"
+  >,
   SceneView
 > = {
   "intersection-stop": {
@@ -22,6 +31,31 @@ export const SCENE_VIEWS: Record<
   "straight-overtake": {
     camera: [16, 11, 14],
     target: [0, 0, -2],
+    fov: 50,
+  },
+  roundabout: {
+    camera: [0, 24, 30],
+    target: [0, 0, 4],
+    fov: 50,
+  },
+  "bus-stop": {
+    camera: [15, 11, 20],
+    target: [0, 0, 0],
+    fov: 50,
+  },
+  "lane-change": {
+    camera: [16, 11, 16],
+    target: [0, 0, 4],
+    fov: 50,
+  },
+  "rain-braking": {
+    camera: [15, 11, 26],
+    target: [0, 0, 8],
+    fov: 50,
+  },
+  distraction: {
+    camera: [13, 10, 24],
+    target: [0, 0, 4],
     fov: 50,
   },
 };
