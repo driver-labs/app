@@ -37,6 +37,7 @@ import type { Pack } from "./models/cars";
 import { PACKS } from "./models/cars";
 import BusStopScene from "./scenes/BusStopScene";
 import DistractionScene from "./scenes/DistractionScene";
+import DocumentCheckpointScene from "./scenes/DocumentCheckpointScene";
 import IntersectionScene from "./scenes/IntersectionScene";
 import LaneChangeScene from "./scenes/LaneChangeScene";
 import OvertakeScene from "./scenes/OvertakeScene";
@@ -196,7 +197,10 @@ export default function ScenarioPlayer({
   const pack = PACKS.kenney;
   const view = getSceneView(playableScenario.sceneKind);
   const DecisionScene =
-    DECISION_SCENE_COMPONENTS[playableScenario.sceneKind] ?? IntersectionScene;
+    scenario.simulation.pattern === "document_checkpoint"
+      ? DocumentCheckpointScene
+      : DECISION_SCENE_COMPONENTS[playableScenario.sceneKind] ??
+        IntersectionScene;
   const correct = useMemo(
     () => isCorrectScenarioSelection(scenario, selectedIds),
     [scenario, selectedIds],

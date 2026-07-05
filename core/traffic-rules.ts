@@ -77,6 +77,19 @@ export const TRAFFIC_RULES = {
     ],
     confirmed: true,
   },
+  "documents-control": {
+    title: "Portar y entregar documentos requeridos",
+    explanation:
+      "Cuando la autoridad de transito lo requiere, el conductor debe entregar los documentos solicitados y colaborar. Salir sin licencia o documentacion del vehiculo puede terminar en una detencion y sancion.",
+    refs: [
+      {
+        code: "Art. 66 LTTTSV",
+        summary:
+          "Obligacion de entregar los documentos solicitados y colaborar con la autoridad competente.",
+      },
+    ],
+    confirmed: true,
+  },
   // ── Debajo: texto correcto, número por confirmar. NO inventamos el artículo. ──
   "run-stop": {
     title: "No respetar la señal de ALTO",

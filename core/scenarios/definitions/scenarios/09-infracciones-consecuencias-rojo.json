@@ -1,0 +1,178 @@
+{
+  "schemaVersion": "drivelab.scenario.v1",
+  "id": "scenario_infracciones_consecuencias_rojo_001",
+  "slug": "infracciones-consecuencias-rojo",
+  "title": "Infraccion observable y consecuencia",
+  "description": "El usuario identifica una conducta sancionable sostenida por evidencia visible y evita asumir hechos no observados.",
+  "moduleBinding": {
+    "moduleId": "09-infracciones-y-consecuencias",
+    "isPrimaryScenario": true
+  },
+  "learning": {
+    "lessonIds": [
+      "09-infracciones-y-consecuencias:evidencia",
+      "09-infracciones-y-consecuencias:sancion"
+    ],
+    "objectives": [
+      "Separar hechos visibles de suposiciones al analizar una infraccion.",
+      "Entender que una infraccion puede generar sancion y riesgo fisico."
+    ],
+    "feedback": {
+      "success": "Identificaste la conducta observable sin inventar hechos adicionales.",
+      "failure": "La respuesta segura exige basarse en evidencia visible, no en suposiciones.",
+      "hints": [
+        "Primero mira que conducta se observa.",
+        "No agregues alcohol, fuga u otra falta si la escena no lo muestra.",
+        "La consecuencia nace de la conducta probada."
+      ]
+    },
+    "legalReferences": [
+      {
+        "jurisdiction": "SV",
+        "document": "Decreto Legislativo No. 185",
+        "articleId": "cuadro de multas",
+        "ruleCategory": "run-red"
+      }
+    ]
+  },
+  "simulation": {
+    "pattern": "traffic_light_decision",
+    "durationSeconds": 16,
+    "world": {
+      "environment": "intersection",
+      "roadType": "two_lane_urban",
+      "weather": "rain",
+      "timeOfDay": "night",
+      "units": "meters"
+    },
+    "camera": {
+      "mode": "third_person_follow",
+      "targetActorId": "ego_car",
+      "position": [15, 12, 23],
+      "lookAt": [0, 0, 2],
+      "fov": 50
+    },
+    "assets": [
+      {
+        "id": "asset_sedan",
+        "type": "vehicle",
+        "url": "/models/sedan.glb"
+      },
+      {
+        "id": "asset_truck",
+        "type": "vehicle",
+        "url": "/models/truck.glb"
+      },
+      {
+        "id": "asset_traffic_light",
+        "type": "signal",
+        "url": "/assets/signs/traffic-light.glb"
+      }
+    ],
+    "actors": [
+      {
+        "id": "ego_car",
+        "assetId": "asset_sedan",
+        "role": "offender_vehicle",
+        "initialPosition": [0, 0, 22],
+        "initialRotation": [0, 3.1416, 0],
+        "scale": [1, 1, 1],
+        "tags": ["vehicle", "controlled", "fast"]
+      },
+      {
+        "id": "cross_truck",
+        "assetId": "asset_truck",
+        "role": "traffic_vehicle",
+        "initialPosition": [-18, 0, 2],
+        "initialRotation": [0, -1.5708, 0],
+        "scale": [1, 1, 1],
+        "tags": ["vehicle", "priority"]
+      }
+    ],
+    "timeline": [
+      {
+        "id": "ego_infraction_approach",
+        "type": "animate_actor",
+        "actorId": "ego_car",
+        "track": "position",
+        "keyframes": [
+          {
+            "t": 0,
+            "value": [0, 0, 22]
+          },
+          {
+            "t": 6,
+            "value": [0, 0, 7]
+          }
+        ],
+        "interpolation": "smooth"
+      },
+      {
+        "id": "ask_infraction",
+        "type": "trigger",
+        "at": 6,
+        "trigger": {
+          "kind": "show_interaction",
+          "interactionId": "decision_infraction"
+        }
+      }
+    ],
+    "interactions": [
+      {
+        "id": "decision_infraction",
+        "type": "multiple_choice",
+        "appearsAt": 6,
+        "prompt": "Con lo que se observa, que infraccion debes identificar?",
+        "options": [
+          {
+            "id": "run_red",
+            "label": "No respetar la luz roja del semaforo",
+            "isCorrect": true,
+            "scoreDelta": 50
+          },
+          {
+            "id": "alcohol",
+            "label": "Conducir bajo efectos de alcohol",
+            "isCorrect": false,
+            "scoreDelta": -35
+          },
+          {
+            "id": "flee",
+            "label": "Fugarse del lugar del accidente",
+            "isCorrect": false,
+            "scoreDelta": -35
+          }
+        ],
+        "correctOptionId": "run_red"
+      }
+    ]
+  },
+  "scoring": {
+    "maxScore": 100,
+    "passScore": 75,
+    "metrics": [
+      {
+        "id": "evidence_based",
+        "label": "Respuesta basada en evidencia",
+        "weight": 45
+      },
+      {
+        "id": "rule_identification",
+        "label": "Identificacion normativa",
+        "weight": 35
+      },
+      {
+        "id": "consequence_awareness",
+        "label": "Conciencia de consecuencia",
+        "weight": 20
+      }
+    ]
+  },
+  "metadata": {
+    "difficulty": "intermediate",
+    "estimatedMinutes": 5,
+    "tags": ["infracciones", "evidencia", "sanciones"],
+    "createdAt": "2026-07-04T00:00:00-06:00",
+    "updatedAt": "2026-07-04T00:00:00-06:00"
+  }
+}

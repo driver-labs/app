@@ -1,0 +1,187 @@
+{
+  "schemaVersion": "drivelab.scenario.v1",
+  "id": "scenario_practica_examen_redondel_001",
+  "slug": "practica-examen-redondel",
+  "title": "Redondel: prioridad y salida segura",
+  "description": "El usuario integra senales, prioridad, observacion y decision como practica final tipo examen.",
+  "moduleBinding": {
+    "moduleId": "12-practica-para-examen",
+    "isPrimaryScenario": true
+  },
+  "learning": {
+    "lessonIds": [
+      "12-practica-para-examen:prioridad-integrada",
+      "12-practica-para-examen:decision-final"
+    ],
+    "objectives": [
+      "Integrar prioridad, observacion y conduccion defensiva en una sola decision.",
+      "Ceder el paso a quien ya circula dentro del redondel."
+    ],
+    "feedback": {
+      "success": "Cediste el paso a quien ya circulaba y entraste al redondel sin cerrar trayectoria.",
+      "failure": "Entrar sin ceder en un redondel crea choque lateral con quien ya tiene prioridad.",
+      "hints": [
+        "Antes de entrar, mira izquierda y confirma vehiculos dentro del redondel.",
+        "La prioridad no depende de quien llega con mas velocidad.",
+        "Senaliza salida y conserva carril hasta poder salir."
+      ]
+    },
+    "legalReferences": [
+      {
+        "jurisdiction": "SV",
+        "document": "Reglamento General de Transito y Seguridad Vial",
+        "articleId": "prioridad de paso",
+        "ruleCategory": "no-yield"
+      }
+    ]
+  },
+  "simulation": {
+    "pattern": "roundabout_priority",
+    "durationSeconds": 18,
+    "world": {
+      "environment": "urban",
+      "roadType": "two_lane_urban",
+      "weather": "clear",
+      "timeOfDay": "day",
+      "units": "meters"
+    },
+    "camera": {
+      "mode": "top_down",
+      "targetActorId": "ego_car",
+      "position": [0, 24, 30],
+      "lookAt": [0, 0, 4],
+      "fov": 50
+    },
+    "assets": [
+      {
+        "id": "asset_sedan",
+        "type": "vehicle",
+        "url": "/models/sedan.glb"
+      },
+      {
+        "id": "asset_motorcycle",
+        "type": "vehicle",
+        "url": "/bike/low%20poly%20dirta%20bike%20with%20rider%201_FBX/DirtBike_With_Player.FBX"
+      },
+      {
+        "id": "asset_bus",
+        "type": "vehicle",
+        "url": "/models/van.glb"
+      }
+    ],
+    "actors": [
+      {
+        "id": "ego_car",
+        "assetId": "asset_sedan",
+        "role": "ego_vehicle",
+        "initialPosition": [0, 0, 22],
+        "initialRotation": [0, 3.1416, 0],
+        "scale": [1, 1, 1],
+        "tags": ["vehicle", "controlled"]
+      },
+      {
+        "id": "motorcycle_inside",
+        "assetId": "asset_motorcycle",
+        "role": "traffic_vehicle",
+        "initialPosition": [3, 0, 3],
+        "initialRotation": [0, 1.5708, 0],
+        "scale": [1, 1, 1],
+        "tags": ["motorcycle", "priority"]
+      },
+      {
+        "id": "bus_inside",
+        "assetId": "asset_bus",
+        "role": "traffic_vehicle",
+        "initialPosition": [-4, 0, 2],
+        "initialRotation": [0, -1.5708, 0],
+        "scale": [1, 1, 1],
+        "tags": ["bus", "priority"]
+      }
+    ],
+    "timeline": [
+      {
+        "id": "ego_roundabout_approach",
+        "type": "animate_actor",
+        "actorId": "ego_car",
+        "track": "position",
+        "keyframes": [
+          {
+            "t": 0,
+            "value": [0, 0, 22]
+          },
+          {
+            "t": 8,
+            "value": [0, 0, 8]
+          }
+        ],
+        "interpolation": "smooth"
+      },
+      {
+        "id": "ask_roundabout",
+        "type": "trigger",
+        "at": 7,
+        "trigger": {
+          "kind": "show_interaction",
+          "interactionId": "decision_roundabout"
+        }
+      }
+    ],
+    "interactions": [
+      {
+        "id": "decision_roundabout",
+        "type": "multiple_choice",
+        "appearsAt": 7,
+        "prompt": "Hay vehiculos dentro del redondel. Que decision tomas?",
+        "options": [
+          {
+            "id": "yield_inside",
+            "label": "Reducir y ceder el paso a quienes ya circulan dentro",
+            "isCorrect": true,
+            "scoreDelta": 50
+          },
+          {
+            "id": "enter_first",
+            "label": "Entrar rapido para incorporarme antes de la moto",
+            "isCorrect": false,
+            "scoreDelta": -45
+          },
+          {
+            "id": "stop_forever",
+            "label": "Quedarme detenido aunque el redondel quede libre",
+            "isCorrect": false,
+            "scoreDelta": -20
+          }
+        ],
+        "correctOptionId": "yield_inside"
+      }
+    ]
+  },
+  "scoring": {
+    "maxScore": 100,
+    "passScore": 75,
+    "metrics": [
+      {
+        "id": "priority_integration",
+        "label": "Prioridad integrada",
+        "weight": 40
+      },
+      {
+        "id": "safe_entry",
+        "label": "Entrada segura",
+        "weight": 40
+      },
+      {
+        "id": "exam_readiness",
+        "label": "Criterio de examen",
+        "weight": 20
+      }
+    ]
+  },
+  "metadata": {
+    "difficulty": "advanced",
+    "estimatedMinutes": 6,
+    "tags": ["examen", "redondel", "prioridad"],
+    "createdAt": "2026-07-04T00:00:00-06:00",
+    "updatedAt": "2026-07-04T00:00:00-06:00"
+  }
+}

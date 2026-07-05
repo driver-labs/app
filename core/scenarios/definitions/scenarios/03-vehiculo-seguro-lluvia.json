@@ -1,0 +1,178 @@
+{
+  "schemaVersion": "drivelab.scenario.v1",
+  "id": "scenario_vehiculo_seguro_lluvia_001",
+  "slug": "vehiculo-seguro-lluvia",
+  "title": "Vehiculo seguro bajo lluvia",
+  "description": "El usuario practica reducir velocidad y aumentar margen cuando la visibilidad y el frenado dependen del estado del vehiculo.",
+  "moduleBinding": {
+    "moduleId": "03-vehiculo-seguro",
+    "isPrimaryScenario": true
+  },
+  "learning": {
+    "lessonIds": [
+      "03-vehiculo-seguro:revision-preventiva",
+      "03-vehiculo-seguro:neumaticos-y-frenos"
+    ],
+    "objectives": [
+      "Relacionar el estado del vehiculo con distancia de frenado y visibilidad.",
+      "Ajustar velocidad cuando lluvia, llantas o frenos reducen el margen."
+    ],
+    "feedback": {
+      "success": "Aumentaste distancia y bajaste velocidad antes de que el frenado se volviera urgente.",
+      "failure": "Con lluvia y un vehiculo sin margen mecanico, reaccionar tarde casi siempre termina en alcance.",
+      "hints": [
+        "La lluvia exige mas distancia aunque el limite legal no cambie.",
+        "El estado de llantas, frenos y luces cambia el riesgo real.",
+        "Reducir temprano vale mas que frenar tarde."
+      ]
+    },
+    "legalReferences": [
+      {
+        "jurisdiction": "SV",
+        "document": "Reglamento General de Transito y Seguridad Vial",
+        "articleId": "condiciones del vehiculo",
+        "ruleCategory": "speeding"
+      }
+    ]
+  },
+  "simulation": {
+    "pattern": "vehicle_safety_rain",
+    "durationSeconds": 18,
+    "world": {
+      "environment": "urban",
+      "roadType": "two_lane_urban",
+      "weather": "rain",
+      "timeOfDay": "night",
+      "units": "meters"
+    },
+    "camera": {
+      "mode": "third_person_follow",
+      "targetActorId": "ego_car",
+      "position": [15, 11, 26],
+      "lookAt": [0, 0, 8],
+      "fov": 50
+    },
+    "assets": [
+      {
+        "id": "asset_sedan",
+        "type": "vehicle",
+        "url": "/models/sedan.glb"
+      },
+      {
+        "id": "asset_hatchback",
+        "type": "vehicle",
+        "url": "/models/hatchback-sports.glb"
+      },
+      {
+        "id": "asset_crosswalk",
+        "type": "road_marking",
+        "url": "/assets/road/crosswalk.glb"
+      }
+    ],
+    "actors": [
+      {
+        "id": "ego_car",
+        "assetId": "asset_sedan",
+        "role": "ego_vehicle",
+        "initialPosition": [0, 0, 26],
+        "initialRotation": [0, 3.1416, 0],
+        "scale": [1, 1, 1],
+        "tags": ["vehicle", "controlled"]
+      },
+      {
+        "id": "lead_car",
+        "assetId": "asset_hatchback",
+        "role": "traffic_vehicle",
+        "initialPosition": [0, 0, 12],
+        "initialRotation": [0, 3.1416, 0],
+        "scale": [1, 1, 1],
+        "tags": ["vehicle", "stopped"]
+      }
+    ],
+    "timeline": [
+      {
+        "id": "ego_following",
+        "type": "animate_actor",
+        "actorId": "ego_car",
+        "track": "position",
+        "keyframes": [
+          {
+            "t": 0,
+            "value": [0, 0, 26]
+          },
+          {
+            "t": 7,
+            "value": [0, 0, 11]
+          }
+        ],
+        "interpolation": "smooth"
+      },
+      {
+        "id": "ask_rain_margin",
+        "type": "trigger",
+        "at": 6,
+        "trigger": {
+          "kind": "show_interaction",
+          "interactionId": "decision_rain_margin"
+        }
+      }
+    ],
+    "interactions": [
+      {
+        "id": "decision_rain_margin",
+        "type": "multiple_choice",
+        "appearsAt": 6,
+        "prompt": "Que ajuste es mas seguro bajo lluvia y menor visibilidad?",
+        "options": [
+          {
+            "id": "increase_gap",
+            "label": "Reducir velocidad y aumentar distancia de seguimiento",
+            "isCorrect": true,
+            "scoreDelta": 50
+          },
+          {
+            "id": "same_speed",
+            "label": "Mantener velocidad porque la via esta conocida",
+            "isCorrect": false,
+            "scoreDelta": -35
+          },
+          {
+            "id": "brake_late",
+            "label": "Acercarse y frenar solo si el auto de adelante se detiene",
+            "isCorrect": false,
+            "scoreDelta": -45
+          }
+        ],
+        "correctOptionId": "increase_gap"
+      }
+    ]
+  },
+  "scoring": {
+    "maxScore": 100,
+    "passScore": 75,
+    "metrics": [
+      {
+        "id": "vehicle_condition",
+        "label": "Estado del vehiculo",
+        "weight": 30
+      },
+      {
+        "id": "weather_adjustment",
+        "label": "Ajuste por lluvia",
+        "weight": 45
+      },
+      {
+        "id": "following_margin",
+        "label": "Distancia segura",
+        "weight": 25
+      }
+    ]
+  },
+  "metadata": {
+    "difficulty": "basic",
+    "estimatedMinutes": 4,
+    "tags": ["vehiculo", "lluvia", "frenado"],
+    "createdAt": "2026-07-04T00:00:00-06:00",
+    "updatedAt": "2026-07-04T00:00:00-06:00"
+  }
+}

@@ -182,7 +182,7 @@ const patternToSceneKind: Record<string, Scenario["sceneKind"]> = {
 
 const patternToInfraction: Record<string, TrafficInfractionType> = {
   bus_stop_hazard: "blind-overtake",
-  document_checkpoint: "no-seatbelt",
+  document_checkpoint: "documents-control",
   phone_distraction: "phone-use",
   motorcycle_awareness: "unsafe-lane-change",
   pedestrian_crossing: "no-pedestrian-yield",
@@ -205,6 +205,14 @@ const difficultyToLegacy: Record<
   basic: "easy",
   intermediate: "medium",
 };
+
+function outcomeForPattern(pattern: string): Scenario["event"]["outcome"] {
+  if (pattern === "document_checkpoint") return "hard-brake";
+  if (pattern === "unsafe_lane_change" || pattern === "stop_intersection") {
+    return "crash";
+  }
+  return "near-miss";
+}
 
 function toLegacyEnvironment(
   value: ScenarioDefinition["simulation"]["world"],
@@ -309,11 +317,7 @@ export function toPlayableScenario(definition: ScenarioDefinition): Scenario {
     environment: toLegacyEnvironment(definition.simulation.world),
     event: {
       infractionType: infraction,
-      outcome:
-        definition.simulation.pattern === "unsafe_lane_change" ||
-        definition.simulation.pattern === "stop_intersection"
-          ? "crash"
-          : "near-miss",
+      outcome: outcomeForPattern(definition.simulation.pattern),
     },
     feedback: {
       fail: definition.learning.feedback.failure,

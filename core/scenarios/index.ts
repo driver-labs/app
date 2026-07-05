@@ -7,7 +7,7 @@ import {
   validateScenarioCatalog,
   validateScenarioDefinition,
 } from "../scenario-definition";
-import definitionsJson from "./definitions/scenarios.json";
+import { definitionsJson } from "./definitions";
 
 export type { ModuleScenarioBinding, ScenarioDefinition };
 export { toPlayableScenario };

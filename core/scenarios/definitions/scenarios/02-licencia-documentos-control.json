@@ -1,0 +1,178 @@
+{
+  "schemaVersion": "drivelab.scenario.v1",
+  "id": "scenario_licencia_documentos_control_001",
+  "slug": "licencia-documentos-control",
+  "title": "Control documental antes de circular",
+  "description": "El usuario decide si puede iniciar viaje cuando falta revisar licencia, tarjeta y condiciones minimas del vehiculo.",
+  "moduleBinding": {
+    "moduleId": "02-licencia-y-documentos",
+    "isPrimaryScenario": true
+  },
+  "learning": {
+    "lessonIds": [
+      "02-licencia-y-documentos:habilitacion",
+      "02-licencia-y-documentos:documentos-obligatorios"
+    ],
+    "objectives": [
+      "Confirmar que la autorizacion para conducir y la documentacion del vehiculo son parte de la seguridad.",
+      "Evitar iniciar un viaje cuando falta una condicion legal minima."
+    ],
+    "feedback": {
+      "success": "Revisaste la documentacion antes de salir y evitaste una practica insegura desde el origen.",
+      "failure": "Salir sin revisar habilitacion o documentos puede terminar con una patrulla deteniendote para pedir licencia, tarjeta y colaboracion.",
+      "hints": [
+        "La preparacion del viaje empieza antes de encender el vehiculo.",
+        "La licencia valida y los documentos del vehiculo no son accesorios.",
+        "Si falta un documento obligatorio, la decision segura es no circular."
+      ]
+    },
+    "legalReferences": [
+      {
+        "jurisdiction": "SV",
+        "document": "Ley de Transporte Terrestre, Transito y Seguridad Vial",
+        "articleId": "Art. 66",
+        "ruleCategory": "documents-control"
+      }
+    ]
+  },
+  "simulation": {
+    "pattern": "document_checkpoint",
+    "durationSeconds": 14,
+    "world": {
+      "environment": "urban",
+      "roadType": "two_lane_urban",
+      "weather": "clear",
+      "timeOfDay": "day",
+      "units": "meters"
+    },
+    "camera": {
+      "mode": "fixed",
+      "targetActorId": "ego_car",
+      "position": [15, 12, 23],
+      "lookAt": [0, 0, 2],
+      "fov": 50
+    },
+    "assets": [
+      {
+        "id": "asset_sedan",
+        "type": "vehicle",
+        "url": "/models/sedan.glb"
+      },
+      {
+        "id": "asset_police",
+        "type": "vehicle",
+        "url": "/models/police.glb"
+      },
+      {
+        "id": "asset_cone",
+        "type": "road_asset",
+        "url": "/models/cone.glb"
+      }
+    ],
+    "actors": [
+      {
+        "id": "ego_car",
+        "assetId": "asset_sedan",
+        "role": "ego_vehicle",
+        "initialPosition": [0, 0, 20],
+        "initialRotation": [0, 3.1416, 0],
+        "scale": [1, 1, 1],
+        "tags": ["vehicle", "controlled"]
+      },
+      {
+        "id": "control_vehicle",
+        "assetId": "asset_police",
+        "role": "traffic_vehicle",
+        "initialPosition": [5, 0, 6],
+        "initialRotation": [0, 2.9, 0],
+        "scale": [1, 1, 1],
+        "tags": ["checkpoint", "stopped"]
+      }
+    ],
+    "timeline": [
+      {
+        "id": "ego_to_checkpoint",
+        "type": "animate_actor",
+        "actorId": "ego_car",
+        "track": "position",
+        "keyframes": [
+          {
+            "t": 0,
+            "value": [0, 0, 20]
+          },
+          {
+            "t": 6,
+            "value": [0, 0, 8]
+          }
+        ],
+        "interpolation": "smooth"
+      },
+      {
+        "id": "ask_documents",
+        "type": "trigger",
+        "at": 6,
+        "trigger": {
+          "kind": "show_interaction",
+          "interactionId": "decision_documents"
+        }
+      }
+    ],
+    "interactions": [
+      {
+        "id": "decision_documents",
+        "type": "multiple_choice",
+        "appearsAt": 6,
+        "prompt": "Antes de circular notas que falta revisar documentos. Que haces?",
+        "options": [
+          {
+            "id": "verify_before_start",
+            "label": "Verifico licencia y documentos antes de continuar",
+            "isCorrect": true,
+            "scoreDelta": 50
+          },
+          {
+            "id": "continue_anyway",
+            "label": "Salgo igual porque el viaje es corto",
+            "isCorrect": false,
+            "scoreDelta": -35
+          },
+          {
+            "id": "ask_later",
+            "label": "Lo reviso cuando ya este en ruta",
+            "isCorrect": false,
+            "scoreDelta": -25
+          }
+        ],
+        "correctOptionId": "verify_before_start"
+      }
+    ]
+  },
+  "scoring": {
+    "maxScore": 100,
+    "passScore": 75,
+    "metrics": [
+      {
+        "id": "pre_trip_check",
+        "label": "Revision previa",
+        "weight": 45
+      },
+      {
+        "id": "legal_readiness",
+        "label": "Habilitacion legal",
+        "weight": 35
+      },
+      {
+        "id": "risk_prevention",
+        "label": "Prevencion",
+        "weight": 20
+      }
+    ]
+  },
+  "metadata": {
+    "difficulty": "basic",
+    "estimatedMinutes": 3,
+    "tags": ["licencia", "documentos", "preparacion"],
+    "createdAt": "2026-07-04T00:00:00-06:00",
+    "updatedAt": "2026-07-04T00:00:00-06:00"
+  }
+}

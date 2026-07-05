@@ -1,0 +1,178 @@
+{
+  "schemaVersion": "drivelab.scenario.v1",
+  "id": "scenario_senalizacion_alto_001",
+  "slug": "senalizacion-alto-prioridad",
+  "title": "Leer senales de prioridad",
+  "description": "El usuario practica detectar una senal de reglamentacion y convertirla en una maniobra segura.",
+  "moduleBinding": {
+    "moduleId": "06-senalizacion-vial",
+    "isPrimaryScenario": true
+  },
+  "learning": {
+    "lessonIds": [
+      "06-senalizacion-vial:senales-reglamentacion",
+      "06-senalizacion-vial:marcas-viales"
+    ],
+    "objectives": [
+      "Distinguir una senal obligatoria de una advertencia.",
+      "Actuar antes de llegar al punto marcado por la senal."
+    ],
+    "feedback": {
+      "success": "Leiste la senal con anticipacion y ajustaste tu maniobra.",
+      "failure": "Detectar tarde una senal de prioridad reduce el tiempo para detenerte o ceder.",
+      "hints": [
+        "Mira senales verticales y marcas horizontales juntas.",
+        "La senal se obedece antes del conflicto.",
+        "Si hay duda de prioridad, reduce velocidad y confirma."
+      ]
+    },
+    "legalReferences": [
+      {
+        "jurisdiction": "SV",
+        "document": "Manual Centroamericano de Dispositivos Uniformes para el Control del Transito",
+        "articleId": "senales de prioridad",
+        "ruleCategory": "run-stop"
+      }
+    ]
+  },
+  "simulation": {
+    "pattern": "stop_intersection",
+    "durationSeconds": 16,
+    "world": {
+      "environment": "intersection",
+      "roadType": "two_lane_urban",
+      "weather": "clear",
+      "timeOfDay": "dusk",
+      "units": "meters"
+    },
+    "camera": {
+      "mode": "third_person_follow",
+      "targetActorId": "ego_car",
+      "position": [15, 12, 23],
+      "lookAt": [0, 0, 2],
+      "fov": 50
+    },
+    "assets": [
+      {
+        "id": "asset_sedan",
+        "type": "vehicle",
+        "url": "/models/sedan.glb"
+      },
+      {
+        "id": "asset_suv",
+        "type": "vehicle",
+        "url": "/models/suv.glb"
+      },
+      {
+        "id": "asset_stop_sign",
+        "type": "sign",
+        "url": "/assets/signs/stop.glb"
+      }
+    ],
+    "actors": [
+      {
+        "id": "ego_car",
+        "assetId": "asset_sedan",
+        "role": "ego_vehicle",
+        "initialPosition": [0, 0, 22],
+        "initialRotation": [0, 3.1416, 0],
+        "scale": [1, 1, 1],
+        "tags": ["vehicle", "controlled"]
+      },
+      {
+        "id": "priority_suv",
+        "assetId": "asset_suv",
+        "role": "traffic_vehicle",
+        "initialPosition": [18, 0, 2],
+        "initialRotation": [0, 1.5708, 0],
+        "scale": [1, 1, 1],
+        "tags": ["vehicle", "priority"]
+      }
+    ],
+    "timeline": [
+      {
+        "id": "ego_sign_approach",
+        "type": "animate_actor",
+        "actorId": "ego_car",
+        "track": "position",
+        "keyframes": [
+          {
+            "t": 0,
+            "value": [0, 0, 22]
+          },
+          {
+            "t": 6,
+            "value": [0, 0, 7]
+          }
+        ],
+        "interpolation": "smooth"
+      },
+      {
+        "id": "ask_signal",
+        "type": "trigger",
+        "at": 6,
+        "trigger": {
+          "kind": "show_interaction",
+          "interactionId": "decision_signal_stop"
+        }
+      }
+    ],
+    "interactions": [
+      {
+        "id": "decision_signal_stop",
+        "type": "multiple_choice",
+        "appearsAt": 6,
+        "prompt": "Como debes actuar ante esta senal de prioridad?",
+        "options": [
+          {
+            "id": "stop_and_check",
+            "label": "Detenerme, verificar prioridad y avanzar si es seguro",
+            "isCorrect": true,
+            "scoreDelta": 50
+          },
+          {
+            "id": "keep_speed",
+            "label": "Mantener velocidad porque la via parece libre",
+            "isCorrect": false,
+            "scoreDelta": -35
+          },
+          {
+            "id": "horn",
+            "label": "Tocar bocina para avisar y cruzar",
+            "isCorrect": false,
+            "scoreDelta": -25
+          }
+        ],
+        "correctOptionId": "stop_and_check"
+      }
+    ]
+  },
+  "scoring": {
+    "maxScore": 100,
+    "passScore": 75,
+    "metrics": [
+      {
+        "id": "signal_detection",
+        "label": "Deteccion de senal",
+        "weight": 40
+      },
+      {
+        "id": "priority_action",
+        "label": "Accion de prioridad",
+        "weight": 40
+      },
+      {
+        "id": "anticipation",
+        "label": "Anticipacion",
+        "weight": 20
+      }
+    ]
+  },
+  "metadata": {
+    "difficulty": "basic",
+    "estimatedMinutes": 4,
+    "tags": ["senalizacion", "alto", "prioridad"],
+    "createdAt": "2026-07-04T00:00:00-06:00",
+    "updatedAt": "2026-07-04T00:00:00-06:00"
+  }
+}
