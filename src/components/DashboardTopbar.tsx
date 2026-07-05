@@ -4,6 +4,7 @@ import { Car, Map as MapIcon, Newspaper } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import ThemeToggle from "@/components/ThemeToggle";
 
 type DashboardTopbarProps = {
   compact?: boolean;
@@ -54,6 +55,7 @@ export default function DashboardTopbar({
           Noticias
         </Link>
       </nav>
+      <ThemeToggle />
     </header>
   );
 }

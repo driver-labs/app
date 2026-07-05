@@ -19,6 +19,7 @@ import {
 import Link from "next/link";
 import type { ComponentType } from "react";
 import { Suspense, useEffect, useMemo, useRef, useState } from "react";
+import { toast } from "sonner";
 import { ACESFilmicToneMapping } from "three";
 import PracticeBar from "@/components/PracticeBar";
 import {
@@ -350,19 +351,22 @@ export default function ScenarioPlayer({
       .then((response) => {
         if (response.ok) {
           setSyncMessage("Intento sincronizado con tu cuenta.");
+          toast.success("Intento sincronizado con tu cuenta.");
           return;
         }
 
-        setSyncMessage(
+        const message =
           response.status === 401
             ? "Guardado en este dispositivo. Iniciá sesión para sincronizar tu progreso."
-            : "Guardado en este dispositivo. No se pudo sincronizar con el servidor.",
-        );
+            : "Guardado en este dispositivo. No se pudo sincronizar con el servidor.";
+        setSyncMessage(message);
+        toast.info(message);
       })
       .catch(() => {
-        setSyncMessage(
-          "Guardado en este dispositivo. No se pudo sincronizar con el servidor.",
-        );
+        const message =
+          "Guardado en este dispositivo. No se pudo sincronizar con el servidor.";
+        setSyncMessage(message);
+        toast.warning(message);
       });
 
     setPhase("consequence");
