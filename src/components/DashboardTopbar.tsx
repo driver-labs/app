@@ -1,6 +1,6 @@
 "use client";
 
-import { Car, Map as MapIcon } from "lucide-react";
+import { Car, Map as MapIcon, Newspaper } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -19,6 +19,7 @@ export default function DashboardTopbar({
     pathname.startsWith("/practicar/") ||
     pathname === "/practicas" ||
     pathname.startsWith("/practicas/");
+  const isNews = pathname === "/news" || pathname.startsWith("/news/");
   const isCompact = compact || isPractice;
 
   return (
@@ -47,6 +48,10 @@ export default function DashboardTopbar({
         <Link aria-current={isPractice ? "page" : undefined} href="/practicar">
           <Car aria-hidden="true" size={isCompact ? 15 : 17} />
           Practicar
+        </Link>
+        <Link aria-current={isNews ? "page" : undefined} href="/news">
+          <Newspaper aria-hidden="true" size={isCompact ? 15 : 17} />
+          Noticias
         </Link>
       </nav>
     </header>
