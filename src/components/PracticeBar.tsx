@@ -11,10 +11,10 @@ export default function PracticeBar() {
         <Image
           alt="DriverLab"
           className="practice-bar__logo"
-          height={337}
+          height={626}
           priority
-          src="/brand/driverlab-logo.png"
-          width={741}
+          src="/brand/driver-lab-logo.svg"
+          width={1324}
         />
       </Link>
 

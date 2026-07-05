@@ -23,17 +23,14 @@ export default async function LoginPage() {
     <main className="min-h-screen overflow-x-hidden bg-background px-5 py-6 text-text">
       <div className="mx-auto flex min-h-[calc(100vh-3rem)] max-w-6xl flex-col">
         <nav className="flex items-center justify-between gap-4">
-          <Link
-            className="inline-flex items-center rounded-button bg-white/95 px-3 py-2 shadow-[0_10px_40px_rgba(0,0,0,.25)]"
-            href="/"
-          >
+          <Link className="inline-flex items-center px-3 py-2" href="/">
             <Image
               alt="DriverLab"
               className="h-auto w-36"
-              height={337}
+              height={626}
               priority
-              src="/brand/driverlab-logo.png"
-              width={741}
+              src="/brand/driver-lab-logo.svg"
+              width={1324}
             />
           </Link>
           <Link

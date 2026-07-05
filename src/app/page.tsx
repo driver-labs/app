@@ -80,17 +80,14 @@ export default function Home() {
         </div>
 
         <nav className="relative z-10 mx-auto flex max-w-7xl items-center justify-between gap-4 py-3">
-          <Link
-            className="inline-flex items-center rounded-button bg-white/95 px-3 py-2 shadow-[0_10px_40px_rgba(0,0,0,.25)]"
-            href="/"
-          >
+          <Link className="inline-flex items-center px-3 py-2" href="/">
             <Image
               alt="DriverLab"
               className="h-auto w-40"
-              height={337}
+              height={626}
               priority
-              src="/brand/driverlab-logo.png"
-              width={741}
+              src="/brand/driver-lab-logo.svg"
+              width={1324}
             />
           </Link>
           <div className="hidden items-center gap-8 text-sm font-medium text-secondary-text md:flex">

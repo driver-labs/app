@@ -30,10 +30,10 @@ export default function DashboardTopbar({
         <Image
           alt="DriverLab"
           className="dashboard-brand__logo"
-          height={337}
+          height={626}
           priority
-          src="/brand/driverlab-logo.png"
-          width={741}
+          src="/brand/driver-lab-logo.svg"
+          width={1324}
         />
       </Link>
       <nav className="dashboard-nav" aria-label="Navegacion principal">

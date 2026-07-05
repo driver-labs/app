@@ -830,21 +830,6 @@ html {
   align-items: center;
   gap: 10px;
   border-radius: var(--radius-button);
-  background: rgba(255, 255, 255, 0.96);
-  color: #0f172a;
-  font-weight: 850;
-  padding: 8px 10px;
-  text-decoration: none;
-}
-
-.dashboard-brand {
-  display: inline-flex;
-  min-height: 44px;
-  align-items: center;
-  gap: 10px;
-  border-radius: var(--radius-button);
-  background: rgba(255, 255, 255, 0.96);
-  color: #0f172a;
   font-weight: 850;
   padding: 8px 10px;
   text-decoration: none;
