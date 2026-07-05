@@ -25,6 +25,10 @@ const SKY_BY_TIME: Record<Scenario["environment"]["timeOfDay"], string> = {
   night: "#0a1622",
 };
 
+// clear-view genera colores pensados para noche; de día esos azules casi
+// negros se ven como bloques sin iluminar, así que se re-pintan por índice.
+const DAY_BUILDING_COLORS = ["#b7c4cf", "#9fb0be", "#cbd5dd"] as const;
+
 const FOG_BY_WEATHER: Record<
   Scenario["environment"]["weather"],
   [string, number, number] | null
@@ -137,10 +141,17 @@ export default function RainyAmbience({
       )}
 
       {showBuildings &&
-        buildings.map((b) => (
+        buildings.map((b, index) => (
           <mesh key={b.id} position={[b.x, b.h / 2, b.z]}>
             <boxGeometry args={[b.w, b.h, b.d]} />
-            <meshStandardMaterial color={b.color} roughness={0.8} />
+            <meshStandardMaterial
+              color={
+                isNight
+                  ? b.color
+                  : DAY_BUILDING_COLORS[index % DAY_BUILDING_COLORS.length]
+              }
+              roughness={0.8}
+            />
           </mesh>
         ))}
     </>

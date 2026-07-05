@@ -2,7 +2,7 @@
 
 import { Html, OrbitControls } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { useMemo, useRef } from "react";
+import { useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 import type { Scenario } from "@/core/scenario-schema";
 import type { SceneView } from "../camera/views";
@@ -223,10 +223,11 @@ export default function DocumentCheckpointScene({
 }: Props) {
   const player = useRef<THREE.Group | null>(null);
   const police = useRef<THREE.Group | null>(null);
-  const officer = useRef<THREE.Group | null>(null);
-  const requestSign = useRef<THREE.Group | null>(null);
   const reached = useRef(false);
   const consequenceStart = useRef<number | null>(null);
+  // Estado React (no `visible` imperativo): el letrero usa <Html>, que crea un
+  // nodo DOM fuera del árbol 3D y no respeta group.visible.
+  const [checkpointRevealed, setCheckpointRevealed] = useState(false);
 
   const roadWidth = Math.max(8, scenario.road.lanes * 3.8);
   const laneX = roadWidth / 4;
@@ -251,11 +252,8 @@ export default function DocumentCheckpointScene({
     const patrol = police.current;
     if (!car || !patrol) return;
 
-    if (requestSign.current) {
-      requestSign.current.visible = false;
-    }
-    if (officer.current) {
-      officer.current.visible = false;
+    if (phase !== "consequence" && checkpointRevealed) {
+      setCheckpointRevealed(false);
     }
 
     if (phase === "intro") {
@@ -326,9 +324,8 @@ export default function DocumentCheckpointScene({
     );
     patrol.rotation.y = -0.08 * patrolPullOver;
 
-    if (t > 3.2) {
-      if (officer.current) officer.current.visible = true;
-      if (requestSign.current) requestSign.current.visible = true;
+    if (t > 3.2 && !checkpointRevealed) {
+      setCheckpointRevealed(true);
     }
   });
 
@@ -391,22 +388,20 @@ export default function DocumentCheckpointScene({
         <SirenLights active={phase === "consequence" && !correct} />
       </group>
 
-      <group
-        ref={officer}
-        position={[shoulderX - 0.7, 0, PULL_OVER_Z + 1.8]}
-        rotation={[0, -0.35, 0]}
-        visible={false}
-      >
-        <OfficerFigure />
-      </group>
+      {checkpointRevealed && (
+        <>
+          <group
+            position={[shoulderX - 0.7, 0, PULL_OVER_Z + 1.8]}
+            rotation={[0, -0.35, 0]}
+          >
+            <OfficerFigure />
+          </group>
 
-      <group
-        ref={requestSign}
-        position={[shoulderX - 2.85, 0, PULL_OVER_Z + 4.4]}
-        visible={false}
-      >
-        <DocumentSign />
-      </group>
+          <group position={[shoulderX - 2.85, 0, PULL_OVER_Z + 4.4]}>
+            <DocumentSign />
+          </group>
+        </>
+      )}
     </>
   );
 }
