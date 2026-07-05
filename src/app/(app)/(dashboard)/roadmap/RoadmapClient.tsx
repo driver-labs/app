@@ -25,13 +25,16 @@ type RoadmapClientProps = {
 };
 
 const gridClassName =
-  "mt-5 grid grid-cols-1 gap-3.5 md:grid-cols-2 xl:grid-cols-3";
+  "mt-4 grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3";
 
 const cardClassName =
-  "grid content-start gap-3.5 rounded-lg border border-border bg-card/90 p-4 text-card-foreground";
+  "grid min-h-[250px] content-start gap-3 rounded-lg border border-border bg-card/80 p-3.5 text-card-foreground transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-secondary/35 hover:shadow-lg";
 
 const actionClassName =
-  "inline-flex min-h-11 items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-semibold text-foreground no-underline transition-colors hover:border-muted-foreground/40 hover:bg-muted-foreground/10";
+  "inline-flex min-h-10 items-center justify-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-semibold text-foreground no-underline transition-colors hover:border-muted-foreground/40 hover:bg-muted-foreground/10";
+
+const disabledActionClassName =
+  "inline-flex min-h-10 items-center justify-center gap-2 rounded-lg border border-border bg-muted px-3 py-2 text-sm font-semibold text-muted-foreground";
 
 function statusBadgeClass(variant: "done" | "pending" | "ready") {
   if (variant === "done") {
@@ -145,12 +148,20 @@ export default function RoadmapClient({ nodes }: RoadmapClientProps) {
             </div>
 
             <div>
-              <h2 className="m-0 text-lg font-semibold leading-snug text-foreground">
+              <h2 className="m-0 text-base font-semibold leading-snug text-foreground">
                 {node.title}
               </h2>
-              <p className="mt-2 line-clamp-3 text-sm leading-6 text-muted-foreground">
+              <p className="mt-2 line-clamp-2 text-sm leading-6 text-muted-foreground">
                 {node.summary}
               </p>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-muted-foreground">
+              <span>{node.lessonCount ?? 0} lecciones</span>
+              <span aria-hidden="true">·</span>
+              <span>{node.citationCount ?? 0} citas</span>
+              <span aria-hidden="true">·</span>
+              <span>{node.estimatedMinutes ?? 0} min</span>
             </div>
 
             {hasPractice ? (
@@ -182,19 +193,16 @@ export default function RoadmapClient({ nodes }: RoadmapClientProps) {
               </span>
             </div>
 
-            <div className="mt-auto flex flex-wrap items-center gap-2">
+            <div className="mt-auto grid grid-cols-2 gap-2">
               {isUnlocked ? (
                 <Link className={actionClassName} href={`/modulo/${node.id}`}>
                   <BookOpen aria-hidden="true" size={17} />
-                  Abrir módulo
+                  Abrir
                 </Link>
               ) : (
-                <span
-                  aria-disabled="true"
-                  className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-border bg-muted px-3 py-2 text-sm font-semibold text-muted-foreground"
-                >
+                <span aria-disabled="true" className={disabledActionClassName}>
                   <Lock aria-hidden="true" size={17} />
-                  Completa prerequisitos
+                  Bloqueado
                 </span>
               )}
               {node.scenarios.map((scenario) =>
@@ -203,18 +211,20 @@ export default function RoadmapClient({ nodes }: RoadmapClientProps) {
                     className={actionClassName}
                     key={scenario.id}
                     href={`/practicar/${scenario.id}`}
+                    title={scenario.title}
                   >
                     <PlayCircle aria-hidden="true" size={17} />
-                    {scenario.title}
+                    Practicar
                   </Link>
                 ) : (
                   <span
                     aria-disabled="true"
-                    className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-border bg-muted px-3 py-2 text-sm font-semibold text-muted-foreground"
+                    className={disabledActionClassName}
                     key={scenario.id}
+                    title={scenario.title}
                   >
                     <Lock aria-hidden="true" size={17} />
-                    {scenario.title}
+                    Práctica
                   </span>
                 ),
               )}
@@ -224,7 +234,7 @@ export default function RoadmapClient({ nodes }: RoadmapClientProps) {
       })}
 
       <button
-        className="col-span-full inline-flex min-h-11 cursor-pointer items-center justify-center gap-2 rounded-lg border border-border bg-card px-3 py-2 font-semibold text-foreground transition-colors hover:border-muted-foreground/40 hover:bg-muted-foreground/10"
+        className="col-span-full inline-flex min-h-10 cursor-pointer items-center justify-center gap-2 rounded-lg border border-border bg-card px-3 py-2 font-semibold text-foreground transition-colors hover:border-muted-foreground/40 hover:bg-muted-foreground/10"
         type="button"
         onClick={resetProgress}
       >

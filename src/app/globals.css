@@ -165,13 +165,11 @@ html {
 
 .app-shell {
   min-height: 100vh;
-  --app-bg:
-    radial-gradient(circle at 18% 12%, hsl(var(--ring) / 0.16), transparent 34%),
-    radial-gradient(
-      circle at 82% 8%,
-      hsl(var(--muted-foreground) / 0.1),
-      transparent 28%
-    ), hsl(var(--background));
+  --app-bg: linear-gradient(
+    180deg,
+    hsl(var(--background)) 0%,
+    hsl(var(--card) / 0.48) 100%
+  );
   background: var(--app-bg);
   color: hsl(var(--foreground));
 }
@@ -750,11 +748,14 @@ html {
 }
 
 .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   margin: 0 0 6px;
   color: hsl(var(--muted-foreground));
   font-size: 0.72rem;
   font-weight: 800;
-  letter-spacing: 0.14em;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
@@ -1574,7 +1575,11 @@ html {
 }
 
 .roadmap-panel {
-  padding: clamp(16px, 3vw, 24px);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  padding: 2px 0 0;
 }
 
 .roadmap-panel__heading {
@@ -1582,24 +1587,25 @@ html {
   gap: 16px;
   align-items: start;
   justify-content: space-between;
-  margin-bottom: 18px;
+  margin-bottom: 0;
   border-bottom: 1px solid hsl(var(--border));
-  padding-bottom: 16px;
+  padding-bottom: 14px;
 }
 
 .roadmap-panel__heading h1,
 .roadmap-panel__heading h2 {
   margin: 0;
   color: hsl(var(--foreground));
-  font-size: clamp(1.35rem, 2.4vw, 2rem);
+  font-size: 1.875rem;
   line-height: 1.16;
 }
 
 .roadmap-panel__heading p:not(.eyebrow) {
   max-width: 720px;
-  margin: 8px 0 0;
+  margin: 7px 0 0;
   color: var(--ink-muted);
-  line-height: 1.6;
+  font-size: 0.95rem;
+  line-height: 1.55;
 }
 
 .roadmap-panel__heading > span {
@@ -1786,6 +1792,12 @@ html {
 
   .roadmap-panel__heading {
     flex-direction: column;
+    gap: 10px;
+  }
+
+  .roadmap-panel__heading h1,
+  .roadmap-panel__heading h2 {
+    font-size: 1.5rem;
   }
 
   .stage,

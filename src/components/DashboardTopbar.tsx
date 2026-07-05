@@ -25,12 +25,12 @@ export default function DashboardTopbar({
   const isCompact = compact;
 
   const linkClassName =
-    "inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-transparent px-3.5 py-2 text-sm font-semibold text-muted-foreground no-underline transition-colors hover:border-muted-foreground/35 hover:bg-muted-foreground/10 hover:text-foreground aria-[current=page]:border-muted-foreground/35 aria-[current=page]:bg-muted-foreground/10 aria-[current=page]:text-foreground";
+    "inline-flex min-h-10 items-center justify-center gap-2 rounded-lg border border-transparent px-3 py-2 text-sm font-semibold text-muted-foreground no-underline transition-colors hover:border-muted-foreground/35 hover:bg-muted-foreground/10 hover:text-foreground aria-[current=page]:border-muted-foreground/35 aria-[current=page]:bg-muted-foreground/10 aria-[current=page]:text-foreground";
 
   return (
     <header
       className={cn(
-        "mb-6 flex items-center justify-between gap-4 rounded-lg border border-border bg-card/90 p-2.5 text-foreground shadow-brand backdrop-blur-md max-md:flex-col max-md:items-stretch",
+        "mb-5 grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 rounded-lg border border-border bg-card/90 p-2 text-foreground shadow-brand backdrop-blur-md max-md:grid-cols-[1fr_auto] max-md:gap-2",
         isCompact && "mb-0 gap-2 p-1.5 shadow-lg max-md:flex-row",
       )}
     >
@@ -55,7 +55,7 @@ export default function DashboardTopbar({
       </Link>
       <nav
         className={cn(
-          "inline-flex flex-wrap items-center gap-2 max-md:grid max-md:grid-cols-3",
+          "inline-flex flex-wrap items-center justify-center gap-1.5 max-md:col-span-full max-md:row-start-2 max-md:grid max-md:grid-cols-3",
           isCompact && "gap-1 max-md:flex",
         )}
         aria-label="Navegación principal"
@@ -94,7 +94,9 @@ export default function DashboardTopbar({
           Noticias
         </Link>
       </nav>
-      <ThemeToggle />
+      <div className="justify-self-end max-md:col-start-2 max-md:row-start-1">
+        <ThemeToggle />
+      </div>
     </header>
   );
 }

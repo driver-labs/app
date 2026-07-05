@@ -36,18 +36,14 @@ const difficultyLabels: Record<string, string> = {
 };
 
 const actionClassName =
-  "inline-flex min-h-11 items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-semibold text-foreground no-underline transition-colors hover:border-muted-foreground/40 hover:bg-muted-foreground/10";
+  "inline-flex min-h-10 items-center justify-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-semibold text-foreground no-underline transition-colors hover:border-muted-foreground/40 hover:bg-muted-foreground/10";
 
 const metricClassName =
   "grid gap-1 rounded-lg border border-border bg-background/35 p-2";
 
-function statusBadgeClass(
-  variant: "done" | "pending" | "ready",
-  overlay = false,
-) {
+function statusBadgeClass(variant: "done" | "pending" | "ready") {
   return cn(
     "inline-flex min-h-6 items-center rounded-full border px-2.5 py-1 text-xs font-semibold",
-    overlay && "absolute right-2.5 top-2.5 bg-background/70 backdrop-blur-sm",
     variant === "done" && "border-accent/40 bg-accent/15 text-accent",
     variant === "ready" && "border-secondary/40 bg-secondary/15 text-secondary",
     variant === "pending" && "border-warning/40 bg-warning/10 text-warning",
@@ -157,36 +153,51 @@ export default function PracticeDashboardClient({
   }, [modules, progress.modules]);
 
   return (
-    <main className="mx-auto w-[var(--shell-width)] pb-14 pt-4">
-      <header className="flex items-end justify-between gap-6 border-b border-border pb-5 max-md:flex-col max-md:items-stretch">
-        <div>
+    <main className="w-full pb-14 pt-1">
+      <header className="grid gap-4 border-b border-border pb-4 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
+        <div className="max-w-3xl">
           <p className="mb-1.5 inline-flex items-center gap-2 text-xs font-bold uppercase text-muted-foreground">
             <PlayCircle aria-hidden="true" size={14} />
             Prácticas 3D
           </p>
-          <h1 className="mt-2 max-w-3xl text-4xl font-bold leading-tight text-foreground md:text-5xl">
-            Practicá cada módulo con una escena interactiva
+          <h1 className="m-0 text-2xl font-bold leading-tight text-foreground md:text-3xl">
+            Centro de práctica
           </h1>
-          <p className="mt-3 max-w-3xl text-base leading-7 text-muted-foreground">
-            Cada tarjeta usa el catálogo educativo actual y su escenario
-            asociado por registry. El avance se calcula por módulo y escenario.
+          <p className="mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">
+            Módulos activos, progreso y escenas listas para repasar sin perder
+            contexto.
           </p>
         </div>
         <section
-          className="grid min-w-[min(100%,290px)] gap-2"
+          className="grid grid-cols-3 gap-2 lg:min-w-[360px]"
           aria-label="Resumen"
         >
-          <span className="inline-flex min-h-9 items-center gap-2 rounded-lg border border-border bg-card/80 px-2.5 py-2 text-sm font-semibold text-foreground/80">
-            <CheckCircle2 aria-hidden="true" size={17} />
-            {totals.completed}/{modules.length} completados
+          <span className="grid min-h-14 content-center gap-0.5 rounded-lg border border-border bg-card/80 px-3 py-2">
+            <span className="inline-flex items-center gap-1.5 text-base font-bold text-foreground">
+              <CheckCircle2 aria-hidden="true" size={16} />
+              {totals.completed}/{modules.length}
+            </span>
+            <span className="text-xs font-semibold text-muted-foreground">
+              Completados
+            </span>
           </span>
-          <span className="inline-flex min-h-9 items-center gap-2 rounded-lg border border-border bg-card/80 px-2.5 py-2 text-sm font-semibold text-foreground/80">
-            <RotateCcw aria-hidden="true" size={17} />
-            {totals.attempts} intentos
+          <span className="grid min-h-14 content-center gap-0.5 rounded-lg border border-border bg-card/80 px-3 py-2">
+            <span className="inline-flex items-center gap-1.5 text-base font-bold text-foreground">
+              <RotateCcw aria-hidden="true" size={16} />
+              {totals.attempts}
+            </span>
+            <span className="text-xs font-semibold text-muted-foreground">
+              Intentos
+            </span>
           </span>
-          <span className="inline-flex min-h-9 items-center gap-2 rounded-lg border border-border bg-card/80 px-2.5 py-2 text-sm font-semibold text-foreground/80">
-            <Trophy aria-hidden="true" size={17} />
-            {totals.learned} lecciones aprendidas
+          <span className="grid min-h-14 content-center gap-0.5 rounded-lg border border-border bg-card/80 px-3 py-2">
+            <span className="inline-flex items-center gap-1.5 text-base font-bold text-foreground">
+              <Trophy aria-hidden="true" size={16} />
+              {totals.learned}
+            </span>
+            <span className="text-xs font-semibold text-muted-foreground">
+              Aprendidas
+            </span>
           </span>
         </section>
       </header>
@@ -211,7 +222,7 @@ export default function PracticeDashboardClient({
       )}
 
       <section
-        className="mt-5 grid grid-cols-1 gap-3.5 md:grid-cols-2 xl:grid-cols-3"
+        className="mt-4 grid grid-cols-1 gap-3 xl:grid-cols-2"
         aria-label="Módulos disponibles"
       >
         {modules.map((module) => {
@@ -243,10 +254,10 @@ export default function PracticeDashboardClient({
 
           return (
             <article
-              className="flex min-h-full flex-col overflow-hidden rounded-lg border border-border bg-card/90 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-secondary/40 hover:shadow-lg"
+              className="grid min-h-full overflow-hidden rounded-lg border border-border bg-card/90 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-secondary/40 hover:shadow-lg sm:grid-cols-[168px_minmax(0,1fr)]"
               key={module.id}
             >
-              <div className="relative aspect-video overflow-hidden border-b border-border">
+              <div className="relative h-36 overflow-hidden border-b border-border bg-background/40 sm:h-auto sm:min-h-full sm:border-b-0 sm:border-r">
                 {module.scenario ? (
                   <ScenePreview
                     sceneKind={module.scenario.sceneKind}
@@ -264,27 +275,29 @@ export default function PracticeDashboardClient({
                 <span className="absolute left-2.5 top-2.5 inline-flex size-8 items-center justify-center rounded-lg bg-background/70 text-sm font-bold text-secondary backdrop-blur-sm">
                   {module.id.slice(0, 2)}
                 </span>
-                <span className={statusBadgeClass(statusVariant, true)}>
-                  {label}
-                </span>
               </div>
 
-              <div className="flex flex-1 flex-col gap-3 p-4">
-                <div className="flex items-start justify-between gap-2.5">
-                  <h2 className="m-0 text-lg font-semibold leading-snug text-foreground">
-                    {module.title}
-                  </h2>
+              <div className="flex min-w-0 flex-1 flex-col gap-3 p-3.5">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <span className={statusBadgeClass(statusVariant)}>
+                    {label}
+                  </span>
                   {difficultyLabel && (
                     <span className="shrink-0 rounded-full border border-border px-2.5 py-1 text-xs font-semibold text-muted-foreground">
                       {difficultyLabel}
                     </span>
                   )}
                 </div>
-                <p className="m-0 line-clamp-2 text-sm leading-6 text-muted-foreground">
-                  {module.scenario
-                    ? module.scenario.objective
-                    : "El módulo permanece visible mientras se crea su escena."}
-                </p>
+                <div>
+                  <h2 className="m-0 text-base font-semibold leading-snug text-foreground">
+                    {module.title}
+                  </h2>
+                  <p className="mt-1.5 line-clamp-2 text-sm leading-6 text-muted-foreground">
+                    {module.scenario
+                      ? module.scenario.objective
+                      : "El módulo permanece visible mientras se crea su escena."}
+                  </p>
+                </div>
 
                 <div className="flex flex-wrap items-center gap-2 text-sm text-foreground/75">
                   <span className="inline-flex items-center gap-1.5">
@@ -392,11 +405,11 @@ export default function PracticeDashboardClient({
                   </>
                 ) : (
                   <p className="m-0 text-sm italic text-foreground/70">
-                    Todavía no practicaste este módulo — sumá tu primer intento.
+                    Todavía no practicaste este módulo. Sumá tu primer intento.
                   </p>
                 )}
 
-                <div className="mt-auto flex flex-wrap items-center gap-2">
+                <div className="mt-auto grid grid-cols-2 gap-2">
                   <Link
                     className={actionClassName}
                     href={`/modulo/${module.id}`}
