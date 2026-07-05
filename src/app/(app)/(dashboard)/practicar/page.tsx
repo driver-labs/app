@@ -1,4 +1,3 @@
-import DashboardTopbar from "@/components/DashboardTopbar";
 import {
   getPrimaryScenarioForModule,
   getScenarioBinding,
@@ -14,7 +13,7 @@ import PracticeDashboardClient, {
 } from "./PracticeDashboardClient";
 
 export const metadata = {
-  title: "Practicas | DriverLab",
+  title: "Prácticas | DriverLab",
 };
 
 export default function PracticarIndexPage() {
@@ -46,14 +45,9 @@ export default function PracticarIndexPage() {
   });
 
   return (
-    <>
-      <div className="practice-topbar">
-        <DashboardTopbar />
-      </div>
-      <PracticeDashboardClient
-        modules={items}
-        validationIssues={validationIssues}
-      />
-    </>
+    <PracticeDashboardClient
+      modules={items}
+      validationIssues={validationIssues}
+    />
   );
 }

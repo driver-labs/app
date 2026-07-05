@@ -30,7 +30,7 @@ const NEUTRAL = "#cbd5e1";
 function Frame({ children }: { children: ReactNode }) {
   return (
     <svg
-      className="scene-preview"
+      className="scene-preview block size-full"
       viewBox="0 0 320 180"
       preserveAspectRatio="xMidYMid slice"
       aria-hidden="true"
@@ -361,18 +361,21 @@ function RainBraking() {
       <Car x={215} y={90} dir="right" color={NEUTRAL} />
       <Car x={95} y={90} dir="right" color={EGO} className="sp-tailgate" />
       <g className="sp-rain">
-        {Array.from({ length: 16 }).map((_, i) => (
-          <line
-            key={i}
-            x1={16 + i * 20}
-            y1={-6}
-            x2={9 + i * 20}
-            y2={14}
-            stroke="#bae6fd"
-            strokeWidth={1.4}
-            opacity={0.6}
-          />
-        ))}
+        {Array.from({ length: 16 }).map((_, i) => {
+          const x = 16 + i * 20;
+          return (
+            <line
+              key={`rain-drop-${x}`}
+              x1={x}
+              y1={-6}
+              x2={x - 7}
+              y2={14}
+              stroke="#bae6fd"
+              strokeWidth={1.4}
+              opacity={0.6}
+            />
+          );
+        })}
       </g>
     </Frame>
   );
@@ -495,7 +498,7 @@ export default function ScenePreview({ sceneKind, title }: ScenePreviewProps) {
 
   return (
     <span
-      className="scene-preview-wrap"
+      className="block size-full"
       role="img"
       aria-label={
         title ? `Vista previa: ${title}` : "Vista previa del escenario"

@@ -1,0 +1,294 @@
+{
+  "version": 1,
+  "generatedAt": "2026-07-05T06:54:51.376Z",
+  "patterns": [
+    {
+      "pattern": "stop_intersection",
+      "hasTemplate": true,
+      "fallbackPattern": "stop_intersection"
+    },
+    {
+      "pattern": "document_checkpoint",
+      "hasTemplate": true,
+      "fallbackPattern": "document_checkpoint"
+    },
+    {
+      "pattern": "vehicle_safety_rain",
+      "hasTemplate": true,
+      "fallbackPattern": "vehicle_safety_rain"
+    },
+    {
+      "pattern": "traffic_light_decision",
+      "hasTemplate": true,
+      "fallbackPattern": "traffic_light_decision"
+    },
+    {
+      "pattern": "pedestrian_crossing",
+      "hasTemplate": true,
+      "fallbackPattern": "pedestrian_crossing"
+    },
+    {
+      "pattern": "unsafe_lane_change",
+      "hasTemplate": true,
+      "fallbackPattern": "unsafe_lane_change"
+    },
+    {
+      "pattern": "phone_distraction",
+      "hasTemplate": true,
+      "fallbackPattern": "phone_distraction"
+    },
+    {
+      "pattern": "bus_stop_hazard",
+      "hasTemplate": true,
+      "fallbackPattern": "bus_stop_hazard"
+    },
+    {
+      "pattern": "motorcycle_awareness",
+      "hasTemplate": true,
+      "fallbackPattern": "motorcycle_awareness"
+    },
+    {
+      "pattern": "roundabout_priority",
+      "hasTemplate": true,
+      "fallbackPattern": "roundabout_priority"
+    },
+    {
+      "pattern": "safe_following_distance",
+      "hasTemplate": false,
+      "fallbackPattern": "vehicle_safety_rain"
+    },
+    {
+      "pattern": "speed_low_visibility",
+      "hasTemplate": false,
+      "fallbackPattern": "vehicle_safety_rain"
+    },
+    {
+      "pattern": "unsafe_overtake",
+      "hasTemplate": false,
+      "fallbackPattern": "unsafe_lane_change"
+    }
+  ],
+  "modules": {
+    "01-fundamentos-legales": {
+      "lessonIds": [
+        "01-fundamentos-legales:deber-de-obedecer",
+        "01-fundamentos-legales:responsabilidad-preventiva"
+      ],
+      "templateId": "scenario_fundamentos_legales_alto_001",
+      "templatePattern": "stop_intersection"
+    },
+    "02-licencia-y-documentos": {
+      "lessonIds": [
+        "02-licencia-y-documentos:habilitacion",
+        "02-licencia-y-documentos:documentos-obligatorios"
+      ],
+      "templateId": "scenario_licencia_documentos_control_001",
+      "templatePattern": "document_checkpoint"
+    },
+    "03-vehiculo-seguro": {
+      "lessonIds": [
+        "03-vehiculo-seguro:revision-preventiva",
+        "03-vehiculo-seguro:neumaticos-y-frenos"
+      ],
+      "templateId": "scenario_vehiculo_seguro_lluvia_001",
+      "templatePattern": "vehicle_safety_rain"
+    },
+    "04-reglas-de-circulacion": {
+      "lessonIds": [
+        "04-reglas-de-circulacion:semaforos",
+        "04-reglas-de-circulacion:control-de-interseccion"
+      ],
+      "templateId": "scenario_reglas_circulacion_semaforo_001",
+      "templatePattern": "traffic_light_decision"
+    },
+    "05-peatones-y-usuarios-vulnerables": {
+      "lessonIds": [
+        "05-peatones-y-usuarios-vulnerables:prioridad-peatonal",
+        "05-peatones-y-usuarios-vulnerables:anticipacion"
+      ],
+      "templateId": "scenario_peatones_cruce_001",
+      "templatePattern": "pedestrian_crossing"
+    },
+    "06-senalizacion-vial": {
+      "lessonIds": [
+        "06-senalizacion-vial:senales-reglamentacion",
+        "06-senalizacion-vial:marcas-viales"
+      ],
+      "templateId": "scenario_senalizacion_alto_001",
+      "templatePattern": "stop_intersection"
+    },
+    "07-conduccion-defensiva": {
+      "lessonIds": [
+        "07-conduccion-defensiva:punto-ciego",
+        "07-conduccion-defensiva:anticipar-error-ajeno"
+      ],
+      "templateId": "scenario_conduccion_defensiva_punto_ciego_001",
+      "templatePattern": "unsafe_lane_change"
+    },
+    "08-riesgos-que-matan": {
+      "lessonIds": [
+        "08-riesgos-que-matan:distraccion",
+        "08-riesgos-que-matan:tiempo-de-reaccion"
+      ],
+      "templateId": "scenario_riesgos_que_matan_distraccion_001",
+      "templatePattern": "phone_distraction"
+    },
+    "09-infracciones-y-consecuencias": {
+      "lessonIds": [
+        "09-infracciones-y-consecuencias:evidencia",
+        "09-infracciones-y-consecuencias:sancion"
+      ],
+      "templateId": "scenario_infracciones_consecuencias_rojo_001",
+      "templatePattern": "traffic_light_decision"
+    },
+    "10-transporte-publico-y-pasajeros": {
+      "lessonIds": [
+        "10-transporte-publico-y-pasajeros:bus-detenido",
+        "10-transporte-publico-y-pasajeros:usuarios-vulnerables"
+      ],
+      "templateId": "scenario_transporte_publico_bus_001",
+      "templatePattern": "bus_stop_hazard"
+    },
+    "11-motociclistas": {
+      "lessonIds": [
+        "11-motociclistas:vulnerabilidad",
+        "11-motociclistas:margen-lateral"
+      ],
+      "templateId": "scenario_motociclistas_punto_ciego_001",
+      "templatePattern": "motorcycle_awareness"
+    },
+    "12-practica-para-examen": {
+      "lessonIds": [
+        "12-practica-para-examen:prioridad-integrada",
+        "12-practica-para-examen:decision-final"
+      ],
+      "templateId": "scenario_practica_examen_redondel_001",
+      "templatePattern": "roundabout_priority"
+    }
+  },
+  "assets": [
+    {
+      "id": "asset_sedan",
+      "type": "vehicle",
+      "url": "/models/sedan.glb"
+    },
+    {
+      "id": "asset_taxi",
+      "type": "vehicle",
+      "url": "/models/taxi.glb"
+    },
+    {
+      "id": "asset_stop_sign",
+      "type": "sign",
+      "url": "/assets/signs/stop.glb"
+    },
+    {
+      "id": "asset_police",
+      "type": "vehicle",
+      "url": "/models/police.glb"
+    },
+    {
+      "id": "asset_cone",
+      "type": "road_asset",
+      "url": "/models/cone.glb"
+    },
+    {
+      "id": "asset_hatchback",
+      "type": "vehicle",
+      "url": "/models/hatchback-sports.glb"
+    },
+    {
+      "id": "asset_crosswalk",
+      "type": "road_marking",
+      "url": "/assets/road/crosswalk.glb"
+    },
+    {
+      "id": "asset_pickup",
+      "type": "vehicle",
+      "url": "/models/truck.glb"
+    },
+    {
+      "id": "asset_traffic_light",
+      "type": "signal",
+      "url": "/assets/signs/traffic-light.glb"
+    },
+    {
+      "id": "asset_pedestrian",
+      "type": "character",
+      "url": "/models/cone.glb"
+    },
+    {
+      "id": "asset_suv",
+      "type": "vehicle",
+      "url": "/models/suv.glb"
+    },
+    {
+      "id": "asset_motorcycle",
+      "type": "vehicle",
+      "url": "/bike/low%20poly%20dirta%20bike%20with%20rider%201_FBX/DirtBike_With_Player.FBX"
+    },
+    {
+      "id": "asset_truck",
+      "type": "vehicle",
+      "url": "/models/truck.glb"
+    },
+    {
+      "id": "asset_bus",
+      "type": "vehicle",
+      "url": "/models/van.glb"
+    }
+  ],
+  "enums": {
+    "environment": ["urban", "highway", "rural"],
+    "weather": ["clear", "rain", "fog"],
+    "timeOfDay": ["day", "dusk", "night"],
+    "roadType": [
+      "single_carriageway",
+      "multi_lane_avenue",
+      "roundabout",
+      "intersection"
+    ],
+    "cameraMode": ["fixed", "third_person_follow", "top_down", "cinematic"],
+    "difficulty": ["basic", "intermediate", "advanced"],
+    "actorRole": [
+      "ego_vehicle",
+      "offender_vehicle",
+      "oncoming_vehicle",
+      "traffic_vehicle",
+      "pedestrian",
+      "police_officer"
+    ],
+    "actorTag": [
+      "crossing",
+      "lane_change",
+      "stopped",
+      "fast",
+      "oncoming",
+      "offender",
+      "vulnerable"
+    ]
+  },
+  "limits": {
+    "durationSeconds": [10, 60],
+    "actors": [2, 6],
+    "timelineEvents": [1, 12],
+    "options": [3, 4],
+    "estimatedMinutes": [2, 10],
+    "titleMaxChars": 70,
+    "optionLabelChars": [8, 120],
+    "fov": [30, 90],
+    "maxAbsCoordinate": 200
+  },
+  "scoring": {
+    "maxScore": 100,
+    "passScore": 70,
+    "metrics": [
+      {
+        "id": "decision",
+        "label": "Decisión segura",
+        "weight": 1
+      }
+    ]
+  },
+  "legalDocumentDefault": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial"
+}

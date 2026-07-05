@@ -12,11 +12,14 @@ import {
   Pause,
   PlayCircle,
   RotateCcw,
+  Volume2,
+  VolumeX,
   XCircle,
 } from "lucide-react";
 import Link from "next/link";
 import type { ComponentType } from "react";
 import { Suspense, useEffect, useMemo, useRef, useState } from "react";
+import { toast } from "sonner";
 import { ACESFilmicToneMapping } from "three";
 import PracticeBar from "@/components/PracticeBar";
 import {
@@ -46,6 +49,7 @@ import OvertakeScene from "./scenes/OvertakeScene";
 import RainBrakingScene from "./scenes/RainBrakingScene";
 import RoundaboutScene from "./scenes/RoundaboutScene";
 import type { Phase } from "./types";
+import { useNarration } from "./useNarration";
 
 type DecisionSceneProps = {
   phase: Phase;
@@ -220,6 +224,11 @@ export default function ScenarioPlayer({
   const [attemptStartedAt, setAttemptStartedAt] = useState(() =>
     new Date().toISOString(),
   );
+  const {
+    enabled: narrationEnabled,
+    setEnabled: setNarrationEnabled,
+    speak: narrate,
+  } = useNarration();
 
   const playableScenario = useMemo(
     () => toPlayableScenario(scenario),
@@ -342,19 +351,22 @@ export default function ScenarioPlayer({
       .then((response) => {
         if (response.ok) {
           setSyncMessage("Intento sincronizado con tu cuenta.");
+          toast.success("Intento sincronizado con tu cuenta.");
           return;
         }
 
-        setSyncMessage(
+        const message =
           response.status === 401
             ? "Guardado en este dispositivo. Iniciá sesión para sincronizar tu progreso."
-            : "Guardado en este dispositivo. No se pudo sincronizar con el servidor.",
-        );
+            : "Guardado en este dispositivo. No se pudo sincronizar con el servidor.";
+        setSyncMessage(message);
+        toast.info(message);
       })
       .catch(() => {
-        setSyncMessage(
-          "Guardado en este dispositivo. No se pudo sincronizar con el servidor.",
-        );
+        const message =
+          "Guardado en este dispositivo. No se pudo sincronizar con el servidor.";
+        setSyncMessage(message);
+        toast.warning(message);
       });
 
     setPhase("consequence");
@@ -377,6 +389,21 @@ export default function ScenarioPlayer({
     playableScenario.selectionType === "multiple"
       ? "Podés marcar más de una opción antes de confirmar."
       : "Seleccioná una opción y confirmá tu decisión.";
+
+  const narrationText =
+    phase === "approach"
+      ? hint
+      : phase === "decision"
+        ? playableScenario.prompt
+        : phase === "consequence"
+          ? correct
+            ? playableScenario.feedback.success
+            : playableScenario.feedback.fail
+          : null;
+
+  useEffect(() => {
+    if (narrationText) void narrate(narrationText);
+  }, [narrationText, narrate]);
   const typedTitle = scenario.title.slice(0, typedTitleLength);
   const titleTypingDone = typedTitleLength >= scenario.title.length;
   const showStageTitle =
@@ -482,6 +509,24 @@ export default function ScenarioPlayer({
             >
               {completed ? "Completado" : "En práctica"}
             </span>
+            <button
+              className="narration-toggle"
+              type="button"
+              aria-pressed={narrationEnabled}
+              title={
+                narrationEnabled ? "Silenciar narración" : "Activar narración"
+              }
+              onClick={() => setNarrationEnabled((value) => !value)}
+            >
+              {narrationEnabled ? (
+                <Volume2 aria-hidden="true" size={16} />
+              ) : (
+                <VolumeX aria-hidden="true" size={16} />
+              )}
+              <span className="sr-only">
+                {narrationEnabled ? "Silenciar narración" : "Activar narración"}
+              </span>
+            </button>
           </div>
           {!fullscreen && (
             <div>

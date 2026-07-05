@@ -8,7 +8,6 @@ import {
   Clock3,
   FileCheck2,
   FileQuestion,
-  FileText,
   HeartPulse,
   ListChecks,
   Route,
@@ -21,15 +20,12 @@ import {
   type DidacticModuleContent,
   getLearningModule,
   getLearningModuleIds,
-  getLearningModules,
   type MarkdownBlock,
 } from "@/lib/content/modules";
 
 type ModulePageProps = {
   params: Promise<{ id: string }>;
 };
-
-const manualAssetUrl = "/api/assets/manual-senales";
 
 function CitationRefs({
   citations,
@@ -553,16 +549,6 @@ export default async function ModuleDetailPage({ params }: ModulePageProps) {
   if (!module) notFound();
 
   const didacticContent = module.didacticContent;
-  const modules = getLearningModules();
-  const moduleIndex = modules.findIndex((item) => item.id === module.id);
-  const previousModule = moduleIndex > 0 ? modules[moduleIndex - 1] : null;
-  const nextModule =
-    moduleIndex >= 0 && moduleIndex < modules.length - 1
-      ? modules[moduleIndex + 1]
-      : null;
-  const hasManualScope = module.sourceScope.some((source) =>
-    source.toLowerCase().includes("manual"),
-  );
 
   return (
     <main className="min-h-screen bg-[#f8fafc] text-[#0d1321]">
@@ -637,92 +623,6 @@ export default async function ModuleDetailPage({ params }: ModulePageProps) {
               <MarkdownContent blocks={module.blocks} />
             )}
           </article>
-
-          <aside className="grid content-start gap-5">
-            <section className="rounded-2xl border border-slate-200 bg-white p-5">
-              <p className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.12em] text-slate-500">
-                <FileText aria-hidden="true" size={15} />
-                {didacticContent ? "Citas usadas" : "Fuentes esperadas"}
-              </p>
-              {didacticContent ? (
-                <ul className="mt-4 grid gap-3 text-sm leading-6 text-slate-700">
-                  {didacticContent.citations.map((citation, index) => (
-                    <li
-                      className="rounded-xl bg-slate-50 p-3"
-                      key={citation.id}
-                    >
-                      <strong>
-                        [{index + 1}] {citation.documentName}
-                      </strong>
-                      <span className="mt-1 block text-slate-600">
-                        {citation.articleNumber
-                          ? `Art. ${citation.articleNumber}`
-                          : "Unidad normativa"}
-                        {citation.pageStart && citation.pageEnd
-                          ? `, paginas ${citation.pageStart}-${citation.pageEnd}`
-                          : ""}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <ul className="mt-4 grid gap-3 text-sm leading-6 text-slate-700">
-                  {module.sourceScope.map((source) => (
-                    <li className="rounded-xl bg-slate-50 p-3" key={source}>
-                      {source}
-                    </li>
-                  ))}
-                </ul>
-              )}
-              {hasManualScope ? (
-                <Link
-                  className="mt-4 inline-flex items-center gap-2 rounded-xl bg-blue-700 px-4 py-3 text-sm font-semibold text-white transition hover:bg-blue-800"
-                  href={manualAssetUrl}
-                  target="_blank"
-                >
-                  Abrir manual de senales
-                  <ArrowRight aria-hidden="true" size={16} />
-                </Link>
-              ) : null}
-            </section>
-
-            {didacticContent?.needsHumanReview.length ? (
-              <section className="rounded-2xl border border-amber-200 bg-amber-50 p-5 text-amber-950">
-                <p className="text-sm font-bold uppercase tracking-[0.12em]">
-                  Requiere revision
-                </p>
-                <ul className="mt-3 grid gap-2 text-sm leading-6">
-                  {didacticContent.needsHumanReview.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </section>
-            ) : null}
-
-            <section className="rounded-2xl border border-slate-200 bg-white p-5">
-              <p className="text-sm font-bold uppercase tracking-[0.12em] text-slate-500">
-                Navegacion
-              </p>
-              <div className="mt-4 grid gap-3">
-                {previousModule ? (
-                  <Link
-                    className="rounded-xl border border-slate-200 p-3 text-sm font-semibold text-slate-700 transition hover:border-blue-300 hover:text-blue-700"
-                    href={`/modulos/${previousModule.id}`}
-                  >
-                    Anterior: {previousModule.title}
-                  </Link>
-                ) : null}
-                {nextModule ? (
-                  <Link
-                    className="rounded-xl border border-slate-200 p-3 text-sm font-semibold text-slate-700 transition hover:border-blue-300 hover:text-blue-700"
-                    href={`/modulos/${nextModule.id}`}
-                  >
-                    Siguiente: {nextModule.title}
-                  </Link>
-                ) : null}
-              </div>
-            </section>
-          </aside>
         </div>
       </section>
     </main>

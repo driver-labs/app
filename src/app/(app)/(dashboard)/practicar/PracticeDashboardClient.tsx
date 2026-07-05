@@ -16,6 +16,7 @@ import {
   PRACTICE_PROGRESS_KEY,
   type PracticeProgressStore,
 } from "@/core/practice-progress";
+import { cn } from "@/lib/utils";
 import ScenePreview, { type SceneKind } from "./ScenePreview";
 
 export type PracticeScenarioSummary = {
@@ -33,6 +34,25 @@ const difficultyLabels: Record<string, string> = {
   basic: "Fácil",
   intermediate: "Media",
 };
+
+const actionClassName =
+  "inline-flex min-h-11 items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-semibold text-foreground no-underline transition-colors hover:border-muted-foreground/40 hover:bg-muted-foreground/10";
+
+const metricClassName =
+  "grid gap-1 rounded-lg border border-border bg-background/35 p-2";
+
+function statusBadgeClass(
+  variant: "done" | "pending" | "ready",
+  overlay = false,
+) {
+  return cn(
+    "inline-flex min-h-6 items-center rounded-full border px-2.5 py-1 text-xs font-semibold",
+    overlay && "absolute right-2.5 top-2.5 bg-background/70 backdrop-blur-sm",
+    variant === "done" && "border-accent/40 bg-accent/15 text-accent",
+    variant === "ready" && "border-secondary/40 bg-secondary/15 text-secondary",
+    variant === "pending" && "border-warning/40 bg-warning/10 text-warning",
+  );
+}
 
 export type PracticeModuleSummary = {
   id: string;
@@ -137,29 +157,34 @@ export default function PracticeDashboardClient({
   }, [modules, progress.modules]);
 
   return (
-    <main className="practice-dashboard">
-      <header className="practice-dashboard__header">
+    <main className="mx-auto w-[var(--shell-width)] pb-14 pt-4">
+      <header className="flex items-end justify-between gap-6 border-b border-border pb-5 max-md:flex-col max-md:items-stretch">
         <div>
-          <p className="eyebrow">
+          <p className="mb-1.5 inline-flex items-center gap-2 text-xs font-bold uppercase text-muted-foreground">
             <PlayCircle aria-hidden="true" size={14} />
-            Practicas 3D
+            Prácticas 3D
           </p>
-          <h1>Practica cada modulo con una escena interactiva</h1>
-          <p>
-            Cada tarjeta usa el catalogo educativo actual y su escenario
-            asociado por registry. El avance se calcula por modulo y escenario.
+          <h1 className="mt-2 max-w-3xl text-4xl font-bold leading-tight text-foreground md:text-5xl">
+            Practicá cada módulo con una escena interactiva
+          </h1>
+          <p className="mt-3 max-w-3xl text-base leading-7 text-muted-foreground">
+            Cada tarjeta usa el catálogo educativo actual y su escenario
+            asociado por registry. El avance se calcula por módulo y escenario.
           </p>
         </div>
-        <section className="practice-dashboard__stats" aria-label="Resumen">
-          <span>
+        <section
+          className="grid min-w-[min(100%,290px)] gap-2"
+          aria-label="Resumen"
+        >
+          <span className="inline-flex min-h-9 items-center gap-2 rounded-lg border border-border bg-card/80 px-2.5 py-2 text-sm font-semibold text-foreground/80">
             <CheckCircle2 aria-hidden="true" size={17} />
             {totals.completed}/{modules.length} completados
           </span>
-          <span>
+          <span className="inline-flex min-h-9 items-center gap-2 rounded-lg border border-border bg-card/80 px-2.5 py-2 text-sm font-semibold text-foreground/80">
             <RotateCcw aria-hidden="true" size={17} />
             {totals.attempts} intentos
           </span>
-          <span>
+          <span className="inline-flex min-h-9 items-center gap-2 rounded-lg border border-border bg-card/80 px-2.5 py-2 text-sm font-semibold text-foreground/80">
             <Trophy aria-hidden="true" size={17} />
             {totals.learned} lecciones aprendidas
           </span>
@@ -167,12 +192,15 @@ export default function PracticeDashboardClient({
       </header>
 
       {validationIssues.length > 0 && (
-        <section className="practice-validation" aria-label="Validaciones">
-          <p>
+        <section
+          className="mt-4 grid gap-2.5 rounded-lg border border-warning/40 bg-warning/10 p-3.5 text-warning"
+          aria-label="Validaciones"
+        >
+          <p className="m-0 flex items-center gap-2 font-bold">
             <AlertTriangle aria-hidden="true" size={17} />
             Hay escenarios pendientes de corregir en el registry.
           </p>
-          <ul>
+          <ul className="m-0 pl-5">
             {validationIssues.map((issue) => (
               <li key={`${issue.id}-${issue.message}`}>
                 <strong>{issue.id}</strong>: {issue.message}
@@ -182,7 +210,10 @@ export default function PracticeDashboardClient({
         </section>
       )}
 
-      <section className="practice-grid" aria-label="Modulos disponibles">
+      <section
+        className="mt-5 grid grid-cols-1 gap-3.5 md:grid-cols-2 xl:grid-cols-3"
+        aria-label="Módulos disponibles"
+      >
         {modules.map((module) => {
           const moduleProgress = progress.modules[module.id];
           const moduleAttempts = progress.attempts.filter(
@@ -200,19 +231,22 @@ export default function PracticeDashboardClient({
             moduleProgress?.status === "completed" ||
             moduleProgress?.status === "mastered";
 
-          const statusClass = isComplete
-            ? "practice-status practice-status--done"
+          const statusVariant = isComplete
+            ? "done"
             : module.scenario
-              ? "practice-status practice-status--ready"
-              : "practice-status practice-status--pending";
+              ? "ready"
+              : "pending";
           const difficultyLabel = module.scenario
             ? (difficultyLabels[module.scenario.difficulty] ??
               module.scenario.difficulty)
             : null;
 
           return (
-            <article className="practice-card" key={module.id}>
-              <div className="practice-card__preview">
+            <article
+              className="flex min-h-full flex-col overflow-hidden rounded-lg border border-border bg-card/90 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-secondary/40 hover:shadow-lg"
+              key={module.id}
+            >
+              <div className="relative aspect-video overflow-hidden border-b border-border">
                 {module.scenario ? (
                   <ScenePreview
                     sceneKind={module.scenario.sceneKind}
@@ -220,42 +254,46 @@ export default function PracticeDashboardClient({
                   />
                 ) : (
                   <span
-                    className="scene-preview-wrap scene-preview-wrap--pending"
+                    className="flex size-full items-center justify-center bg-[repeating-linear-gradient(45deg,hsl(var(--warning)/0.08),hsl(var(--warning)/0.08)_10px,hsl(var(--background)/0.4)_10px,hsl(var(--background)/0.4)_20px)] text-warning"
                     role="img"
                     aria-label="Escenario pendiente de crear"
                   >
                     <AlertTriangle aria-hidden="true" size={26} />
                   </span>
                 )}
-                <span className="practice-card__code">
+                <span className="absolute left-2.5 top-2.5 inline-flex size-8 items-center justify-center rounded-lg bg-background/70 text-sm font-bold text-secondary backdrop-blur-sm">
                   {module.id.slice(0, 2)}
                 </span>
-                <span className={statusClass}>{label}</span>
+                <span className={statusBadgeClass(statusVariant, true)}>
+                  {label}
+                </span>
               </div>
 
-              <div className="practice-card__body">
-                <div className="practice-card__heading">
-                  <h2>{module.title}</h2>
+              <div className="flex flex-1 flex-col gap-3 p-4">
+                <div className="flex items-start justify-between gap-2.5">
+                  <h2 className="m-0 text-lg font-semibold leading-snug text-foreground">
+                    {module.title}
+                  </h2>
                   {difficultyLabel && (
-                    <span className="practice-card__difficulty">
+                    <span className="shrink-0 rounded-full border border-border px-2.5 py-1 text-xs font-semibold text-muted-foreground">
                       {difficultyLabel}
                     </span>
                   )}
                 </div>
-                <p className="practice-card__objective">
+                <p className="m-0 line-clamp-2 text-sm leading-6 text-muted-foreground">
                   {module.scenario
                     ? module.scenario.objective
                     : "El módulo permanece visible mientras se crea su escena."}
                 </p>
 
-                <div className="practice-card__meta">
-                  <span>
+                <div className="flex flex-wrap items-center gap-2 text-sm text-foreground/75">
+                  <span className="inline-flex items-center gap-1.5">
                     <Clock3 aria-hidden="true" size={15} />
                     {module.scenario?.estimatedMinutes ??
                       module.estimatedMinutes}{" "}
                     min
                   </span>
-                  <span>
+                  <span className="inline-flex items-center gap-1.5">
                     <BookOpen aria-hidden="true" size={15} />
                     {practicedCount} lecciones
                   </span>
@@ -263,9 +301,9 @@ export default function PracticeDashboardClient({
 
                 {moduleProgress ? (
                   <>
-                    <div className="practice-card__progress">
+                    <div className="flex items-center gap-2.5">
                       <div
-                        className="practice-card__bar"
+                        className="h-1.5 flex-1 overflow-hidden rounded-full bg-background/55"
                         role="progressbar"
                         aria-valuenow={moduleProgress.progressPercent}
                         aria-valuemin={0}
@@ -275,44 +313,77 @@ export default function PracticeDashboardClient({
                           style={{
                             width: `${moduleProgress.progressPercent}%`,
                           }}
+                          className="block h-full rounded-full bg-gradient-to-r from-secondary to-accent transition-[width] duration-300"
                         />
                       </div>
-                      <span className="practice-card__progress-label">
+                      <span className="shrink-0 text-xs font-semibold text-foreground/75">
                         {moduleProgress.progressPercent}% · mejor{" "}
                         {moduleProgress.bestScore ?? "-"}
                       </span>
                     </div>
 
-                    <details className="practice-card__details">
-                      <summary>Ver métricas</summary>
-                      <dl className="practice-card__metrics">
-                        <div>
-                          <dt>Último</dt>
-                          <dd>{moduleProgress.lastScore ?? "-"}</dd>
+                    <details className="group/details border-t border-dashed border-border pt-2.5">
+                      <summary className="cursor-pointer list-none text-sm font-semibold text-secondary [&::-webkit-details-marker]:hidden">
+                        Ver métricas
+                        <span className="ml-1 inline group-open/details:hidden">
+                          +
+                        </span>
+                        <span className="ml-1 hidden group-open/details:inline">
+                          -
+                        </span>
+                      </summary>
+                      <dl className="mt-2.5 grid grid-cols-2 gap-2 md:grid-cols-3">
+                        <div className={metricClassName}>
+                          <dt className="text-xs font-bold uppercase text-muted-foreground">
+                            Último
+                          </dt>
+                          <dd className="m-0 font-bold text-foreground">
+                            {moduleProgress.lastScore ?? "-"}
+                          </dd>
                         </div>
-                        <div>
-                          <dt>Mejor</dt>
-                          <dd>{moduleProgress.bestScore ?? "-"}</dd>
+                        <div className={metricClassName}>
+                          <dt className="text-xs font-bold uppercase text-muted-foreground">
+                            Mejor
+                          </dt>
+                          <dd className="m-0 font-bold text-foreground">
+                            {moduleProgress.bestScore ?? "-"}
+                          </dd>
                         </div>
-                        <div>
-                          <dt>Intentos</dt>
-                          <dd>{moduleProgress.attemptsCount}</dd>
+                        <div className={metricClassName}>
+                          <dt className="text-xs font-bold uppercase text-muted-foreground">
+                            Intentos
+                          </dt>
+                          <dd className="m-0 font-bold text-foreground">
+                            {moduleProgress.attemptsCount}
+                          </dd>
                         </div>
-                        <div>
-                          <dt>Practicadas</dt>
-                          <dd>{practicedCount}</dd>
+                        <div className={metricClassName}>
+                          <dt className="text-xs font-bold uppercase text-muted-foreground">
+                            Practicadas
+                          </dt>
+                          <dd className="m-0 font-bold text-foreground">
+                            {practicedCount}
+                          </dd>
                         </div>
-                        <div>
-                          <dt>Aprendidas</dt>
-                          <dd>{learnedCount}</dd>
+                        <div className={metricClassName}>
+                          <dt className="text-xs font-bold uppercase text-muted-foreground">
+                            Aprendidas
+                          </dt>
+                          <dd className="m-0 font-bold text-foreground">
+                            {learnedCount}
+                          </dd>
                         </div>
-                        <div>
-                          <dt>Errores</dt>
-                          <dd>{mistakes.length}</dd>
+                        <div className={metricClassName}>
+                          <dt className="text-xs font-bold uppercase text-muted-foreground">
+                            Errores
+                          </dt>
+                          <dd className="m-0 font-bold text-foreground">
+                            {mistakes.length}
+                          </dd>
                         </div>
                       </dl>
                       {lastMistake && (
-                        <p className="practice-card__mistake">
+                        <p className="mt-2.5 flex items-start gap-2 rounded-lg border border-destructive/30 bg-destructive/10 p-2.5 text-sm leading-5 text-destructive">
                           <AlertTriangle aria-hidden="true" size={15} />
                           <span>Último error: {lastMistake.message}</span>
                         </p>
@@ -320,18 +391,27 @@ export default function PracticeDashboardClient({
                     </details>
                   </>
                 ) : (
-                  <p className="practice-card__empty">
+                  <p className="m-0 text-sm italic text-foreground/70">
                     Todavía no practicaste este módulo — sumá tu primer intento.
                   </p>
                 )}
 
-                <div className="practice-card__actions">
-                  <Link href={`/modulo/${module.id}`}>
+                <div className="mt-auto flex flex-wrap items-center gap-2">
+                  <Link
+                    className={actionClassName}
+                    href={`/modulo/${module.id}`}
+                  >
                     <BookOpen aria-hidden="true" size={17} />
                     Repasar
                   </Link>
                   {module.scenario ? (
-                    <Link href={`/practicar/${module.scenario.id}`}>
+                    <Link
+                      className={cn(
+                        actionClassName,
+                        "border-accent/40 bg-accent/15",
+                      )}
+                      href={`/practicar/${module.scenario.id}`}
+                    >
                       {isComplete ? (
                         <RotateCcw aria-hidden="true" size={17} />
                       ) : (
@@ -340,7 +420,10 @@ export default function PracticeDashboardClient({
                       {isComplete ? "Reintentar" : "Practicar"}
                     </Link>
                   ) : (
-                    <span aria-disabled="true" className="disabled-link">
+                    <span
+                      aria-disabled="true"
+                      className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-border bg-muted px-3 py-2 text-sm font-semibold text-muted-foreground"
+                    >
                       <AlertTriangle aria-hidden="true" size={17} />
                       Pendiente
                     </span>
