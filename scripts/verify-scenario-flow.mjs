@@ -5,7 +5,9 @@ import { chromium } from "@playwright/test";
 const baseUrl = process.env.BASE_URL ?? "http://localhost:3100";
 const scenarioId =
   process.argv[2] ?? "scenario_licencia_documentos_control_001";
-const outputDir = process.env.OUT_DIR ?? "/tmp/claude-1000/-home-fdgbatarse-hackaton-app/fd13a603-0f32-4bcf-a111-9e7d015610fa/scratchpad/shots";
+const outputDir =
+  process.env.OUT_DIR ??
+  "/tmp/claude-1000/-home-fdgbatarse-hackaton-app/fd13a603-0f32-4bcf-a111-9e7d015610fa/scratchpad/shots";
 const linuxChromiumPath = "/usr/bin/chromium-browser";
 
 await mkdir(outputDir, { recursive: true });
@@ -14,7 +16,8 @@ const launchOptions = {
   headless: true,
   args: ["--no-sandbox", "--disable-dev-shm-usage"],
 };
-if (existsSync(linuxChromiumPath)) launchOptions.executablePath = linuxChromiumPath;
+if (existsSync(linuxChromiumPath))
+  launchOptions.executablePath = linuxChromiumPath;
 
 const browser = await chromium.launch(launchOptions);
 const context = await browser.newContext({
@@ -76,7 +79,9 @@ try {
 
   log("PROGRESSION OK");
 } catch (error) {
-  await page.screenshot({ path: `${outputDir}/${scenarioId}-FAIL.png` }).catch(() => {});
+  await page
+    .screenshot({ path: `${outputDir}/${scenarioId}-FAIL.png` })
+    .catch(() => {});
   const phase = await page
     .locator(".simulator-shell")
     .getAttribute("data-phase")
@@ -88,6 +93,7 @@ try {
     (e) => !e.includes("/api/practice/attempts"),
   );
   if (filteredErrors.length) log("console errors:", filteredErrors.join(" | "));
-  if (failedResponses.length) log("failed responses:", failedResponses.join(" | "));
+  if (failedResponses.length)
+    log("failed responses:", failedResponses.join(" | "));
   await browser.close();
 }
