@@ -2,13 +2,11 @@ import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 import {
   AlertTriangle,
-  ArrowRight,
   BookMarked,
   BookOpen,
   BrainCircuit,
   CheckCircle2,
   FileQuestion,
-  FileText,
   HeartPulse,
   ListChecks,
   Route,
@@ -29,7 +27,6 @@ type ModulePageProps = {
   params: Promise<{ id: string }>;
 };
 
-const manualAssetUrl = "/api/assets/manual-senales";
 const audioManifestPath = path.join(
   process.cwd(),
   "public",
@@ -116,7 +113,7 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
 
       {learningObjectives.length ? (
         <section>
-          <h2 className="inline-flex items-center gap-2 text-2xl font-bold text-slate-950">
+          <h2 className="inline-flex items-center gap-2 text-2xl font-bold text-white">
             <ListChecks
               aria-hidden="true"
               className="text-blue-700"
@@ -143,18 +140,18 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
       ) : null}
 
       <section>
-        <h2 className="inline-flex items-center gap-2 text-2xl font-bold text-slate-950">
+        <h2 className="inline-flex items-center gap-2 text-2xl font-bold text-white">
           <HeartPulse aria-hidden="true" className="text-rose-600" size={24} />
           Por que importa
         </h2>
-        <p className="mt-3 max-w-3xl text-base leading-8 text-slate-700">
+        <p className="mt-3 max-w-3xl text-base leading-8 text-white">
           {content.whyItMatters}
         </p>
       </section>
 
       {legalFoundation.length ? (
         <section>
-          <h2 className="inline-flex items-center gap-2 text-2xl font-bold text-slate-950">
+          <h2 className="inline-flex items-center gap-2 text-2xl font-bold text-white">
             <Scale aria-hidden="true" className="text-blue-700" size={24} />
             Base normativa
           </h2>
@@ -184,7 +181,7 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
       ) : null}
 
       <section>
-        <h2 className="text-2xl font-bold text-slate-950">Lecciones</h2>
+        <h2 className="text-2xl font-bold text-white">Lecciones</h2>
         <div className="mt-5 grid gap-4">
           {lessons.map((lesson, index) => (
             <article
@@ -247,7 +244,7 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
 
       {applicationCases.length ? (
         <section>
-          <h2 className="inline-flex items-center gap-2 text-2xl font-bold text-slate-950">
+          <h2 className="inline-flex items-center gap-2 text-2xl font-bold text-white">
             <Route aria-hidden="true" className="text-blue-700" size={24} />
             Casos aplicados
           </h2>
@@ -286,7 +283,7 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
 
       {commonMistakes.length ? (
         <section>
-          <h2 className="inline-flex items-center gap-2 text-2xl font-bold text-slate-950">
+          <h2 className="inline-flex items-center gap-2 text-2xl font-bold text-white">
             <AlertTriangle
               aria-hidden="true"
               className="text-amber-600"
@@ -379,7 +376,7 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
       ) : null}
 
       <section>
-        <h2 className="inline-flex items-center gap-2 text-2xl font-bold text-slate-950">
+        <h2 className="inline-flex items-center gap-2 text-2xl font-bold text-white">
           <FileQuestion
             aria-hidden="true"
             className="text-blue-700"
@@ -424,7 +421,7 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
 
       {vocabulary.length ? (
         <section>
-          <h2 className="inline-flex items-center gap-2 text-2xl font-bold text-slate-950">
+          <h2 className="inline-flex items-center gap-2 text-2xl font-bold text-white">
             <BookMarked
               aria-hidden="true"
               className="text-blue-700"
@@ -495,19 +492,41 @@ export default async function ModulePage({ params }: ModulePageProps) {
 
   const didacticContent = module.didacticContent;
   const modules = getLearningModules();
-  const moduleIndex = modules.findIndex((item) => item.id === module.id);
-  const previousModule = moduleIndex > 0 ? modules[moduleIndex - 1] : null;
-  const nextModule =
-    moduleIndex >= 0 && moduleIndex < modules.length - 1
-      ? modules[moduleIndex + 1]
-      : null;
-  const hasManualScope = module.sourceScope.some((source) =>
-    source.toLowerCase().includes("manual"),
-  );
   const moduleAudio = getModuleAudio(module.id);
 
   return (
     <section className="module-layout">
+      <nav className="module-course-nav" aria-label="Modulos del curso">
+        <div className="module-course-nav__heading">
+          <p className="eyebrow">
+            <BookOpen aria-hidden="true" size={14} />
+            Curso
+          </p>
+          <h2>Cultura vial</h2>
+        </div>
+        <ol className="module-course-nav__list">
+          {modules.map((item) => {
+            const isActive = item.id === module.id;
+
+            return (
+              <li key={item.id}>
+                <Link
+                  aria-current={isActive ? "page" : undefined}
+                  href={`/modulo/${item.id}`}
+                >
+                  <span className="module-course-nav__number">
+                    {item.id.slice(0, 2)}
+                  </span>
+                  <span className="module-course-nav__copy">
+                    <span>{item.title}</span>
+                  </span>
+                </Link>
+              </li>
+            );
+          })}
+        </ol>
+      </nav>
+
       <article className="module-content">
         <div className="module-hero">
           <p className="eyebrow">
@@ -536,82 +555,6 @@ export default async function ModulePage({ params }: ModulePageProps) {
           </p>
         )}
       </article>
-
-      <aside className="module-sidebar">
-        <section>
-          <p className="eyebrow">
-            <FileText aria-hidden="true" size={14} />
-            Citas usadas
-          </p>
-          {didacticContent ? (
-            <ul className="detail-list">
-              {didacticContent.citations.map((citation, index) => (
-                <li key={citation.id}>
-                  <CheckCircle2 aria-hidden="true" size={17} />
-                  <strong>
-                    [{index + 1}] {citation.documentName}
-                  </strong>
-                  <span>
-                    {citation.articleNumber
-                      ? `Art. ${citation.articleNumber}`
-                      : "Unidad normativa"}
-                    {citation.pageStart && citation.pageEnd
-                      ? `, paginas ${citation.pageStart}-${citation.pageEnd}`
-                      : ""}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          ) : null}
-          {hasManualScope ? (
-            <div className="link-stack mt-4">
-              <Link href={manualAssetUrl} target="_blank">
-                <FileText aria-hidden="true" size={17} />
-                Abrir manual de senales
-              </Link>
-            </div>
-          ) : null}
-        </section>
-
-        <section>
-          <p className="eyebrow">Navegacion</p>
-          <div className="link-stack">
-            {previousModule ? (
-              <Link href={`/modulo/${previousModule.id}`}>
-                <ArrowRight
-                  aria-hidden="true"
-                  className="rotate-180"
-                  size={17}
-                />
-                Anterior: {previousModule.title}
-              </Link>
-            ) : null}
-            {nextModule ? (
-              <Link href={`/modulo/${nextModule.id}`}>
-                <ArrowRight aria-hidden="true" size={17} />
-                Siguiente: {nextModule.title}
-              </Link>
-            ) : null}
-          </div>
-        </section>
-
-        {didacticContent?.needsHumanReview.length ? (
-          <section>
-            <p className="eyebrow">
-              <AlertTriangle aria-hidden="true" size={14} />
-              Requiere revision
-            </p>
-            <ul className="detail-list">
-              {didacticContent.needsHumanReview.map((item) => (
-                <li key={item}>
-                  <AlertTriangle aria-hidden="true" size={17} />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </section>
-        ) : null}
-      </aside>
     </section>
   );
 }
