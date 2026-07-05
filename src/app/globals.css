@@ -1,31 +1,31 @@
 @import "tailwindcss";
 
 :root {
-  --background: #020817;
-  --foreground: #f8fafc;
+  --background: #f7f8fb;
+  --foreground: #111827;
   --primary: #2563eb;
   --primary-hover: #1d4ed8;
-  --secondary: #06b6d4;
-  --accent: #22c55e;
+  --secondary: #0891b2;
+  --accent: #16a34a;
   --warning: #f59e0b;
-  --danger: #ef4444;
-  --surface: #0f172a;
-  --elevated: #162033;
-  --panel: #1a2438;
-  --panel-muted: #111b2e;
-  --ink: #f8fafc;
-  --ink-soft: #cbd5e1;
-  --ink-muted: #94a3b8;
-  --border: #243041;
-  --border-soft: #2d3a52;
-  --border-strong: #3b4a63;
-  --divider: #334155;
-  --secondary-text: #cbd5e1;
-  --muted: #94a3b8;
-  --disabled: #64748b;
-  --primary-soft: rgba(37, 99, 235, 0.16);
-  --success: #22c55e;
-  --success-soft: rgba(34, 197, 94, 0.14);
+  --danger: #dc2626;
+  --surface: #ffffff;
+  --elevated: #ffffff;
+  --panel: #ffffff;
+  --panel-muted: #f3f4f6;
+  --ink: #111827;
+  --ink-soft: #374151;
+  --ink-muted: #6b7280;
+  --border: #e5e7eb;
+  --border-soft: #eef0f4;
+  --border-strong: #d1d5db;
+  --divider: #e5e7eb;
+  --secondary-text: #4b5563;
+  --muted: #6b7280;
+  --disabled: #9ca3af;
+  --primary-soft: rgba(37, 99, 235, 0.08);
+  --success: #16a34a;
+  --success-soft: rgba(22, 163, 74, 0.1);
   --shell-max: 1180px;
   --shell-gutter: 16px;
   --shell-width: min(var(--shell-max), calc(100% - var(--shell-gutter) * 2));
@@ -51,10 +51,10 @@
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", sans-serif;
   --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-  --radius-button: 14px;
-  --radius-input: 12px;
-  --radius-card: 20px;
-  --shadow-brand: 0 20px 60px rgba(37, 99, 235, 0.15);
+  --radius-button: 8px;
+  --radius-input: 8px;
+  --radius-card: 8px;
+  --shadow-brand: 0 12px 32px rgba(17, 24, 39, 0.08);
 }
 
 body {
@@ -84,11 +84,7 @@ html {
 
 .app-shell {
   min-height: 100vh;
-  --app-bg:
-    radial-gradient(circle at 18% 12%, rgba(37, 99, 235, 0.16), transparent 34%),
-    radial-gradient(circle at 82% 8%, rgba(6, 182, 212, 0.1), transparent 28%),
-    var(--background);
-  background: var(--app-bg);
+  background: var(--background);
   color: var(--foreground);
 }
 
@@ -1126,10 +1122,9 @@ html {
   margin-bottom: 24px;
   border: 1px solid var(--border);
   border-radius: var(--radius-card);
-  background: rgba(15, 23, 42, 0.92);
+  background: var(--surface);
   padding: 10px 12px;
   box-shadow: var(--shadow-brand);
-  backdrop-filter: blur(16px);
 }
 
 .practice-shell .dashboard-topbar,
@@ -1142,7 +1137,7 @@ html {
   margin-bottom: 0;
   border-radius: 10px;
   padding: 4px 6px;
-  box-shadow: 0 8px 28px rgba(2, 8, 23, 0.35);
+  box-shadow: none;
 }
 
 .dashboard-topbar--compact .dashboard-brand {
@@ -1209,8 +1204,8 @@ html {
 
 .dashboard-nav a:hover,
 .dashboard-nav a[aria-current="page"] {
-  border-color: rgba(6, 182, 212, 0.36);
-  background: rgba(6, 182, 212, 0.12);
+  border-color: var(--border-strong);
+  background: var(--panel-muted);
   color: var(--foreground);
 }
 
@@ -1227,23 +1222,13 @@ html {
   border: 1px solid var(--border);
   border-radius: 12px;
   background: var(--elevated);
-  box-shadow: 0 16px 48px rgba(2, 8, 23, 0.35);
+  box-shadow: var(--shadow-brand);
 }
 
 .dashboard-hero__copy {
   position: relative;
   overflow: hidden;
   padding: clamp(24px, 4vw, 42px);
-}
-
-.dashboard-hero__copy::before {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(110deg, rgba(37, 99, 235, 0.12), transparent 44%),
-    radial-gradient(circle at 88% 18%, rgba(21, 128, 61, 0.12), transparent 28%);
-  content: "";
-  pointer-events: none;
 }
 
 .dashboard-hero__copy > * {
@@ -1347,7 +1332,7 @@ html {
   border: 1px solid var(--border);
   border-radius: 12px;
   background: var(--elevated);
-  box-shadow: 0 16px 48px rgba(2, 8, 23, 0.35);
+  box-shadow: var(--shadow-brand);
 }
 
 .module-content,

@@ -114,7 +114,7 @@ export async function authenticate(values: AuthFormValues): Promise<AuthState> {
   }
 
   revalidatePath("/", "layout");
-  redirect("/");
+  redirect("/roadmap");
 }
 
 export async function signOut() {
@@ -123,5 +123,5 @@ export async function signOut() {
   await supabase.auth.signOut();
 
   revalidatePath("/", "layout");
-  redirect("/");
+  redirect("/login");
 }

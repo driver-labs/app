@@ -300,8 +300,12 @@ export default function DocumentCheckpointScene({
       car.position.x = THREE.MathUtils.lerp(laneX, shoulderX, pull);
       car.position.z = THREE.MathUtils.lerp(DECISION_Z, DECISION_Z - 2.4, pull);
       car.rotation.y = -0.08 * pull;
-      patrol.position.set(policeStartX, 0, START_Z + 10);
+      patrol.position.set(shoulderX - 0.15, 0, DECISION_Z - 5.2);
       patrol.rotation.set(0, -0.08, 0);
+      if (t > 1.2) {
+        if (officer.current) officer.current.visible = true;
+        if (requestSign.current) requestSign.current.visible = true;
+      }
       return;
     }
 

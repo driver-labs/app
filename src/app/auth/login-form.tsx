@@ -80,7 +80,12 @@ export function LoginForm() {
   }
 
   return (
-    <form className="grid gap-5" noValidate onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className="grid gap-5"
+      noValidate
+      aria-busy={isPending}
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <div className="grid grid-cols-2 rounded-button border border-divider bg-background p-1">
         <button
           aria-pressed={!isSignUp}
@@ -121,6 +126,7 @@ export function LoginForm() {
           aria-describedby={errors.email ? "email-error" : undefined}
           aria-invalid={Boolean(errors.email)}
           className={getInputClassName(Boolean(errors.email))}
+          autoComplete="email"
           id="email"
           placeholder="tu@correo.com"
           type="email"
@@ -144,6 +150,7 @@ export function LoginForm() {
           aria-describedby={errors.password ? "password-error" : undefined}
           aria-invalid={Boolean(errors.password)}
           className={getInputClassName(Boolean(errors.password))}
+          autoComplete={isSignUp ? "new-password" : "current-password"}
           id="password"
           placeholder="••••••••"
           type="password"
@@ -172,6 +179,7 @@ export function LoginForm() {
             }
             aria-invalid={Boolean(errors.passwordConfirmation)}
             className={getInputClassName(Boolean(errors.passwordConfirmation))}
+            autoComplete="new-password"
             id="passwordConfirmation"
             placeholder="••••••••"
             type="password"
@@ -202,7 +210,7 @@ export function LoginForm() {
         disabled={isPending}
         type="submit"
       >
-        {isSignUp ? "Crear cuenta" : "Entrar"}
+        {isPending ? "Verificando..." : isSignUp ? "Crear cuenta" : "Entrar"}
       </button>
     </form>
   );
