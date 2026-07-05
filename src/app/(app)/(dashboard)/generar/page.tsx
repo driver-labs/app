@@ -5,9 +5,5 @@ export const metadata = {
 };
 
 export default function GeneratePage() {
-  return (
-    <main className="page-shell">
-      <AiGenerator />
-    </main>
-  );
+  return <AiGenerator />;
 }

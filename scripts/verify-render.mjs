@@ -79,7 +79,7 @@ async function verifyViewport(browser, viewport) {
     }
   });
 
-  await page.goto(`${baseUrl}/escenario/overtake-01`, {
+  await page.goto(`${baseUrl}/practicar/overtake-01`, {
     waitUntil: "networkidle",
   });
   await page.locator("canvas").waitFor({ state: "visible", timeout: 20_000 });

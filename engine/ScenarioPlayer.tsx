@@ -8,12 +8,14 @@ import {
   CircleAlert,
   Eye,
   ListChecks,
+  PlayCircle,
   RotateCcw,
   XCircle,
 } from "lucide-react";
 import Link from "next/link";
 import { Suspense, useEffect, useMemo, useState } from "react";
 import type { Scenario } from "@/core/scenario-schema";
+import PracticeBar from "@/components/PracticeBar";
 import { getSceneView } from "./camera/views";
 import { PACKS } from "./models/cars";
 import IntersectionScene from "./scenes/IntersectionScene";
@@ -31,6 +33,8 @@ type RelatedModuleLink = {
 type ScenarioPlayerProps = {
   scenario: Scenario;
   relatedModules?: RelatedModuleLink[];
+  otherScenarios?: RelatedModuleLink[];
+  fullscreen?: boolean;
 };
 
 const difficultyLabel: Record<Scenario["difficulty"], string> = {
@@ -77,7 +81,7 @@ function SceneLoader() {
   return (
     <Html fullscreen>
       <div
-        className="stage-skeleton stage-skeleton--canvas"
+        className="stage-skeleton stage-skeleton--canvas stage-skeleton--immersive"
         aria-hidden="true"
       />
     </Html>
@@ -87,6 +91,8 @@ function SceneLoader() {
 export default function ScenarioPlayer({
   scenario,
   relatedModules = [],
+  otherScenarios = [],
+  fullscreen = false,
 }: ScenarioPlayerProps) {
   const [phase, setPhase] = useState<Phase>("intro");
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
@@ -164,9 +170,25 @@ export default function ScenarioPlayer({
       : "Elegí una sola respuesta.";
   const typedTitle = scenario.title.slice(0, typedTitleLength);
   const titleTypingDone = typedTitleLength >= scenario.title.length;
+  const showStageTitle = fullscreen || phase === "intro" || phase === "approach";
+  const stageTitleText =
+    fullscreen && phase === "intro" && !titleTypingDone
+      ? typedTitle
+      : scenario.title;
+
+  const practiceLabel = fullscreen ? "Practicar" : "Escenario";
 
   return (
-    <section className="simulator-shell" aria-label={scenario.title}>
+    <section
+      className={
+        fullscreen
+          ? "simulator-shell simulator-shell--fullscreen simulator-shell--immersive"
+          : "simulator-shell"
+      }
+      aria-label={scenario.title}
+    >
+      {fullscreen && <PracticeBar />}
+
       <div className="stage">
         <Canvas
           aria-label={`Escena 3D interactiva: ${scenario.title}. ${hint}`}
@@ -198,21 +220,31 @@ export default function ScenarioPlayer({
           </Suspense>
         </Canvas>
 
-        {(phase === "intro" || phase === "approach") && (
+        {showStageTitle && (
           <div
             className={
-              titleTypingDone ? "stage-title complete" : "stage-title typing"
+              fullscreen
+                ? phase === "intro" && !titleTypingDone
+                  ? "stage-title stage-title--corner typing"
+                  : "stage-title stage-title--corner complete"
+                : titleTypingDone
+                  ? "stage-title complete"
+                  : "stage-title typing"
             }
             data-intro={titleTypingDone ? "done" : "typing"}
             aria-live="polite"
           >
-            <span className="stage-title__label">Escenario</span>
-            <span className="stage-title__text">{typedTitle}</span>
+            <span className="stage-title__label">{practiceLabel}</span>
+            <span className="stage-title__text">{stageTitleText}</span>
           </div>
         )}
 
         {phase === "decision" && (
-          <div className="pause-overlay">
+          <div
+            className={
+              fullscreen ? "pause-overlay pause-overlay--immersive" : "pause-overlay"
+            }
+          >
             <div className="pause-icon" aria-hidden="true" />
             <span className="pause-label">EN PAUSA</span>
           </div>
@@ -229,10 +261,12 @@ export default function ScenarioPlayer({
               {completed ? "Completado" : "En práctica"}
             </span>
           </div>
-          <div>
-            <p className="eyebrow">Escenario</p>
-            <h1>{scenario.title}</h1>
-          </div>
+          {!fullscreen && (
+            <div>
+              <p className="eyebrow">{practiceLabel}</p>
+              <h1>{scenario.title}</h1>
+            </div>
+          )}
         </header>
 
         {phase === "approach" && (
@@ -358,6 +392,21 @@ export default function ScenarioPlayer({
               <Link key={module.id} href={`/modulo/${module.id}`}>
                 <BookOpen aria-hidden="true" size={17} />
                 {module.title}
+              </Link>
+            ))}
+          </nav>
+        )}
+
+        {otherScenarios.length > 0 && (
+          <nav className="related-links" aria-label="Más prácticas">
+            <p className="sidebar-block__title">
+              <PlayCircle aria-hidden="true" size={16} />
+              Más prácticas
+            </p>
+            {otherScenarios.map((item) => (
+              <Link key={item.id} href={`/practicar/${item.id}`}>
+                <PlayCircle aria-hidden="true" size={17} />
+                {item.title}
               </Link>
             ))}
           </nav>

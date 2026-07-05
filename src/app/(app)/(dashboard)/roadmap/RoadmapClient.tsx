@@ -149,7 +149,7 @@ export default function RoadmapClient({ nodes }: RoadmapClientProps) {
                 )}
                 {node.scenarios.map((scenario) =>
                   isUnlocked ? (
-                    <Link key={scenario.id} href={`/escenario/${scenario.id}`}>
+                    <Link key={scenario.id} href={`/practicar/${scenario.id}`}>
                       <PlayCircle aria-hidden="true" size={17} />
                       {scenario.title}
                     </Link>
