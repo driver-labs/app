@@ -156,7 +156,7 @@ export default function OvertakeScene({
         environment={scenario.environment}
         layoutSeed={scenario.id}
         view={view}
-        paused={phase === "intro"}
+        paused={phase === "intro" || phase === "decision"}
       />
       <OrbitControls target={view.target} maxPolarAngle={Math.PI / 2.15} />
 

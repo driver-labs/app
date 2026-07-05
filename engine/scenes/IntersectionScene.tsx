@@ -552,13 +552,15 @@ export default function Scene({
         environment={scenario.environment}
         layoutSeed={layoutSeed}
         view={view}
-        paused={phase === "intro"}
+        paused={phase === "intro" || phase === "decision"}
       />
       <OrbitControls target={view.target} maxPolarAngle={Math.PI / 2.15} />
 
       {/* Grupo del mundo: se desplaza unos frames para simular el shake del choque. */}
       <group ref={world}>
-        {showTrafficLight && <TrafficLight position={[6, 0, 6]} />}
+        {showTrafficLight && (
+          <TrafficLight position={[6, 0, 6]} paused={phase === "decision"} />
+        )}
         {showStreetLights && (
           <>
             <StreetLamp position={[8, 0, -8]} rotationY={(-3 * Math.PI) / 4} />

@@ -8,6 +8,7 @@ import {
   CircleAlert,
   Eye,
   ListChecks,
+  Pause,
   PlayCircle,
   RotateCcw,
   XCircle,
@@ -111,10 +112,12 @@ function isCorrectSelection(scenario: Scenario, selectedIds: string[]) {
 function SceneLoader() {
   return (
     <Html fullscreen>
-      <div
-        className="stage-skeleton stage-skeleton--canvas stage-skeleton--immersive"
-        aria-hidden="true"
-      />
+      <div className="stage-skeleton stage-skeleton--canvas">
+        <div className="scene-loader" aria-live="polite">
+          <span className="scene-loader__track" aria-hidden="true" />
+          <span className="scene-loader__copy">Cargando escena</span>
+        </div>
+      </div>
     </Html>
   );
 }
@@ -281,7 +284,12 @@ export default function ScenarioPlayer({
                 : "pause-overlay"
             }
           >
-            <div className="pause-icon" aria-hidden="true" />
+            <Pause
+              className="pause-icon"
+              aria-hidden="true"
+              size={28}
+              strokeWidth={2.5}
+            />
             <span className="pause-label">EN PAUSA</span>
           </div>
         )}

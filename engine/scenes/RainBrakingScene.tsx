@@ -177,7 +177,7 @@ export default function RainBrakingScene({
         environment={scenario.environment}
         layoutSeed={layoutSeed}
         view={view}
-        paused={phase === "intro"}
+        paused={phase === "intro" || phase === "decision"}
       />
       <OrbitControls target={view.target} maxPolarAngle={Math.PI / 2.15} />
 

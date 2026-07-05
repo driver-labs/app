@@ -6,6 +6,7 @@ type Props = {
   position?: [number, number, number];
   rotationY?: number;
   cycle?: number; // segundos del ciclo completo
+  paused?: boolean;
 };
 
 const COLORS = {
@@ -30,6 +31,7 @@ export default function TrafficLight({
   position = [0, 0, 0],
   rotationY = 0,
   cycle = 7,
+  paused = false,
 }: Props) {
   const red = useRef<THREE.MeshStandardMaterial | null>(null);
   const amber = useRef<THREE.MeshStandardMaterial | null>(null);
@@ -37,6 +39,7 @@ export default function TrafficLight({
   const t = useRef(0);
 
   useFrame((_, delta) => {
+    if (paused) return;
     t.current += delta;
     const p = t.current % cycle;
     const isGreen = p < cycle * 0.45;

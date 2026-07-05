@@ -151,7 +151,7 @@ export default function LaneChangeScene({
         environment={scenario.environment}
         layoutSeed={layoutSeed}
         view={view}
-        paused={phase === "intro"}
+        paused={phase === "intro" || phase === "decision"}
       />
 
       {phase === "decision" ? (
