@@ -17,6 +17,9 @@ export type RoadmapNode = {
   id: string;
   title: string;
   summary: string;
+  citationCount?: number;
+  estimatedMinutes?: number;
+  lessonCount?: number;
   prerequisites: string[];
   scenarios: Array<{ id: string; title: string }>;
 };
@@ -85,6 +88,7 @@ export default function RoadmapClient({ nodes }: RoadmapClientProps) {
         const completedCount = node.scenarios.filter((scenario) =>
           completedScenarios.has(scenario.id),
         ).length;
+        const hasPractice = node.scenarios.length > 0;
         const progress =
           node.scenarios.length > 0
             ? completedCount / node.scenarios.length
@@ -121,20 +125,29 @@ export default function RoadmapClient({ nodes }: RoadmapClientProps) {
                   <h2>{node.title}</h2>
                 </div>
                 <span>
-                  {completedCount}/{node.scenarios.length}
+                  {hasPractice
+                    ? `${completedCount}/${node.scenarios.length}`
+                    : `${node.estimatedMinutes ?? 0} min`}
                 </span>
               </div>
               <p>{node.summary}</p>
-              <div
-                aria-label={`${completedCount} de ${node.scenarios.length} escenarios completados`}
-                aria-valuemax={node.scenarios.length}
-                aria-valuemin={0}
-                aria-valuenow={completedCount}
-                className="progress-track"
-                role="progressbar"
-              >
-                <span style={{ width: `${progress * 100}%` }} />
-              </div>
+              {hasPractice ? (
+                <div
+                  aria-label={`${completedCount} de ${node.scenarios.length} escenarios completados`}
+                  aria-valuemax={node.scenarios.length}
+                  aria-valuemin={0}
+                  aria-valuenow={completedCount}
+                  className="progress-track"
+                  role="progressbar"
+                >
+                  <span style={{ width: `${progress * 100}%` }} />
+                </div>
+              ) : (
+                <p className="muted">
+                  {node.lessonCount ?? 0} lecciones · {node.citationCount ?? 0}{" "}
+                  citas verificables
+                </p>
+              )}
               <div className="roadmap-actions">
                 {isUnlocked ? (
                   <Link href={`/modulo/${node.id}`}>

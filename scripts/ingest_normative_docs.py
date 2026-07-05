@@ -65,6 +65,12 @@ DOCUMENTS = [
         filename="DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf",
         source_url="assets/DL_185_Reformas_a_la_Ley_de_Transporte_Terrestre__Transito_y_Seguridad_Vial._2024.pdf",
     ),
+    SourceDocument(
+        key="manual-senales-centroamericano",
+        name="Manual Centroamericano de Dispositivos Uniformes para el Control del Transito",
+        filename="Manual_de_Senales.pdf",
+        source_url="assets/Manual_de_Senales.pdf",
+    ),
 ]
 
 

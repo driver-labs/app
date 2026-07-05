@@ -9,10 +9,11 @@ type DashboardTopbarProps = {
   compact?: boolean;
 };
 
-export default function DashboardTopbar({ compact = false }: DashboardTopbarProps) {
+export default function DashboardTopbar({
+  compact = false,
+}: DashboardTopbarProps) {
   const pathname = usePathname();
-  const isRoadmap =
-    pathname === "/roadmap" || pathname.startsWith("/modulo/");
+  const isRoadmap = pathname === "/roadmap" || pathname.startsWith("/modulo/");
   const isPractice =
     pathname === "/practicar" || pathname.startsWith("/practicar/");
   const isCompact = compact || isPractice;
@@ -20,7 +21,9 @@ export default function DashboardTopbar({ compact = false }: DashboardTopbarProp
   return (
     <header
       className={
-        isCompact ? "dashboard-topbar dashboard-topbar--compact" : "dashboard-topbar"
+        isCompact
+          ? "dashboard-topbar dashboard-topbar--compact"
+          : "dashboard-topbar"
       }
     >
       <Link className="dashboard-brand" href="/roadmap">
@@ -33,18 +36,12 @@ export default function DashboardTopbar({ compact = false }: DashboardTopbarProp
           width={741}
         />
       </Link>
-      <nav className="dashboard-nav" aria-label="Navegación principal">
-        <Link
-          aria-current={isRoadmap ? "page" : undefined}
-          href="/roadmap"
-        >
+      <nav className="dashboard-nav" aria-label="Navegacion principal">
+        <Link aria-current={isRoadmap ? "page" : undefined} href="/roadmap">
           <MapIcon aria-hidden="true" size={isCompact ? 15 : 17} />
           Roadmap
         </Link>
-        <Link
-          aria-current={isPractice ? "page" : undefined}
-          href="/practicar"
-        >
+        <Link aria-current={isPractice ? "page" : undefined} href="/practicar">
           <Car aria-hidden="true" size={isCompact ? 15 : 17} />
           Practicar
         </Link>

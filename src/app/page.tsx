@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { getLearningModules } from "@/lib/content/modules";
 
 const learningPillars = [
   {
@@ -39,15 +40,6 @@ const routes = [
   "Refuerzo para conductores",
   "Practica de examen",
   "Conduccion defensiva",
-];
-
-const modules = [
-  "Senalizacion vial",
-  "Infracciones y consecuencias",
-  "Peatones y motos",
-  "Alcohol, velocidad y celular",
-  "Redondeles e intersecciones",
-  "Transporte publico",
 ];
 
 const dashboardModules: Array<{
@@ -77,6 +69,8 @@ const dashboardModules: Array<{
 ];
 
 export default function Home() {
+  const modules = getLearningModules().slice(0, 6);
+
   return (
     <main className="min-h-screen overflow-hidden bg-background text-text">
       <section className="relative min-h-[82svh] bg-[radial-gradient(circle_at_20%_15%,rgba(37,99,235,0.22),transparent_32%),radial-gradient(circle_at_82%_24%,rgba(34,197,94,0.18),transparent_30%),#020817] px-5 pb-8 pt-5">
@@ -106,9 +100,9 @@ export default function Home() {
             <a className="transition hover:text-text" href="#rutas">
               Rutas
             </a>
-            <a className="transition hover:text-text" href="#modulos">
+            <Link className="transition hover:text-text" href="/modulos">
               Modulos
-            </a>
+            </Link>
           </div>
           <Link
             className="inline-flex h-12 items-center gap-2 rounded-button bg-primary px-5 text-sm font-semibold text-white shadow-[0_20px_60px_rgba(37,99,235,.22)] transition hover:bg-primary-hover"
@@ -288,9 +282,10 @@ export default function Home() {
           <div id="modulos">
             <div className="grid gap-4 sm:grid-cols-2">
               {modules.map((module, index) => (
-                <div
-                  className="rounded-card border border-border bg-elevated p-5"
-                  key={module}
+                <Link
+                  className="rounded-card border border-border bg-elevated p-5 transition hover:border-primary"
+                  href={`/modulos/${module.id}`}
+                  key={module.id}
                 >
                   <div className="mb-8 flex items-center justify-between">
                     <span className="text-sm font-semibold text-muted">
@@ -316,12 +311,11 @@ export default function Home() {
                       />
                     )}
                   </div>
-                  <h3 className="text-xl font-semibold">{module}</h3>
+                  <h3 className="text-xl font-semibold">{module.title}</h3>
                   <p className="mt-3 text-sm leading-6 text-secondary-text">
-                    Explicacion simple, fuente oficial, pregunta practica y una
-                    decision segura para aplicar en la calle.
+                    {module.summary}
                   </p>
-                </div>
+                </Link>
               ))}
             </div>
             <div className="mt-8 rounded-card border border-primary/40 bg-primary/10 p-6">

@@ -13,14 +13,45 @@ import {
   XCircle,
 } from "lucide-react";
 import Link from "next/link";
+import type { ComponentType } from "react";
 import { Suspense, useEffect, useMemo, useState } from "react";
-import type { Scenario } from "@/core/scenario-schema";
 import PracticeBar from "@/components/PracticeBar";
+import type { Scenario } from "@/core/scenario-schema";
+import type { SceneView } from "./camera/views";
 import { getSceneView } from "./camera/views";
+import type { Pack } from "./models/cars";
 import { PACKS } from "./models/cars";
+import BusStopScene from "./scenes/BusStopScene";
+import DistractionScene from "./scenes/DistractionScene";
 import IntersectionScene from "./scenes/IntersectionScene";
+import LaneChangeScene from "./scenes/LaneChangeScene";
 import OvertakeScene from "./scenes/OvertakeScene";
+import RainBrakingScene from "./scenes/RainBrakingScene";
+import RoundaboutScene from "./scenes/RoundaboutScene";
 import type { Phase } from "./types";
+
+type DecisionSceneProps = {
+  phase: Phase;
+  correct: boolean;
+  scenario: Scenario;
+  pack: Pack;
+  view: SceneView;
+  layoutSeed: string;
+  onReachStop: () => void;
+};
+
+// Todas comparten el mismo contrato de props que IntersectionScene. Lo que no
+// tiene componente dedicado (intersection-light, crosswalk, curve) cae en
+// IntersectionScene, igual que antes de este lookup.
+const DECISION_SCENE_COMPONENTS: Partial<
+  Record<Scenario["sceneKind"], ComponentType<DecisionSceneProps>>
+> = {
+  roundabout: RoundaboutScene,
+  "bus-stop": BusStopScene,
+  "lane-change": LaneChangeScene,
+  "rain-braking": RainBrakingScene,
+  distraction: DistractionScene,
+};
 
 const PROGRESS_KEY = "driver-labs:completed-scenarios";
 const TITLE_TYPING_MS = 44;
@@ -102,6 +133,8 @@ export default function ScenarioPlayer({
 
   const pack = PACKS.kenney;
   const view = getSceneView(scenario.sceneKind);
+  const DecisionScene =
+    DECISION_SCENE_COMPONENTS[scenario.sceneKind] ?? IntersectionScene;
   const correct = useMemo(
     () => isCorrectSelection(scenario, selectedIds),
     [scenario, selectedIds],
@@ -170,7 +203,8 @@ export default function ScenarioPlayer({
       : "Elegí una sola respuesta.";
   const typedTitle = scenario.title.slice(0, typedTitleLength);
   const titleTypingDone = typedTitleLength >= scenario.title.length;
-  const showStageTitle = fullscreen || phase === "intro" || phase === "approach";
+  const showStageTitle =
+    fullscreen || phase === "intro" || phase === "approach";
   const stageTitleText =
     fullscreen && phase === "intro" && !titleTypingDone
       ? typedTitle
@@ -207,7 +241,7 @@ export default function ScenarioPlayer({
                 onDone={() => setPhase("decision")}
               />
             ) : (
-              <IntersectionScene
+              <DecisionScene
                 phase={phase}
                 correct={correct}
                 scenario={scenario}
@@ -242,7 +276,9 @@ export default function ScenarioPlayer({
         {phase === "decision" && (
           <div
             className={
-              fullscreen ? "pause-overlay pause-overlay--immersive" : "pause-overlay"
+              fullscreen
+                ? "pause-overlay pause-overlay--immersive"
+                : "pause-overlay"
             }
           >
             <div className="pause-icon" aria-hidden="true" />

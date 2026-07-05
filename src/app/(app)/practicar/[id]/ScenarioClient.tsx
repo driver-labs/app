@@ -25,8 +25,14 @@ function SceneSkeleton() {
     <section className="simulator-shell simulator-shell--fullscreen simulator-shell--immersive simulator-shell--loading">
       <PracticeBar />
       <div className="stage">
-        <div className="stage-skeleton stage-skeleton--immersive" aria-hidden="true" />
-        <div className="stage-title stage-title--corner complete" aria-hidden="true">
+        <div
+          className="stage-skeleton stage-skeleton--immersive"
+          aria-hidden="true"
+        />
+        <div
+          className="stage-title stage-title--corner complete"
+          aria-hidden="true"
+        >
           <span className="stage-title__label">Practicar</span>
           <span className="stage-title__text">Preparando escena</span>
         </div>
