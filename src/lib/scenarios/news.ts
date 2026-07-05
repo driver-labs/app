@@ -73,9 +73,19 @@ export const getNewsScenarios = cache(async (): Promise<NewsScenario[]> => {
 
   if (error || !data) return [];
 
-  return (data as NewsScenarioRow[])
-    .map(parseRow)
-    .filter((scenario): scenario is NewsScenario => scenario !== null);
+  // Una noticia se muestra a lo sumo una vez: si el pipeline insertó más de un
+  // escenario para el mismo artículo, se conserva solo el más reciente.
+  const seenUrls = new Set<string>();
+  const scenarios: NewsScenario[] = [];
+  for (const row of data as NewsScenarioRow[]) {
+    const scenario = parseRow(row);
+    if (!scenario) continue;
+    const urlKey = scenario.newsUrl.toLowerCase();
+    if (seenUrls.has(urlKey)) continue;
+    seenUrls.add(urlKey);
+    scenarios.push(scenario);
+  }
+  return scenarios;
 });
 
 export const getNewsScenario = cache(

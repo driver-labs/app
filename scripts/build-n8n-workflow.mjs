@@ -684,14 +684,18 @@ const tplMap = templatesByPattern(rowsOf('Fetch Templates'));
 const dateStr = todayDateStr();
 const scenarios = [];
 const usedIds = new Set();
+const usedUrls = new Set();
 let seq = 1;
 for (const item of (Array.isArray(gen.items) ? gen.items : [])) {
   if (!item || typeof item.index !== 'number' || !selected[item.index]) continue;
   const sel = selected[item.index];
+  const urlKey = String(sel.story.news_url).toLowerCase();
+  if (usedUrls.has(urlKey)) continue;
   if (item.pattern !== sel.pattern) item.pattern = sel.pattern;
   const row = buildScenarioRow(item, sel.story, tplMap, dateStr, seq);
   if (row && !usedIds.has(row.id)) {
     usedIds.add(row.id);
+    usedUrls.add(urlKey);
     scenarios.push(row);
     seq += 1;
   }
@@ -729,25 +733,37 @@ const prev = $('Prep Top-Up').first().json.prev;
 const tplMap = templatesByPattern(rowsOf('Fetch Templates'));
 const dateStr = prev.dateStr || todayDateStr();
 const newsPool = prev.newsPool || [];
-const fallbackStory = {
-  news_title: 'Tendencias de tránsito en El Salvador',
-  news_url: 'https://news.google.com/search?q=transito%20El%20Salvador&hl=es-419&gl=SV',
-  news_source: 'Google News',
-  news_published_at: null,
-  news_summary: null,
-};
 const scenarios = (prev.scenarios || []).slice();
 const usedIds = new Set(scenarios.map(function (s) { return s.id; }));
+// A news article is used for AT MOST one scenario ever: exclude URLs already
+// consumed in this run and every URL already stored in the DB.
+const usedUrls = new Set(scenarios.map(function (s) { return String(s.news_url).toLowerCase(); }));
+for (const dbUrl of rowsOf('Fetch Seen URLs').map(function (r) { return String(r.news_url || '').toLowerCase(); })) {
+  if (dbUrl) usedUrls.add(dbUrl);
+}
+const available = newsPool.filter(function (s) {
+  return !usedUrls.has(String(s.news_url).toLowerCase());
+});
 let seq = prev.nextSeq || scenarios.length + 1;
-let poolIdx = 0;
 for (const item of (Array.isArray(gen.items) ? gen.items : [])) {
   if (!item || typeof item !== 'object') continue;
   item.mode = 'overlay';
-  const story = newsPool.length > 0 ? newsPool[poolIdx % newsPool.length] : fallbackStory;
-  poolIdx += 1;
+  // Prefer an unused real article; otherwise attribute a unique Google News
+  // search link per scenario so no source link ever repeats.
+  const slugKey = sanitizeSlug(item.slug || item.title || String(seq));
+  const story = available.length > 0 ? available.shift() : {
+    news_title: 'Tendencias de tránsito en El Salvador',
+    news_url: 'https://news.google.com/search?hl=es-419&gl=SV&q=' + encodeURIComponent('tránsito El Salvador ' + slugKey),
+    news_source: 'Google News',
+    news_published_at: null,
+    news_summary: null,
+  };
+  const urlKey = String(story.news_url).toLowerCase();
+  if (usedUrls.has(urlKey)) continue;
   const row = buildScenarioRow(item, story, tplMap, dateStr, seq);
   if (row && !usedIds.has(row.id)) {
     usedIds.add(row.id);
+    usedUrls.add(urlKey);
     scenarios.push(row);
     seq += 1;
   }
@@ -759,10 +775,14 @@ const CODE_FINALIZE = `
 const j = $input.first().json;
 const scenarios = Array.isArray(j.scenarios) ? j.scenarios : [];
 const seen = new Set();
+const seenUrls = new Set();
 const payload = [];
 for (const s of scenarios) {
   if (!s || !s.id || seen.has(s.id)) continue;
+  const urlKey = String(s.news_url || '').toLowerCase();
+  if (seenUrls.has(urlKey)) continue;
   seen.add(s.id);
+  seenUrls.add(urlKey);
   payload.push({
     id: s.id,
     definition: s.definition,
