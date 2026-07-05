@@ -1,3 +1,5 @@
+import { existsSync, readFileSync } from "node:fs";
+import path from "node:path";
 import {
   AlertTriangle,
   ArrowRight,
@@ -15,6 +17,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ModuleAudioPlayer } from "@/components/ModuleAudioPlayer";
 import {
   type DidacticModuleContent,
   getLearningModule,
@@ -27,6 +30,36 @@ type ModulePageProps = {
 };
 
 const manualAssetUrl = "/api/assets/manual-senales";
+const audioManifestPath = path.join(
+  process.cwd(),
+  "public",
+  "audio",
+  "modules",
+  "manifest.json",
+);
+
+type ModuleAudioManifest = {
+  modules: Record<
+    string,
+    {
+      segments: Array<{ label: string; src: string }>;
+      title: string;
+    }
+  >;
+};
+
+function getModuleAudio(moduleId: string) {
+  if (!existsSync(audioManifestPath)) return null;
+
+  try {
+    const manifest = JSON.parse(
+      readFileSync(audioManifestPath, "utf8"),
+    ) as ModuleAudioManifest;
+    return manifest.modules[moduleId] ?? null;
+  } catch {
+    return null;
+  }
+}
 
 function CitationRefs({
   citations,
@@ -471,6 +504,7 @@ export default async function ModulePage({ params }: ModulePageProps) {
   const hasManualScope = module.sourceScope.some((source) =>
     source.toLowerCase().includes("manual"),
   );
+  const moduleAudio = getModuleAudio(module.id);
 
   return (
     <section className="module-layout">
@@ -481,6 +515,12 @@ export default async function ModulePage({ params }: ModulePageProps) {
             Modulo {module.id.slice(0, 2)}
           </p>
           <h1>{didacticContent?.headline ?? module.title}</h1>
+          {moduleAudio ? (
+            <ModuleAudioPlayer
+              moduleTitle={moduleAudio.title}
+              segments={moduleAudio.segments}
+            />
+          ) : null}
           <p className="lede">{didacticContent?.intro ?? module.summary}</p>
           <ul className="module-tags" aria-label="Etiquetas del modulo">
             {module.tags.map((tag) => (
