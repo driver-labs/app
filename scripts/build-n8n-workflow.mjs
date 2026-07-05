@@ -28,7 +28,10 @@ const supabaseUrl =
 const restUrl = `${supabaseUrl.replace(/\/$/, "")}/rest/v1`;
 
 const OPENAI_CRED = { id: "__OPENAI_CRED_ID__", name: "DriverLab OpenAI" };
-const SUPABASE_CRED = { id: "__SUPABASE_CRED_ID__", name: "DriverLab Supabase" };
+const SUPABASE_CRED = {
+  id: "__SUPABASE_CRED_ID__",
+  name: "DriverLab Supabase",
+};
 
 const patternList = contract.patterns.map((p) => p.pattern).join(", ");
 const moduleList = Object.keys(contract.modules).join(", ");
@@ -971,10 +974,7 @@ const connections = {
     main: [rssQueries.map(([name]) => to(name))],
   },
   ...Object.fromEntries(
-    rssQueries.map(([name], i) => [
-      name,
-      { main: [[to("Merge Feeds", i)]] },
-    ]),
+    rssQueries.map(([name], i) => [name, { main: [[to("Merge Feeds", i)]] }]),
   ),
   "Merge Feeds": { main: [[to("Normalize Stories")]] },
   "Normalize Stories": { main: [[to("Fetch Seen URLs")]] },

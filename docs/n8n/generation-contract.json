@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-05T06:43:21.352Z",
+  "generatedAt": "2026-07-05T06:54:51.376Z",
   "patterns": [
     {
       "pattern": "stop_intersection",
@@ -239,38 +239,17 @@
     }
   ],
   "enums": {
-    "environment": [
-      "urban",
-      "highway",
-      "rural"
-    ],
-    "weather": [
-      "clear",
-      "rain",
-      "fog"
-    ],
-    "timeOfDay": [
-      "day",
-      "dusk",
-      "night"
-    ],
+    "environment": ["urban", "highway", "rural"],
+    "weather": ["clear", "rain", "fog"],
+    "timeOfDay": ["day", "dusk", "night"],
     "roadType": [
       "single_carriageway",
       "multi_lane_avenue",
       "roundabout",
       "intersection"
     ],
-    "cameraMode": [
-      "fixed",
-      "third_person_follow",
-      "top_down",
-      "cinematic"
-    ],
-    "difficulty": [
-      "basic",
-      "intermediate",
-      "advanced"
-    ],
+    "cameraMode": ["fixed", "third_person_follow", "top_down", "cinematic"],
+    "difficulty": ["basic", "intermediate", "advanced"],
     "actorRole": [
       "ego_vehicle",
       "offender_vehicle",
@@ -290,35 +269,14 @@
     ]
   },
   "limits": {
-    "durationSeconds": [
-      10,
-      60
-    ],
-    "actors": [
-      2,
-      6
-    ],
-    "timelineEvents": [
-      1,
-      12
-    ],
-    "options": [
-      3,
-      4
-    ],
-    "estimatedMinutes": [
-      2,
-      10
-    ],
+    "durationSeconds": [10, 60],
+    "actors": [2, 6],
+    "timelineEvents": [1, 12],
+    "options": [3, 4],
+    "estimatedMinutes": [2, 10],
     "titleMaxChars": 70,
-    "optionLabelChars": [
-      8,
-      120
-    ],
-    "fov": [
-      30,
-      90
-    ],
+    "optionLabelChars": [8, 120],
+    "fov": [30, 90],
     "maxAbsCoordinate": 200
   },
   "scoring": {

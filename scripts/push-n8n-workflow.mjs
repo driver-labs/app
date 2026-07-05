@@ -11,7 +11,10 @@ const rootDir = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
   "..",
 );
-const workflowPath = path.join(rootDir, "docs/n8n/news-scenarios-workflow.json");
+const workflowPath = path.join(
+  rootDir,
+  "docs/n8n/news-scenarios-workflow.json",
+);
 const credentialCachePath = path.join(rootDir, "docs/n8n/.credentials.json");
 
 const baseUrl = (process.env.N8N_INSTANCE_URL || "").replace(/\/$/, "");
@@ -108,10 +111,7 @@ async function resolveCredentialIds() {
     openAiApi: { id: openAi.json.id, name: openAi.json.name },
     supabaseApi: { id: supabase.json.id, name: supabase.json.name },
   };
-  writeFileSync(
-    credentialCachePath,
-    `${JSON.stringify(resolved, null, 2)}\n`,
-  );
+  writeFileSync(credentialCachePath, `${JSON.stringify(resolved, null, 2)}\n`);
   console.log(
     `Created: ${resolved.openAiApi.name} (${resolved.openAiApi.id}), ${resolved.supabaseApi.name} (${resolved.supabaseApi.id})`,
   );
@@ -124,7 +124,8 @@ const credentialIds = await resolveCredentialIds();
 for (const node of workflow.nodes) {
   if (!node.credentials) continue;
   for (const type of Object.keys(node.credentials)) {
-    if (credentialIds[type]) node.credentials[type] = { ...credentialIds[type] };
+    if (credentialIds[type])
+      node.credentials[type] = { ...credentialIds[type] };
   }
 }
 
@@ -135,10 +136,7 @@ const body = {
   settings: workflow.settings,
 };
 
-const existing = await api(
-  "GET",
-  `/workflows?limit=100`,
-);
+const existing = await api("GET", `/workflows?limit=100`);
 if (existing.status >= 300) {
   console.error("Failed to list workflows:", existing.text);
   process.exit(1);
