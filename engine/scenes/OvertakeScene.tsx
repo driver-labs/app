@@ -2,27 +2,108 @@ import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import type * as THREE from "three";
+import type { Scenario } from "@/core/scenario-schema";
 import type { SceneView } from "../camera/views";
-import Lights from "../env/Lights";
+import RainyAmbience from "../env/RainyAmbience";
 import type { Pack } from "../models/cars";
 import type { Phase } from "../types";
 import { CAR_YAW, Model } from "./IntersectionScene";
 
 type Props = {
   phase: Phase;
+  scenario: Scenario;
   pack: Pack;
   view: SceneView;
   onDone: () => void;
 };
 
+const SPEED_BY_LEVEL: Record<Scenario["actors"][number]["speed"], number> = {
+  fast: 9,
+  normal: 7,
+  slow: 4,
+  speeding: 12,
+};
+
+function actorByRole(
+  scenario: Scenario,
+  role: Scenario["actors"][number]["role"],
+) {
+  return scenario.actors.find((actor) => actor.role === role);
+}
+
+function modelFromActor(
+  actor: Scenario["actors"][number] | undefined,
+  fallback: string,
+) {
+  if (!actor?.model) return fallback;
+  if (actor.model.startsWith("/")) return actor.model;
+  return `/models/${actor.model}.glb`;
+}
+
+function CenterLine({
+  centerLine,
+}: {
+  centerLine: Scenario["road"]["centerLine"];
+}) {
+  if (centerLine === "dashed") {
+    return (
+      <>
+        {Array.from({ length: 34 }, (_, i) => {
+          const z = -82 + i * 5;
+          return (
+            <mesh
+              key={`dash-${z}`}
+              rotation={[-Math.PI / 2, 0, 0]}
+              position={[0, 0.02, z]}
+            >
+              <planeGeometry args={[0.2, 2.4]} />
+              <meshStandardMaterial color="#e8c33a" />
+            </mesh>
+          );
+        })}
+      </>
+    );
+  }
+
+  const offsets = centerLine === "double-solid" ? [-0.18, 0.18] : [0];
+  return (
+    <>
+      {offsets.map((x) => (
+        <mesh
+          key={`solid-line-${x}`}
+          rotation={[-Math.PI / 2, 0, 0]}
+          position={[x, 0.02, 0]}
+        >
+          <planeGeometry args={[0.16, 200]} />
+          <meshStandardMaterial color="#e8c33a" />
+        </mesh>
+      ))}
+    </>
+  );
+}
+
 // Escena de DIAGNÓSTICO: el auto rojo adelanta cruzando la línea continua (autoplay),
 // y al terminar la maniobra se dispara la pregunta.
-export default function OvertakeScene({ phase, pack, view, onDone }: Props) {
+export default function OvertakeScene({
+  phase,
+  scenario,
+  pack,
+  view,
+  onDone,
+}: Props) {
   const slow = useRef<THREE.Group | null>(null);
   const rogue = useRef<THREE.Group | null>(null);
   const oncoming = useRef<THREE.Group | null>(null);
   const stage = useRef(0);
   const done = useRef(false);
+  const slowActor = actorByRole(scenario, "traffic");
+  const rogueActor = actorByRole(scenario, "offender");
+  const oncomingActor = actorByRole(scenario, "oncoming");
+  const slowSpeed = SPEED_BY_LEVEL[slowActor?.speed ?? "slow"];
+  const rogueSpeed = SPEED_BY_LEVEL[rogueActor?.speed ?? "fast"];
+  const oncomingSpeed = SPEED_BY_LEVEL[oncomingActor?.speed ?? "normal"];
+  const roadWidth = Math.max(8, scenario.road.lanes * 3.8);
+  const laneX = roadWidth / 4;
 
   useFrame((_, delta) => {
     const d = Math.min(delta, 0.05);
@@ -32,8 +113,9 @@ export default function OvertakeScene({ phase, pack, view, onDone }: Props) {
     if (!s || !r || !o) return;
     if (phase !== "approach") return;
 
-    s.position.z -= 3 * d;
-    o.position.z += (stage.current >= 3 ? 13 : 3) * d;
+    s.position.z -= slowSpeed * d;
+    o.position.z +=
+      (stage.current >= 3 ? oncomingSpeed * 1.8 : oncomingSpeed) * d;
 
     const px = r.position.x;
     const pz = r.position.z;
@@ -46,17 +128,17 @@ export default function OvertakeScene({ phase, pack, view, onDone }: Props) {
     };
 
     if (stage.current === 0) {
-      r.position.z -= 8 * d;
+      r.position.z -= rogueSpeed * d;
       if (r.position.z - s.position.z < 9) stage.current = 1;
     } else if (stage.current === 1) {
-      r.position.z -= 9 * d;
-      if (toLane(-2)) stage.current = 2;
+      r.position.z -= (rogueSpeed + 1) * d;
+      if (toLane(-laneX)) stage.current = 2;
     } else if (stage.current === 2) {
-      r.position.z -= 12 * d;
+      r.position.z -= (rogueSpeed + 3) * d;
       if (s.position.z - r.position.z > 8) stage.current = 3;
     } else if (stage.current === 3) {
-      r.position.z -= 9 * d;
-      if (toLane(2)) stage.current = 4;
+      r.position.z -= (rogueSpeed + 1) * d;
+      if (toLane(laneX)) stage.current = 4;
     } else if (!done.current) {
       done.current = true;
       onDone();
@@ -69,9 +151,13 @@ export default function OvertakeScene({ phase, pack, view, onDone }: Props) {
 
   return (
     <>
-      <color attach="background" args={["#87b6d9"]} />
       <PerspectiveCamera makeDefault position={view.camera} fov={view.fov} />
-      <Lights />
+      <RainyAmbience
+        environment={scenario.environment}
+        layoutSeed={scenario.id}
+        view={view}
+        paused={phase === "intro"}
+      />
       <OrbitControls target={view.target} maxPolarAngle={Math.PI / 2.15} />
 
       {/* pasto */}
@@ -85,22 +171,12 @@ export default function OvertakeScene({ phase, pack, view, onDone }: Props) {
       </mesh>
       {/* calle (a lo largo de Z) */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
-        <planeGeometry args={[8, 200]} />
+        <planeGeometry args={[roadWidth, 200]} />
         <meshStandardMaterial color="#3a3a3f" />
       </mesh>
-      {/* doble línea CONTINUA amarilla */}
-      {[-0.18, 0.18].map((x) => (
-        <mesh
-          key={`solid-line-${x}`}
-          rotation={[-Math.PI / 2, 0, 0]}
-          position={[x, 0.02, 0]}
-        >
-          <planeGeometry args={[0.16, 200]} />
-          <meshStandardMaterial color="#e8c33a" />
-        </mesh>
-      ))}
+      <CenterLine centerLine={scenario.road.centerLine} />
       {/* bordes blancos */}
-      {[-3.85, 3.85].map((x) => (
+      {[-roadWidth / 2 + 0.15, roadWidth / 2 - 0.15].map((x) => (
         <mesh
           key={`edge-line-${x}`}
           rotation={[-Math.PI / 2, 0, 0]}
@@ -112,16 +188,28 @@ export default function OvertakeScene({ phase, pack, view, onDone }: Props) {
       ))}
 
       {/* auto lento — carril derecho */}
-      <group ref={slow} position={[2, 0, 2]}>
-        <Model model={pack.slow} scale={pack.scale} yaw={CAR_YAW} />
+      <group ref={slow} position={[laneX, 0, 2]}>
+        <Model
+          model={modelFromActor(slowActor, pack.slow)}
+          scale={pack.scale}
+          yaw={CAR_YAW}
+        />
       </group>
       {/* infractor — su rotation.y la maneja useFrame (por eso yaw 0) */}
-      <group ref={rogue} position={[2, 0, 18]} rotation={[0, Math.PI, 0]}>
-        <Model model={pack.rogue} scale={pack.scale} yaw={0} />
+      <group ref={rogue} position={[laneX, 0, 18]} rotation={[0, Math.PI, 0]}>
+        <Model
+          model={modelFromActor(rogueActor, pack.rogue)}
+          scale={pack.scale}
+          yaw={0}
+        />
       </group>
       {/* auto de frente — carril contrario */}
-      <group ref={oncoming} position={[-2, 0, -38]}>
-        <Model model={pack.oncoming} scale={pack.scale} yaw={0} />
+      <group ref={oncoming} position={[-laneX, 0, -38]}>
+        <Model
+          model={modelFromActor(oncomingActor, pack.oncoming)}
+          scale={pack.scale}
+          yaw={0}
+        />
       </group>
     </>
   );

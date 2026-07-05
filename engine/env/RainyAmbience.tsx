@@ -1,7 +1,9 @@
 import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import type * as THREE from "three";
+import type { Scenario } from "@/core/scenario-schema";
 import {
+  blockedBuildingsForView,
   createSeededRandom,
   generateClearanceBuildings,
 } from "../camera/clear-view";
@@ -11,13 +13,40 @@ const RAIN_COUNT = 900;
 
 type Props = {
   view: SceneView;
+  environment?: Scenario["environment"];
   /** Semilla estable por escenario — mismo id ⇒ mismo skyline. */
   layoutSeed?: string;
+  paused?: boolean;
 };
 
-// Ambientación noche lluviosa: fog, luz fría, lluvia y edificios fuera del cono de visión.
-export default function RainyAmbience({ view, layoutSeed = "default" }: Props) {
+const SKY_BY_TIME: Record<Scenario["environment"]["timeOfDay"], string> = {
+  day: "#87b6d9",
+  dusk: "#c2836b",
+  night: "#0a1622",
+};
+
+const FOG_BY_WEATHER: Record<
+  Scenario["environment"]["weather"],
+  [string, number, number] | null
+> = {
+  clear: null,
+  rain: ["#0a1622", 22, 110],
+  fog: ["#cfd8df", 12, 82],
+};
+
+// Ambientación configurable: cielo, fog, luces, lluvia y skyline estable.
+export default function RainyAmbience({
+  environment = { timeOfDay: "night", weather: "rain", setting: "urban" },
+  view,
+  layoutSeed = "default",
+  paused = false,
+}: Props) {
   const rain = useRef<THREE.Points | null>(null);
+  const isNight = environment.timeOfDay === "night";
+  const isRain = environment.weather === "rain";
+  const isFog = environment.weather === "fog";
+  const showBuildings = environment.setting === "urban";
+  const fog = FOG_BY_WEATHER[environment.weather];
   const rnd = useMemo(
     () => createSeededRandom(`rain:${layoutSeed}`),
     [layoutSeed],
@@ -33,12 +62,21 @@ export default function RainyAmbience({ view, layoutSeed = "default" }: Props) {
     return a;
   }, [rnd]);
 
-  const buildings = useMemo(
-    () => generateClearanceBuildings({ view, seed: layoutSeed }),
-    [view, layoutSeed],
-  );
+  const buildings = useMemo(() => {
+    const generated = generateClearanceBuildings({ view, seed: layoutSeed });
+    if (process.env.NODE_ENV !== "production") {
+      const blocked = blockedBuildingsForView(generated, view);
+      if (blocked.length > 0) {
+        console.error(
+          `Camera view blocked by generated buildings: ${blocked.join(", ")}`,
+        );
+      }
+    }
+    return generated;
+  }, [view, layoutSeed]);
 
   useFrame((_, delta) => {
+    if (paused) return;
     if (!rain.current) return;
     const d = Math.min(delta, 0.05);
     const p = rain.current.geometry.attributes.position.array as Float32Array;
@@ -56,31 +94,47 @@ export default function RainyAmbience({ view, layoutSeed = "default" }: Props) {
 
   return (
     <>
-      <fog attach="fog" args={["#0a1622", 22, 110]} />
-      <hemisphereLight args={["#7fa8c8", "#0a1420", 1.0]} />
+      <color attach="background" args={[SKY_BY_TIME[environment.timeOfDay]]} />
+      {fog && <fog attach="fog" args={fog} />}
+      <hemisphereLight
+        args={[
+          isNight ? "#7fa8c8" : "#eaf2ff",
+          isNight ? "#0a1420" : "#3a4658",
+          isNight ? 1.0 : 1.25,
+        ]}
+      />
       <directionalLight
-        position={[6, 14, -6]}
-        intensity={0.5}
-        color="#cfe0f0"
+        position={isNight ? [6, 14, -6] : [12, 22, 8]}
+        intensity={isNight || isFog ? 0.55 : 2.1}
+        color={isNight ? "#cfe0f0" : "#ffffff"}
+        castShadow
       />
 
-      <points ref={rain}>
-        <bufferGeometry>
-          <bufferAttribute
-            attach="attributes-position"
-            args={[rainPos, 3]}
-            count={RAIN_COUNT}
+      {isRain && (
+        <points ref={rain}>
+          <bufferGeometry>
+            <bufferAttribute
+              attach="attributes-position"
+              args={[rainPos, 3]}
+              count={RAIN_COUNT}
+            />
+          </bufferGeometry>
+          <pointsMaterial
+            color="#9fd8ff"
+            size={0.06}
+            transparent
+            opacity={0.6}
           />
-        </bufferGeometry>
-        <pointsMaterial color="#9fd8ff" size={0.06} transparent opacity={0.6} />
-      </points>
+        </points>
+      )}
 
-      {buildings.map((b) => (
-        <mesh key={b.id} position={[b.x, b.h / 2, b.z]}>
-          <boxGeometry args={[b.w, b.h, b.d]} />
-          <meshStandardMaterial color={b.color} roughness={0.8} />
-        </mesh>
-      ))}
+      {showBuildings &&
+        buildings.map((b) => (
+          <mesh key={b.id} position={[b.x, b.h / 2, b.z]}>
+            <boxGeometry args={[b.w, b.h, b.d]} />
+            <meshStandardMaterial color={b.color} roughness={0.8} />
+          </mesh>
+        ))}
     </>
   );
 }

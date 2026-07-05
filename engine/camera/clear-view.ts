@@ -119,6 +119,15 @@ export function buildingBlocksView(
   return samples.some((point) => pointBlocksView(point, view, options));
 }
 
+export function blockedBuildingsForView(
+  buildings: Array<Pick<BuildingLayout, "id" | "x" | "z" | "w" | "h" | "d">>,
+  view: SceneView,
+): string[] {
+  return buildings
+    .filter((building) => buildingBlocksView(building, view))
+    .map((building) => building.id);
+}
+
 type GenerateBuildingsOptions = {
   count?: number;
   seed?: string;

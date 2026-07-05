@@ -1,1 +1,1 @@
-export type Phase = "approach" | "decision" | "consequence";
+export type Phase = "intro" | "approach" | "decision" | "consequence";
