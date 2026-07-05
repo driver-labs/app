@@ -29,7 +29,7 @@ import { actorModel, CAR_YAW, Model } from "./IntersectionScene";
 const RING_MID_R = 9;
 const RING_OUTER_R = 12.6;
 const STUB_LENGTH = 26;
-const STUB_WIDTH = 8.2;
+const STUB_WIDTH = 10.4;
 
 const PLAYER_START_Z = 24;
 const DECISION_Z = RING_OUTER_R + 2.2;
@@ -43,9 +43,12 @@ const MOTO_ANGULAR_SPEED = 0.6;
 const MOTO_START_ANGLE = 0.95;
 const BUS_ANGULAR_SPEED = 0.28;
 const BUS_START_ANGLE = Math.PI + 0.8;
+const MOTO_EXIT_ANGLE = -Math.PI / 2;
+const BUS_EXIT_ANGLE = Math.PI;
+const EXIT_SPEED = 5.8;
 
-const CRASH_TRIGGER_DIST = 2.4;
-const MOTO_CLEAR_ANGLE = -0.35;
+const CRASH_TRIGGER_DIST = 2.0;
+const MOTO_CLEAR_ANGLE = -0.75;
 
 // Escala del tile de rotonda para que su carril de circulación quede en RING_MID_R.
 const ROUNDABOUT_SCALE = RING_MID_R / ROUNDABOUT_TILE.laneRadius;
@@ -92,6 +95,8 @@ export default function RoundaboutScene({
   const playerAngle = useRef(0);
   const motoAngle = useRef(MOTO_START_ANGLE);
   const busAngle = useRef(BUS_START_ANGLE);
+  const motoExiting = useRef(false);
+  const busExiting = useRef(false);
   const crashed = useRef(false);
   const crashTime = useRef(0);
   const motoBaseX = useRef(0);
@@ -117,15 +122,37 @@ export default function RoundaboutScene({
     const trafficCanMove =
       phase === "approach" || (phase === "consequence" && !crashed.current);
     if (trafficCanMove) {
-      motoAngle.current -= MOTO_ANGULAR_SPEED * d;
-      busAngle.current -= BUS_ANGULAR_SPEED * d;
+      if (!motoExiting.current) {
+        motoAngle.current -= MOTO_ANGULAR_SPEED * d;
+        if (motoAngle.current <= MOTO_EXIT_ANGLE) {
+          motoExiting.current = true;
+        }
+      }
+      if (!busExiting.current) {
+        busAngle.current -= BUS_ANGULAR_SPEED * d;
+        if (busAngle.current <= BUS_EXIT_ANGLE) {
+          busExiting.current = true;
+        }
+      }
     }
-    const [mx, , mz] = ringPos(motoAngle.current);
-    m.position.set(mx, 0, mz);
-    m.rotation.y = ringHeading(motoAngle.current);
-    const [bx, , bz] = ringPos(busAngle.current);
-    b.position.set(bx, 0, bz);
-    b.rotation.y = ringHeading(busAngle.current);
+
+    if (motoExiting.current && !crashed.current) {
+      m.position.x -= EXIT_SPEED * d;
+      m.rotation.y = Math.PI / 2;
+    } else {
+      const [mx, , mz] = ringPos(motoAngle.current);
+      m.position.set(mx, 0, mz);
+      m.rotation.y = ringHeading(motoAngle.current);
+    }
+
+    if (busExiting.current) {
+      b.position.z -= EXIT_SPEED * 0.72 * d;
+      b.rotation.y = 0;
+    } else {
+      const [bx, , bz] = ringPos(busAngle.current);
+      b.position.set(bx, 0, bz);
+      b.rotation.y = ringHeading(busAngle.current);
+    }
 
     if (phase === "approach") {
       p.position.z -= APPROACH_SPEED_PLAYER * d;
@@ -180,11 +207,17 @@ export default function RoundaboutScene({
       p.position.set(x, 0, z);
       p.rotation.y = ringHeading(playerAngle.current);
 
+      if (playerAngle.current <= -0.28) {
+        const [forcedMx, , forcedMz] = ringPos(playerAngle.current - 0.1);
+        m.position.set(forcedMx, 0, forcedMz);
+        m.rotation.y = ringHeading(playerAngle.current - 0.1);
+      }
+
       const dist = Math.hypot(
         p.position.x - m.position.x,
         p.position.z - m.position.z,
       );
-      if (dist < CRASH_TRIGGER_DIST) {
+      if (dist < CRASH_TRIGGER_DIST || playerAngle.current <= -0.38) {
         crashed.current = true;
         crashTime.current = state.clock.elapsedTime;
         motoBaseX.current = m.position.x;
@@ -229,7 +262,12 @@ export default function RoundaboutScene({
         view={view}
         paused={phase === "intro" || phase === "decision"}
       />
-      <OrbitControls target={view.target} maxPolarAngle={Math.PI / 2.15} />
+      <OrbitControls
+        target={view.target}
+        maxPolarAngle={Math.PI / 2.15}
+        minDistance={8}
+        maxDistance={58}
+      />
 
       <group ref={world}>
         {/* piso + rotonda del kit; los brazos rectos se encajan a ras del tile */}

@@ -2,7 +2,7 @@
   "schemaVersion": "drivelab.scenario.v1",
   "id": "scenario_transporte_publico_bus_001",
   "slug": "transporte-publico-bus-detenido",
-  "title": "Bus detenido y peaton oculto",
+  "title": "Bus detenido y peatón oculto",
   "description": "El usuario practica no adelantar un bus detenido sin campo visual despejado.",
   "moduleBinding": {
     "moduleId": "10-transporte-publico-y-pasajeros",
@@ -18,19 +18,19 @@
       "Esperar visibilidad suficiente antes de adelantar o rebasar."
     ],
     "feedback": {
-      "success": "Esperaste a tener campo visual y evitaste sorprender a un peaton oculto.",
-      "failure": "Adelantar un bus detenido sin visibilidad deja al peaton invisible hasta el ultimo segundo.",
+      "success": "Esperaste a tener campo visual y evitaste sorprender a un peatón oculto.",
+      "failure": "Adelantar un bus detenido sin visibilidad deja al peatón invisible hasta el último segundo.",
       "hints": [
-        "Un vehiculo grande detenido tapa personas y maniobras.",
-        "Reduce velocidad antes de pasar junto a transporte publico.",
-        "La visibilidad manda mas que la impaciencia."
+        "Un vehículo grande detenido tapa personas y maniobras.",
+        "Reducí velocidad antes de pasar junto a transporte público.",
+        "La visibilidad manda más que la impaciencia."
       ]
     },
     "legalReferences": [
       {
         "jurisdiction": "SV",
-        "document": "Reglamento General de Transito y Seguridad Vial",
-        "articleId": "transporte publico",
+        "document": "Reglamento General de Tránsito y Seguridad Vial",
+        "articleId": "transporte público",
         "ruleCategory": "blind-overtake"
       }
     ]
@@ -66,7 +66,7 @@
       {
         "id": "asset_pedestrian",
         "type": "character",
-        "url": "/models/cone.glb"
+        "url": "primitive:pedestrian"
       }
     ],
     "actors": [
@@ -98,52 +98,24 @@
         "tags": ["pedestrian", "crossing", "hidden"]
       }
     ],
-    "timeline": [
-      {
-        "id": "ego_bus_approach",
-        "type": "animate_actor",
-        "actorId": "ego_car",
-        "track": "position",
-        "keyframes": [
-          {
-            "t": 0,
-            "value": [0, 0, 22]
-          },
-          {
-            "t": 7,
-            "value": [0, 0, 6]
-          }
-        ],
-        "interpolation": "smooth"
-      },
-      {
-        "id": "ask_bus_stop",
-        "type": "trigger",
-        "at": 6,
-        "trigger": {
-          "kind": "show_interaction",
-          "interactionId": "decision_bus_stop"
-        }
-      }
-    ],
     "interactions": [
       {
         "id": "decision_bus_stop",
         "type": "multiple_choice",
         "appearsAt": 6,
-        "prompt": "Un bus esta detenido y limita tu visibilidad. Que haces?",
+        "prompt": "Un bus está detenido y limita tu visibilidad. ¿Qué hacés?",
         "options": [
+          {
+            "id": "blind_pass",
+            "label": "Rebasar rápido porque el bus está detenido",
+            "isCorrect": false,
+            "scoreDelta": -45
+          },
           {
             "id": "wait_visibility",
             "label": "Reducir, esperar campo visual y pasar solo si es seguro",
             "isCorrect": true,
             "scoreDelta": 50
-          },
-          {
-            "id": "blind_pass",
-            "label": "Rebasar rapido porque el bus esta detenido",
-            "isCorrect": false,
-            "scoreDelta": -45
           },
           {
             "id": "horn_pass",
@@ -162,17 +134,17 @@
     "metrics": [
       {
         "id": "visibility_management",
-        "label": "Gestion de visibilidad",
+        "label": "Gestión de visibilidad",
         "weight": 45
       },
       {
         "id": "vulnerable_prediction",
-        "label": "Prediccion de peaton",
+        "label": "Predicción de peatón",
         "weight": 35
       },
       {
         "id": "patience",
-        "label": "Decision paciente",
+        "label": "Decisión paciente",
         "weight": 20
       }
     ]
@@ -180,7 +152,7 @@
   "metadata": {
     "difficulty": "intermediate",
     "estimatedMinutes": 5,
-    "tags": ["transporte-publico", "bus", "peaton"],
+    "tags": ["transporte-público", "bus", "peatón"],
     "createdAt": "2026-07-04T00:00:00-06:00",
     "updatedAt": "2026-07-04T00:00:00-06:00"
   }

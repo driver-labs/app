@@ -2,8 +2,8 @@
   "schemaVersion": "drivelab.scenario.v1",
   "id": "scenario_reglas_circulacion_semaforo_001",
   "slug": "reglas-circulacion-semaforo",
-  "title": "Decision ante semaforo en rojo",
-  "description": "El usuario practica detenerse ante luz roja y leer el cruce antes de entrar a una interseccion.",
+  "title": "Decisión ante semáforo en rojo",
+  "description": "El usuario practica detenerse ante luz roja y leer el cruce antes de entrar a una intersección.",
   "moduleBinding": {
     "moduleId": "04-reglas-de-circulacion",
     "isPrimaryScenario": true
@@ -14,16 +14,16 @@
       "04-reglas-de-circulacion:control-de-interseccion"
     ],
     "objectives": [
-      "Aplicar una orden de semaforo como decision inmediata de detencion.",
-      "Evitar entrar a una zona de conflicto sin autorizacion vial."
+      "Aplicar una orden de semáforo como decisión inmediata de detención.",
+      "Evitar entrar a una zona de conflicto sin autorización vial."
     ],
     "feedback": {
-      "success": "Respetaste la luz roja y mantuviste libre la interseccion.",
+      "success": "Respetaste la luz roja y mantuviste libre la intersección.",
       "failure": "Entrar con luz roja elimina la prioridad de paso y crea un conflicto directo con otros usuarios.",
       "hints": [
-        "La luz roja ordena detenerse antes de la linea.",
+        "La luz roja ordena detenerse antes de la línea.",
         "La prisa no cambia la prioridad.",
-        "Observa peatones y vehiculos que tienen paso habilitado."
+        "Observá peatones y vehículos que tienen paso habilitado."
       ]
     },
     "legalReferences": [
@@ -62,11 +62,6 @@
         "id": "asset_pickup",
         "type": "vehicle",
         "url": "/models/truck.glb"
-      },
-      {
-        "id": "asset_traffic_light",
-        "type": "signal",
-        "url": "/assets/signs/traffic-light.glb"
       }
     ],
     "actors": [
@@ -89,47 +84,13 @@
         "tags": ["vehicle", "priority"]
       }
     ],
-    "timeline": [
-      {
-        "id": "ego_red_approach",
-        "type": "animate_actor",
-        "actorId": "ego_car",
-        "track": "position",
-        "keyframes": [
-          {
-            "t": 0,
-            "value": [0, 0, 22]
-          },
-          {
-            "t": 6,
-            "value": [0, 0, 7]
-          }
-        ],
-        "interpolation": "smooth"
-      },
-      {
-        "id": "ask_red_light",
-        "type": "trigger",
-        "at": 6,
-        "trigger": {
-          "kind": "show_interaction",
-          "interactionId": "decision_red_light"
-        }
-      }
-    ],
     "interactions": [
       {
         "id": "decision_red_light",
         "type": "multiple_choice",
         "appearsAt": 6,
-        "prompt": "La luz esta en rojo. Cual es la decision correcta?",
+        "prompt": "La luz está en rojo. ¿Cuál es la decisión correcta?",
         "options": [
-          {
-            "id": "stop_line",
-            "label": "Detenerse antes de la linea y esperar autorizacion",
-            "isCorrect": true,
-            "scoreDelta": 50
-          },
           {
             "id": "cross_if_clear",
             "label": "Cruzar si parece que no viene nadie",
@@ -141,6 +102,12 @@
             "label": "Acelerar para no quedar a mitad del cruce",
             "isCorrect": false,
             "scoreDelta": -45
+          },
+          {
+            "id": "stop_line",
+            "label": "Detenerse antes de la línea y esperar autorización",
+            "isCorrect": true,
+            "scoreDelta": 50
           }
         ],
         "correctOptionId": "stop_line"
@@ -153,12 +120,12 @@
     "metrics": [
       {
         "id": "signal_reading",
-        "label": "Lectura de semaforo",
+        "label": "Lectura de semáforo",
         "weight": 40
       },
       {
         "id": "stop_behavior",
-        "label": "Detencion segura",
+        "label": "Detención segura",
         "weight": 40
       },
       {
@@ -171,7 +138,7 @@
   "metadata": {
     "difficulty": "basic",
     "estimatedMinutes": 4,
-    "tags": ["semaforo", "circulacion", "interseccion"],
+    "tags": ["semáforo", "circulación", "intersección"],
     "createdAt": "2026-07-04T00:00:00-06:00",
     "updatedAt": "2026-07-04T00:00:00-06:00"
   }

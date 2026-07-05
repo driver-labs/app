@@ -153,7 +153,12 @@ export default function LaneChangeScene({
         view={view}
         paused={phase === "intro" || phase === "decision"}
       />
-      <OrbitControls target={view.target} maxPolarAngle={Math.PI / 2.15} />
+      <OrbitControls
+        target={view.target}
+        maxPolarAngle={Math.PI / 2.15}
+        minDistance={8}
+        maxDistance={58}
+      />
 
       <group ref={world}>
         <GrassGround color="#5f6b57" size={200} />

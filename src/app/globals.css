@@ -705,6 +705,18 @@ html {
   line-height: 1.1;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .scenario-panel__status,
 .scenario-panel__context {
   display: flex;
@@ -838,6 +850,7 @@ html {
   background: var(--primary);
   color: var(--foreground);
   font-weight: 800;
+  text-decoration: none;
 }
 
 .primary-action:hover:not(:disabled) {
@@ -852,6 +865,18 @@ html {
   cursor: not-allowed;
 }
 
+.secondary-action {
+  border-color: var(--border-strong);
+  background: var(--surface);
+  color: var(--ink-soft);
+}
+
+.secondary-action:hover:not(:disabled) {
+  border-color: rgba(6, 182, 212, 0.45);
+  background: rgba(6, 182, 212, 0.1);
+  color: var(--foreground);
+}
+
 .result-box {
   display: grid;
   gap: 12px;
@@ -863,6 +888,44 @@ html {
 
 .result-box.bad .result {
   color: var(--danger);
+}
+
+.score-line,
+.sync-note {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.sync-note {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(148, 163, 184, 0.08);
+  padding: 10px 12px;
+}
+
+.hint-list {
+  display: grid;
+  gap: 8px;
+  border: 1px solid rgba(245, 158, 11, 0.28);
+  border-radius: 8px;
+  background: rgba(245, 158, 11, 0.08);
+  padding: 12px;
+}
+
+.hint-list ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.result-actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
 }
 
 .law-refs,

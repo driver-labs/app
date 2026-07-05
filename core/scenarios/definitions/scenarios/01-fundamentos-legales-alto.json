@@ -3,7 +3,7 @@
   "id": "scenario_fundamentos_legales_alto_001",
   "slug": "fundamentos-legales-alto",
   "title": "Alto completo y deber de ceder",
-  "description": "El usuario practica la obligacion basica de detenerse por completo, observar y avanzar solo cuando no exista conflicto.",
+  "description": "El usuario practica la obligación básica de detenerse por completo, observar y avanzar solo cuando no exista conflicto.",
   "moduleBinding": {
     "moduleId": "01-fundamentos-legales",
     "isPrimaryScenario": true
@@ -14,22 +14,22 @@
       "01-fundamentos-legales:responsabilidad-preventiva"
     ],
     "objectives": [
-      "Reconocer que una orden vial exige conducta concreta, no solo conocimiento teorico.",
-      "Detener el vehiculo antes de la linea y ceder el paso cuando corresponde."
+      "Reconocer que una orden vial exige conducta concreta, no solo conocimiento teórico.",
+      "Detener el vehículo antes de la línea y ceder el paso cuando corresponde."
     ],
     "feedback": {
       "success": "Te detuviste por completo, observaste el cruce y avanzaste con margen.",
-      "failure": "La senal de alto exige detenerse antes de entrar al cruce; pasar rodando deja poco tiempo para reaccionar.",
+      "failure": "La señal de alto exige detenerse antes de entrar al cruce; pasar rodando deja poco tiempo para reaccionar.",
       "hints": [
-        "Busca la linea de detencion antes de mirar el trafico cruzado.",
-        "Un alto incompleto sigue siendo una decision riesgosa.",
+        "Buscá la línea de detención antes de mirar el tráfico cruzado.",
+        "Un alto incompleto sigue siendo una decisión riesgosa.",
         "La prioridad se confirma antes de avanzar, no durante el cruce."
       ]
     },
     "legalReferences": [
       {
         "jurisdiction": "SV",
-        "document": "Ley de Transporte Terrestre, Transito y Seguridad Vial",
+        "document": "Ley de Transporte Terrestre, Tránsito y Seguridad Vial",
         "articleId": "base normativa",
         "ruleCategory": "run-stop"
       }
@@ -62,11 +62,6 @@
         "id": "asset_taxi",
         "type": "vehicle",
         "url": "/models/taxi.glb"
-      },
-      {
-        "id": "asset_stop_sign",
-        "type": "sign",
-        "url": "/assets/signs/stop.glb"
       }
     ],
     "actors": [
@@ -89,64 +84,13 @@
         "tags": ["vehicle", "priority"]
       }
     ],
-    "timeline": [
-      {
-        "id": "ego_approach",
-        "type": "animate_actor",
-        "actorId": "ego_car",
-        "track": "position",
-        "keyframes": [
-          {
-            "t": 0,
-            "value": [0, 0, 24]
-          },
-          {
-            "t": 7,
-            "value": [0, 0, 7]
-          }
-        ],
-        "interpolation": "smooth"
-      },
-      {
-        "id": "traffic_crosses",
-        "type": "animate_actor",
-        "actorId": "cross_traffic",
-        "track": "position",
-        "keyframes": [
-          {
-            "t": 2,
-            "value": [-18, 0, 2]
-          },
-          {
-            "t": 10,
-            "value": [18, 0, 2]
-          }
-        ],
-        "interpolation": "linear"
-      },
-      {
-        "id": "ask_stop_decision",
-        "type": "trigger",
-        "at": 7,
-        "trigger": {
-          "kind": "show_interaction",
-          "interactionId": "decision_stop_yield"
-        }
-      }
-    ],
     "interactions": [
       {
         "id": "decision_stop_yield",
         "type": "multiple_choice",
         "appearsAt": 7,
-        "prompt": "Que accion cumple mejor la obligacion vial?",
+        "prompt": "¿Qué acción cumple mejor la obligación vial?",
         "options": [
-          {
-            "id": "full_stop",
-            "label": "Detenerse por completo, observar y ceder el paso",
-            "isCorrect": true,
-            "scoreDelta": 50
-          },
           {
             "id": "rolling_stop",
             "label": "Bajar la velocidad y cruzar sin detenerse",
@@ -154,8 +98,14 @@
             "scoreDelta": -35
           },
           {
+            "id": "full_stop",
+            "label": "Detenerse por completo, observar y ceder el paso",
+            "isCorrect": true,
+            "scoreDelta": 50
+          },
+          {
             "id": "accelerate",
-            "label": "Acelerar para pasar antes del vehiculo que cruza",
+            "label": "Acelerar para pasar antes del vehículo que cruza",
             "isCorrect": false,
             "scoreDelta": -45
           }
@@ -170,12 +120,12 @@
     "metrics": [
       {
         "id": "rule_recognition",
-        "label": "Reconoce la obligacion",
+        "label": "Reconoce la obligación",
         "weight": 35
       },
       {
         "id": "safe_stop",
-        "label": "Detencion completa",
+        "label": "Detención completa",
         "weight": 45
       },
       {

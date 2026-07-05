@@ -3,7 +3,7 @@
   "id": "scenario_conduccion_defensiva_punto_ciego_001",
   "slug": "conduccion-defensiva-punto-ciego",
   "title": "Punto ciego antes de cambiar de carril",
-  "description": "El usuario practica revisar espejo, senalizar y confirmar punto ciego antes de moverse.",
+  "description": "El usuario practica revisar espejo, señalizar y confirmar punto ciego antes de moverse.",
   "moduleBinding": {
     "moduleId": "07-conduccion-defensiva",
     "isPrimaryScenario": true
@@ -15,13 +15,13 @@
     ],
     "objectives": [
       "Comprobar que el espejo no elimina el punto ciego.",
-      "Secuenciar observar, senalizar y cambiar solo con espacio suficiente."
+      "Secuenciar observar, señalizar y cambiar solo con espacio suficiente."
     ],
     "feedback": {
       "success": "Revisaste el punto ciego, viste la moto y esperaste antes de cambiar.",
-      "failure": "El espejo no mostro todo; cambiar sin girar la cabeza produjo un conflicto lateral.",
+      "failure": "El espejo no mostró todo; cambiar sin girar la cabeza produjo un conflicto lateral.",
       "hints": [
-        "Senalizar no da prioridad automatica.",
+        "Señalizar no da prioridad automática.",
         "El punto ciego se confirma con mirada lateral.",
         "Las motos pueden quedar ocultas aunque parezcan lejos."
       ]
@@ -29,7 +29,7 @@
     "legalReferences": [
       {
         "jurisdiction": "SV",
-        "document": "Reglamento General de Transito y Seguridad Vial",
+        "document": "Reglamento General de Tránsito y Seguridad Vial",
         "articleId": "cambio de carril",
         "ruleCategory": "unsafe-lane-change"
       }
@@ -48,9 +48,9 @@
     "camera": {
       "mode": "third_person_follow",
       "targetActorId": "ego_car",
-      "position": [16, 11, 16],
-      "lookAt": [0, 0, 4],
-      "fov": 50
+      "position": [18, 12, 24],
+      "lookAt": [0, 0, 8],
+      "fov": 62
     },
     "assets": [
       {
@@ -84,47 +84,13 @@
         "tags": ["motorcycle", "blind_spot"]
       }
     ],
-    "timeline": [
-      {
-        "id": "ego_lane_prepare",
-        "type": "animate_actor",
-        "actorId": "ego_car",
-        "track": "position",
-        "keyframes": [
-          {
-            "t": 0,
-            "value": [0, 0, 18]
-          },
-          {
-            "t": 7,
-            "value": [0, 0, 6]
-          }
-        ],
-        "interpolation": "smooth"
-      },
-      {
-        "id": "ask_blind_spot",
-        "type": "trigger",
-        "at": 6,
-        "trigger": {
-          "kind": "show_interaction",
-          "interactionId": "decision_blind_spot"
-        }
-      }
-    ],
     "interactions": [
       {
         "id": "decision_blind_spot",
         "type": "multiple_choice",
         "appearsAt": 6,
-        "prompt": "Antes de cambiar de carril, que debes hacer?",
+        "prompt": "Antes de cambiar de carril, ¿qué debés hacer?",
         "options": [
-          {
-            "id": "mirror_signal_head",
-            "label": "Mirar espejo, senalizar, revisar punto ciego y esperar espacio",
-            "isCorrect": true,
-            "scoreDelta": 50
-          },
           {
             "id": "mirror_only",
             "label": "Mirar solo el espejo y cambiar si no se ve nadie",
@@ -133,9 +99,15 @@
           },
           {
             "id": "signal_priority",
-            "label": "Encender via y cambiar porque ya avise",
+            "label": "Encender vía y cambiar porque ya avisé",
             "isCorrect": false,
             "scoreDelta": -35
+          },
+          {
+            "id": "mirror_signal_head",
+            "label": "Mirar espejo, señalizar, revisar punto ciego y esperar espacio",
+            "isCorrect": true,
+            "scoreDelta": 50
           }
         ],
         "correctOptionId": "mirror_signal_head"

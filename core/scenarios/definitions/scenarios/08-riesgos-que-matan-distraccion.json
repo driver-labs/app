@@ -3,7 +3,7 @@
   "id": "scenario_riesgos_que_matan_distraccion_001",
   "slug": "riesgos-que-matan-distraccion",
   "title": "Celular al volante y riesgo repentino",
-  "description": "El usuario practica ignorar una distraccion cuando aparece un riesgo lateral en zona urbana.",
+  "description": "El usuario practica ignorar una distracción cuando aparece un riesgo lateral en zona urbana.",
   "moduleBinding": {
     "moduleId": "08-riesgos-que-matan",
     "isPrimaryScenario": true
@@ -14,16 +14,16 @@
       "08-riesgos-que-matan:tiempo-de-reaccion"
     ],
     "objectives": [
-      "Reconocer que mirar el celular elimina segundos criticos de reaccion.",
-      "Mantener atencion visual y decidir detenerse en un lugar permitido."
+      "Reconocer que mirar el celular elimina segundos críticos de reacción.",
+      "Mantener atención visual y decidir detenerse en un lugar permitido."
     ],
     "feedback": {
-      "success": "Mantuviste la vista en la via y detectaste a tiempo el riesgo lateral.",
-      "failure": "Dos segundos de distraccion bastaron para perder el riesgo que aparecio delante.",
+      "success": "Mantuviste la vista en la vía y detectaste a tiempo el riesgo lateral.",
+      "failure": "Dos segundos de distracción bastaron para perder el riesgo que apareció delante.",
       "hints": [
-        "La distraccion no espera a que la calle este vacia.",
-        "Un mensaje puede responderse despues de detenerse en lugar seguro.",
-        "El tiempo de reaccion empieza cuando ves el riesgo, no cuando existe."
+        "La distracción no espera a que la calle esté vacía.",
+        "Un mensaje puede responderse después de detenerse en lugar seguro.",
+        "El tiempo de reacción empieza cuando ves el riesgo, no cuando existe."
       ]
     },
     "legalReferences": [
@@ -84,56 +84,28 @@
         "tags": ["motorcycle", "crossing"]
       }
     ],
-    "timeline": [
-      {
-        "id": "ego_distracted_approach",
-        "type": "animate_actor",
-        "actorId": "ego_car",
-        "track": "position",
-        "keyframes": [
-          {
-            "t": 0,
-            "value": [0, 0, 22]
-          },
-          {
-            "t": 7,
-            "value": [0, 0, 6]
-          }
-        ],
-        "interpolation": "smooth"
-      },
-      {
-        "id": "ask_distraction",
-        "type": "trigger",
-        "at": 6,
-        "trigger": {
-          "kind": "show_interaction",
-          "interactionId": "decision_distraction"
-        }
-      }
-    ],
     "interactions": [
       {
         "id": "decision_distraction",
         "type": "multiple_choice",
         "appearsAt": 6,
-        "prompt": "Te llega un mensaje mientras conduces. Que haces?",
+        "prompt": "Te llega un mensaje mientras conducís. ¿Qué hacés?",
         "options": [
           {
-            "id": "put_away",
-            "label": "Mantener la vista en la via y responder solo al detenerme",
-            "isCorrect": true,
-            "scoreDelta": 50
-          },
-          {
             "id": "quick_read",
-            "label": "Leerlo rapido porque solo toma un segundo",
+            "label": "Leerlo rápido porque solo toma un segundo",
             "isCorrect": false,
             "scoreDelta": -45
           },
           {
+            "id": "put_away",
+            "label": "Mantener la vista en la vía y responder solo al detenerme",
+            "isCorrect": true,
+            "scoreDelta": 50
+          },
+          {
             "id": "voice_note",
-            "label": "Tomar el telefono para mandar una nota de voz",
+            "label": "Tomar el teléfono para mandar una nota de voz",
             "isCorrect": false,
             "scoreDelta": -35
           }
@@ -148,12 +120,12 @@
     "metrics": [
       {
         "id": "attention_control",
-        "label": "Control de atencion",
+        "label": "Control de atención",
         "weight": 45
       },
       {
         "id": "reaction_margin",
-        "label": "Margen de reaccion",
+        "label": "Margen de reacción",
         "weight": 35
       },
       {
@@ -166,7 +138,7 @@
   "metadata": {
     "difficulty": "intermediate",
     "estimatedMinutes": 5,
-    "tags": ["distraccion", "celular", "riesgo"],
+    "tags": ["distracción", "celular", "riesgo"],
     "createdAt": "2026-07-04T00:00:00-06:00",
     "updatedAt": "2026-07-04T00:00:00-06:00"
   }

@@ -9,7 +9,7 @@ import type { SceneView } from "../camera/views";
 import RainyAmbience from "../env/RainyAmbience";
 import { GrassGround, RoadStrip } from "../env/RoadKit";
 import AttentionArrow from "../fx/AttentionArrow";
-import NearMissEffect from "../fx/NearMissEffect";
+import CrashEffect from "../fx/CrashEffect";
 import type { Pack } from "../models/cars";
 import Pedestrian from "../models/Pedestrian";
 import type { Phase } from "../types";
@@ -31,7 +31,7 @@ const OVERTAKE_SPEED = 9;
 const LANE_STEP = 4;
 const PED_CROSS_DURATION = 2.2;
 const BRAKE_DECEL = 14;
-const NEAR_MISS_TRIGGER_GAP = 2.6;
+const IMPACT_TRIGGER_GAP = 2.1;
 
 type Props = {
   phase: Phase;
@@ -74,6 +74,7 @@ export default function BusStopScene({
   const busActor = scenario.actors.find((actor) => actor.kind === "bus");
   const playerModel = actorModel(playerActor, pack.rogue);
   const busModel = actorModel(busActor, pack.slow);
+  const pedestrianStartX = laneX - 1.1;
 
   useFrame((state, delta) => {
     const d = Math.min(delta, 0.05);
@@ -104,7 +105,7 @@ export default function BusStopScene({
       }
       const pt = state.clock.elapsedTime - pedStartTime.current;
       pd.position.x = THREE.MathUtils.lerp(
-        laneX,
+        pedestrianStartX,
         -laneX - 1.2,
         Math.min(1, pt / PED_CROSS_DURATION),
       );
@@ -142,14 +143,14 @@ export default function BusStopScene({
       if (pedStarted.current) {
         const pt = state.clock.elapsedTime - pedStartTime.current;
         pd.position.x = THREE.MathUtils.lerp(
-          laneX,
+          pedestrianStartX,
           -laneX - 1.2,
           Math.min(1, pt / (PED_CROSS_DURATION * 0.7)),
         );
         pd.position.z = BUS_Z + PED_HIDDEN_Z;
 
         const gap = Math.abs(p.position.z - pd.position.z);
-        if (gap < NEAR_MISS_TRIGGER_GAP) {
+        if (gap < IMPACT_TRIGGER_GAP) {
           braking.current = true;
           brakeSpeed.current = OVERTAKE_SPEED;
           nearMiss.current = true;
@@ -166,7 +167,7 @@ export default function BusStopScene({
       p.position.z -= brakeSpeed.current * d;
       const pt = state.clock.elapsedTime - pedStartTime.current;
       pd.position.x = THREE.MathUtils.lerp(
-        laneX,
+        pedestrianStartX,
         -laneX - 1.2,
         Math.min(1, pt / (PED_CROSS_DURATION * 0.7)),
       );
@@ -174,6 +175,13 @@ export default function BusStopScene({
 
     if (nearMiss.current && world.current) {
       const t = state.clock.elapsedTime - nearMissTime.current;
+      const push = 1 - Math.exp(-t * 7);
+      pd.position.y = 0.12;
+      pd.position.x -= 1.4 * push * d;
+      pd.position.z -= 2.2 * push * d;
+      pd.rotation.z = Math.PI / 2;
+      pd.rotation.y = 0.45;
+
       if (t < 0.3) {
         const amp = 0.08 * (1 - t / 0.3);
         world.current.position.set(
@@ -195,7 +203,12 @@ export default function BusStopScene({
         view={view}
         paused={phase === "intro" || phase === "decision"}
       />
-      <OrbitControls target={view.target} maxPolarAngle={Math.PI / 2.15} />
+      <OrbitControls
+        target={view.target}
+        maxPolarAngle={Math.PI / 2.15}
+        minDistance={8}
+        maxDistance={58}
+      />
 
       <group ref={world}>
         <GrassGround color="#3f7d4f" size={200} />
@@ -230,16 +243,16 @@ export default function BusStopScene({
           </mesh>
         </group>
 
-        <group ref={ped} position={[laneX, 0, BUS_Z + PED_HIDDEN_Z]}>
+        <group ref={ped} position={[pedestrianStartX, 0, BUS_Z + PED_HIDDEN_Z]}>
           <Pedestrian walking shirtColor="#dc2626" />
         </group>
 
         <AttentionArrow height={4.7} target={bus} />
 
-        <NearMissEffect
+        <CrashEffect
           impact={impact}
-          triggered={nearMiss}
-          startTime={nearMissTime}
+          crashed={nearMiss}
+          crashTime={nearMissTime}
         />
       </group>
     </>

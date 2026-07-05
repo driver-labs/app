@@ -14,7 +14,7 @@
       "11-motociclistas:margen-lateral"
     ],
     "objectives": [
-      "Reconocer que una motocicleta puede quedar oculta por tamano y posicion.",
+      "Reconocer que una motocicleta puede quedar oculta por tamaño y posición.",
       "Mantener margen y evitar cambios bruscos de carril."
     ],
     "feedback": {
@@ -23,13 +23,13 @@
       "hints": [
         "Las motos aceleran y se ubican distinto a un auto.",
         "No cierres el carril si no confirmaste el punto ciego.",
-        "El margen lateral protege al usuario mas expuesto."
+        "El margen lateral protege al usuario más expuesto."
       ]
     },
     "legalReferences": [
       {
         "jurisdiction": "SV",
-        "document": "Reglamento General de Transito y Seguridad Vial",
+        "document": "Reglamento General de Tránsito y Seguridad Vial",
         "articleId": "motocicletas",
         "ruleCategory": "unsafe-lane-change"
       }
@@ -48,9 +48,9 @@
     "camera": {
       "mode": "third_person_follow",
       "targetActorId": "ego_car",
-      "position": [16, 11, 16],
-      "lookAt": [0, 0, 4],
-      "fov": 50
+      "position": [18, 12, 24],
+      "lookAt": [0, 0, 8],
+      "fov": 62
     },
     "assets": [
       {
@@ -84,58 +84,30 @@
         "tags": ["motorcycle", "blind_spot", "vulnerable"]
       }
     ],
-    "timeline": [
-      {
-        "id": "ego_moto_approach",
-        "type": "animate_actor",
-        "actorId": "ego_car",
-        "track": "position",
-        "keyframes": [
-          {
-            "t": 0,
-            "value": [0, 0, 18]
-          },
-          {
-            "t": 7,
-            "value": [0, 0, 6]
-          }
-        ],
-        "interpolation": "smooth"
-      },
-      {
-        "id": "ask_motorcycle",
-        "type": "trigger",
-        "at": 6,
-        "trigger": {
-          "kind": "show_interaction",
-          "interactionId": "decision_motorcycle"
-        }
-      }
-    ],
     "interactions": [
       {
         "id": "decision_motorcycle",
         "type": "multiple_choice",
         "appearsAt": 6,
-        "prompt": "Quieres moverte de carril y hay posibilidad de moto cercana. Que haces?",
+        "prompt": "Querés moverte de carril y hay posibilidad de una moto cercana. ¿Qué hacés?",
         "options": [
           {
-            "id": "confirm_margin",
-            "label": "Confirmar punto ciego, mantener margen y esperar espacio real",
-            "isCorrect": true,
-            "scoreDelta": 50
-          },
-          {
             "id": "move_fast",
-            "label": "Cambiar rapido para no estorbar el flujo",
+            "label": "Cambiar rápido para no estorbar el flujo",
             "isCorrect": false,
             "scoreDelta": -40
           },
           {
             "id": "trust_size",
-            "label": "Asumir que la moto frenara porque es mas pequena",
+            "label": "Asumir que la moto frenará porque es más pequeña",
             "isCorrect": false,
             "scoreDelta": -45
+          },
+          {
+            "id": "confirm_margin",
+            "label": "Confirmar punto ciego, mantener margen y esperar espacio real",
+            "isCorrect": true,
+            "scoreDelta": 50
           }
         ],
         "correctOptionId": "confirm_margin"

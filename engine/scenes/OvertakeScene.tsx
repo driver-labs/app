@@ -160,7 +160,12 @@ export default function OvertakeScene({
         view={view}
         paused={phase === "intro" || phase === "decision"}
       />
-      <OrbitControls target={view.target} maxPolarAngle={Math.PI / 2.15} />
+      <OrbitControls
+        target={view.target}
+        maxPolarAngle={Math.PI / 2.15}
+        minDistance={8}
+        maxDistance={58}
+      />
 
       {/* piso + calzada recta con tiles del kit; la línea central se dibuja
           encima porque su estilo (continua/doble) es la clave didáctica aquí */}

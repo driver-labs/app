@@ -204,7 +204,7 @@ function DocumentSign() {
               marginTop: "5px",
             }}
           >
-            Control de transito
+            Control de tránsito
           </span>
         </div>
       </Html>
@@ -340,7 +340,12 @@ export default function DocumentCheckpointScene({
         view={view}
         paused={phase === "intro" || phase === "decision"}
       />
-      <OrbitControls target={view.target} maxPolarAngle={Math.PI / 2.15} />
+      <OrbitControls
+        target={view.target}
+        maxPolarAngle={Math.PI / 2.15}
+        minDistance={8}
+        maxDistance={58}
+      />
 
       <GrassGround color="#2f8550" size={180} />
       <RoadStrip along="z" length={150} width={roadWidth} />

@@ -3,7 +3,7 @@
   "id": "scenario_practica_examen_redondel_001",
   "slug": "practica-examen-redondel",
   "title": "Redondel: prioridad y salida segura",
-  "description": "El usuario integra senales, prioridad, observacion y decision como practica final tipo examen.",
+  "description": "El usuario integra señales, prioridad, observación y decisión como práctica final tipo examen.",
   "moduleBinding": {
     "moduleId": "12-practica-para-examen",
     "isPrimaryScenario": true
@@ -14,22 +14,22 @@
       "12-practica-para-examen:decision-final"
     ],
     "objectives": [
-      "Integrar prioridad, observacion y conduccion defensiva en una sola decision.",
+      "Integrar prioridad, observación y conducción defensiva en una sola decisión.",
       "Ceder el paso a quien ya circula dentro del redondel."
     ],
     "feedback": {
       "success": "Cediste el paso a quien ya circulaba y entraste al redondel sin cerrar trayectoria.",
       "failure": "Entrar sin ceder en un redondel crea choque lateral con quien ya tiene prioridad.",
       "hints": [
-        "Antes de entrar, mira izquierda y confirma vehiculos dentro del redondel.",
-        "La prioridad no depende de quien llega con mas velocidad.",
-        "Senaliza salida y conserva carril hasta poder salir."
+        "Antes de entrar, mirá izquierda y confirmá vehículos dentro del redondel.",
+        "La prioridad no depende de quien llega con más velocidad.",
+        "Señalizá salida y conservá carril hasta poder salir."
       ]
     },
     "legalReferences": [
       {
         "jurisdiction": "SV",
-        "document": "Reglamento General de Transito y Seguridad Vial",
+        "document": "Reglamento General de Tránsito y Seguridad Vial",
         "articleId": "prioridad de paso",
         "ruleCategory": "no-yield"
       }
@@ -98,52 +98,24 @@
         "tags": ["bus", "priority"]
       }
     ],
-    "timeline": [
-      {
-        "id": "ego_roundabout_approach",
-        "type": "animate_actor",
-        "actorId": "ego_car",
-        "track": "position",
-        "keyframes": [
-          {
-            "t": 0,
-            "value": [0, 0, 22]
-          },
-          {
-            "t": 8,
-            "value": [0, 0, 8]
-          }
-        ],
-        "interpolation": "smooth"
-      },
-      {
-        "id": "ask_roundabout",
-        "type": "trigger",
-        "at": 7,
-        "trigger": {
-          "kind": "show_interaction",
-          "interactionId": "decision_roundabout"
-        }
-      }
-    ],
     "interactions": [
       {
         "id": "decision_roundabout",
         "type": "multiple_choice",
         "appearsAt": 7,
-        "prompt": "Hay vehiculos dentro del redondel. Que decision tomas?",
+        "prompt": "Hay vehículos dentro del redondel. ¿Qué decisión tomás?",
         "options": [
+          {
+            "id": "enter_first",
+            "label": "Entrar rápido para incorporarme antes de la moto",
+            "isCorrect": false,
+            "scoreDelta": -45
+          },
           {
             "id": "yield_inside",
             "label": "Reducir y ceder el paso a quienes ya circulan dentro",
             "isCorrect": true,
             "scoreDelta": 50
-          },
-          {
-            "id": "enter_first",
-            "label": "Entrar rapido para incorporarme antes de la moto",
-            "isCorrect": false,
-            "scoreDelta": -45
           },
           {
             "id": "stop_forever",
