@@ -44,7 +44,7 @@ function CameraRig() {
 type VehicleProps = {
   axis: "x" | "z";
   direction: -1 | 1;
-  lane: number;
+  laneOffset?: number;
   model: string;
   offset: number;
   speed: number;
@@ -54,11 +54,11 @@ type VehicleProps = {
 function Vehicle({
   axis,
   direction,
-  lane,
+  laneOffset = 2.65,
   model,
   offset,
   speed,
-  scale = 1.85,
+  scale = 1.65,
 }: VehicleProps) {
   const groupRef = useRef<THREE.Group>(null);
   const reducedMotion = useReducedMotion();
@@ -73,6 +73,8 @@ function Vehicle({
       ? offset % range
       : (clock.elapsedTime * speed + offset) % range;
     const trackPosition = (progress - range / 2) * direction;
+    const lane =
+      axis === "x" ? direction * laneOffset : -direction * laneOffset;
 
     if (axis === "x") {
       group.position.set(trackPosition, 0.22, lane);
@@ -256,7 +258,6 @@ function HeroWorld() {
         model={VEHICLES[0]}
         axis="x"
         direction={1}
-        lane={-2.9}
         offset={2}
         speed={6.4}
       />
@@ -264,7 +265,6 @@ function HeroWorld() {
         model={VEHICLES[1]}
         axis="x"
         direction={-1}
-        lane={2.9}
         offset={18}
         speed={5.8}
       />
@@ -272,7 +272,6 @@ function HeroWorld() {
         model={VEHICLES[2]}
         axis="z"
         direction={1}
-        lane={-2.9}
         offset={34}
         speed={5.1}
       />
@@ -280,7 +279,6 @@ function HeroWorld() {
         model={VEHICLES[3]}
         axis="z"
         direction={-1}
-        lane={2.9}
         offset={52}
         speed={4.9}
       />
@@ -288,10 +286,9 @@ function HeroWorld() {
         model={VEHICLES[4]}
         axis="x"
         direction={1}
-        lane={-2.9}
         offset={26}
         speed={3.2}
-        scale={2.05}
+        scale={1.75}
       />
 
       <Preload all />
