@@ -75,7 +75,7 @@ function CitationRefs({
 
         return (
           <span
-            className="rounded-full bg-blue-50 px-3 py-1 text-xs font-bold text-blue-700"
+            className="module-citation-badge rounded-full px-3 py-1 text-xs font-bold"
             key={`${citation.id}-${number}`}
             title={citation.label}
           >
@@ -101,7 +101,7 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
 
   return (
     <div className="grid gap-8">
-      <section className="rounded-2xl bg-blue-50 p-5">
+      <section className="module-dark-card rounded-2xl p-5">
         <p className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.12em] text-blue-700">
           <BrainCircuit aria-hidden="true" size={15} />
           Idea central
@@ -124,7 +124,7 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
           <ul className="mt-4 grid gap-3 md:grid-cols-2">
             {learningObjectives.map((objective) => (
               <li
-                className="flex gap-3 rounded-xl border border-slate-200 bg-white p-4 leading-7 text-slate-700"
+                className="module-dark-card module-dark-card--compact flex gap-3 rounded-xl p-4 leading-7"
                 key={objective}
               >
                 <CheckCircle2
@@ -158,7 +158,7 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
           <div className="mt-5 grid gap-4">
             {legalFoundation.map((item, index) => (
               <article
-                className="rounded-2xl border border-slate-200 bg-white p-5"
+                className="module-dark-card rounded-2xl p-5"
                 key={`${item.title}-${index}`}
               >
                 <p className="text-sm font-bold uppercase tracking-[0.12em] text-slate-500">
@@ -185,7 +185,7 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
         <div className="mt-5 grid gap-4">
           {lessons.map((lesson, index) => (
             <article
-              className="rounded-2xl border border-slate-200 bg-white p-5"
+              className="module-dark-card rounded-2xl p-5"
               key={`${lesson.title}-${index}`}
             >
               <p className="text-sm font-bold uppercase tracking-[0.12em] text-slate-500">
@@ -198,13 +198,13 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
                 {lesson.explanation}
               </p>
               {lesson.normativeDetail ? (
-                <div className="mt-4 rounded-xl bg-blue-50 p-4 text-blue-950">
+                <div className="module-dark-inset module-dark-inset--info mt-4 rounded-xl p-4">
                   <p className="text-sm font-bold">Que protege la norma</p>
                   <p className="mt-2 leading-7">{lesson.normativeDetail}</p>
                 </div>
               ) : null}
               {lesson.everydayExample ? (
-                <div className="mt-3 rounded-xl bg-slate-50 p-4 text-slate-700">
+                <div className="module-dark-inset mt-3 rounded-xl p-4">
                   <p className="text-sm font-bold text-slate-950">
                     Ejemplo cotidiano
                   </p>
@@ -212,20 +212,20 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
                 </div>
               ) : null}
               <div className="mt-4 grid gap-3 md:grid-cols-2">
-                <div className="rounded-xl bg-emerald-50 p-4 text-emerald-950">
+                <div className="module-dark-inset module-dark-inset--success rounded-xl p-4">
                   <p className="inline-flex items-center gap-2 text-sm font-bold">
                     <CheckCircle2 aria-hidden="true" size={16} />
                     Decision segura
                   </p>
                   <p className="mt-2 leading-7">{lesson.streetDecision}</p>
                 </div>
-                <div className="rounded-xl bg-rose-50 p-4 text-rose-950">
+                <div className="module-dark-inset module-dark-inset--danger rounded-xl p-4">
                   <p className="text-sm font-bold">Riesgo que evita</p>
                   <p className="mt-2 leading-7">{lesson.risk}</p>
                 </div>
               </div>
               {lesson.watchFor ? (
-                <div className="mt-3 rounded-xl bg-amber-50 p-4 text-amber-950">
+                <div className="module-dark-inset module-dark-inset--warning mt-3 rounded-xl p-4">
                   <p className="inline-flex items-center gap-2 text-sm font-bold">
                     <AlertTriangle aria-hidden="true" size={16} />
                     Observa esto en la via
@@ -251,7 +251,7 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
           <div className="mt-5 grid gap-4">
             {applicationCases.map((item, index) => (
               <article
-                className="rounded-2xl border border-slate-200 bg-slate-50 p-5"
+                className="module-dark-card rounded-2xl p-5"
                 key={`${item.title}-${index}`}
               >
                 <h3 className="text-xl font-semibold text-slate-950">
@@ -261,11 +261,11 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
                   {item.situation}
                 </p>
                 <div className="mt-4 grid gap-3 md:grid-cols-2">
-                  <div className="rounded-xl bg-rose-100 p-4 text-rose-950">
+                  <div className="module-dark-inset module-dark-inset--danger rounded-xl p-4">
                     <p className="text-sm font-bold">Movimiento riesgoso</p>
                     <p className="mt-2 leading-7">{item.wrongMove}</p>
                   </div>
-                  <div className="rounded-xl bg-emerald-100 p-4 text-emerald-950">
+                  <div className="module-dark-inset module-dark-inset--success rounded-xl p-4">
                     <p className="text-sm font-bold">Movimiento seguro</p>
                     <p className="mt-2 leading-7">{item.safeMove}</p>
                   </div>
@@ -294,7 +294,7 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
           <div className="mt-5 grid gap-4 md:grid-cols-2">
             {commonMistakes.map((item, index) => (
               <article
-                className="rounded-2xl border border-slate-200 bg-white p-5"
+                className="module-dark-card rounded-2xl p-5"
                 key={`${item.mistake}-${index}`}
               >
                 <h3 className="text-lg font-semibold text-slate-950">
@@ -317,7 +317,7 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
       ) : null}
 
       {checklist.length ? (
-        <section className="rounded-2xl bg-emerald-50 p-5">
+        <section className="module-dark-card rounded-2xl p-5">
           <h2 className="inline-flex items-center gap-2 text-2xl font-bold text-slate-950">
             <ListChecks
               aria-hidden="true"
@@ -329,7 +329,7 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
           <ul className="mt-5 grid gap-4">
             {checklist.map((item, index) => (
               <li
-                className="rounded-xl bg-white p-4 text-slate-700"
+                className="module-dark-inset rounded-xl p-4"
                 key={`${item.label}-${index}`}
               >
                 <p className="font-semibold text-slate-950">{item.label}</p>
@@ -345,7 +345,7 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
       ) : null}
 
       {content.scenario ? (
-        <section className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+        <section className="module-dark-card rounded-2xl p-5">
           <h2 className="text-2xl font-bold text-slate-950">
             Escenario de conciencia
           </h2>
@@ -356,11 +356,11 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
             {content.scenario.situation}
           </p>
           <div className="mt-4 grid gap-3 md:grid-cols-2">
-            <div className="rounded-xl bg-rose-100 p-4 text-rose-950">
+            <div className="module-dark-inset module-dark-inset--danger rounded-xl p-4">
               <p className="text-sm font-bold">Decision riesgosa</p>
               <p className="mt-2 leading-7">{content.scenario.unsafeChoice}</p>
             </div>
-            <div className="rounded-xl bg-emerald-100 p-4 text-emerald-950">
+            <div className="module-dark-inset module-dark-inset--success rounded-xl p-4">
               <p className="text-sm font-bold">Decision segura</p>
               <p className="mt-2 leading-7">{content.scenario.safeDecision}</p>
             </div>
@@ -387,7 +387,7 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
         <div className="mt-5 grid gap-4">
           {quiz.map((item, index) => (
             <article
-              className="rounded-2xl border border-slate-200 bg-white p-5"
+              className="module-dark-card rounded-2xl p-5"
               key={`${item.question}-${index}`}
             >
               <h3 className="text-lg font-semibold text-slate-950">
@@ -398,8 +398,8 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
                   <li
                     className={
                       option === item.answer
-                        ? "rounded-xl border border-emerald-300 bg-emerald-50 px-4 py-3 text-emerald-950"
-                        : "rounded-xl border border-slate-200 px-4 py-3 text-slate-700"
+                        ? "module-answer module-answer--correct rounded-xl px-4 py-3"
+                        : "module-answer rounded-xl px-4 py-3"
                     }
                     key={option}
                   >
@@ -432,7 +432,7 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
           <dl className="mt-5 grid gap-4 md:grid-cols-2">
             {vocabulary.map((item, index) => (
               <div
-                className="rounded-2xl border border-slate-200 bg-white p-5"
+                className="module-dark-card rounded-2xl p-5"
                 key={`${item.term}-${index}`}
               >
                 <dt className="text-lg font-semibold text-slate-950">
@@ -451,7 +451,7 @@ function DidacticContent({ content }: { content: DidacticModuleContent }) {
         </section>
       ) : null}
 
-      <section className="rounded-2xl bg-slate-100 p-5">
+      <section className="module-dark-card rounded-2xl p-5">
         <h2 className="text-2xl font-bold text-slate-950">
           Preguntas para pensar antes de manejar
         </h2>
