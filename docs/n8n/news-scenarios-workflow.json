@@ -5,10 +5,7 @@
       "name": "Daily 6am SV",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
-      "position": [
-        -1180,
-        -80
-      ],
+      "position": [-1180, -80],
       "parameters": {
         "rule": {
           "interval": [
@@ -24,10 +21,7 @@
       "name": "Manual Run Webhook",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
-      "position": [
-        -1180,
-        120
-      ],
+      "position": [-1180, 120],
       "parameters": {
         "httpMethod": "POST",
         "path": "driverlab-news-run",
@@ -39,10 +33,7 @@
       "name": "RSS Accidentes",
       "type": "n8n-nodes-base.rssFeedRead",
       "typeVersion": 1,
-      "position": [
-        -960,
-        -220
-      ],
+      "position": [-960, -220],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput",
       "parameters": {
@@ -54,10 +45,7 @@
       "name": "RSS Seguridad Vial",
       "type": "n8n-nodes-base.rssFeedRead",
       "typeVersion": 1,
-      "position": [
-        -960,
-        -80
-      ],
+      "position": [-960, -80],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput",
       "parameters": {
@@ -69,10 +57,7 @@
       "name": "RSS Vial General",
       "type": "n8n-nodes-base.rssFeedRead",
       "typeVersion": 1,
-      "position": [
-        -960,
-        60
-      ],
+      "position": [-960, 60],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput",
       "parameters": {
@@ -84,10 +69,7 @@
       "name": "RSS elsalvador.com",
       "type": "n8n-nodes-base.rssFeedRead",
       "typeVersion": 1,
-      "position": [
-        -960,
-        200
-      ],
+      "position": [-960, 200],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput",
       "parameters": {
@@ -99,10 +81,7 @@
       "name": "Merge Feeds",
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
-      "position": [
-        -740,
-        -80
-      ],
+      "position": [-740, -80],
       "alwaysOutputData": true,
       "parameters": {
         "mode": "append",
@@ -113,10 +92,7 @@
       "name": "Normalize Stories",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [
-        -560,
-        -80
-      ],
+      "position": [-560, -80],
       "alwaysOutputData": true,
       "parameters": {
         "mode": "runOnceForAllItems",
@@ -127,10 +103,7 @@
       "name": "Fetch Seen URLs",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [
-        -380,
-        -80
-      ],
+      "position": [-380, -80],
       "alwaysOutputData": true,
       "parameters": {
         "method": "GET",
@@ -152,10 +125,7 @@
       "name": "Fetch Templates",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [
-        -200,
-        -80
-      ],
+      "position": [-200, -80],
       "alwaysOutputData": true,
       "parameters": {
         "method": "GET",
@@ -177,10 +147,7 @@
       "name": "Prep Triage",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [
-        -20,
-        -80
-      ],
+      "position": [-20, -80],
       "alwaysOutputData": true,
       "parameters": {
         "mode": "runOnceForAllItems",
@@ -191,10 +158,7 @@
       "name": "OpenAI Triage",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [
-        160,
-        -80
-      ],
+      "position": [160, -80],
       "retryOnFail": true,
       "maxTries": 3,
       "waitBetweenTries": 5000,
@@ -221,10 +185,7 @@
       "name": "Prep Generate",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [
-        340,
-        -80
-      ],
+      "position": [340, -80],
       "alwaysOutputData": true,
       "parameters": {
         "mode": "runOnceForAllItems",
@@ -235,10 +196,7 @@
       "name": "OpenAI Generate",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [
-        520,
-        -80
-      ],
+      "position": [520, -80],
       "retryOnFail": true,
       "maxTries": 3,
       "waitBetweenTries": 5000,
@@ -265,10 +223,7 @@
       "name": "Build & Validate",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [
-        700,
-        -80
-      ],
+      "position": [700, -80],
       "alwaysOutputData": true,
       "parameters": {
         "mode": "runOnceForAllItems",
@@ -279,10 +234,7 @@
       "name": "Enough Scenarios?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
-      "position": [
-        880,
-        -80
-      ],
+      "position": [880, -80],
       "parameters": {
         "conditions": {
           "options": {
@@ -308,10 +260,7 @@
       "name": "Prep Top-Up",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [
-        1060,
-        60
-      ],
+      "position": [1060, 60],
       "alwaysOutputData": true,
       "parameters": {
         "mode": "runOnceForAllItems",
@@ -322,10 +271,7 @@
       "name": "OpenAI Top-Up",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [
-        1240,
-        60
-      ],
+      "position": [1240, 60],
       "retryOnFail": true,
       "maxTries": 3,
       "waitBetweenTries": 5000,
@@ -352,10 +298,7 @@
       "name": "Build & Validate Top-Up",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [
-        1420,
-        60
-      ],
+      "position": [1420, 60],
       "alwaysOutputData": true,
       "parameters": {
         "mode": "runOnceForAllItems",
@@ -366,10 +309,7 @@
       "name": "Finalize Payload",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [
-        1600,
-        -80
-      ],
+      "position": [1600, -80],
       "alwaysOutputData": true,
       "parameters": {
         "mode": "runOnceForAllItems",
@@ -380,10 +320,7 @@
       "name": "Insert Scenarios",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [
-        1780,
-        -80
-      ],
+      "position": [1780, -80],
       "parameters": {
         "method": "POST",
         "url": "https://ompcrnwvtdjdwrcoopkh.supabase.co/rest/v1/news_scenarios?on_conflict=id",
