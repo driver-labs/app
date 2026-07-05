@@ -4,29 +4,29 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: 210 40% 98%;
-  --foreground: 222 47% 11%;
+  --background: 214 54% 97%;
+  --foreground: 218 58% 12%;
   --card: 0 0% 100%;
-  --card-foreground: 222 47% 11%;
+  --card-foreground: 218 58% 12%;
   --popover: 0 0% 100%;
-  --popover-foreground: 222 47% 11%;
-  --primary: 221 83% 53%;
+  --popover-foreground: 218 58% 12%;
+  --primary: 218 76% 29%;
   --primary-foreground: 0 0% 100%;
-  --secondary: 188 86% 43%;
-  --secondary-foreground: 0 0% 100%;
-  --muted: 210 40% 96%;
-  --muted-foreground: 215 16% 47%;
-  --accent: 142 71% 35%;
-  --accent-foreground: 0 0% 100%;
+  --secondary: 160 84% 39%;
+  --secondary-foreground: 218 58% 10%;
+  --muted: 214 38% 92%;
+  --muted-foreground: 216 19% 38%;
+  --accent: 145 70% 43%;
+  --accent-foreground: 218 58% 10%;
   --destructive: 0 72% 51%;
   --destructive-foreground: 0 0% 100%;
-  --border: 214 32% 91%;
-  --input: 214 32% 91%;
-  --ring: 188 86% 43%;
-  --chart-1: 221 83% 53%;
-  --chart-2: 188 86% 43%;
-  --chart-3: 142 71% 35%;
-  --chart-4: 258 90% 66%;
+  --border: 214 31% 86%;
+  --input: 214 31% 86%;
+  --ring: 160 84% 39%;
+  --chart-1: 218 76% 29%;
+  --chart-2: 160 84% 39%;
+  --chart-3: 145 70% 43%;
+  --chart-4: 205 84% 45%;
   --chart-5: 38 92% 45%;
   --radius: 0.5rem;
   --warning: 38 92% 45%;
@@ -35,7 +35,7 @@
   --success-foreground: 0 0% 100%;
 
   /* Alias históricos de la UI DriverLab. */
-  --primary-hover: hsl(221 83% 45%);
+  --primary-hover: hsl(218 76% 22%);
   --danger: hsl(var(--destructive));
   --surface: hsl(var(--card));
   --elevated: hsl(var(--card));
@@ -57,36 +57,37 @@
 }
 
 .dark {
-  --background: 222 84% 5%;
+  --background: 220 68% 7%;
   --foreground: 210 40% 98%;
-  --card: 222 47% 11%;
+  --card: 219 52% 12%;
   --card-foreground: 210 40% 98%;
-  --popover: 222 47% 11%;
+  --popover: 219 52% 12%;
   --popover-foreground: 210 40% 98%;
-  --primary: 217 91% 60%;
+  --primary: 213 84% 54%;
   --primary-foreground: 210 40% 98%;
-  --secondary: 188 86% 53%;
-  --secondary-foreground: 222 84% 5%;
-  --muted: 217 33% 18%;
-  --muted-foreground: 215 20% 65%;
-  --accent: 142 69% 58%;
-  --accent-foreground: 222 84% 5%;
+  --secondary: 160 84% 45%;
+  --secondary-foreground: 220 68% 7%;
+  --muted: 217 39% 18%;
+  --muted-foreground: 214 25% 70%;
+  --accent: 145 68% 53%;
+  --accent-foreground: 220 68% 7%;
   --destructive: 0 91% 71%;
-  --destructive-foreground: 222 84% 5%;
-  --border: 217 33% 20%;
-  --input: 217 33% 20%;
-  --ring: 188 86% 43%;
-  --chart-1: 221 83% 53%;
-  --chart-2: 188 86% 43%;
-  --chart-3: 142 69% 58%;
-  --chart-4: 258 90% 66%;
+  --destructive-foreground: 220 68% 7%;
+  --border: 216 37% 22%;
+  --input: 216 37% 22%;
+  --ring: 160 84% 45%;
+  --chart-1: 213 84% 54%;
+  --chart-2: 160 84% 45%;
+  --chart-3: 145 68% 53%;
+  --chart-4: 205 84% 58%;
   --chart-5: 38 92% 55%;
   --warning: 38 92% 55%;
-  --warning-foreground: 222 84% 5%;
-  --success: 142 69% 58%;
-  --success-foreground: 222 84% 5%;
-  --primary-hover: hsl(217 91% 52%);
-  --elevated: #162033;
+  --warning-foreground: 220 68% 7%;
+  --success: 145 68% 53%;
+  --success-foreground: 220 68% 7%;
+  --primary-hover: hsl(213 84% 47%);
+  --surface: hsl(219 52% 12%);
+  --elevated: hsl(217 48% 15%);
 }
 
 @theme inline {
@@ -132,9 +133,9 @@
     var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system,
     BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-  --radius-button: 14px;
-  --radius-input: 12px;
-  --radius-card: 20px;
+  --radius-button: 10px;
+  --radius-input: 10px;
+  --radius-card: 8px;
   --shadow-brand: 0 20px 60px rgb(0 0 0 / 0.15);
 }
 
