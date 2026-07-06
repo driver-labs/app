@@ -41,55 +41,219 @@ function CameraRig() {
   return null;
 }
 
-type VehicleProps = {
+type VehicleConfig = {
+  model: string;
   axis: "x" | "z";
   direction: -1 | 1;
-  laneOffset?: number;
-  model: string;
   offset: number;
   speed: number;
   scale?: number;
+  laneOffset?: number;
 };
 
-function Vehicle({
-  axis,
-  direction,
-  laneOffset = 2.65,
-  model,
-  offset,
-  speed,
-  scale = 1.65,
-}: VehicleProps) {
-  const groupRef = useRef<THREE.Group>(null);
+const VEHICLE_CONFIGS: VehicleConfig[] = [
+  { model: VEHICLES[0], axis: "x", direction: 1, offset: 2, speed: 6.4 },
+  { model: VEHICLES[1], axis: "x", direction: -1, offset: 18, speed: 5.8 },
+  { model: VEHICLES[2], axis: "z", direction: 1, offset: 34, speed: 5.1 },
+  { model: VEHICLES[3], axis: "z", direction: -1, offset: 52, speed: 4.9 },
+  {
+    model: VEHICLES[4],
+    axis: "x",
+    direction: 1,
+    offset: 26,
+    speed: 3.2,
+    scale: 1.75,
+  },
+];
+
+const TRACK_RANGE = 78;
+const DEFAULT_LANE_OFFSET = 2.65;
+// Distance (in track-progress units) at which a faster car reacts to the one ahead.
+const FOLLOW_GAP = 6;
+// Hysteresis so a car doesn't flicker in/out of "overtaking" right at the threshold.
+const RESUME_GAP = FOLLOW_GAP * 1.6;
+// Minimum clearance required in the oncoming lane before pulling out to pass.
+const OVERTAKE_CLEAR_GAP = 10;
+// Fraction of the remaining lane-shift covered per frame while steering in/out.
+const LANE_STEER_LERP = 0.045;
+
+function laneCenter(axis: "x" | "z", direction: -1 | 1, laneOffset: number) {
+  return axis === "x" ? direction * laneOffset : -direction * laneOffset;
+}
+
+function trackPosition(progress: number, direction: -1 | 1) {
+  return (progress - TRACK_RANGE / 2) * direction;
+}
+
+function staticHeading(axis: "x" | "z", direction: -1 | 1) {
+  if (axis === "x") return direction === 1 ? Math.PI / 2 : -Math.PI / 2;
+  return direction === 1 ? 0 : Math.PI;
+}
+
+function cyclicGap(from: number, to: number) {
+  return (((to - from) % TRACK_RANGE) + TRACK_RANGE) % TRACK_RANGE;
+}
+
+type CarState = {
+  progress: number;
+  speed: number;
+  lane: number;
+  appliedLane: number;
+  overtaking: boolean;
+  x: number;
+  z: number;
+};
+
+function initialCarState(config: VehicleConfig): CarState {
+  const lane = laneCenter(
+    config.axis,
+    config.direction,
+    config.laneOffset ?? DEFAULT_LANE_OFFSET,
+  );
+  const progress = config.offset % TRACK_RANGE;
+  const forward = trackPosition(progress, config.direction);
+  return {
+    progress,
+    speed: config.speed,
+    lane,
+    appliedLane: lane,
+    overtaking: false,
+    x: config.axis === "x" ? forward : lane,
+    z: config.axis === "x" ? lane : forward,
+  };
+}
+
+// Cars share only 4 physical lanes (2 roads x 2 directions), so a 5th car on
+// a lane already in use must react to whoever is ahead of it: slow down and
+// follow, or swing into the oncoming lane to pass when it's clear.
+function TrafficSystem() {
   const reducedMotion = useReducedMotion();
-  const { scene } = useGLTF(model);
+  const scenes = [
+    useGLTF(VEHICLE_CONFIGS[0].model).scene,
+    useGLTF(VEHICLE_CONFIGS[1].model).scene,
+    useGLTF(VEHICLE_CONFIGS[2].model).scene,
+    useGLTF(VEHICLE_CONFIGS[3].model).scene,
+    useGLTF(VEHICLE_CONFIGS[4].model).scene,
+  ];
+  const groupRefs = useRef<Array<THREE.Group | null>>([]);
+  const carStateRef = useRef<CarState[] | null>(null);
+  const staticPoseApplied = useRef(false);
+  if (!carStateRef.current) {
+    carStateRef.current = VEHICLE_CONFIGS.map(initialCarState);
+  }
+  const carState = carStateRef.current;
 
-  useFrame(({ clock }) => {
-    const group = groupRef.current;
-    if (!group) return;
-
-    const range = 78;
-    const progress = reducedMotion
-      ? offset % range
-      : (clock.elapsedTime * speed + offset) % range;
-    const trackPosition = (progress - range / 2) * direction;
-    const lane =
-      axis === "x" ? direction * laneOffset : -direction * laneOffset;
-
-    if (axis === "x") {
-      group.position.set(trackPosition, 0.22, lane);
-      group.rotation.y = direction === 1 ? Math.PI / 2 : -Math.PI / 2;
+  useFrame((_, rawDelta) => {
+    if (reducedMotion) {
+      if (staticPoseApplied.current) return;
+      VEHICLE_CONFIGS.forEach((config, i) => {
+        const group = groupRefs.current[i];
+        const me = carState[i];
+        if (!group) return;
+        group.position.set(me.x, 0.22, me.z);
+        group.rotation.y = staticHeading(config.axis, config.direction);
+      });
+      staticPoseApplied.current = true;
       return;
     }
 
-    group.position.set(lane, 0.22, trackPosition);
-    group.rotation.y = direction === 1 ? 0 : Math.PI;
+    const delta = Math.min(rawDelta, 0.1);
+
+    // Pass 1: decide each car's effective speed / overtaking intent from
+    // last frame's positions only, so evaluation order doesn't matter.
+    const effectiveSpeeds = VEHICLE_CONFIGS.map((config, i) => {
+      const me = carState[i];
+      let leaderGap = Infinity;
+      let leaderSpeed = Infinity;
+
+      VEHICLE_CONFIGS.forEach((other, j) => {
+        if (
+          j === i ||
+          other.axis !== config.axis ||
+          other.direction !== config.direction
+        )
+          return;
+        const gap = cyclicGap(me.progress, carState[j].progress);
+        if (gap < leaderGap) {
+          leaderGap = gap;
+          leaderSpeed = carState[j].speed;
+        }
+      });
+
+      if (leaderGap > FOLLOW_GAP) {
+        if (me.overtaking && leaderGap > RESUME_GAP) me.overtaking = false;
+        return config.speed;
+      }
+
+      if (config.speed <= leaderSpeed) return config.speed;
+
+      if (!me.overtaking) {
+        const myForward = trackPosition(me.progress, config.direction);
+        const oncomingClear = VEHICLE_CONFIGS.every((other, j) => {
+          if (
+            j === i ||
+            other.axis !== config.axis ||
+            other.direction === config.direction
+          )
+            return true;
+          const otherForward = trackPosition(
+            carState[j].progress,
+            other.direction,
+          );
+          return Math.abs(otherForward - myForward) > OVERTAKE_CLEAR_GAP;
+        });
+        me.overtaking = oncomingClear;
+      }
+
+      return me.overtaking ? config.speed : leaderSpeed;
+    });
+
+    // Pass 2: integrate motion and apply to the actual object3Ds.
+    VEHICLE_CONFIGS.forEach((config, i) => {
+      const group = groupRefs.current[i];
+      const me = carState[i];
+      if (!group) return;
+
+      me.speed = effectiveSpeeds[i];
+      me.progress = (me.progress + me.speed * delta) % TRACK_RANGE;
+
+      const targetLane = me.overtaking ? -me.lane : me.lane;
+      me.appliedLane += (targetLane - me.appliedLane) * LANE_STEER_LERP;
+
+      const forward = trackPosition(me.progress, config.direction);
+      const prevX = me.x;
+      const prevZ = me.z;
+      const x = config.axis === "x" ? forward : me.appliedLane;
+      const z = config.axis === "x" ? me.appliedLane : forward;
+
+      const dx = x - prevX;
+      const dz = z - prevZ;
+      if (dx * dx + dz * dz > 1e-8) group.rotation.y = Math.atan2(dx, dz);
+
+      group.position.set(x, 0.22, z);
+      me.x = x;
+      me.z = z;
+    });
   });
 
   return (
-    <group ref={groupRef}>
-      <Clone object={scene} scale={scale} castShadow receiveShadow />
-    </group>
+    <>
+      {VEHICLE_CONFIGS.map((config, i) => (
+        <group
+          key={config.model}
+          ref={(el) => {
+            groupRefs.current[i] = el;
+          }}
+        >
+          <Clone
+            object={scenes[i]}
+            scale={config.scale ?? 1.65}
+            castShadow
+            receiveShadow
+          />
+        </group>
+      ))}
+    </>
   );
 }
 
@@ -254,42 +418,7 @@ function HeroWorld() {
       <TrafficLights />
       <CityBlocks />
 
-      <Vehicle
-        model={VEHICLES[0]}
-        axis="x"
-        direction={1}
-        offset={2}
-        speed={6.4}
-      />
-      <Vehicle
-        model={VEHICLES[1]}
-        axis="x"
-        direction={-1}
-        offset={18}
-        speed={5.8}
-      />
-      <Vehicle
-        model={VEHICLES[2]}
-        axis="z"
-        direction={1}
-        offset={34}
-        speed={5.1}
-      />
-      <Vehicle
-        model={VEHICLES[3]}
-        axis="z"
-        direction={-1}
-        offset={52}
-        speed={4.9}
-      />
-      <Vehicle
-        model={VEHICLES[4]}
-        axis="x"
-        direction={1}
-        offset={26}
-        speed={6.4}
-        scale={1.75}
-      />
+      <TrafficSystem />
 
       <Preload all />
     </>
