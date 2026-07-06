@@ -8,7 +8,8 @@ export const metadata = {
 };
 
 export default function RoadmapPage() {
-  const nodes: RoadmapNode[] = getLearningModules().map((module) => {
+  const modules = getLearningModules();
+  const nodes: RoadmapNode[] = modules.map((module, index) => {
     const scenarios = getScenariosForModule(module.id).map((scenario) => ({
       id: scenario.id,
       title: scenario.title,
@@ -19,7 +20,7 @@ export default function RoadmapPage() {
       estimatedMinutes: module.estimatedMinutes,
       id: module.id,
       lessonCount: module.didacticContent?.lessons.length ?? 0,
-      prerequisites: [],
+      prerequisites: index === 0 ? [] : [modules[index - 1].id],
       scenarios,
       summary: module.summary,
       title: module.title,

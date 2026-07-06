@@ -1,6 +1,6 @@
 "use client";
 
-import { BookOpen, Lock, PlayCircle, RotateCcw } from "lucide-react";
+import { BookOpen, Check, Lock, PlayCircle, RotateCcw } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import {
@@ -24,11 +24,29 @@ type RoadmapClientProps = {
   nodes: RoadmapNode[];
 };
 
-const gridClassName =
-  "mt-4 grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3";
+const timelineClassName = "mt-4 flex flex-col gap-3";
+
+const itemClassName = "relative grid grid-cols-[2.5rem_1fr] gap-3 sm:gap-4";
 
 const cardClassName =
-  "grid min-h-[205px] content-start gap-3 rounded-lg border border-border bg-card/80 p-3.5 text-card-foreground transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-secondary/35 hover:shadow-lg";
+  "grid min-h-[190px] content-start gap-3 rounded-lg border border-border bg-card/80 p-3.5 text-card-foreground transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-secondary/35 hover:shadow-lg";
+
+function railLineClassName(variant: "done" | "pending" | "ready") {
+  const color = variant === "done" ? "bg-accent" : "bg-border";
+  return `absolute top-10 -bottom-3 left-1/2 w-0.5 -translate-x-1/2 ${color}`;
+}
+
+function markerClassName(variant: "done" | "pending" | "ready") {
+  const base =
+    "relative z-10 inline-flex size-10 shrink-0 items-center justify-center rounded-full border-2";
+  if (variant === "done") {
+    return `${base} border-accent bg-accent text-accent-foreground`;
+  }
+  if (variant === "ready") {
+    return `${base} border-secondary bg-secondary/15 text-secondary`;
+  }
+  return `${base} border-border bg-muted text-muted-foreground`;
+}
 
 const actionClassName =
   "inline-flex min-h-10 items-center justify-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-semibold text-foreground no-underline transition-colors hover:border-muted-foreground/40 hover:bg-muted-foreground/10";
@@ -113,12 +131,12 @@ export default function RoadmapClient({ nodes }: RoadmapClientProps) {
   };
 
   return (
-    <div className={gridClassName}>
+    <ol className={timelineClassName}>
       {nodes.map((node, index) => {
         const isComplete = completedModules.has(node.id);
-        const isUnlocked = node.prerequisites.every((id) =>
-          completedModules.has(id),
-        );
+        const isUnlocked =
+          isComplete ||
+          node.prerequisites.every((id) => completedModules.has(id));
         const completedCount = node.scenarios.filter((scenario) =>
           completedScenarios.has(scenario.id),
         ).length;
@@ -127,105 +145,126 @@ export default function RoadmapClient({ nodes }: RoadmapClientProps) {
           node.scenarios.length > 0
             ? completedCount / node.scenarios.length
             : 0;
+        const variant = isComplete ? "done" : isUnlocked ? "ready" : "pending";
+        const isLast = index === nodes.length - 1;
 
         return (
-          <article className={cardClassName} key={node.id}>
-            <div className="flex flex-wrap items-center justify-between gap-2">
-              <span className="inline-flex size-9 items-center justify-center rounded-lg bg-muted-foreground/15 font-bold text-muted-foreground">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <span
-                className={statusBadgeClass(
-                  isComplete ? "done" : isUnlocked ? "ready" : "pending",
+          <li className={itemClassName} key={node.id}>
+            <div className="relative flex justify-center">
+              {!isLast && (
+                <span
+                  aria-hidden="true"
+                  className={railLineClassName(variant)}
+                />
+              )}
+              <span className={markerClassName(variant)}>
+                {isComplete ? (
+                  <Check aria-hidden="true" size={18} />
+                ) : isUnlocked ? (
+                  <span className="text-sm font-bold">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                ) : (
+                  <Lock aria-hidden="true" size={16} />
                 )}
-              >
-                {isComplete
-                  ? "Completado"
-                  : isUnlocked
-                    ? "Disponible"
-                    : "Bloqueado"}
               </span>
             </div>
 
-            <div>
-              <h2 className="m-0 text-base font-semibold leading-snug text-foreground">
-                {node.title}
-              </h2>
-              <p className="mt-2 text-sm font-semibold leading-6 text-muted-foreground">
+            <article className={cardClassName}>
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <h2 className="m-0 text-base font-semibold leading-snug text-foreground">
+                  {node.title}
+                </h2>
+                <span className={statusBadgeClass(variant)}>
+                  {isComplete
+                    ? "Completado"
+                    : isUnlocked
+                      ? "Disponible"
+                      : "Bloqueado"}
+                </span>
+              </div>
+
+              <p className="m-0 text-sm font-semibold leading-6 text-muted-foreground">
                 {hasPractice
                   ? `${completedCount}/${node.scenarios.length} prácticas completadas`
                   : `${node.lessonCount ?? 0} lecciones`}
               </p>
-            </div>
 
-            {hasPractice ? (
-              <div
-                aria-label={`${completedCount} de ${node.scenarios.length} escenarios completados`}
-                aria-valuemax={node.scenarios.length}
-                aria-valuemin={0}
-                aria-valuenow={completedCount}
-                className="h-2 overflow-hidden rounded-full bg-border/70"
-                role="progressbar"
-              >
-                <span
-                  className="block h-full rounded-[inherit] bg-accent"
-                  style={{ width: `${progress * 100}%` }}
-                />
-              </div>
-            ) : (
-              <p className="m-0 text-sm italic text-foreground/70">
-                Empezá con la lectura del módulo.
-              </p>
-            )}
-
-            <div className="mt-auto grid grid-cols-2 gap-2">
-              {isUnlocked ? (
-                <Link className={actionClassName} href={`/modulo/${node.id}`}>
-                  <BookOpen aria-hidden="true" size={17} />
-                  Abrir
-                </Link>
+              {hasPractice ? (
+                <div
+                  aria-label={`${completedCount} de ${node.scenarios.length} escenarios completados`}
+                  aria-valuemax={node.scenarios.length}
+                  aria-valuemin={0}
+                  aria-valuenow={completedCount}
+                  className="h-2 overflow-hidden rounded-full bg-border/70"
+                  role="progressbar"
+                >
+                  <span
+                    className="block h-full rounded-[inherit] bg-accent"
+                    style={{ width: `${progress * 100}%` }}
+                  />
+                </div>
               ) : (
-                <span aria-disabled="true" className={disabledActionClassName}>
-                  <Lock aria-hidden="true" size={17} />
-                  Bloqueado
-                </span>
+                <p className="m-0 text-sm italic text-foreground/70">
+                  Empezá con la lectura del módulo.
+                </p>
               )}
-              {node.scenarios.map((scenario) =>
-                isUnlocked ? (
-                  <Link
-                    className={actionClassName}
-                    key={scenario.id}
-                    href={`/practica/${scenario.id}`}
-                    title={scenario.title}
-                  >
-                    <PlayCircle aria-hidden="true" size={17} />
-                    Practicar
+
+              <div className="mt-auto grid grid-cols-2 gap-2">
+                {isUnlocked ? (
+                  <Link className={actionClassName} href={`/modulo/${node.id}`}>
+                    <BookOpen aria-hidden="true" size={17} />
+                    Abrir
                   </Link>
                 ) : (
                   <span
                     aria-disabled="true"
                     className={disabledActionClassName}
-                    key={scenario.id}
-                    title={scenario.title}
                   >
                     <Lock aria-hidden="true" size={17} />
-                    Práctica
+                    Bloqueado
                   </span>
-                ),
-              )}
-            </div>
-          </article>
+                )}
+                {node.scenarios.map((scenario) =>
+                  isUnlocked ? (
+                    <Link
+                      className={actionClassName}
+                      key={scenario.id}
+                      href={`/practica/${scenario.id}`}
+                      title={scenario.title}
+                    >
+                      <PlayCircle aria-hidden="true" size={17} />
+                      Practicar
+                    </Link>
+                  ) : (
+                    <span
+                      aria-disabled="true"
+                      className={disabledActionClassName}
+                      key={scenario.id}
+                      title={scenario.title}
+                    >
+                      <Lock aria-hidden="true" size={17} />
+                      Práctica
+                    </span>
+                  ),
+                )}
+              </div>
+            </article>
+          </li>
         );
       })}
 
-      <button
-        className="col-span-full inline-flex min-h-10 cursor-pointer items-center justify-center gap-2 rounded-lg border border-border bg-card px-3 py-2 font-semibold text-foreground transition-colors hover:border-muted-foreground/40 hover:bg-muted-foreground/10"
-        type="button"
-        onClick={resetProgress}
-      >
-        <RotateCcw aria-hidden="true" size={18} />
-        Restablecer progreso
-      </button>
-    </div>
+      <li className="grid grid-cols-[2.5rem_1fr] gap-3 sm:gap-4">
+        <span aria-hidden="true" />
+        <button
+          className="inline-flex min-h-10 cursor-pointer items-center justify-center gap-2 rounded-lg border border-border bg-card px-3 py-2 font-semibold text-foreground transition-colors hover:border-muted-foreground/40 hover:bg-muted-foreground/10"
+          type="button"
+          onClick={resetProgress}
+        >
+          <RotateCcw aria-hidden="true" size={18} />
+          Restablecer progreso
+        </button>
+      </li>
+    </ol>
   );
 }
