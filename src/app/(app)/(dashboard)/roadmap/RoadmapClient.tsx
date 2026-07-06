@@ -29,7 +29,7 @@ const timelineClassName = "mt-4 flex flex-col gap-3";
 const itemClassName = "relative grid grid-cols-[2.5rem_1fr] gap-3 sm:gap-4";
 
 const cardClassName =
-  "grid min-h-[190px] content-start gap-3 rounded-lg border border-border bg-card/80 p-3.5 text-card-foreground transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-secondary/35 hover:shadow-lg";
+  "flex flex-col gap-2.5 rounded-lg border border-border bg-card/80 p-3.5 text-card-foreground transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-secondary/35 hover:shadow-lg";
 
 function railLineClassName(variant: "done" | "pending" | "ready") {
   const color = variant === "done" ? "bg-accent" : "bg-border";
@@ -141,10 +141,6 @@ export default function RoadmapClient({ nodes }: RoadmapClientProps) {
           completedScenarios.has(scenario.id),
         ).length;
         const hasPractice = node.scenarios.length > 0;
-        const progress =
-          node.scenarios.length > 0
-            ? completedCount / node.scenarios.length
-            : 0;
         const variant = isComplete ? "done" : isUnlocked ? "ready" : "pending";
         const isLast = index === nodes.length - 1;
 
@@ -184,70 +180,55 @@ export default function RoadmapClient({ nodes }: RoadmapClientProps) {
                 </span>
               </div>
 
-              <p className="m-0 text-sm font-semibold leading-6 text-muted-foreground">
-                {hasPractice
-                  ? `${completedCount}/${node.scenarios.length} prácticas completadas`
-                  : `${node.lessonCount ?? 0} lecciones`}
-              </p>
-
-              {hasPractice ? (
-                <div
-                  aria-label={`${completedCount} de ${node.scenarios.length} escenarios completados`}
-                  aria-valuemax={node.scenarios.length}
-                  aria-valuemin={0}
-                  aria-valuenow={completedCount}
-                  className="h-2 overflow-hidden rounded-full bg-border/70"
-                  role="progressbar"
-                >
-                  <span
-                    className="block h-full rounded-[inherit] bg-accent"
-                    style={{ width: `${progress * 100}%` }}
-                  />
-                </div>
-              ) : (
-                <p className="m-0 text-sm italic text-foreground/70">
-                  Empezá con la lectura del módulo.
+              <div className="flex flex-wrap items-center justify-between gap-2.5">
+                <p className="m-0 text-sm font-semibold leading-6 text-muted-foreground">
+                  {hasPractice
+                    ? `${completedCount}/${node.scenarios.length} prácticas completadas`
+                    : `${node.lessonCount ?? 0} lecciones`}
                 </p>
-              )}
 
-              <div className="mt-auto grid grid-cols-2 gap-2">
-                {isUnlocked ? (
-                  <Link className={actionClassName} href={`/modulo/${node.id}`}>
-                    <BookOpen aria-hidden="true" size={17} />
-                    Abrir
-                  </Link>
-                ) : (
-                  <span
-                    aria-disabled="true"
-                    className={disabledActionClassName}
-                  >
-                    <Lock aria-hidden="true" size={17} />
-                    Bloqueado
-                  </span>
-                )}
-                {node.scenarios.map((scenario) =>
-                  isUnlocked ? (
+                <div className="flex flex-wrap gap-2">
+                  {isUnlocked ? (
                     <Link
                       className={actionClassName}
-                      key={scenario.id}
-                      href={`/practica/${scenario.id}`}
-                      title={scenario.title}
+                      href={`/modulo/${node.id}`}
                     >
-                      <PlayCircle aria-hidden="true" size={17} />
-                      Practicar
+                      <BookOpen aria-hidden="true" size={17} />
+                      Abrir
                     </Link>
                   ) : (
                     <span
                       aria-disabled="true"
                       className={disabledActionClassName}
-                      key={scenario.id}
-                      title={scenario.title}
                     >
                       <Lock aria-hidden="true" size={17} />
-                      Práctica
+                      Bloqueado
                     </span>
-                  ),
-                )}
+                  )}
+                  {node.scenarios.map((scenario) =>
+                    isUnlocked ? (
+                      <Link
+                        className={actionClassName}
+                        key={scenario.id}
+                        href={`/practica/${scenario.id}`}
+                        title={scenario.title}
+                      >
+                        <PlayCircle aria-hidden="true" size={17} />
+                        Practicar
+                      </Link>
+                    ) : (
+                      <span
+                        aria-disabled="true"
+                        className={disabledActionClassName}
+                        key={scenario.id}
+                        title={scenario.title}
+                      >
+                        <Lock aria-hidden="true" size={17} />
+                        Práctica
+                      </span>
+                    ),
+                  )}
+                </div>
               </div>
             </article>
           </li>
