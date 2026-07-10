@@ -6,7 +6,6 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 ## Rules
 
-- Use `pnpm` for all package management (install, add, remove, scripts). Never use `npm` or `yarn`.
 - Do not use the `gh` CLI for any GitHub operation.
 - Never run `rm -rf`.
 - Always ask for confirmation before running `supabase db push`.

@@ -14,11 +14,11 @@ description: >-
 Use Context7 to fetch current documentation and code examples for libraries,
 frameworks, SDKs, APIs, CLIs, and cloud services.
 
-This project uses `pnpm`; run Context7 through `pnpm dlx` instead of `npx`:
+Run Context7 through `npx`:
 
 ```bash
-pnpm dlx ctx7@latest library <name> "<query>"
-pnpm dlx ctx7@latest docs <libraryId> "<query>"
+npx ctx7@latest library <name> "<query>"
+npx ctx7@latest docs <libraryId> "<query>"
 ```
 
 ## Workflow
@@ -29,7 +29,7 @@ fetch docs with that ID.
 1. Resolve the library:
 
    ```bash
-   pnpm dlx ctx7@latest library "Next.js" "How to configure middleware"
+   npx ctx7@latest library "Next.js" "How to configure middleware"
    ```
 
 2. Pick the best result. Library IDs use `/org/project` format.
@@ -37,7 +37,7 @@ fetch docs with that ID.
 3. Fetch documentation:
 
    ```bash
-   pnpm dlx ctx7@latest docs /vercel/next.js "How to configure middleware"
+   npx ctx7@latest docs /vercel/next.js "How to configure middleware"
    ```
 
 Call `library` first unless the user directly provides a Context7 library ID in
@@ -61,7 +61,7 @@ For version-specific questions, use a versioned ID from the `library` output
 when available:
 
 ```bash
-pnpm dlx ctx7@latest docs /vercel/next.js/v14.3.0 "How to configure middleware"
+npx ctx7@latest docs /vercel/next.js/v14.3.0 "How to configure middleware"
 ```
 
 ## Query Rules
@@ -72,13 +72,13 @@ terms.
 Good:
 
 ```bash
-pnpm dlx ctx7@latest library Prisma "How to define one-to-many relations with cascade delete"
+npx ctx7@latest library Prisma "How to define one-to-many relations with cascade delete"
 ```
 
 Bad:
 
 ```bash
-pnpm dlx ctx7@latest library Prisma "relations"
+npx ctx7@latest library Prisma "relations"
 ```
 
 Do not include secrets, API keys, credentials, personal data, or proprietary code
@@ -89,7 +89,7 @@ in Context7 queries.
 Context7 works without login, but authentication can raise limits:
 
 ```bash
-pnpm dlx ctx7@latest login
+npx ctx7@latest login
 ```
 
 Credentials are machine-local and must not be committed to the project.
@@ -100,7 +100,7 @@ If Context7 fails with a quota error, tell the user the quota is exhausted and
 suggest logging in with:
 
 ```bash
-pnpm dlx ctx7@latest login
+npx ctx7@latest login
 ```
 
 If a Context7 command fails with DNS, host resolution, or fetch/network errors

@@ -1588,17 +1588,18 @@ html {
   padding: 6px 10px;
 }
 
-.module-content :is(
-  .bg-white,
-  .bg-blue-50,
-  .bg-slate-50,
-  .bg-slate-100,
-  .bg-emerald-50,
-  .bg-emerald-100,
-  .bg-rose-50,
-  .bg-rose-100,
-  .bg-amber-50
-) {
+.module-content
+  :is(
+    .bg-white,
+    .bg-blue-50,
+    .bg-slate-50,
+    .bg-slate-100,
+    .bg-emerald-50,
+    .bg-emerald-100,
+    .bg-rose-50,
+    .bg-rose-100,
+    .bg-amber-50
+  ) {
   border-color: rgb(6 182 212 / 0.22);
   background:
     linear-gradient(135deg, rgb(37 99 235 / 0.14), rgb(6 182 212 / 0.06)),
@@ -1606,18 +1607,19 @@ html {
   color: var(--ink-soft);
 }
 
-.module-content :is(
-  .text-slate-950,
-  .text-slate-700,
-  .text-slate-500,
-  .text-blue-950,
-  .text-blue-700,
-  .text-emerald-950,
-  .text-emerald-700,
-  .text-rose-950,
-  .text-rose-900,
-  .text-amber-950
-) {
+.module-content
+  :is(
+    .text-slate-950,
+    .text-slate-700,
+    .text-slate-500,
+    .text-blue-950,
+    .text-blue-700,
+    .text-emerald-950,
+    .text-emerald-700,
+    .text-rose-950,
+    .text-rose-900,
+    .text-amber-950
+  ) {
   color: var(--ink-soft);
 }
 

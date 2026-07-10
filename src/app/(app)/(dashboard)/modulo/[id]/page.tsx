@@ -533,7 +533,7 @@ export default async function ModulePage({ params }: ModulePageProps) {
             <BookOpen aria-hidden="true" size={14} />
             Modulo {module.id.slice(0, 2)}
           </p>
-          <h1>{didacticContent?.headline ?? module.title}</h1>
+          <h1>{module.title}</h1>
           {moduleAudio ? (
             <ModuleAudioPlayer
               moduleTitle={moduleAudio.title}
@@ -551,7 +551,7 @@ export default async function ModulePage({ params }: ModulePageProps) {
           <DidacticContent content={didacticContent} />
         ) : (
           <p className="lede">
-            Falta generar el contenido didactico desde RAG para este modulo.
+            Falta preparar el contenido didactico para este modulo.
           </p>
         )}
       </article>

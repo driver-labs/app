@@ -1,6 +1,7 @@
 import {
   getPrimaryScenarioForModule,
   getScenarioBinding,
+  toPlayableScenario,
   validateScenariosForModules,
 } from "@/core/scenarios";
 import {
@@ -33,12 +34,13 @@ export default function PracticarIndexPage() {
             estimatedMinutes: scenario.metadata.estimatedMinutes,
             id: scenario.id,
             objective: scenario.learning.objectives[0],
+            sceneKind: toPlayableScenario(scenario).sceneKind,
             status: binding?.status ?? "draft",
             title: scenario.title,
           }
         : null,
       summary: module.summary,
-      title: module.didacticContent?.headline ?? module.title,
+      title: module.title,
     };
   });
 

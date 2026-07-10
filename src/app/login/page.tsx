@@ -1,7 +1,7 @@
-import { ArrowLeft, CheckCircle2, LogOut, ShieldCheck } from "lucide-react";
+import { ArrowLeft, CheckCircle2, ShieldCheck } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { signOut } from "@/app/auth/actions";
+import { redirect } from "next/navigation";
 import { LoginForm } from "@/app/auth/login-form";
 import { createClient } from "@/lib/supabase/server";
 
@@ -18,6 +18,8 @@ export default async function LoginPage() {
     userEmail =
       typeof data?.claims?.email === "string" ? data.claims.email : null;
   }
+
+  if (userEmail) redirect("/ruta");
 
   return (
     <main className="min-h-screen overflow-x-hidden bg-background px-5 py-6 text-text">
@@ -75,38 +77,7 @@ export default async function LoginPage() {
           </section>
 
           <section className="rounded-card border border-border bg-surface p-6 shadow-brand">
-            {userEmail ? (
-              <div className="grid gap-6">
-                <div>
-                  <p className="text-sm font-medium text-muted">
-                    Sesion activa
-                  </p>
-                  <h2 className="mt-2 break-words text-2xl font-semibold">
-                    {userEmail}
-                  </h2>
-                  <p className="mt-3 text-sm leading-6 text-secondary-text">
-                    Ya puedes volver a tu experiencia de aprendizaje.
-                  </p>
-                </div>
-                <div className="flex flex-col gap-3 sm:flex-row">
-                  <Link
-                    className="inline-flex h-12 flex-1 items-center justify-center rounded-button bg-primary px-4 text-sm font-semibold text-white transition hover:bg-primary-hover"
-                    href="/roadmap"
-                  >
-                    Ir al inicio
-                  </Link>
-                  <form action={signOut} className="flex-1">
-                    <button
-                      className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-button border border-divider px-4 text-sm font-semibold text-secondary-text transition hover:border-danger hover:text-text"
-                      type="submit"
-                    >
-                      <LogOut aria-hidden="true" size={17} />
-                      Cerrar sesion
-                    </button>
-                  </form>
-                </div>
-              </div>
-            ) : hasSupabaseConfig ? (
+            {hasSupabaseConfig ? (
               <div className="grid gap-6">
                 <div>
                   <h2 className="text-2xl font-semibold">Entra a DriverLab</h2>

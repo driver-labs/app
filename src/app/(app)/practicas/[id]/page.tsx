@@ -8,5 +8,5 @@ export default async function PracticasScenarioAliasPage({
   params,
 }: PracticasScenarioAliasProps) {
   const { id } = await params;
-  redirect(`/practicar/${id}`);
+  redirect(`/practica/${id}`);
 }

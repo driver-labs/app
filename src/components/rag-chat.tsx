@@ -95,7 +95,7 @@ export function RagChat() {
               DriverLab
             </p>
             <h1 className="mt-1 text-2xl font-semibold text-[#172018] sm:text-3xl">
-              RAG normativo vial
+              Asistente vial
             </h1>
           </div>
           <div className="mt-3 grid grid-cols-3 gap-2 text-xs font-medium text-[#334155] sm:mt-0">

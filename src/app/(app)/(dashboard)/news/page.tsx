@@ -35,13 +35,12 @@ export default async function NewsPage() {
         <div>
           <p className="eyebrow">
             <Newspaper aria-hidden="true" size={14} />
-            Noticias de El Salvador
+            Noticias viales
           </p>
-          <h1>Escenarios generados desde noticias reales</h1>
+          <h1>Casos reales para practicar</h1>
           <p>
-            Cada día un flujo automático lee noticias de tránsito de El Salvador
-            y las convierte en escenarios de práctica 3D. Practicá la decisión
-            correcta detrás de cada titular.
+            Practicá con situaciones inspiradas en noticias de tránsito y
+            convertí cada caso en una decisión clara.
           </p>
         </div>
         <span>{items.length} escenarios</span>

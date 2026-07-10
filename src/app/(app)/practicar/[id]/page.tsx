@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: PracticePageProps) {
   const { id } = await params;
   const scenario = getScenario(id);
   return {
-    title: scenario ? `${scenario.title} | Practicar` : "Practicar",
+    title: scenario ? `${scenario.title} | Práctica` : "Práctica",
   };
 }
 

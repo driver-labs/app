@@ -112,7 +112,7 @@ export async function POST(request: Request) {
   if (!env) {
     return Response.json(
       {
-        answer: "La configuración RAG del servidor está incompleta.",
+        answer: "La configuración del asistente está incompleta.",
         citations: [],
         evidence: false,
         missing,

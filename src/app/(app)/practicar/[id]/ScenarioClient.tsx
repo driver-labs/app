@@ -35,7 +35,7 @@ function SceneSkeleton() {
           className="stage-title stage-title--corner complete"
           aria-hidden="true"
         >
-          <span className="stage-title__label">Practicar</span>
+          <span className="stage-title__label">Práctica</span>
           <span className="stage-title__text">Preparando escena</span>
         </div>
       </div>
