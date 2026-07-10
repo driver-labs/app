@@ -13,12 +13,14 @@ import {
   Scale,
   ShieldCheck,
 } from "lucide-react";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ModuleAudioPlayer } from "@/components/ModuleAudioPlayer";
 import {
   type DidacticModuleContent,
   getLearningModule,
   getLearningModuleIds,
+  getLearningModules,
 } from "@/lib/content/modules";
 
 type ModulePageProps = {
@@ -489,10 +491,42 @@ export default async function ModulePage({ params }: ModulePageProps) {
   if (!module) notFound();
 
   const didacticContent = module.didacticContent;
+  const modules = getLearningModules();
   const moduleAudio = getModuleAudio(module.id);
 
   return (
     <section className="module-layout">
+      <nav className="module-course-nav" aria-label="Modulos del curso">
+        <div className="module-course-nav__heading">
+          <p className="eyebrow">
+            <BookOpen aria-hidden="true" size={14} />
+            Curso
+          </p>
+          <h2>Cultura vial</h2>
+        </div>
+        <ol className="module-course-nav__list">
+          {modules.map((item) => {
+            const isActive = item.id === module.id;
+
+            return (
+              <li key={item.id}>
+                <Link
+                  aria-current={isActive ? "page" : undefined}
+                  href={`/modulo/${item.id}`}
+                >
+                  <span className="module-course-nav__number">
+                    {item.id.slice(0, 2)}
+                  </span>
+                  <span className="module-course-nav__copy">
+                    <span>{item.title}</span>
+                  </span>
+                </Link>
+              </li>
+            );
+          })}
+        </ol>
+      </nav>
+
       <article className="module-content">
         <div className="module-hero">
           <p className="eyebrow">
